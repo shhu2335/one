@@ -1,6 +1,9 @@
 
 <!-- start of conection -->
-<?php include "conection.php"; ?>
+<?php
+
+
+include "conection.php"; ?>
 
 <?php
 
@@ -44,69 +47,74 @@
 <!---->
 <!---->
 <!--</div>-->
-<div class="container p-5">
+<div class="container p-1">
+    <div class="bg-transparent  my-3 py-3 mb-1">
+        <a href = "logout.php" tite = "1" class="btn btn-outline-light m-0  p-1">إضافة فندق</a>
+        <a href = "logout.php" tite = "1" class="btn btn-outline-light m-0  p-1">إضافة فلة</a>
+        <a href = "logout.php" tite = "1" class="btn btn-outline-light m-0  p-1">إضافة عمارة</a>
+        <a href = "logout.php" tite = "1" class="btn btn-outline-light m-0  p-1">إضافة محل</a>
+        <a href = "logout.php" tite = "1" class="btn btn-outline-light m-0  p-1">إضافة أرض</a>
+        <a href = "logout.php" tite = "1" class="btn btn-outline-light m-0  p-1">إضافة مزرعة</a>
+        <a href = "logout.php" tite = "1" class="btn btn-outline-light m-0  p-1">إضافة استديو</a>
+        <a href = "logout.php" tite = "1" class="btn btn-outline-light m-0  p-1">إضافة استراحة</a>
+        <a href = "logout.php" tite = "1" class="btn btn-outline-light m-0  p-1">إضافة شالية</a>
+        <a href = "logout.php" tite = "1" class="btn btn-outline-light m-0  p-1">إضافة شقة</a>
+        <a href = "logout.php" tite = "1" class="btn btn-outline-light m-0  p-1">إضافة قصر</a>
+        <a href = "logout.php" tite = "1" class="btn btn-outline-light m-0  p-1">إضافة مكتب</a>
+
+    </div>
+
+
+        <div class="text-center mb-5 p-3 bg-light  shadow-lg  rounded-3">
+                       <form class="row g-2">
+
+                <div class="col-md-6">
+                    <label for="inputEmail4" class="form-label">الايميل</label>
+                    <input type="email" class="form-control" id="inputEmail4">
+                </div>
+                <div class="col-md-6">
+                    <label for="inputPassword4" class="form-label">اسم المستخدم</label>
+                    <input type="text" class="form-control" id="inputPassword4">
+                </div>
+
+                <div class="col-md-10 mx-auto">
+                    <button type="submit" class="btn btn-primary">استعادة كلمة المرور</button>
+                </div>
+            </form>
+
+
+
+        </div>
+
 
     <div class="row row-cols-1 row-cols-md-3 g-4">
-        <div class="col">
-            <div class="card h-100">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                </div>
-                <div class="card-footer">
-                    <small class="text-muted">Last updated 3 mins ago</small>
-                </div>
-            </div>
-        </div>
+<?php
+
+$stmt = $pdo->query('SELECT * FROM villa');
+foreach ($stmt as $row)
+{  ?>
         <div class="col">
             <div class="card h-100 text-center">
                 <img src="img/Villa_Riyadh.jpg" class="card-img-top" alt="فيلا بالرياض للبيع">
                 <div class="card-body">
-                    <h5 class="card-title">فيلا بالرياض </h5>
+                    <h5 class="card-title"><?php echo $row['TypeOfOffer'] ; ?>  </h5>
                     <p class="card-text">
                         <i class="bi bi-map"></i>
-                      المساحة: 300 &nbsp;&nbsp;&nbsp;&nbsp;<i class="bi bi-signpost"></i>  الواجهة: شمالا
+                      المساحة: <?php echo $row['space'] ; ?>  &nbsp;&nbsp;&nbsp;&nbsp;<i class="bi bi-signpost"></i>  الواجهة: <?php echo $row['diraction'] ; ?>
 
                         <br>
-              عمر العقار: 5 سنوات           &nbsp;&nbsp;  عدد الشوارع: 1
+              عمر العقار: <?php echo $row['Numberofclippers'] ; ?> سنوات           &nbsp;&nbsp;  عدد الشوارع: <?php echo $row['Numberofclippers'] ; ?>
                         <br>
-                        عمر العقار: 5 سنوات           &nbsp;&nbsp; نوع الغرض:للبيع
+                        عمر العقار: <?php echo $row['Numberofclippers'] ; ?>  سنوات           &nbsp;&nbsp; نوع الغرض:<?php echo $row['TypeOfOffer'] ; ?>
                     </p>
                 </div>
                 <div class="card-footer">
-                    <small class="text-muted">سعر البيع: 5,0000000</small>
+                    <small class="text-muted">سعر البيع: <?php echo $row['Numberofclippers'] ; ?> </small>
                 </div>
             </div>
         </div>
-        <div class="col">
-            <div class="card h-100 text-center">
-                <img src="img/villa.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title ">فيلا</h5>
-                    <p class="card-text"> </p>
-                    <div class="row">
-                        <div class="col-6 col-sm-3">المساحة </div>
-                        <div class="col-6 col-sm-3">300</div>
+        <?php } ?>
 
-                        <div class="col-6 col-sm-3">الوجهة</div>
-                        <div class="col-6 col-sm-3">شمالاً</div>
-
-                        <!-- Force next columns to break to new line -->
-                        <div class="w-100"></div>
-
-                        <div class="col-6 col-sm-3">الوجهة</div>
-                        <div class="col-6 col-sm-3">شمالاً</div>
-
-                        <div class="col-6 col-sm-3">الوجهة</div>
-                        <div class="col-6 col-sm-3">شمالاً</div>
-                    </div>
-                </div>
-                <div class="card-footer">
-                    <small class="text-muted">السعر : 5555656</small>
-                </div>
-            </div>
-        </div>
     </div>
 </div>
 </html>
