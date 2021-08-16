@@ -65,26 +65,7 @@ include "conection.php"; ?>
     </div>
 
 
-        <div class="text-center mb-5 p-3 bg-light  shadow-lg  rounded-3">
-                       <form class="row g-2">
 
-                <div class="col-md-6">
-                    <label for="inputEmail4" class="form-label">الايميل</label>
-                    <input type="email" class="form-control" id="inputEmail4">
-                </div>
-                <div class="col-md-6">
-                    <label for="inputPassword4" class="form-label">اسم المستخدم</label>
-                    <input type="text" class="form-control" id="inputPassword4">
-                </div>
-
-                <div class="col-md-10 mx-auto">
-                    <button type="submit" class="btn btn-primary">استعادة كلمة المرور</button>
-                </div>
-            </form>
-
-
-
-        </div>
 
 
     <div class="row row-cols-1 row-cols-md-3 g-4">

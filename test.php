@@ -1,5 +1,5 @@
 <?php
-echo " sdfsd ";
+echo phpinfo();
 
 
 
