@@ -24,7 +24,7 @@
 <!--    <a class="m-1 p-1 btn btn-outline-light" href="index.php">الخريطه</a>-->
 <!--</div>-->
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-light bg-white text-dark">
 
     <div class="container-fluid">
         <a class="navbar-brand" href="#">Your Home </a>
@@ -34,7 +34,7 @@
         <div class="collapse navbar-collapse" id="navbarScroll">
             <ul class="navbar-nav navbar-nav-scroll" style="--bs-scroll-height: 100px;">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">الرئيسيه</a>
+                    <a class="nav-link active" aria-current="page" href="index.php">الرئيسيه</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">إشعار المستخدم </a>
@@ -54,10 +54,13 @@
                     <a class="nav-link " href="#" tabindex="-1" aria-disabled="true">الخريطه </a>
                 </li>
             </ul>
-            <form class="d-flex me-auto my-2 my-lg-0">
-                <input class="form-control " type="search" placeholder="بحث" aria-label="بحث">
-                <button class="btn btn-outline-success" type="submit">بحث</button>
-            </form>
+
+            <a class="nav-link d-flex me-auto " href="login.php">تسجيل دخول</a>
+            <a class="nav-link d-flex " href="register.php">تسجيل عضو جديد</a>
+<!--            <form class="d-flex me-auto my-2 my-lg-0">-->
+<!--                <input class="form-control " type="search" placeholder="بحث" aria-label="بحث">-->
+<!--                <button class="btn btn-outline-primary mx-3" type="submit">بحث</button>-->
+<!--            </form>-->
         </div>
     </div>
 </nav>

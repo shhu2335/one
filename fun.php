@@ -91,15 +91,15 @@ include "conection.php";
 //Check that username is not already in use, if it is return an error.
     try
     {
-        if (isset($dsn))
+        if (isset($pdo))
         {
-            $user = $dsn->prepare('SELECT usernmae  from  user  WHERE usernmae = :usernmae ');
+            $user = $pdo->prepare('SELECT usernmae  from  user  WHERE usernmae = :usernmae ');
             $user->execute(['usernmae' => $username_var]);
-            $row = $user->fetch();
-
-            if ($row->rowCount() > 0)
+            $user->fetch();
+           $count = $user->rowCount();
+            if ( $count > 0)
             {
-                $MESSAGE_USER_EXISTS="اسم المستخدم مستخدم من قبل الرجاء ادخال اسم مستخدم آخر.";
+               $MESSAGE_USER_EXISTS="اسم المستخدم مستخدم من قبل الرجاء ادخال اسم مستخدم آخر.";
             }
             else
             {
@@ -107,9 +107,9 @@ include "conection.php";
                             (id,name,usernmae,password,phonenumber,email)
                    VALUES(:itID,:itname,:itusernmae,:itpassword,:itphonenumber,:itemail)"   ;
 
-                if (isset($dsn))
+                if (isset($pdo))
                 {
-                    $stmt = $dsn->prepare($sql);
+                    $stmt = $pdo->prepare($sql);
                 }
 
                 $stmt->execute($R=array(

@@ -8,25 +8,26 @@ include "header.php";
 ?>
 
 <div class = "container p-5">
-    <div class="text-center m-5 p-5 bg-light  shadow-lg  rounded-3">
-    <p class="fs-6"> تسجيل دخول</p>
-        <form class="row g-2">
+    <div class="text-center mx-auto bg-light  shadow-lg  rounded-3">
+        <p class="fw-bolder bg-warning shadow text-light text-center p-2 rounded-3"> تسجيل عضو جديد</p>
+        <form class="row mx-auto d-block p-5 text-end" method="post" action="register.php">
+            <div class="col-md-4">
+                <label for="name_form" class="form-label">اسم المستخدم</label>
+                <input type="text" class="form-control" id="name_form" name="name_form">
+                <label for="username_form" class="alert- alert-danger shadow  rounded-3"><?php  if (isset($name_var_Err)) { echo $name_var_Err;} ?> </label>
 
-        <div class="col-md-6">
-        <label for="inputEmail4" class="form-label">الايميل</label>
-            <input type="email" class="form-control" id="inputEmail4">
-        </div>
-            <div class="col-md-6">
-            <label for="inputPassword4" class="form-label">كلمة المرور</label>
-                <input type="password" class="form-control" id="inputPassword4">
+            </div>
+            <div class="col-md-4">
+                <label for="username_form" class="form-label">كلمة المرور</label>
+                <input type="text" class="form-control" id="username_form" name="username_form">
+                <label for="username_form" class="lert- alert-danger shadow px-2 mt-1 rounded-2"><?php  if (isset($MESSAGE_USER_EXISTS)) { echo $MESSAGE_USER_EXISTS; }?> </label>
             </div>
 
-            <div class="col-md-10 mx-auto">
-            <button type="submit" class="btn btn-primary">تسجيل دخول</button>
+            <div class="col-md-4">
+                <button type="submit" class="btn btn-warning form-control" name="submit_form_user" >دخول </button>
             </div>
         </form>
 
-        <a href = "logout.php" tite = "Logout" class="btn btn-outline-dark m-3">لتسجيل اضغط هنا  </a>
 
     </div>
 
