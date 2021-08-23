@@ -1,22 +1,25 @@
-
 @import url(https://fonts.googleapis.com/css?family=Cairo);
 
-body{
-background: rgb(2,0,36);
-background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(90,9,121,0.8323704481792717) 35%, rgba(0,212,255,1) 100%);
-    font-family: "Cairo";
+body {
+    background: rgb(2, 0, 36);
+    background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(90, 9, 121, 0.8323704481792717) 35%, rgba(0, 212, 255, 1) 100%);
+    font-family: Tahoma;
+    font-weight: lighter;
     overflow: auto;
     margin: 0 0 0 0;
     direction: rtl;
-    background: #ff9966;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #ff5e62, #ff9966);  /* Chrome 10-25, Safari 5.1-6 */
+    background: #ff9966; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #ff5e62, #ff9966); /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #ff5e62, #ff9966); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
 }
 
+img{
+    width: 200px;
+    height: 200px;
+}
 
-.link_header
-{
+.link_header {
     color: black;
     border: 1px solid cornsilk;
     margin: 5px 5px;
@@ -27,8 +30,7 @@ background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(90,9,121,0.8323704481
 }
 
 
-.footer
-{
+.footer {
 
     color: #f8f8f8;
     background: #f0e5d6a1;

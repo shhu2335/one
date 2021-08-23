@@ -26,8 +26,8 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-white text-dark">
 
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">Your Home </a>
+    <div class=".container-sm	container-fluid">
+        <a class="navbar-brand" href="#">H & S للعقارات</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -56,7 +56,7 @@
             </ul>
 
             <a class="nav-link d-flex me-auto " href="login.php">تسجيل دخول</a>
-            <a class="nav-link d-flex " href="register.php">تسجيل عضو جديد</a>
+            <a class="nav-link d-flex " href="register.php">تسجيل</a>
 <!--            <form class="d-flex me-auto my-2 my-lg-0">-->
 <!--                <input class="form-control " type="search" placeholder="بحث" aria-label="بحث">-->
 <!--                <button class="btn btn-outline-primary mx-3" type="submit">بحث</button>-->
@@ -64,5 +64,6 @@
         </div>
     </div>
 </nav>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
 </body>
 </html>

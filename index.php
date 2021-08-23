@@ -1,4 +1,3 @@
-
 <!-- start of conection -->
 <?php
 
@@ -6,7 +5,6 @@
 include "conection.php"; ?>
 
 <?php
-
 
 
 ?>
@@ -18,87 +16,111 @@ include "conection.php"; ?>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 
 </head>
-<!---->
-<!--<div class="container overflow-hidden">-->
-<!---->
-<!---->
-<!--                <div class="row g-2">-->
-<!--                    <div class="col-6">-->
-<!--                        <div class="p-3 border bg-light">Custom column padding <i class="fab fa-mdb"></i></div>-->
-<!--                    </div>-->
-<!--                    <div class="col-6">-->
-<!--                        <div class="p-3 border bg-light">Custom column padding</div>-->
-<!--                    </div>-->
-<!--                    <div class="col-6">-->
-<!--                        <div class="p-3 border bg-light">Custom column padding</div>-->
-<!--                    </div>-->
-<!--                    <div class="col-6">-->
-<!--                        <div class="p-3 border bg-light">Custom column padding</div>-->
-<!--                    </div>-->
-<!---->
-<!---->
-<!--    </div>-->
-<!---->
-<!---->
-<!---->
-<!---->
-<!---->
-<!---->
-<!---->
-<!---->
-<!--</div>-->
+
+
+<body>
 <div class="container p-1 mb-5">
     <div class="bg-transparent  my-1 py-3 mb-1 text-center">
-        <a href = "logout.php" tite = "1" class="btn btn-outline-light m-1 fw-lighter p-1">إضافة فندق</a>
-        <a href = "logout.php" tite = "1" class="btn btn-outline-light m-1 fw-lighter p-1">إضافة فلة</a>
-        <a href = "logout.php" tite = "1" class="btn btn-outline-light m-1 fw-lighter p-1">إضافة عمارة</a>
-        <a href = "logout.php" tite = "1" class="btn btn-outline-light m-1 fw-lighter p-1">إضافة محل</a>
-        <a href = "logout.php" tite = "1" class="btn btn-outline-light m-1 fw-lighter p-1">إضافة أرض</a>
-        <a href = "logout.php" tite = "1" class="btn btn-outline-light m-1 fw-lighter p-1">إضافة مزرعة</a>
-        <a href = "logout.php" tite = "1" class="btn btn-outline-light m-1 fw-lighter p-1">إضافة استديو</a>
-        <a href = "logout.php" tite = "1" class="btn btn-outline-light m-1 fw-lighter p-1">إضافة استراحة</a>
-        <a href = "logout.php" tite = "1" class="btn btn-outline-light m-0 fw-lighter p-1">إضافة شالية</a>
-        <a href = "logout.php" tite = "1" class="btn btn-outline-light m-1 fw-lighter p-1">إضافة شقة</a>
-        <a href = "logout.php" tite = "1" class="btn btn-outline-light m-1 fw-lighter p-1">إضافة قصر</a>
-        <a href = "logout.php" tite = "1" class="btn btn-outline-light m-1 fw-lighter p-1">إضافة مكتب</a>
-
+        <a href="logout.php" tite="1" class="btn btn-outline-light m-1 fw-lighter p-1">إضافة فندق</a>
+        <a href="logout.php" tite="1" class="btn btn-outline-light m-1 fw-lighter p-1">إضافة فلة</a>
+        <a href="logout.php" tite="1" class="btn btn-outline-light m-1 fw-lighter p-1">إضافة عمارة</a>
+        <a href="logout.php" tite="1" class="btn btn-outline-light m-1 fw-lighter p-1">إضافة محل</a>
+        <a href="logout.php" tite="1" class="btn btn-outline-light m-1 fw-lighter p-1">إضافة أرض</a>
+        <a href="logout.php" tite="1" class="btn btn-outline-light m-1 fw-lighter p-1">إضافة مزرعة</a>
+        <a href="logout.php" tite="1" class="btn btn-outline-light m-1 fw-lighter p-1">إضافة استديو</a>
+        <a href="logout.php" tite="1" class="btn btn-outline-light m-1 fw-lighter p-1">إضافة استراحة</a>
+        <a href="logout.php" tite="1" class="btn btn-outline-light m-0 fw-lighter p-1">إضافة شالية</a>
+        <a href="logout.php" tite="1" class="btn btn-outline-light m-1 fw-lighter p-1">إضافة شقة</a>
+        <a href="logout.php" tite="1" class="btn btn-outline-light m-1 fw-lighter p-1">إضافة قصر</a>
+        <a href="logout.php" tite="1" class="btn btn-outline-light m-1 fw-lighter p-1">إضافة مكتب</a>
     </div>
 
+    <button type="button" class="btn btn-warning bg-gradient position-relative  my-auto mb-4">
+        عمائر
+        <svg width="1em" height="1em" viewBox="0 0 16 16"
+             class="position-absolute top-100 start-50 translate-middle mt-1 bi bi-caret-down-fill" fill="#212529"
+             xmlns="http://www.w3.org/2000/svg">
+            <path d="M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
+        </svg>
+    </button>
 
+    <div class="row d-flex row-cols-md-12 row-cols-sm-4  g-3  align-items: center  justify-content: center">
 
+        <?php
 
+        $stmt = $pdo->query('SELECT * FROM villa');
+        foreach ($stmt as $row) { ?>
+            <div class="col">
+                <div class="card h-100 text-center">
 
-    <div class="row row-cols-1 row-cols-md-3 g-4">
-<?php
+                    <!--  8888888888888888888888888   -->
+                    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="img/Villa_Riyadh.jpg" class="d-block w-100" alt="فيلا بالرياض للبيع">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="img/hussam.PNG" class="d-block w-100" alt="...">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="img/hussam.PNG" class="d-block w-100" alt="...">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+                                data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+                                data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                    <!--  8888888888888888888888888   -->
 
-$stmt = $pdo->query('SELECT * FROM villa');
-foreach ($stmt as $row)
-{  ?>
-        <div class="col">
-            <div class="card h-100 text-center">
-                <img src="img/Villa_Riyadh.jpg" class="card-img-top" alt="فيلا بالرياض للبيع">
-                <div class="card-body">
-                    <h5 class="card-title"><?php echo $row['TypeOfOffer'] ; ?>  </h5>
-                    <p class="card-text">
-                        <i class="bi bi-map"></i>
-                      المساحة: <?php echo $row['space'] ; ?>  &nbsp;&nbsp;&nbsp;&nbsp;<i class="bi bi-signpost"></i>  الواجهة: <?php echo $row['diraction'] ; ?>
+                    <h5 class="card-title bg-gradient p-1 m-0"><?php echo $row['TypeOfOffer']; ?>  </h5>
+                    <div class="card-body p-0 m-0">
+                        <table class="table table-striped overflow-scroll m-0 p-0 ">
+                            <thead>
+                            <tr>
+                                <th scope="col">المساحة</th>
+                                <th scope="col">الواجهة</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td><?php echo $row['space']; ?></td>
+                                <td><?php echo $row['diraction']; ?></td>
+                            </tr>
+                            <tr>
+                                <th scope="col">عمر العقار</th>
+                                <th scope="col">نوع الغرض</th>
+                            </tr>
+                            <tr>
+                                <td><?php echo $row['Numberofclippers']; ?></td>
+                                <td><?php echo $row['TypeOfOffer']; ?></td>
+                            </tr>
+                            <tr>
+                                <th scope="col"><?php
+                                    echo ' السعر:   ' . number_format($row['Numberofclippers'], 2, ",", ".");
+                                    ?></th>
+                            </tr>
 
-                        <br>
-              عمر العقار: <?php echo $row['Numberofclippers'] ; ?> سنوات           &nbsp;&nbsp;  عدد الشوارع: <?php echo $row['Numberofclippers'] ; ?>
-                        <br>
-                        عمر العقار: <?php echo $row['Numberofclippers'] ; ?>  سنوات           &nbsp;&nbsp; نوع الغرض:<?php echo $row['TypeOfOffer'] ; ?>
-                    </p>
-                </div>
-                <div class="card-footer">
-                    <small class="text-muted">سعر البيع: <?php echo $row['Numberofclippers'] ; ?> </small>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!--                    <div class="card-footer">-->
+                    <!--                        <small class="text-muted"></small>-->
+                    <!--                    </div>-->
                 </div>
             </div>
-        </div>
         <?php } ?>
 
     </div>
 </div>
+</body>
 </html>
 <!-- start of footer -->
-<?php include  "footer.php"; ?>
-
+<?php include "footer.php"; ?>
