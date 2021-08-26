@@ -14,8 +14,6 @@ include "conection.php"; ?>
 
 <head>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-    <!-- Bootstrap CSS -->
-<!--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.rtl.min.css" integrity="sha384-gXt9imSW0VcJVHezoNQsP+TNrjYXoGcrqBZJpry9zJt8PCQjobwmhMGaDHTASo9N" crossorigin="anonymous">-->
 
 </head>
 
@@ -31,10 +29,10 @@ include "conection.php"; ?>
         <a href="addfarm.php" tite="1" class="btn btn-outline-light m-1 fw-lighter p-1">إضافة مزرعة</a>
         <a href="logout.php" tite="1" class="btn btn-outline-light m-1 fw-lighter p-1">إضافة استديو</a>
         <a href="logout.php" tite="1" class="btn btn-outline-light m-1 fw-lighter p-1">إضافة استراحة</a>
-        <a href="logout.php" tite="1" class="btn btn-outline-light m-0 fw-lighter p-1">إضافة شالية</a>
-        <a href="logout.php" tite="1" class="btn btn-outline-light m-1 fw-lighter p-1">إضافة شقة</a>
-        <a href="logout.php" tite="1" class="btn btn-outline-light m-1 fw-lighter p-1">إضافة قصر</a>
-        <a href="logout.php" tite="1" class="btn btn-outline-light m-1 fw-lighter p-1">إضافة مكتب</a>
+        <a href="dianiyah.php" tite="1" class="btn btn-outline-light m-0 fw-lighter p-1">إضافة شالية</a>
+        <a href="apartment.php" tite="1" class="btn btn-outline-light m-1 fw-lighter p-1">إضافة شقة</a>
+        <a href="addCastle.php" tite="1" class="btn btn-outline-light m-1 fw-lighter p-1">إضافة قصر</a>
+        <a href="addoffice.php" tite="1" class="btn btn-outline-light m-1 fw-lighter p-1">إضافة مكتب</a>
     </div>
 
     <button type="button" class="btn btn-warning bg-gradient position-relative  my-auto mb-4">
