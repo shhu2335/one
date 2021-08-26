@@ -40,3 +40,5 @@ img{
     bottom: 0;
 
 }
+
+.custom-control-label::before{left:auto;right:0;}
