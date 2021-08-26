@@ -23,12 +23,12 @@ include "conection.php"; ?>
 <body>
 <div class="container p-1 mb-5">
     <div class="bg-transparent  my-1 py-3 mb-1 text-center">
-        <a href="logout.php" tite="1" class="btn btn-outline-light m-1 fw-lighter p-1">إضافة فندق</a>
-        <a href="logout.php" tite="1" class="btn btn-outline-light m-1 fw-lighter p-1">إضافة فلة</a>
-        <a href="logout.php" tite="1" class="btn btn-outline-light m-1 fw-lighter p-1">إضافة عمارة</a>
-        <a href="logout.php" tite="1" class="btn btn-outline-light m-1 fw-lighter p-1">إضافة محل</a>
-        <a href="logout.php" tite="1" class="btn btn-outline-light m-1 fw-lighter p-1">إضافة أرض</a>
-        <a href="logout.php" tite="1" class="btn btn-outline-light m-1 fw-lighter p-1">إضافة مزرعة</a>
+        <a href="addhotal.php" tite="1" class="btn btn-outline-light m-1 fw-lighter p-1">إضافة فندق</a>
+        <a href="addvilla.php" tite="1" class="btn btn-outline-light m-1 fw-lighter p-1">إضافة فلة</a>
+        <a href="addbuilding.php" tite="1" class="btn btn-outline-light m-1 fw-lighter p-1">إضافة عمارة</a>
+        <a href="addshop.php" tite="1" class="btn btn-outline-light m-1 fw-lighter p-1">إضافة محل</a>
+        <a href="addland.php" tite="1" class="btn btn-outline-light m-1 fw-lighter p-1">إضافة أرض</a>
+        <a href="addfarm.php" tite="1" class="btn btn-outline-light m-1 fw-lighter p-1">إضافة مزرعة</a>
         <a href="logout.php" tite="1" class="btn btn-outline-light m-1 fw-lighter p-1">إضافة استديو</a>
         <a href="logout.php" tite="1" class="btn btn-outline-light m-1 fw-lighter p-1">إضافة استراحة</a>
         <a href="logout.php" tite="1" class="btn btn-outline-light m-0 fw-lighter p-1">إضافة شالية</a>

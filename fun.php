@@ -15,13 +15,13 @@ include "conection.php";
 //  **********************************     add new user  **********************************
 if (isset($_post['submit_form_user'])) {
     // *********************  defind varible    $name_var   *******************************************
-    if (empty($_post["name_form"])) {
+    if (empty($_POST["name_form"])) {
         $name_var_err = "الرجاء كتابة الاسم";
-        $_post["name_form"] = '';
+        $_POST["name_form"] = '';
     }
     if (filter_has_var(input_post, 'name_form')) {
 
-        $name_var = test_input(filter_var($_post["name_form"], filter_sanitize_string));
+        $name_var = test_input(filter_var($_POST["name_form"], filter_sanitize_string));
     }
 
     // ********************* defind varible    username_form   *******************************************
@@ -117,10 +117,169 @@ if (isset($_post['submit_form_user'])) {
 ////  **********************************     add new user  **********************************  end
 
 
-if (isset($_post['submit_form_user'])){
+if (isset($_post['submit_form_user'])) {
 
 }
+echo "acds";
 
+if (isset($_POST['submit_form_add_building'])) {
+//    echo "acds";
+
+ //************************************** check  form_space *******************************************
+    if (empty($_post["form_space"])) {
+        $var_space_Err = "الرجاء ادخال المساحه.";
+        $_post["form_space"] = "";
+
+    }
+    if (filter_has_var(input_post, 'form_space')) {
+
+        $name_var = test_input(filter_var($_post["form_space"], filter_sanitize_string));
+    }
+//********************************** check form_AgeOfProperty ******************************************
+    if (empty($_post["form_AgeOfProperty"])) {
+        $var_AgeOfProperty_Err = "الرجاء ادخال عمر العقار.";
+        $_post["form_AgeOfProperty"] = "";
+
+    }
+    if (filter_has_var(input_post, 'form_AgeOfProperty')) {
+
+        $name_var = test_input(filter_var($_post["form_AgeOfProperty"], filter_sanitize_string));
+    }
+
+
+//************************************** check form_taype_of_offer ***************************************
+    if (empty($_post["form_taype_of_offer"])) {
+        $var_taype_of_offer_Err = "الرجاء ادخال نوع عرض العقار.";
+        $_post["form_AgeOfProperty"] = "";
+
+    }
+
+    if (filter_has_var(input_post, 'form_taype_of_offer')) {
+
+        $name_var = test_input(filter_var($_post["form_taype_of_offer"], filter_sanitize_string));
+    }
+//******************************** check form_num_apartment **************************************************
+    if (empty($_POST['form_num_apartment'])) {
+        $var_num_apartment_Err = 'الرجاء ادخال عدد الشقق.';
+        $_POST['form_num_apartment'] = '';
+
+    }
+    if (filter_has_var(input_post, 'form_num_apartment')) {
+
+        $var_num_apartment = test_input(filter_var($_POST['form_num_apartment'], filter_sanitize_string));
+    }
+//**************************************** check form_num_flor **********************************************
+    if (empty($_post["form_num_flor"])) {
+        $var_num_flor_Err = "الرجاء ادخال عدد الطوابق.";
+        $_post["form_num_flor"] = "";
+
+    }
+    if (filter_has_var(input_post, 'form_num_flor')) {
+
+        $name_var = test_input(filter_var($_post["form_num_flor"], filter_sanitize_string));
+    }
+ //******************************************************* check form_num_left **************************
+    if (empty($_post["form_num_left"])) {
+        $var_num_left_Err = "الرجاء ادخال عدد المصاعد.";
+        $_post["form_num_left"] = "";
+
+    }
+    if (filter_has_var(input_post, 'form_num_left')) {
+
+        $name_var = test_input(filter_var($_post["form_num_left"], filter_sanitize_string));
+    }
+    //************************************************* check form_num_parking ********************************
+    if (empty($_post["form_num_parking"])) {
+        $var_num_parking_Err = "الرجاء اختيار عدد المواقف.";
+        $_post["form_num_parking"] = "";
+
+    }
+    if (filter_has_var(input_post, 'form_num_parking')) {
+
+        $name_var = test_input(filter_var($_post["form_num_parking"], filter_sanitize_string));
+    }
+ //**************************************** check form_taype_of_offer*****************************************
+    if (empty($_post["form_num_Street"])) {
+        $var_num_Street_Err = "الرجاءاختيار عدد الشوارع.";
+        $_post["form_num_Street"] = "";
+
+    }
+    if (filter_has_var(input_post, 'form_num_Street')) {
+
+        $name_var = test_input(filter_var($_post["form_taype_of_offer"], filter_sanitize_string));
+    }
+
+ //************************************* check    form_direction ********************************************
+    if (empty($_post["form_direction"])) {
+        $var_direction_Err = "الرجاء اختيار الواجهه.";
+        $_post["form_direction"] = "";
+
+    }
+    if (filter_has_var(input_post, 'form_direction')) {
+
+        $name_var = test_input(filter_var($_post["form_direction"], filter_sanitize_string));
+    }
+
+//******************************************** check form_double_room *****************************************
+    if (empty($_post["form_double_room"])) {
+        $var_double_room_Err = "الرجاء الرجاء الإختيار.";
+        $_post["form_double_room"] = "";
+
+    }
+
+    if (filter_has_var(input_post, 'form_double_room')) {
+
+        $name_var = test_input(filter_var($_post["form_double_room"], filter_sanitize_string));
+    }
+
+//************************************* check form_triple_room *********************************************
+    if (empty($_post["form_triple_room"])) {
+        $var_triple_room_Err = "الرجاء الرجاء الإختيار.";
+        $_post["form_triple_room"] = "";
+
+    }
+    if (filter_has_var(input_post, 'form_triple_room')) {
+
+        $name_var = test_input(filter_var($_post["form_triple_room"], filter_sanitize_string));
+    }
+
+//**************************************** check form_quad_room *******************************************
+    if (empty($_post["form_quad_room"])) {
+        $var_quad_room_Err = "الرجاء الإختيار.";
+        $_post["form_quad_room"] = "";
+
+    }
+    if (filter_has_var(input_post, 'form_quad_room')) {
+
+        $name_var = test_input(filter_var($_post["form_quad_room"], filter_sanitize_string));
+    }
+
+//******************************************* check form_features ***********************************************
+    if (empty($_post["form_features"])) {
+        $var_features_Err = "الرجاء ادخال عدد المميزات إضافيه.";
+        $_post["form_features"] = "";
+
+    }
+    if (filter_has_var(input_post, 'form_features')) {
+
+        $name_var = test_input(filter_var($_post["form_features"], filter_sanitize_string));
+    }
+
+
+
+    $sql = 'insert into building  (id,Numberofapartments)
+                   values(:itid,:itNumberofapartments)';
+
+    if (isset($pdo)) {
+        $stmt = $pdo->prepare($sql);
+    }
+
+    $stmt->execute($r = array(  'itid' => null,     'itNumberofapartments' =>  $var_num_apartment   ));
+
+
+
+    echo "asfdgfhjk";
+}
 
 
 

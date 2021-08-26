@@ -6,15 +6,21 @@ include "header.php";
 include "fun.php";
 
 ?>
+
+<!--  إضافه عدد المواقف للDB -->
+<!--  إضافه عدد المصاعد للDB -->
+<!--  إضافه توفر مصعد او لا  للDB -->
+
+
+
+
+
 <html lang="ar" dir="rtl">
 
-
-
-
 <head>
-<!--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">-->
-<!--    <link rel="stylesheet" href="css/style.css">-->
-    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Bootstrap CSS-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.rtl.min.css"
           integrity="sha384-gXt9imSW0VcJVHezoNQsP+TNrjYXoGcrqBZJpry9zJt8PCQjobwmhMGaDHTASo9N" crossorigin="anonymous">
 
@@ -27,10 +33,10 @@ include "fun.php";
 
 <div class="container p-5 ">
     <div class="text-center w-auto  bg-light  shadow-lg  rounded-3">
-        <p class="fw-bolder bg-warning text-light shadow  text-center p-2 rounded-1">إضافه فله</p>
+        <p class="fw-bolder bg-warning text-light shadow  text-center p-2 rounded-1">إضافه محل</p>
         <form class="row g-3  p-5  text-end" method="post" action="thanks.php">
             <div class="form-label col-md-6 text-lg-start">
-                <label for="phone_number_form " class="form-label">المساحه</label>
+                <label for="phone_number_form" class="form-label">المساحه</label>
                 <input type="number" class="form-control" id="phone_number_form" name="phone_number_form">
                 <label for="username_form" class="form-label"><?php if (isset($phone_number_var_Err)) {
                         echo $phone_number_var_Err;
@@ -38,7 +44,7 @@ include "fun.php";
             </div>
 
             <div class="form-label col-md-6 text-lg-start">
-                <label for="phone_number_form " class="form-label ">عمر العقار</label>
+                <label for="phone_number_form" class="form-label ">عمر العقار</label>
                 <input type="number" class="form-control" id="phone_number_form" name="phone_number_form">
                 <label for="username_form" class="form-label"><?php if (isset($phone_number_var_Err)) {
                         echo $phone_number_var_Err;
@@ -55,7 +61,7 @@ include "fun.php";
 
             <div class="col-md-4">
                 <select class="form-select" aria-label="Default select example">
-                    <option selected> عدد دورات المياه</option>
+                    <option selected>عدد دورات المياه</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -63,53 +69,13 @@ include "fun.php";
             </div>
             <div class="col-md-4">
                 <select class="form-select" aria-label="Default select example">
-                    <option selected>نوع دورات المياه </option>
-                    <option value="1">عربي </option>
-                    <option value="2">إفرنجي</option>
+                    <option selected>عدد الطوابق</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+            </div>
 
-                </select>
-            </div>
-
-            <div class="col-md-4">
-                <select class="form-select" aria-label="Default select example">
-                    <option selected>عدد الصالات</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                </select>
-            </div>
-            <div class="col-md-4">
-                <select class="form-select" aria-label="Default select example">
-                    <option selected>عدد المقلط</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                </select>
-            </div>
-            <div class="col-md-4">
-                <select class="form-select" aria-label="Default select example">
-                    <option selected>عدد المطابخ</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                </select>
-            </div>
-            <div class="col-md-4">
-                <select class="form-select" aria-label="Default select example">
-                    <option selected>عدد غرف النوم</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                </select>
-            </div>
-            <div class="col-md-4">
-                <select class="form-select" aria-label="Default select example">
-                    <option selected>عدد الأجنحه</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                </select>
-            </div>
             <div class="col-md-4">
                 <select class="form-select" aria-label="Default select example">
                     <option selected>عدد المستودعات</option>
@@ -121,13 +87,13 @@ include "fun.php";
 
             <div class="col-md-4">
                 <select class="form-select" aria-label="Default select example">
-                    <option selected>عدد الشوارع</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
+                    <option selected>نوع دورات المياه </option>
+                    <option value="1">عربي </option>
+                    <option value="2">إفرنجي</option>
+                    <option value="2">إفرنجي و عربي</option>
                 </select>
             </div>
+
             <div class="col-md-4">
                 <select class="form-select" aria-label="Default select example">
                     <option selected>الواجهه</option>
@@ -144,11 +110,35 @@ include "fun.php";
 
             <div class="col-md-4">
                 <select class="form-select" aria-label="Default select example">
-                    <option selected>نوع المطبخ</option>
-                    <option value="1">  داخلي</option>
-                    <option value="2">  خارجي</option>
+                    <option selected>عدد الشوارع</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
                 </select>
             </div>
+
+
+
+            <div class="col-md-4">
+                <select class="form-select" aria-label="Default select example">
+                    <option selected> عدد المصاعد</option>
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+            </div>
+
+            <div class="col-md-4">
+                <select class="form-select" aria-label="Default select example">
+                    <option selected>عدد المواقف</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+            </div>
+
 
 
 
@@ -157,7 +147,6 @@ include "fun.php";
                 <label for="exampleFormControlTextarea1">مميزات إضافيه</label>
                 <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
             </div>
-
 
             <div class="col-md-5 mx-5">
                 <button type="submit" class="btn btn-warning text-light form-control" name="submit_form_user">حفظ
