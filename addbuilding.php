@@ -37,7 +37,7 @@ include 'fun.php';
 <div class="container p-5 ">
     <div class="text-center w-auto  bg-light  shadow-lg  rounded-3">
         <p class="fw-bolder bg-warning text-light shadow  text-center p-2 rounded-1">إضافه عماره</p>
-        <form class="row g-3  p-5  text-end" method="POST" action="addbuilding.php">
+        <form class="row g-3  p-5  text-end" method="POST" action="fun.php">
             <div class="form-label col-md-6 text-lg-start">
                 <label for="phone_number_form" class="form-label">المساحه</label>
                 <input type="number" class="form-control" id="phone_number_form" name="form_space">

@@ -51,7 +51,7 @@ include "conection.php"; ?>
         $stmt = $pdo->query('SELECT * FROM villa');
         foreach ($stmt as $row) { ?>
             <div class="col">
-                <div class="card h-100 text-center">
+                <div class="card h-200 text-center">
 
                     <!--  8888888888888888888888888   -->
                     <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">

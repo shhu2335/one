@@ -24,7 +24,7 @@
 <!--    <a class="m-1 p-1 btn btn-outline-light" href="index.php">الخريطه</a>-->
 <!--</div>-->
 
-<nav class="navbar navbar-expand-lg navbar-light bg-white text-dark">
+<nav class="navbar navbar-expand-lg navbar-light bg-white text-dark text-center">
 
     <div class=".container-sm	container-fluid">
         <a class="navbar-brand" href="index.php">H & S للعقارات</a>

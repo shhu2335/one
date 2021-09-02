@@ -2,8 +2,10 @@
 
 
 <?php
+
+
 include "conection.php";
-include "header.php";
+include 'header.php';
 
 function test_input($data)
 {
@@ -12,6 +14,7 @@ function test_input($data)
     $data = htmlspecialchars($data);
     return $data;
 }
+
 /*session_start();
     $name = 'huss';
     $name ='shuq';
@@ -212,40 +215,38 @@ if (isset($_POST['submit_form_add_villa'])) {
 
 //*************************************  form add villa                 ********************************* end
 
-//*************************************  sql add villa                 ********************************* start
-    $sql = 'insert into villa (id,TypeOfOffer,Numberoftoilets,numberofwings,Numberoflounges,Numberofkitchen,Numberofclippers,numberofwarehouses,Typeoftoilets,diraction,Features,space,AgeOfProperty,typeofkitchen)
-    values(:itid,:itTypeOfOffer,:itNumberoftoilets,:itnumberofwings,:itNumberoflounges,:itNumberofkitchen,:itNumberofclippers,:itnumberofwarehouses,:itTypeoftoilets,:itdiraction,:itFeatures,:itspace,:itAgeOfProperty,:ittypeofkitchen)';
-
+    $sql = 'insert into villa (id,numberofstreet,TypeOfOffer,Numberoftoilets,numberofwings,Numberoflounges,Numberofkitchen,Numberofclippers,numberofwarehouses,Typeoftoilets,diraction,Features,space,AgeOfProperty,typeofkitchen)
+     values(:itid,:itnumberofstreet,:itTypeOfOffer,:itNumberoftoilets,:itnumberofwings,:itNumberoflounges,:itNumberofkitchen,:itNumberofclippers,:itnumberofwarehouses,:itTypeoftoilets,:itdiraction,:itFeatures,:itspace,:itAgeOfProperty,:ittypeofkitchen)';
 
     if (isset($pdo)) {
         $stmt = $pdo->prepare($sql);
     }
 
     $stmt->execute($r = array(
-       'itid' => null,
-    'itTypeOfOffer' => $TypeOfOffer_var,
-    'itNumberoftoilets' => $Numberoftoilets_var,
-    'itnumberofwings' => $numberofwings_var,
-    'itNumberoflounges'  => $Numberoflounges_var,
-    'itNumberofkitchen' => $Numberofkitchen_var,
-    'itNumberofclippers' => $Numberofclippers_var,
-    'it	numberofwarehouses' =>  $numberofwarehouses_var,
-    'itnumberofstreet' => $numberofstreet_var,
-    'itTypeoftoilets' => $Typeoftoilets_var,
-    'itdiraction'  => $diraction_var,
-    'itFeatures'  => $features_var,
-    'itspace' => $space_var,
-    'itAgeOfProperty'  => $AgeOfProperty_var,
-    'ittypeofkitchen' => $typeofkitchen_var
+        'itid'                       => null,
+        'itnumberofstreet'=>$numberofstreet_var,
+        'itTypeOfOffer'              => $TypeOfOffer_var,
+        'itNumberoftoilets'=>$Numberoftoilets_var,
+        'itnumberofwings'=>$numberofwings_var,
+        'itNumberoflounges' =>$Numberoflounges_var,
+        'itNumberofkitchen'=>$Numberofkitchen_var,
+        'itNumberofclippers'=>$Numberofclippers_var,
+        'itnumberofwarehouses'=>$numberofwarehouses_var,
+
+        'itTypeoftoilets'=>$Typeoftoilets_var,
+        'itdiraction'=>$diraction_var,
+        'itFeatures'=>$features_var,
+        'itspace'=>$space_var,
+        'itAgeOfProperty'=>$AgeOfProperty_var,
+        'ittypeofkitchen'=>$typeofkitchen_var
+
+
 
 
     ));
-
-
-    //*************************************  sql add villa                 ********************************* end
-
-
-
 }
+/*
+echo $name;
+echo $_SESSION["USER"]." - -  - ".$_SESSION['ss'] ;
+*/
 
-    ?>
