@@ -8,7 +8,7 @@
 body {
     background: rgb(2, 0, 36);
     background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(90, 9, 121, 0.8323704481792717) 35%, rgba(0, 212, 255, 1) 100%);
-    font-family: Tahoma;
+    font-family: "Cairo";
     font-weight: lighter;
     overflow: auto;
     margin: 0 0 0 0;
@@ -47,3 +47,26 @@ img{
 }
 
 .custom-control-label::before{left:auto;right:0;}
+
+
+@keyframes roll {
+    0% {
+        transform: rotate(0);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+@keyframes slidein {
+    from {
+        margin-top: 100%;
+        width: 400%;
+    }
+
+    to {
+        margin-top: 0%;
+        width: 100%;
+    }
+}

@@ -19,30 +19,79 @@ include "conection.php"; ?>
 
 
 <body>
-<div class="container p-1 mb-5">
-    <div class="bg-transparent  my-1 py-3 mb-1 text-center">
-        <a href="addhotal.php" tite="1" class="btn btn-outline-light m-1 fw-lighter p-1">إضافة فندق</a>
-        <a href="addvilla.php" tite="1" class="btn btn-outline-light m-1 fw-lighter p-1">إضافة فلة</a>
-        <a href="addbuilding.php" tite="1" class="btn btn-outline-light m-1 fw-lighter p-1">إضافة عمارة</a>
-        <a href="addshop.php" tite="1" class="btn btn-outline-light m-1 fw-lighter p-1">إضافة محل</a>
-        <a href="addland.php" tite="1" class="btn btn-outline-light m-1 fw-lighter p-1">إضافة أرض</a>
-        <a href="addfarm.php" tite="1" class="btn btn-outline-light m-1 fw-lighter p-1">إضافة مزرعة</a>
-        <a href="logout.php" tite="1" class="btn btn-outline-light m-1 fw-lighter p-1">إضافة استديو</a>
-        <a href="logout.php" tite="1" class="btn btn-outline-light m-1 fw-lighter p-1">إضافة استراحة</a>
-        <a href="dianiyah.php" tite="1" class="btn btn-outline-light m-0 fw-lighter p-1">إضافة شالية</a>
-        <a href="apartment.php" tite="1" class="btn btn-outline-light m-1 fw-lighter p-1">إضافة شقة</a>
-        <a href="addCastle.php" tite="1" class="btn btn-outline-light m-1 fw-lighter p-1">إضافة قصر</a>
-        <a href="addoffice.php" tite="1" class="btn btn-outline-light m-1 fw-lighter p-1">إضافة مكتب</a>
+<div   class="m-0 p-5 bg-dark text-white ">
+    <h1 class="display-5">نقدم </h1>
+    <p class="h6">  لك حلول عقارية لا مثيل لها</p>
+    <form class="my-4 " >
+    <input type="text" class="form-group col" name="sarech" placeholder="ابحث هنا "><input class="form-group col" type="submit" value="أبحث">
+    </form>
+</div>
+
+
+<div class="m-0 p-2 bg-secondary text-center mx-auto text-white">
+
+    <div    class="btn btn-outline-light rounded-pill my-2 m-sm-2 mx-5">
+    <h4 class="h5 d-inline"> عدد العقارات المضافه  </h4>
+    <p class="p-2 d-inline">5464</p>
     </div>
 
-    <button type="button" class="btn btn-warning bg-gradient position-relative  my-auto mb-4">
-        عمائر
-        <svg width="1em" height="1em" viewBox="0 0 16 16"
-             class="position-absolute top-100 start-50 translate-middle mt-1 bi bi-caret-down-fill" fill="#212529"
-             xmlns="http://www.w3.org/2000/svg">
-            <path d="M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
-        </svg>
-    </button>
+    <div    class="btn btn-outline-light rounded-pill my-2 m-sm-2 mx-5">
+    <h4 class="h5 d-inline"> عدد مكاتب العقارات </h4>
+    <p class="p-2 d-inline">5464</p>
+</div>
+    <div    class="btn btn-outline-light rounded-pill my-2 m-sm-2 mx-5">
+    <h4 class="h5 d-inline"> عددالزوار </h4>
+    <p class="p-2 d-inline">5464</p>
+</div>
+
+    <div    class="btn btn-outline-light rounded-pill my-2 m-sm-2 mx-5">
+    <h4 class="h5 d-inline"> عددالزوار </h4>
+    <p class="p-2 d-inline">5464</p>
+    </div></div>
+<!-- my mx me ms m  py px pe ps  05-->
+
+    <div class="mt-3  bg-transparent bg-gradient shadow-lg py-3  bg-light text-center">
+
+        <div class="mx-4 d-inline-block bg-secondary text-white">
+            <div class="m-0 p-0 "> <img src="img/person.jpg" ></div>
+            <div class="m-0 p-0"><p> منال </p></div>
+        </div>
+
+
+        <div class="mx-4 d-inline-block bg-secondary text-white">
+            <div class="m-0 p-0 "> <img src="img/person.jpg" ></div>
+            <div class="m-0 p-0"><p> منال </p></div>
+        </div>
+
+        <div class="mx-4 d-inline-block bg-secondary text-white">
+            <div class="m-0 p-0 "> <img src="img/person.jpg" ></div>
+            <div class="m-0 p-0"><p > منال </p></div>
+        </div>
+
+
+
+
+    </div>
+
+</div>
+
+
+    <div class="my-3 py-2 bg-transparent bg-gradient  py-1 bg-light text-center">
+        <a href="addhotal.php" tite="1" class="text-decoration-none  text-white  my-1 fw-lighter p-1">إضافة فندق</a>
+        <a href="addvilla.php" tite="1" class="text-decoration-none  text-white  my-1 fw-lighter p-1">إضافة فلة</a>
+        <a href="addbuilding.php" tite="1" class="text-decoration-none  text-white  my-1 fw-lighter p-1">إضافة عمارة</a>
+        <a href="addshop.php" tite="1" class="text-decoration-none  text-white  my-1 fw-lighter p-1">إضافة محل</a>
+        <a href="addland.php" tite="1" class="text-decoration-none  text-white  my-1 fw-lighter p-1">إضافة أرض</a>
+        <a href="addfarm.php" tite="1" class="text-decoration-none  text-white  my-1 fw-lighter p-1">إضافة مزرعة</a>
+        <a href="logout.php" tite="1" class="text-decoration-none  text-white  my-1 fw-lighter p-1">إضافة استديو</a>
+        <a href="logout.php" tite="1" class="text-decoration-none  text-white  my-1 fw-lighter p-1">إضافة استراحة</a>
+        <a href="dianiyah.php" tite="1" class="text-decoration-none  text-white  my-0 fw-lighter p-1">إضافة شالية</a>
+        <a href="apartment.php" tite="1" class="text-decoration-none  text-white  my-1 fw-lighter p-1">إضافة شقة</a>
+        <a href="addCastle.php" tite="1" class="text-decoration-none  text-white  my-1 fw-lighter p-1">إضافة قصر</a>
+        <a href="addoffice.php" tite="1" class="text-decoration-none  text-white  my-1 fw-lighter p-1">إضافة مكتب</a>
+    </div>
+<div class="container p-1 mb-5">
+
 
     <div class="row d-flex row-cols-md-12 row-cols-sm-4  g-3  align-items: center  justify-content: center">
 
@@ -51,7 +100,7 @@ include "conection.php"; ?>
         $stmt = $pdo->query('SELECT * FROM villa');
         foreach ($stmt as $row) { ?>
             <div class="col">
-                <div class="card h-200 text-center">
+                <div class="card h-200 text-center border border-2 border-dark rounded-3">
 
                     <!--  8888888888888888888888888   -->
                     <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">

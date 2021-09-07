@@ -27,7 +27,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-white text-dark text-center">
 
     <div class=".container-sm	container-fluid">
-        <a class="navbar-brand" href="index.php">H & S للعقارات</a>
+        <a class="navbar-brand" href="index.php">H & SH للعقارات</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
