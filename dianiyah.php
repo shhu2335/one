@@ -1,9 +1,9 @@
 <?php
 
-
+include "fun.php";
 include "conection.php";
 include "header.php";
-include "fun.php";
+
 ?>
 <html>
 

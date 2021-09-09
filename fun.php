@@ -1,4 +1,5 @@
 <?php
+session_start();
 include "conection.php";
 function test_input($data)
 {
@@ -7,6 +8,8 @@ function test_input($data)
     $data = htmlspecialchars($data);
     return $data;
 }
+
+
 // اختصارات
 // عدد الصالات
 
@@ -45,26 +48,31 @@ if (isset($_POST['submit_form_login']))
 
     if (isset($pdo))
     {
-        $user = $pdo->prepare('select usernmae  from  user  where usernmae = :usernmae ');
-        $user->execute(['usernmae' => $var_user_name]);
-        $user->fetch();
-        $count = $user->rowcount();
-        echo  $user['password'];
-        if ($count > 0)
+        $sql="select *  from  user where usernmae = :usernmae " ;
+        $stmt = $pdo->prepare( $sql);
+        $stmt->execute(["usernmae" => $var_user_name]);
+        $row=$stmt->fetch(PDO::FETCH_ASSOC);
+
+
+
+        $count = $stmt->rowcount();
+        if ($count == 0)
         {
             $message_user_not_found = "اسم المستخدم غير صحيح .";
         }
 
-        if (password_verify($var_password, $user['password']))
+        if (password_verify($var_password,$row['password']))
         {
-            $_SESSION['name'] = $user['name'];
-            $_SESSION['phoneNO'] = $user['Customer_num'];
-            $_SESSION['id'] = $user['id'];
+            $_SESSION['name'] = $row['name'];
+            $_SESSION['phonenumber'] = $row['phonenumber'];
+            $_SESSION['id'] = $row['id'];
             $_SESSION['logged_in'] = true;
             header("Location: index.php");
         }
 
-    }
+ }
+
+
 
 
 
@@ -83,9 +91,9 @@ if (isset($_POST['submit_form_user'])) {
         $name_var_err = "الرجاء كتابة الاسم";
         $_POST["name_form"] = '';
     }
-    if (filter_has_var(input_post, 'name_form')) {
+    if (filter_has_var(INPUT_POST, 'name_form')) {
 
-        $name_var = test_input(filter_var($_POST['name_for'], filter_sanitize_string));
+        $name_var = test_input(filter_var($_POST['name_form'], FILTER_SANITIZE_STRING));
     }
 
     // ********************* username_form   ***************************************************
@@ -93,8 +101,8 @@ if (isset($_POST['submit_form_user'])) {
         $username_var_err = "الرجاء كتابة أسم المستخدم";
         $_POST["username_form"] = '';
     }
-    if (filter_has_var(input_post, 'username_form')) {
-        $username_var = test_input(filter_var($_POST["username_form"], filter_sanitize_string));
+    if (filter_has_var(INPUT_POST, 'username_form')) {
+        $username_var = test_input(filter_var($_POST["username_form"], FILTER_SANITIZE_STRING));
     }
 
     //  *********************************** password_form   *******************************************
@@ -102,8 +110,12 @@ if (isset($_POST['submit_form_user'])) {
         $password_var_err = "الرجاء كتابة كلمه المرور ";
         $_POST["password_form"] = '';
     }
-    if (filter_has_var(input_post, 'password_form')) {
-        $password_var = test_input(filter_var($_POST["password_form"], filter_sanitize_string));
+    if (filter_has_var(INPUT_POST, 'password_form')) {
+        $password_var = test_input(filter_var($_POST["password_form"], FILTER_SANITIZE_STRING));
+        $options= array("cost" =>4);
+        $password_var = password_hash($password_var,PASSWORD_BCRYPT,$options);
+        $date = date('Y-m-d H:i:s');
+
     }
 
     // *********************************** password_con_form   *******************************************
@@ -111,8 +123,8 @@ if (isset($_POST['submit_form_user'])) {
         $password_con_var_err = "الرجاء كتابة تأكيد كلمه المرور ";
         $_POST["password_con_form"] = '';
     }
-    if (filter_has_var(input_post, 'password_con_form')) {
-        $password_con_var = test_input(filter_var($_POST["password_con_form"], filter_sanitize_string));
+    if (filter_has_var(INPUT_POST, 'password_con_form')) {
+        $password_con_var = test_input(filter_var($_POST["password_con_form"], FILTER_SANITIZE_STRING));
     }
 
     // ***********************************  email_from   *******************************************
@@ -120,8 +132,8 @@ if (isset($_POST['submit_form_user'])) {
         $email_from_var_err = "الرجاء كتابة الإيميل ";
         $_POST["email_from"] = '';
     }
-    if (filter_has_var(input_post, 'email_from')) {
-        $email_from_var = test_input(filter_var($_POST["email_from"], filter_sanitize_email));
+    if (filter_has_var(INPUT_POST, 'email_from')) {
+        $email_from_var = test_input(filter_var($_POST["email_from"], FILTER_SANITIZE_EMAIL));
     }
 
     // ***********************************  phone_number_form   *******************************************
@@ -129,8 +141,8 @@ if (isset($_POST['submit_form_user'])) {
         $phone_number_var_err = "الرجاء كتابة رقم الجوال ";
         $_POST["phone_number_form"] = '';
     }
-    if (filter_has_var(input_post, 'phone_number_form')) {
-        $phone_number_var = test_input(filter_var($_POST["phone_number_form"], filter_sanitize_number_int));
+    if (filter_has_var(INPUT_POST, 'phone_number_form')) {
+        $phone_number_var = test_input(filter_var($_POST["phone_number_form"], FILTER_SANITIZE_NUMBER_INT));
     }
 
 

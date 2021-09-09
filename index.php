@@ -1,6 +1,6 @@
 <!-- start of conection -->
 <?php
-
+include "fun.php";
 
 include "conection.php"; ?>
 
