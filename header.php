@@ -1,5 +1,7 @@
 <?php
 //echo  "header";
+
+session_start();
 ?>
 
 
