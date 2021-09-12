@@ -1,15 +1,25 @@
 <?php
-include "fun.php";
-include "conection.php";
 include "header.php";
+include "conection.php";
+
+
 
 ?>
 
 
-=
+
 <div class="container ">
+
+    <?php
+    if (isset($message_user_not_found))
+    {
+        echo "<div  class='m-2  alert alert-warning text-center mx-auto h5'  style='width: 450px;' >.$message_user_not_found.</div>";
+    }
+    ?>
+
     <div class="text-center mx-auto  bg-transparent bg-gradient m-2 mt-5 shadow-lg  rounded-3"
          style="width: 450px;"  >
+
         <p class="fw-bolder  bg-white  bg-transparent bg-gradient text-dark  h4 shadow text-center p-2 rounded-3">دخول</p>
 
         <form class="row  d-block p-4  text-end"
@@ -35,7 +45,7 @@ include "header.php";
             </div>
             <div class="col">
                 <label for="form_password" class="form-label">كلمة المرور</label>
-                <input type="text" class="form-control" id="form_password" name="form_password">
+                <input type="password" class="form-control" id="form_password" name="form_password">
                 <label for="form_password"
                        class="lert- alert-danger shadow mb-3 px-2 rounded-2">
                     <?php
@@ -49,6 +59,7 @@ include "header.php";
 
             <div class="col">
                 <label for="username_form" class="form-label"></label>
+
 
                 <button type="submit" class="btn btn-warning bg-gradient text-white mb-3 form-control" name="submit_form_login">دخول</button>
             </div>

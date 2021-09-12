@@ -1,6 +1,7 @@
 <?php
 session_start();
 include "conection.php";
+
 function test_input($data)
 {
     $data = trim($data);
@@ -12,10 +13,6 @@ function test_input($data)
 
 // اختصارات
 // عدد الصالات
-
-
-
-
 
 
 // ^^^^^^^^^^ hussam ^^^^^^^^^^ login system ^^^^^^^^^^^^^^^^^^^^^  start
@@ -45,7 +42,6 @@ if (isset($_POST['submit_form_login']))
         $var_password=test_input(filter_var($_POST["form_password"], FILTER_SANITIZE_STRING));
     }
 
-
     if (isset($pdo))
     {
         $sql="select *  from  user where usernmae = :usernmae " ;
@@ -54,12 +50,12 @@ if (isset($_POST['submit_form_login']))
         $row=$stmt->fetch(PDO::FETCH_ASSOC);
 
 
-
         $count = $stmt->rowcount();
         if ($count == 0)
         {
             $message_user_not_found = "اسم المستخدم غير صحيح .";
         }
+        else{
 
         if (password_verify($var_password,$row['password']))
         {
@@ -68,8 +64,9 @@ if (isset($_POST['submit_form_login']))
             $_SESSION['id'] = $row['id'];
             $_SESSION['logged_in'] = true;
             header("Location: index.php");
-        }
 
+        }
+        }
  }
 
 
@@ -111,10 +108,9 @@ if (isset($_POST['submit_form_user'])) {
         $_POST["password_form"] = '';
     }
     if (filter_has_var(INPUT_POST, 'password_form')) {
-        $password_var = test_input(filter_var($_POST["password_form"], FILTER_SANITIZE_STRING));
-        $options= array("cost" =>4);
-        $password_var = password_hash($password_var,PASSWORD_BCRYPT,$options);
-        $date = date('Y-m-d H:i:s');
+        $hash = test_input(filter_var($_POST["password_form"], FILTER_SANITIZE_STRING));
+        $options= array("cost" =>12);
+        $password_var = password_hash($hash,PASSWORD_BCRYPT,$options);
 
     }
 
@@ -176,6 +172,7 @@ if (isset($_POST['submit_form_user'])) {
                     'itphonenumber' => $phone_number_var,
                     'itemail' => $email_from_var,
                 ));
+                $alert_successfully_inserted_user = "تم انشاء المستخدم بنجاح";
             }
 
 
