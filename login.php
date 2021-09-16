@@ -5,12 +5,17 @@ include "fun.php";
 ?>
 
 
-=
-<div class="container ">
-    <div class="text-center mx-auto  bg-transparent bg-gradient m-2 mt-5 shadow-lg  rounded-3"
-         style="width: 450px;"  >
-        <p class="fw-bolder  bg-white  bg-transparent bg-gradient text-dark  h4 shadow text-center p-2 rounded-3">دخول</p>
 
+<div class="container ">
+
+    <?php
+    if (isset($message_user_not_found)){
+        echo "<div  class='m-2  alert alert-warning text-center mx-auto h5'  style='width: 450px;' >
+       .$message_user_not_found.</div>";}?>
+
+
+    <div class="text-center mx-auto  bg-light  shadow-lg m-2 mt-5 rounded-3" style="width: 450px;" >
+            <p class="fw-bolder bg-blue1 text-light  h4 shadow  text-center p-2 rounded-1"> تسجيل </p>
         <form class="row  d-block p-4  text-end"
               method="post"
               action="login.php">

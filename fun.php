@@ -45,30 +45,44 @@ if (isset($_POST['submit_form_login']))
 
     if (isset($pdo))
     {
-        $user = $pdo->prepare('select usernmae  from  user  where usernmae = :usernmae ');
-        $user->execute(['usernmae' => $var_user_name]);
-        $user->fetch();
-        $count = $user->rowcount();
-        echo  $user['password'];
-        if ($count > 0)
-        {
-            $message_user_not_found = "اسم المستخدم غير صحيح .";
+        $user = $pdo->prepare('select *  from  user  where usernmae = :usernmae ');
+        //,'password' => $password_var
+        $user->execute(['usernmae' => $var_user_name ]);
+        //$user->fetch(PDO::FETCH_ASSOC);
+        $data = $user->fetchAll(PDO::FETCH_ASSOC);
+        foreach($data as $row) {
+            // echo $row['usernmae'];
+            // echo $row['password'];
+            //do whatever you want with the row
         }
 
-        if (password_verify($var_password, $user['password']))
+
+        $count = $user->rowcount();
+
+        if ($count === 0)
         {
-            $_SESSION['name'] = $user['name'];
-            $_SESSION['phoneNO'] = $user['Customer_num'];
-            $_SESSION['id'] = $user['id'];
-            $_SESSION['logged_in'] = true;
-            header("Location: index.php");
+            $message_user_not_found = "اسم المستخدم او كلمه المرور غير صحيحه .";
+        }
+        else{
+
+            if (password_verify($var_password, $row["password"]))
+            {
+                $_SESSION['name']        = $row['name'];
+                $_SESSION['id']          = $row['id'];
+                $_SESSION['password']    = $row['password'];
+                $_SESSION['email']       = $row['email'];
+                $_SESSION['phonenumber'] = $row['phonenumber'];
+                $_SESSION['usernmae']    = $row['usernmae'];
+                $_SESSION['logged_in']   = true;
+                header("Location: index.php");
+            }
+            else{
+                $message_user_not_found = "اسم المستخدم او كلمه المرور غير صحيحه .";
+            }
+
         }
 
     }
-
-
-
-
 
 
 }
@@ -83,9 +97,9 @@ if (isset($_POST['submit_form_user'])) {
         $name_var_err = "الرجاء كتابة الاسم";
         $_POST["name_form"] = '';
     }
-    if (filter_has_var(input_post, 'name_form')) {
+    if (filter_has_var(INPUT_POST, 'name_form')) {
 
-        $name_var = test_input(filter_var($_POST['name_for'], filter_sanitize_string));
+        $name_var = test_input(filter_var($_POST['name_form'], FILTER_SANITIZE_STRING));
     }
 
     // ********************* username_form   ***************************************************
@@ -93,8 +107,8 @@ if (isset($_POST['submit_form_user'])) {
         $username_var_err = "الرجاء كتابة أسم المستخدم";
         $_POST["username_form"] = '';
     }
-    if (filter_has_var(input_post, 'username_form')) {
-        $username_var = test_input(filter_var($_POST["username_form"], filter_sanitize_string));
+    if (filter_has_var(INPUT_POST, 'username_form')) {
+        $username_var = test_input(filter_var($_POST["username_form"], FILTER_SANITIZE_STRING));
     }
 
     //  *********************************** password_form   *******************************************
@@ -102,8 +116,11 @@ if (isset($_POST['submit_form_user'])) {
         $password_var_err = "الرجاء كتابة كلمه المرور ";
         $_POST["password_form"] = '';
     }
-    if (filter_has_var(input_post, 'password_form')) {
-        $password_var = test_input(filter_var($_POST["password_form"], filter_sanitize_string));
+    if (filter_has_var(INPUT_POST, 'password_form')) {
+        $hashPassword = test_input(filter_var($_POST["password_form"], FILTER_SANITIZE_STRING));
+
+        $options = array("cost"=>4);
+        $password_var = password_hash($hashPassword,PASSWORD_DEFAULT,$options);
     }
 
     // *********************************** password_con_form   *******************************************
@@ -111,8 +128,8 @@ if (isset($_POST['submit_form_user'])) {
         $password_con_var_err = "الرجاء كتابة تأكيد كلمه المرور ";
         $_POST["password_con_form"] = '';
     }
-    if (filter_has_var(input_post, 'password_con_form')) {
-        $password_con_var = test_input(filter_var($_POST["password_con_form"], filter_sanitize_string));
+    if (filter_has_var(INPUT_POST, 'password_con_form')) {
+        $password_con_var = test_input(filter_var($_POST["password_con_form"], FILTER_SANITIZE_STRING));
     }
 
     // ***********************************  email_from   *******************************************
@@ -120,8 +137,8 @@ if (isset($_POST['submit_form_user'])) {
         $email_from_var_err = "الرجاء كتابة الإيميل ";
         $_POST["email_from"] = '';
     }
-    if (filter_has_var(input_post, 'email_from')) {
-        $email_from_var = test_input(filter_var($_POST["email_from"], filter_sanitize_email));
+    if (filter_has_var(INPUT_POST, 'email_from')) {
+        $email_from_var = test_input(filter_var($_POST["email_from"], FILTER_SANITIZE_EMAIL));
     }
 
     // ***********************************  phone_number_form   *******************************************
@@ -129,8 +146,8 @@ if (isset($_POST['submit_form_user'])) {
         $phone_number_var_err = "الرجاء كتابة رقم الجوال ";
         $_POST["phone_number_form"] = '';
     }
-    if (filter_has_var(input_post, 'phone_number_form')) {
-        $phone_number_var = test_input(filter_var($_POST["phone_number_form"], filter_sanitize_number_int));
+    if (filter_has_var(INPUT_POST, 'phone_number_form')) {
+        $phone_number_var = test_input(filter_var($_POST["phone_number_form"], FILTER_SANITIZE_NUMBER_INT));
     }
 
 
@@ -175,7 +192,7 @@ if (isset($_POST['submit_form_user'])) {
 
 }
 
- // ****************************************     add new user  ******************************************** end
+// ****************************************     add new user  ******************************************** end
 
 
 // ***************************** form_add_building ******************************* start
@@ -333,82 +350,84 @@ if (isset($_POST['submit_form_add_building'])) {
         'itAgeOfProperty' => $AgeOfProperty_var,
         'ittype_of_offer' => $taype_of_offer_var
     ));
+    $var_insert_build = '  تمت إضافه العماره بنجاح' ;
+    $istrue = 1;
 
 
 
 
-if (isset($_POST['submit_form_ِِAdd_studio'])) {
+
+    if (isset($_POST['submit_form_ِِAdd_studio'])) {
 
 
 // *********************  defined variable     $var_Type_Offer   *******************************************
-    if (empty($_POST["Form_Type_Offer"])) {
-        $var_Type_Offer_err = "الرجاء أختيار نوع العرض";
-        $_POST["Form_Type_Offer"] = '';
-    }
-    if (filter_has_var(input_post, 'Form_Type_Offer'))
-    {
-        $var_Type_Offer = test_input(filter_var($_POST['Form_Type_Offer'], filter_sanitize_string));
-    }
+        if (empty($_POST["Form_Type_Offer"])) {
+            $var_Type_Offer_err = "الرجاء أختيار نوع العرض";
+            $_POST["Form_Type_Offer"] = '';
+        }
+        if (filter_has_var(input_post, 'Form_Type_Offer'))
+        {
+            $var_Type_Offer = test_input(filter_var($_POST['Form_Type_Offer'], filter_sanitize_string));
+        }
 
 // *********************  defined variable    $var_Direction   *******************************************
-    if (empty($_POST["Form_Direction"]))
-    {
-        $var_Direction_err = "الرجاء الاختيار ";
-        $_POST["Form_Direction"] = '';
-    }
-    if (filter_has_var(input_post, 'Form_Direction'))
-    {
-        $var_Direction = test_input(filter_var($_POST['Form_Direction'], filter_sanitize_string));
-    }
+        if (empty($_POST["Form_Direction"]))
+        {
+            $var_Direction_err = "الرجاء الاختيار ";
+            $_POST["Form_Direction"] = '';
+        }
+        if (filter_has_var(input_post, 'Form_Direction'))
+        {
+            $var_Direction = test_input(filter_var($_POST['Form_Direction'], filter_sanitize_string));
+        }
 
 // *********************  defined variable    $var_Number_Toilets   *******************************************
-    if (empty($_POST["Form_Number_Toilets"]))
-    {
-        $var_Number_Toilets_err = "الرجاء ألاختيار ";
-        $_POST["Form_Number_Toilets"] = '';
-    }
-    if (filter_has_var(input_post, 'Form_Number_Toilets'))
-    {
-        $var_Number_Toilets = test_input(filter_var($_POST['Form_Number_Toilets'], filter_sanitize_string));
-    }
+        if (empty($_POST["Form_Number_Toilets"]))
+        {
+            $var_Number_Toilets_err = "الرجاء ألاختيار ";
+            $_POST["Form_Number_Toilets"] = '';
+        }
+        if (filter_has_var(input_post, 'Form_Number_Toilets'))
+        {
+            $var_Number_Toilets = test_input(filter_var($_POST['Form_Number_Toilets'], filter_sanitize_string));
+        }
 
 // *********************  defined variable    $var_Types_Toilets   *******************************************
-    if (empty($_POST["Form_Types_Toilets"]))
-    {
-        $var_Types_Toilets_err = "الرجاء ألاختيار ";
-        $_POST["Form_Types_Toilets"] = '';
-    }
-    if (filter_has_var(input_post, 'Form_Types_Toilets'))
-    {
-        $var_Types_Toilets = test_input(filter_var($_POST['Form_Types_Toilets'], filter_sanitize_string));
-    }
+        if (empty($_POST["Form_Types_Toilets"]))
+        {
+            $var_Types_Toilets_err = "الرجاء ألاختيار ";
+            $_POST["Form_Types_Toilets"] = '';
+        }
+        if (filter_has_var(input_post, 'Form_Types_Toilets'))
+        {
+            $var_Types_Toilets = test_input(filter_var($_POST['Form_Types_Toilets'], filter_sanitize_string));
+        }
 
 // *********************  defined variable    $var_Meeting_Rooms   *******************************************
-    if (empty($_POST["Form_Meeting_Rooms"]))
-    {
-        $var_Meeting_Rooms_err = "الرجاء ألاختيار ";
-        $_POST["Form_Meeting_Rooms"] = '';
-    }
-    if (filter_has_var(input_post, 'Form_Meeting_Rooms'))
-    {
-        $var_Meeting_Rooms = test_input(filter_var($_POST['Form_Meeting_Rooms'], filter_sanitize_string));
-    }
+        if (empty($_POST["Form_Meeting_Rooms"]))
+        {
+            $var_Meeting_Rooms_err = "الرجاء ألاختيار ";
+            $_POST["Form_Meeting_Rooms"] = '';
+        }
+        if (filter_has_var(input_post, 'Form_Meeting_Rooms'))
+        {
+            $var_Meeting_Rooms = test_input(filter_var($_POST['Form_Meeting_Rooms'], filter_sanitize_string));
+        }
 
 // *********************  defined variable    $var_Date   *******************************************
-    if (empty($_POST["Form_Date"]))
-    {
-        $var_Date_err = "الرجاء ألاختيار ";
-        $_POST["Form_Date"] = '';
-    }
-    if (filter_has_var(input_post, 'Form_Date'))
-    {
-        $var_Date = test_input(filter_var($_POST['Form_Date'], filter_sanitize_string));
-    }
+        if (empty($_POST["Form_Date"]))
+        {
+            $var_Date_err = "الرجاء ألاختيار ";
+            $_POST["Form_Date"] = '';
+        }
+        if (filter_has_var(input_post, 'Form_Date'))
+        {
+            $var_Date = test_input(filter_var($_POST['Form_Date'], filter_sanitize_string));
+        }
 
-     $var_insert_build = '  تمت إضافه العماره بنجاح' ;
-     $istrue = 1;
 
-}
+
+    }
 
 
 }
@@ -870,7 +889,7 @@ if (isset($_POST['submit_form_add_villa'])) {
 
 
     ));
- // ***********************************  sql_add_villa ****************************************  end
+    // ***********************************  sql_add_villa ****************************************  end
 
 }
 // ***********************************  form_add_villa *****************************  end
@@ -1066,7 +1085,7 @@ if(isset($_POST['submit_form_add_land'])){
     }
 
 
- //************************************** check  form_space *******************************************
+    //************************************** check  form_space *******************************************
     if (empty($_POST["form_space"])) {
         $space_var_Err = "الرجاء كتابة المساحه";
         $_POST["form_space"] = '';

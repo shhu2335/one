@@ -9,6 +9,14 @@ include "fun.php";
 
 
 <div class="container p-5 ">
+
+<?php
+if (isset($alert_successfully_inserted_user)){
+ echo "<div  class='m-2  alert alert-warning text-center mx-auto h5'  style='width: 450px;' >
+       .$alert_successfully_inserted_user.</div>";}?>
+
+
+
     <div class="text-center w-auto  bg-light  shadow-lg  rounded-3">
         <p class="fw-bolder bg-warning text-light  h4 shadow  text-center p-2 rounded-1"> تسجيل </p>
         <form class="row p-5  text-end" method="post" action="register.php">

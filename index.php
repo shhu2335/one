@@ -1,15 +1,12 @@
 <!-- start of conection -->
 <?php
-
-
-include "conection.php"; ?>
-
-<?php
-
-
+include "conection.php";
+include "header.php";
+//if (! empty($_SESSION['logged_in']))
+//{
 ?>
 <!-- start of header -->
-<?php include "header.php"; ?>
+
 <html>
 
 <head>
@@ -19,12 +16,18 @@ include "conection.php"; ?>
 
 
 <body>
+
+
+
+
 <div   class="m-0 p-5 bg-dark text-white ">
     <h1 class="display-5">نقدم </h1>
     <p class="h6">  لك حلول عقارية لا مثيل لها</p>
     <form class="my-4 " >
     <input type="text" class="form-group col" name="sarech" placeholder="ابحث هنا "><input class="form-group col" type="submit" value="أبحث">
+
     </form>
+
 </div>
 
 
@@ -172,4 +175,7 @@ include "conection.php"; ?>
 </body>
 </html>
 <!-- start of footer -->
-<?php include "footer.php"; ?>
+<?php include "footer.php";  //}else{
+   // header("location:login.php");
+//}
+    ?>
