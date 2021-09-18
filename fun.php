@@ -826,7 +826,7 @@ if (isset($_POST['submit_form_add_villa'])) {
     if (filter_has_var(INPUT_POST, 'form_features')) {
 
         $features_var = test_input(filter_var($_POST["form_features"], FILTER_SANITIZE_STRING));
-    }
+    }  
     //************************************** check  form_space *******************************************
     if (empty($_POST["form_space"])) {
         $space_var_Err = "الرجاء كتابة المساحه";
