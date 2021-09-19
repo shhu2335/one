@@ -31,7 +31,7 @@ include "fun.php";
 <div class="container p-5 ">
     <div class="text-center w-auto  bg-light  shadow-lg  rounded-3">
         <p class="fw-bolder bg-warning text-light shadow  text-center p-2 rounded-1">إضافه مزرعه</p>
-        <form class="row g-3  p-5  text-end" method="post" action="addfarm.php">
+        <form class="row g-3  p-5  text-end" method="post" action="Add_Farm.php">
             <div class="form-label col-md-6 text-lg-start">
 
                 <label for="phone_number_form" class="form-label">المساحه</label>

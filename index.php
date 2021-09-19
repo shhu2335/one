@@ -82,18 +82,18 @@ include "header.php";
 
 
     <div class="my-3 py-2 bg-transparent bg-gradient  py-1 bg-light text-center">
-        <a href="addhotal.php" tite="1" class="text-decoration-none  text-white  my-1 fw-lighter p-1">إضافة فندق</a>
-        <a href="addvilla.php" tite="1" class="text-decoration-none  text-white  my-1 fw-lighter p-1">إضافة فلة</a>
-        <a href="addbuilding.php" tite="1" class="text-decoration-none  text-white  my-1 fw-lighter p-1">إضافة عمارة</a>
-        <a href="addshop.php" tite="1" class="text-decoration-none  text-white  my-1 fw-lighter p-1">إضافة محل</a>
-        <a href="addland.php" tite="1" class="text-decoration-none  text-white  my-1 fw-lighter p-1">إضافة أرض</a>
-        <a href="addfarm.php" tite="1" class="text-decoration-none  text-white  my-1 fw-lighter p-1">إضافة مزرعة</a>
+        <a href="Add_Hotal.php" tite="1" class="text-decoration-none  text-white  my-1 fw-lighter p-1">إضافة فندق</a>
+        <a href="Add_Villa.php" tite="1" class="text-decoration-none  text-white  my-1 fw-lighter p-1">إضافة فلة</a>
+        <a href="Add_Building.php" tite="1" class="text-decoration-none  text-white  my-1 fw-lighter p-1">إضافة عمارة</a>
+        <a href="Add_Shop.php" tite="1" class="text-decoration-none  text-white  my-1 fw-lighter p-1">إضافة محل</a>
+        <a href="Add_Land.php" tite="1" class="text-decoration-none  text-white  my-1 fw-lighter p-1">إضافة أرض</a>
+        <a href="Add_Farm.php" tite="1" class="text-decoration-none  text-white  my-1 fw-lighter p-1">إضافة مزرعة</a>
         <a href="logout.php" tite="1" class="text-decoration-none  text-white  my-1 fw-lighter p-1">إضافة استديو</a>
         <a href="logout.php" tite="1" class="text-decoration-none  text-white  my-1 fw-lighter p-1">إضافة استراحة</a>
-        <a href="dianiyah.php" tite="1" class="text-decoration-none  text-white  my-0 fw-lighter p-1">إضافة شالية</a>
-        <a href="apartment.php" tite="1" class="text-decoration-none  text-white  my-1 fw-lighter p-1">إضافة شقة</a>
-        <a href="addCastle.php" tite="1" class="text-decoration-none  text-white  my-1 fw-lighter p-1">إضافة قصر</a>
-        <a href="addoffice.php" tite="1" class="text-decoration-none  text-white  my-1 fw-lighter p-1">إضافة مكتب</a>
+        <a href="Add_Dianiyah.php" tite="1" class="text-decoration-none  text-white  my-0 fw-lighter p-1">إضافة شالية</a>
+        <a href="Add_Apartment.php" tite="1" class="text-decoration-none  text-white  my-1 fw-lighter p-1">إضافة شقة</a>
+        <a href="Add_Castle.php" tite="1" class="text-decoration-none  text-white  my-1 fw-lighter p-1">إضافة قصر</a>
+        <a href="Add_Office.php" tite="1" class="text-decoration-none  text-white  my-1 fw-lighter p-1">إضافة مكتب</a>
     </div>
 <div class="container p-1 mb-5">
 
