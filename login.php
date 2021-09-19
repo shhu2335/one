@@ -15,7 +15,7 @@ include "fun.php";
 
 
     <div class="text-center mx-auto  bg-light  shadow-lg m-2 mt-5 rounded-3" style="width: 450px;" >
-            <p class="fw-bolder bg-secondary text-light  h4 shadow  text-center p-2 rounded-1"> تسجيل </p>
+            <p class="fw-bolder bg-transparent text-dark  h4 shadow  text-center p-2 rounded-1"> تسجيل </p>
         <form class="row  d-block p-4  text-end"
               method="post"
               action="login.php">
@@ -54,7 +54,7 @@ include "fun.php";
             <div class="col">
                 <label for="username_form" class="form-label"></label>
 
-                <button type="submit" class="btn btn-warning bg-gradient text-white mb-3 form-control" name="submit_form_login">دخول</button>
+                <button type="submit" class="btn btn-primary bg-gradient text-white mb-3 form-control" name="submit_form_login">دخول</button>
             </div>
 
             <div class="col">

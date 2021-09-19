@@ -17,9 +17,9 @@ if (isset($alert_successfully_inserted_user)){
 
 
 
-    <div class="text-center w-auto  bg-light  shadow-lg  rounded-3">
-        <p class="fw-bolder bg-primary text-light  h4 shadow  text-center p-2 rounded-1"> تسجيل </p>
-        <form class="row p-5  text-end" method="post" action="register.php">
+    <div class="w-auto  bg-light  shadow-lg  rounded-3">
+        <p class="fw-bolder bg-transparent text-dark  h4 shadow  text-center p-2 rounded-1"> تسجيل </p>
+        <form class="row p-5 " method="post" action="register.php">
             <div class="col-md-4">
                 <label for="name_form" class="form-label">الاسم</label>
                 <input type="text" class="form-control" id="name_form" name="name_form">
@@ -71,7 +71,7 @@ if (isset($alert_successfully_inserted_user)){
             </div>
 
             <div class="col-md-4 mx-auto">
-                <button type="submit" class="btn btn-warning text-light form-control" name="submit_form_user">تسجيل
+                <button type="submit" class="btn btn-primary text-light form-control" name="submit_form_user">تسجيل
                 </button>
             </div>
         </form>
