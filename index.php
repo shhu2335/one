@@ -42,7 +42,7 @@ include "header.php";
 
     <div    class="btn btn-outline-light rounded-pill my-2 m-sm-2 mx-5">
     <h4 class="h5 d-inline"> عـ مكاتب العقارات </h4>
-    <p class="p-2 d-inline">5,464</p>
+    <p class="p-2 d-inline">5,4643</p>
 </div>
     <div    class="btn btn-outline-light rounded-pill my-2 m-sm-2 mx-5">
     <h4 class="h5 d-inline"> عـ الزوار </h4>
