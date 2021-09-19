@@ -14,7 +14,7 @@ include "fun.php";
        .$message_user_not_found.</div>";}?>
 
 
-    <div class="text-center mx-auto  bg-light  shadow-lg m-2 mt-5 rounded-3" style="width: 450px;" >
+    <div class="mx-auto  bg-light  shadow-lg m-2 mt-5 rounded-3" style="width: 450px;" >
             <p class="fw-bolder bg-transparent text-dark  h4 shadow  text-center p-2 rounded-1"> تسجيل </p>
         <form class="row  d-block p-4  text-end"
               method="post"
