@@ -20,11 +20,13 @@ include "header.php";
 
 
 
-<div   class="m-0 p-5 bg-dark text-white ">
+<div   class="m-0 p-5 bg-secondary text-white ">
     <h1 class="display-5">نقدم </h1>
     <p class="h6">  لك حلول عقارية لا مثيل لها</p>
     <form class="my-4 " >
-    <input type="text" class="form-group col" name="sarech" placeholder="ابحث هنا "><input class="form-group col" type="submit" value="أبحث">
+    <input type="text" class="form-group col" name="sarech" placeholder="ابحث هنا ">
+
+        <input class="form-group col" type="submit" value="أبحث">
 
     </form>
 
