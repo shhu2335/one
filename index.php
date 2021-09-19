@@ -1,6 +1,6 @@
 <!-- start of conection -->
 <?php
-include "conection.php"; ?>
+include "config.php"; ?>
 
 <?php
 
@@ -8,42 +8,47 @@ include "conection.php"; ?>
 ?>
 <!-- start of header -->
 <?php include "header.php"; ?>
-<html>
+<html >
 
 <head>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+<!--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">-->
 
 </head>
 
 
 <body>
-<div   class="m-0 p-5 bg-dark text-white ">
-    <h1 class="display-5">نقدم </h1>
-    <p class="h6">  لك حلول عقارية لا مثيل لها</p>
-    <form class="my-4 " >
-    <input type="text" class="form-group col" name="sarech" placeholder="ابحث هنا "><input class="form-group col" type="submit" value="أبحث">
-    </form>
+<div   class="m-0 p-5 bg-danger bg-gradient text-white ">
+    <div class="display-1 pt-5 pe-3 bg-light bg-gradient text-danger
+    rounded-pill py-auto d-inline-block" style="height: 210px; width: 200px;">نقدم </div>
+    <p class="fs-1 fs mx-5 d-inline text-light">   حلول عقارية لا مثيل لها</p>
+
+        <form class="form-group pt-5 pe-3  d-inline-flex ">
+        <div class="input-group  ">
+            <input type="text" class="form-control-lg  rounded-2" placeholder="ابحث عن العقارات هنا" ">
+            <button class="btn btn-outline-light   rounded-3 mx-3 " type="button" >أبــحــث</button>
+        </div>
+        </form>
 </div>
 
 
-<div class="m-0 p-2 bg-secondary text-center mx-auto text-white">
+<div class="m-0 p-2 bg-light bg-gradient text-center mx-auto text-white">
 
-    <div    class="btn btn-outline-light rounded-pill my-2 m-sm-2 mx-5">
-    <h4 class="h5 d-inline"> عدد العقارات المضافه  </h4>
+    <div    class="btn btn-danger rounded-pill border-start my-2 mx-1">
+    <h4 class="h5 d-inline"> عـ العقارات  </h4>
     <p class="p-2 d-inline">5464</p>
     </div>
 
-    <div    class="btn btn-outline-light rounded-pill my-2 m-sm-2 mx-5">
-    <h4 class="h5 d-inline"> عدد مكاتب العقارات </h4>
+    <div    class="btn btn-danger rounded-pill border-start my-2 mx-1">
+    <h4 class="h5 d-inline"> عـ مكاتب العقارات </h4>
     <p class="p-2 d-inline">5464</p>
 </div>
-    <div    class="btn btn-outline-light rounded-pill my-2 m-sm-2 mx-5">
+    <div    class="btn btn-danger rounded-pill border-start my-2 mx-1">
     <h4 class="h5 d-inline"> عددالزوار </h4>
     <p class="p-2 d-inline">5464</p>
 </div>
 
-    <div    class="btn btn-outline-light rounded-pill my-2 m-sm-2 mx-5">
-    <h4 class="h5 d-inline"> عددالزوار </h4>
+    <div    class="btn btn-danger rounded-pill border-start my-2  mx-1">
+    <h4 class="h5 d-inline"> عـالزوار </h4>
     <p class="p-2 d-inline">5464</p>
     </div></div>
 <!-- my mx me ms m  py px pe ps  05-->
@@ -74,19 +79,19 @@ include "conection.php"; ?>
 </div>
 
 
-    <div class="my-3 py-2 bg-transparent bg-gradient  py-1 bg-light text-center">
-        <a href="addhotal.php" tite="1" class="text-decoration-none  text-white  my-1 fw-lighter p-1">إضافة فندق</a>
-        <a href="addvilla.php" tite="1" class="text-decoration-none  text-white  my-1 fw-lighter p-1">إضافة فلة</a>
-        <a href="addbuilding.php" tite="1" class="text-decoration-none  text-white  my-1 fw-lighter p-1">إضافة عمارة</a>
-        <a href="addshop.php" tite="1" class="text-decoration-none  text-white  my-1 fw-lighter p-1">إضافة محل</a>
-        <a href="addland.php" tite="1" class="text-decoration-none  text-white  my-1 fw-lighter p-1">إضافة أرض</a>
-        <a href="addfarm.php" tite="1" class="text-decoration-none  text-white  my-1 fw-lighter p-1">إضافة مزرعة</a>
-        <a href="logout.php" tite="1" class="text-decoration-none  text-white  my-1 fw-lighter p-1">إضافة استديو</a>
-        <a href="logout.php" tite="1" class="text-decoration-none  text-white  my-1 fw-lighter p-1">إضافة استراحة</a>
-        <a href="dianiyah.php" tite="1" class="text-decoration-none  text-white  my-0 fw-lighter p-1">إضافة شالية</a>
-        <a href="apartment.php" tite="1" class="text-decoration-none  text-white  my-1 fw-lighter p-1">إضافة شقة</a>
-        <a href="addCastle.php" tite="1" class="text-decoration-none  text-white  my-1 fw-lighter p-1">إضافة قصر</a>
-        <a href="addoffice.php" tite="1" class="text-decoration-none  text-white  my-1 fw-lighter p-1">إضافة مكتب</a>
+<div class="mb-3 p-4 bg-info bg-gradient text-center mx-auto text-white">
+        <a href="Add_Hotal.php"     class="text-decoration-none  bg-light  border-4  rounded-3 border-end border-start  border-secondary text-secondary  my-1 fw-lighter p-1">إضافة فندق</a>
+        <a href="Add_Villa.php"     class="text-decoration-none  bg-light  border-4  rounded-3 border-end border-start  border-secondary text-secondary  my-1 fw-lighter p-1">إضافة فلة</a>
+        <a href="Add_Building.php"  class="text-decoration-none  bg-light  border-4  rounded-3 border-end border-start  border-secondary text-secondary  my-1 fw-lighter p-1">إضافة عمارة</a>
+        <a href="Add_Shop.php"      class="text-decoration-none  bg-light  border-4  rounded-3 border-end border-start  border-secondary text-secondary  my-1 fw-lighter p-1">إضافة محل</a>
+        <a href="Add_Land.php"      class="text-decoration-none  bg-light  border-4  rounded-3 border-end border-start  border-secondary text-secondary  my-1 fw-lighter p-1">إضافة أرض</a>
+        <a href="Add_Farm.php"      class="text-decoration-none  bg-light  border-4  rounded-3 border-end border-start  border-secondary text-secondary  my-1 fw-lighter p-1">إضافة مزرعة</a>
+        <a href="logout.php"        class="text-decoration-none  bg-light  border-4  rounded-3 border-end border-start  border-secondary text-secondary  my-1 fw-lighter p-1">إضافة استديو</a>
+        <a href="logout.php"        class="text-decoration-none  bg-light  border-4  rounded-3 border-end border-start  border-secondary text-secondary  my-1 fw-lighter p-1">إضافة استراحة</a>
+        <a href="Add_Dianiyah.php"  class="text-decoration-none  bg-light  border-4  rounded-3 border-end border-start  border-secondary text-secondary  my-0 fw-lighter p-1">إضافة شالية</a>
+        <a href="Add_Aprtment.php"  class="text-decoration-none  bg-light  border-4  rounded-3 border-end border-start  border-secondary text-secondary  my-1 fw-lighter p-1">إضافة شقة</a>
+        <a href="Add_Castle.php"    class="text-decoration-none  bg-light  border-4  rounded-3 border-end border-start  border-secondary text-secondary  my-1 fw-lighter p-1">إضافة قصر</a>
+        <a href="Add_Office.php"    class="text-decoration-none  bg-light  border-4  rounded-3 border-end border-start  border-secondary text-secondary  my-1 fw-lighter p-1">إضافة مكتب</a>
     </div>
 <div class="container p-1 mb-5">
 
@@ -98,7 +103,7 @@ include "conection.php"; ?>
         $stmt = $pdo->query('SELECT * FROM villa');
         foreach ($stmt as $row) { ?>
             <div class="col">
-                <div class="card h-200 text-center border border-2 border-dark rounded-3">
+                <div class="card h-200 text-center shadow-lg   rounded-3">
 
                     <!--  8888888888888888888888888   -->
                     <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">

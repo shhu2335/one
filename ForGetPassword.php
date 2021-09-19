@@ -2,7 +2,7 @@
 
 <?php
 
-include "conection.php";
+include "config.php";
 include "header.php";
 ?>
 <div class = "container p-5">

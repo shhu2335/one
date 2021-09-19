@@ -1,9 +1,9 @@
 <?php
 
-include "fun.php";
-include "conection.php";
-include "header.php";
 
+include "config.php";
+include "header.php";
+include "fun.php";
 ?>
 <html>
 
@@ -22,7 +22,7 @@ include "header.php";
 
 <div class="container p-5 ">
     <div class="text-center w-auto  bg-light  shadow-lg  rounded-3">
-        <p class="fw-bolder bg-warning text-light shadow  text-center p-2 rounded-1">إضافه قصر</p>
+        <p class="fw-bolder bg-warning text-light shadow  text-center p-2 rounded-1">إضافه شقة</p>
         <form class="row g-3  p-5  text-end" method="post" action="thanks.php">
             <div class="col-md-4">
                 <select class="form-select" aria-label="Default select example">
@@ -33,18 +33,11 @@ include "header.php";
                 </select>
             </div>
 
-            <div class="col-md-4">
-                <select class="form-select" aria-label="Default select example">
-                    <option selected> عدد دورات المياه</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                </select>
-            </div>
+
 
             <div class="col-md-4">
                 <select class="form-select" aria-label="Default select example">
-                    <option selected>عدد الصالات</option>
+                    <option selected>عدد الغرف</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -52,7 +45,7 @@ include "header.php";
             </div>
             <div class="col-md-4">
                 <select class="form-select" aria-label="Default select example">
-                    <option selected>عدد المقلط</option>
+                    <option selected>عدد الصالات</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -66,30 +59,8 @@ include "header.php";
                     <option value="3">3</option>
                 </select>
             </div>
-            <div class="col-md-4">
-                <select class="form-select" aria-label="Default select example">
-                    <option selected>عدد غرف النوم</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                </select>
-            </div>
-            <div class="col-md-4">
-                <select class="form-select" aria-label="Default select example">
-                    <option selected>عدد الأجنحه</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                </select>
-            </div>
-            <div class="col-md-4">
-                <select class="form-select" aria-label="Default select example">
-                    <option selected>عدد المستودعات</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                </select>
-            </div>
+
+
 
             <div class="col-md-4">
                 <select class="form-select" aria-label="Default select example">
@@ -99,10 +70,54 @@ include "header.php";
                 </select>
             </div>
 
+            <div class="col-md-4">
+                <select class="form-select" aria-label="Default select example">
+                    <option selected>عدد غرف النوم</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+            </div>
+
+            <div class="col-md-4">
+                <select class="form-select" aria-label="Default select example">
+                    <option selected>عدد المجالس</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+            </div>
+            <div class="col-md-4">
+                <select class="form-select" aria-label="Default select example">
+                    <option selected>عدد المقلط</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+            </div>
+
+            <div class="col-md-4">
+                <select class="form-select" aria-label="Default select example">
+                    <option selected>عدد المستودعات</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+            </div>
+
+
+            <div class="col-md-4">
+                <select class="form-select" aria-label="Default select example">
+                    <option selected> عدد دورات المياه</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+            </div>
 
             <div class="text-lg-start form-label col-md-4">
-                <label for="phone_number_form" class="form-label">عمر العقار</label>
-                <input type="number" class="form-control" id="phone_number_form" name="phone_number_form">
+<!--                <label for="phone_number_form" class="form-label"></label>-->
+                <input type="number" class="form-control" id="phone_number_form" name="phone_number_form" placeholder="عمر العقار">
                 <label for="username_form" class="form-label"><?php if (isset($phone_number_var_Err)) {
                         echo $phone_number_var_Err;
                     } ?> </label>
@@ -118,12 +133,9 @@ include "header.php";
                 </button>
             </div>
         </form>
-
-
     </div>
 
 </div>
-
 
 </body>
 

@@ -1,6 +1,6 @@
 <?php
 session_start();
-include "conection.php";
+include "config.php";
 
 function test_input($data)
 {
@@ -19,7 +19,7 @@ function test_input($data)
 
 if (isset($_POST['submit_form_login']))
 {
-    // *********************    username   ***********************************
+    //     username   
     if (empty($_POST["form_user_name"]))
     {
         $var_user_name_err = "الرجاء كتابة اسم المستخدم";
@@ -31,7 +31,7 @@ if (isset($_POST['submit_form_login']))
     }
 
 
-    // *********************    password   ************************************
+    //     password   
     if (empty($_POST["form_password"]))
     {
         $var_password_err = "الرجاء كتابة كلمة المرور";
@@ -39,61 +39,50 @@ if (isset($_POST['submit_form_login']))
     }
     if (filter_has_var(INPUT_POST, 'form_password'))
     {
-        $var_password=test_input(filter_var($_POST["form_password"], FILTER_SANITIZE_STRING));
+        $pwd=test_input(filter_var($_POST["form_password"], FILTER_SANITIZE_STRING));
     }
 
-    if (isset($pdo))
-    {
-        $sql="select *  from  user where usernmae = :usernmae " ;
-        $stmt = $pdo->prepare( $sql);
+    if (isset($pdo)) {
+        $sql = "select  * from  user where usernmae = :usernmae ";
+        $stmt = $pdo->prepare($sql);
         $stmt->execute(["usernmae" => $var_user_name]);
-        $row=$stmt->fetch(PDO::FETCH_ASSOC);
-
-
         $count = $stmt->rowcount();
-        if ($count == 0)
-        {
-            $message_user_not_found = "اسم المستخدم غير صحيح .";
-        }
-        else{
+        if ($count == 0) {
+            $message_user_not_found = "اسم المستخدم  او كلمة المرورة غير صحيح .";
+        } else {
 
-        if (password_verify($var_password,$row['password']))
+            $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+           foreach ($rows as $row ){
+           }
+
+        if (password_verify($pwd,$row['password']))
         {
+            echo $pwd,$row['password'];
             $_SESSION['name'] = $row['name'];
             $_SESSION['phonenumber'] = $row['phonenumber'];
             $_SESSION['id'] = $row['id'];
             $_SESSION['logged_in'] = true;
             header("Location: index.php");
-
         }
         }
  }
 
 
-
-
-
-
-
-
 }
 
+    //       add new user
+    if (isset($_POST['submit_form_user'])) {
 
-
-// // ^^^^^^^^^^ hussam ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^  end
-//  **********************************     add new user  ************************************************* start
-if (isset($_POST['submit_form_user'])) {
-    // *********************    $name_var   ********************************************************
+    //     $name_var   
     if (empty($_POST["name_form"])) {
         $name_var_err = "الرجاء كتابة الاسم";
         $_POST["name_form"] = '';
     }
     if (filter_has_var(INPUT_POST, 'name_form')) {
-
         $name_var = test_input(filter_var($_POST['name_form'], FILTER_SANITIZE_STRING));
     }
 
-    // ********************* username_form   ***************************************************
+    //  username_form   
     if (empty($_POST["username_form"])) {
         $username_var_err = "الرجاء كتابة أسم المستخدم";
         $_POST["username_form"] = '';
@@ -102,7 +91,7 @@ if (isset($_POST['submit_form_user'])) {
         $username_var = test_input(filter_var($_POST["username_form"], FILTER_SANITIZE_STRING));
     }
 
-    //  *********************************** password_form   *******************************************
+    //   password_form   
     if (empty($_POST["password_form"])) {
         $password_var_err = "الرجاء كتابة كلمه المرور ";
         $_POST["password_form"] = '';
@@ -114,7 +103,7 @@ if (isset($_POST['submit_form_user'])) {
 
     }
 
-    // *********************************** password_con_form   *******************************************
+    //   password_con_form   
     if (empty($_POST["password_con_form"])) {
         $password_con_var_err = "الرجاء كتابة تأكيد كلمه المرور ";
         $_POST["password_con_form"] = '';
@@ -123,7 +112,7 @@ if (isset($_POST['submit_form_user'])) {
         $password_con_var = test_input(filter_var($_POST["password_con_form"], FILTER_SANITIZE_STRING));
     }
 
-    // ***********************************  email_from   *******************************************
+    //   email_from    
     if (empty($_POST["email_from"])) {
         $email_from_var_err = "الرجاء كتابة الإيميل ";
         $_POST["email_from"] = '';
@@ -132,7 +121,7 @@ if (isset($_POST['submit_form_user'])) {
         $email_from_var = test_input(filter_var($_POST["email_from"], FILTER_SANITIZE_EMAIL));
     }
 
-    // ***********************************  phone_number_form   *******************************************
+    //   phone_number_form   
     if (empty($_POST["phone_number_form"])) {
         $phone_number_var_err = "الرجاء كتابة رقم الجوال ";
         $_POST["phone_number_form"] = '';
@@ -142,7 +131,7 @@ if (isset($_POST['submit_form_user'])) {
     }
 
 
-// ************************************ sql add new user ********************************************   start
+//   sql add new user   start
 
 //check that username is not already in use, if it is return an error.
     try {
@@ -180,89 +169,77 @@ if (isset($_POST['submit_form_user'])) {
     } catch (pdoexception $exception) {
 
     }
-//// ************************************ sql add new user ********************************************   end
+// sql add new user     end
 
 }
 
- // ****************************************     add new user  ******************************************** end
+    // form_add_building
+    if (isset($_POST['submit_form_add_building'])) {
 
-
-// ***************************** form_add_building ******************************* start
-if (isset($_POST['submit_form_add_building'])) {
-
-
-    //************************************** form_space *******************************************
+    //  form_space 
     if (empty($_POST["form_space"])) {
         $space_var_Err = "الرجاء كتابة المساحه";
         $_POST["form_space"] = '';
     }
     if (filter_has_var(INPUT_POST, 'form_space')) {
-
         $space_var = test_input(filter_var($_POST["form_space"], FILTER_SANITIZE_STRING));
     }
-//**********************************  form_AgeOfProperty ******************************************
+
+    //   form_AgeOfProperty 
     if (empty($_POST["form_AgeOfProperty"])) {
         $AgeOfProperty_var_Err = "الرجاء ادخال عمر العقار.";
         $_POST["form_AgeOfProperty"] = '';
     }
     if (filter_has_var(INPUT_POST, 'form_AgeOfProperty')) {
-
         $AgeOfProperty_var = test_input(filter_var($_POST["form_AgeOfProperty"], FILTER_SANITIZE_STRING));
     }
 
-
-//**************************************  form_taype_of_offer ***************************************
-
+    //  form_taype_of_offer
     if (empty($_POST["form_taype_of_offer"])) {
         $taype_of_offer_var_Err = "الرجاء ادخال نوع عرض العقار.";
         $_POST["form_taype_of_offer"] = '';
     }
     if (filter_has_var(INPUT_POST, 'form_taype_of_offer')) {
-
         $taype_of_offer_var = test_input(filter_var($_POST["form_taype_of_offer"], FILTER_SANITIZE_STRING));
     }
 
-
-//********************************  form_num_apartment **************************************************
+    //  form_num_apartment 
     if (empty($_POST["form_num_apartment"])) {
         $num_apartment_var_Err = "الرجاء ادخال عدد الشقق.";
         $_POST["form_num_apartment"] = '';
     }
     if (filter_has_var(INPUT_POST, 'form_num_apartment')) {
-
         $num_apartment_var = test_input(filter_var($_POST["form_num_apartment"], FILTER_SANITIZE_STRING));
     }
 
-//**************************************** check form_num_flor **********************************************
+    // check form_num_flor 
     if (empty($_POST["form_num_flor"])) {
         $num_flor_var_Err = "الرجاء ادخال عدد الطوابق.";
         $_POST["form_num_flor"] = '';
     }
     if (filter_has_var(INPUT_POST, 'form_num_flor')) {
-
         $num_flor_var = test_input(filter_var($_POST["form_num_flor"], FILTER_SANITIZE_STRING));
     }
 
-    //*********************************** check form_num_left **********************************************
+    // check form_num_left 
     if (empty($_POST["form_num_left"])) {
         $num_left_var_Err = "الرجاء ادخال عدد المصاعد.";
         $_POST["form_num_left"] = '';
     }
     if (filter_has_var(INPUT_POST, 'form_num_left')) {
-
         $num_left_var = test_input(filter_var($_POST["form_num_left"], FILTER_SANITIZE_STRING));
     }
 
-    //**************************** check form_num_parking ********************************
+    //  check form_num_parking 
     if (empty($_POST["form_num_parking"])) {
         $num_parking_var_Err = "الرجاء اختيار عدد المواقف.";
         $_POST["form_num_parking"] = '';
     }
     if (filter_has_var(INPUT_POST, 'form_num_parking')) {
-
         $num_parking_var = test_input(filter_var($_POST["form_num_parking"], FILTER_SANITIZE_STRING));
     }
-    //*************************** check form_num_Street *****************************************
+
+    // check form_num_Street 
     if (empty($_POST["form_num_Street"])) {
         $num_Street_var_Err = "الرجاءاختيار عدد الشوارع.";
         $_POST["form_num_Street"] = '';
@@ -271,7 +248,7 @@ if (isset($_POST['submit_form_add_building'])) {
 
         $num_Street_var = test_input(filter_var($_POST["form_num_Street"], FILTER_SANITIZE_STRING));
     }
-    //************************************* check    form_direction ********************************************
+    // check    form_direction 
     if (empty($_POST["form_direction"])) {
         $direction_var_Err = "الرجاء اختيار الواجهه.";
         $_POST["form_direction"] = '';
@@ -281,7 +258,7 @@ if (isset($_POST['submit_form_add_building'])) {
         $direction_var = test_input(filter_var($_POST["form_direction"], FILTER_SANITIZE_STRING));
     }
 
-//******************************************** check form_double_room *****************************************
+// check form_double_room 
     if (empty($_POST["form_double_room"])) {
         $double_room_var_Err = "الرجاء الرجاء الإختيار.";
         $_POST["form_double_room"] = '';
@@ -291,7 +268,7 @@ if (isset($_POST['submit_form_add_building'])) {
         $double_room_var = test_input(filter_var($_POST["form_double_room"], FILTER_SANITIZE_STRING));
     }
 
-//************************************* check form_triple_room *********************************************
+// check form_triple_room 
     if (empty($_POST["form_triple_room"])) {
         $_triple_room_var_Err = "الرجاء الرجاء الإختيار.";
         $_POST["form_triple_room"] = '';
@@ -300,7 +277,7 @@ if (isset($_POST['submit_form_add_building'])) {
 
         $_triple_room_var = test_input(filter_var($_POST["form_triple_room"], FILTER_SANITIZE_STRING));
     }
-//**************************************** check form_quad_room *******************************************
+// check form_quad_room 
     if (empty($_POST["form_quad_room"])) {
         $quad_room_var_Err = "الرجاء الرجاء الإختيار.";
         $_POST["form_quad_room"] = '';
@@ -310,7 +287,7 @@ if (isset($_POST['submit_form_add_building'])) {
         $quad_room_var = test_input(filter_var($_POST["form_quad_room"], FILTER_SANITIZE_STRING));
     }
 
-//******************************************* check form_features ***********************************************
+// check form_features 
     if (empty($_POST["form_features"])) {
         $features_var_Err = "الرجاء ادخال عدد المميزات إضافيه.";
         $_POST["form_features"] = '';
@@ -319,10 +296,10 @@ if (isset($_POST['submit_form_add_building'])) {
 
         $features_var = test_input(filter_var($_POST["form_features"], FILTER_SANITIZE_STRING));
     }
-// ******************************************** form_add_building *********************** end
+//  form_add_building  end
 
 
-// ******************************************** SQL_add_building *********************** start
+//  SQL_add_building  start
 
     $sql = 'insert into building  (id,Numberofapartments,Numberoftsrees,Features,Apartmenttype,space,AgeOfProperty,type_of_offer)
                    values(:itid,:itNumberofapartments,:itNumberoftsrees,:itFeatures,:itApartmenttype,:itspace,:itAgeOfProperty,:ittype_of_offer)';
@@ -349,7 +326,7 @@ if (isset($_POST['submit_form_add_building'])) {
 if (isset($_POST['submit_form_ِِAdd_studio'])) {
 
 
-// *********************  defined variable     $var_Type_Offer   *******************************************
+//   defined variable     $var_Type_Offer   
     if (empty($_POST["Form_Type_Offer"])) {
         $var_Type_Offer_err = "الرجاء أختيار نوع العرض";
         $_POST["Form_Type_Offer"] = '';
@@ -359,7 +336,7 @@ if (isset($_POST['submit_form_ِِAdd_studio'])) {
         $var_Type_Offer = test_input(filter_var($_POST['Form_Type_Offer'], filter_sanitize_string));
     }
 
-// *********************  defined variable    $var_Direction   *******************************************
+//   defined variable    $var_Direction   
     if (empty($_POST["Form_Direction"]))
     {
         $var_Direction_err = "الرجاء الاختيار ";
@@ -370,7 +347,7 @@ if (isset($_POST['submit_form_ِِAdd_studio'])) {
         $var_Direction = test_input(filter_var($_POST['Form_Direction'], filter_sanitize_string));
     }
 
-// *********************  defined variable    $var_Number_Toilets   *******************************************
+//   defined variable    $var_Number_Toilets   
     if (empty($_POST["Form_Number_Toilets"]))
     {
         $var_Number_Toilets_err = "الرجاء ألاختيار ";
@@ -381,7 +358,7 @@ if (isset($_POST['submit_form_ِِAdd_studio'])) {
         $var_Number_Toilets = test_input(filter_var($_POST['Form_Number_Toilets'], filter_sanitize_string));
     }
 
-// *********************  defined variable    $var_Types_Toilets   *******************************************
+//   defined variable    $var_Types_Toilets   
     if (empty($_POST["Form_Types_Toilets"]))
     {
         $var_Types_Toilets_err = "الرجاء ألاختيار ";
@@ -392,7 +369,7 @@ if (isset($_POST['submit_form_ِِAdd_studio'])) {
         $var_Types_Toilets = test_input(filter_var($_POST['Form_Types_Toilets'], filter_sanitize_string));
     }
 
-// *********************  defined variable    $var_Meeting_Rooms   *******************************************
+//   defined variable    $var_Meeting_Rooms   
     if (empty($_POST["Form_Meeting_Rooms"]))
     {
         $var_Meeting_Rooms_err = "الرجاء ألاختيار ";
@@ -403,7 +380,7 @@ if (isset($_POST['submit_form_ِِAdd_studio'])) {
         $var_Meeting_Rooms = test_input(filter_var($_POST['Form_Meeting_Rooms'], filter_sanitize_string));
     }
 
-// *********************  defined variable    $var_Date   *******************************************
+//   defined variable    $var_Date   
     if (empty($_POST["Form_Date"]))
     {
         $var_Date_err = "الرجاء ألاختيار ";
@@ -421,215 +398,178 @@ if (isset($_POST['submit_form_ِِAdd_studio'])) {
 
 
 }
-// ************************************ SQL_add_building ********************************* end
 
-
-// ***********************************  form_add_hotel  ***********************************  start
-if (isset($_POST['submit_form_add_hotel'])) {
-//*************************************  form_TypeOfOffer    *********************************
+    //   form_add_hotel
+    if (isset($_POST['submit_form_add_hotel'])) {
+    //  form_TypeOfOffer
     if (empty($_POST["form_TypeOfOffer"])) {
         $TypeOfOffer_var_Err = "الرجاء ادخال نوع العرض .";
         $_POST["form_TypeOfOffer"] = '';
     }
     if (filter_has_var(INPUT_POST, 'form_TypeOfOffer')) {
-
         $TypeOfOffer_var = test_input(filter_var($_POST["form_TypeOfOffer"], FILTER_SANITIZE_STRING));
     }
 
-//*************************************  form_numberofrooms     *********************************
+    //  form_numberofrooms
     if (empty($_POST["form_numberofrooms"])) {
         $numberofrooms_var_Err = "الرجاء ادخال عدد الغرف .";
         $_POST["form_numberofrooms"] = '';
     }
     if (filter_has_var(INPUT_POST, 'form_numberofrooms')) {
-
         $numberofrooms_var = test_input(filter_var($_POST["form_numberofrooms"], FILTER_SANITIZE_STRING));
     }
 
-// ***********************************  form_numberofwings   *************************************
-
+    //   form_numberofwings
     if (empty($_POST["form_numberofwings"])) {
         $numberofwings_var_Err = "الرجاء ادخال عدد الأجنحه .";
         $_POST["form_numberofwings"] = '';
     }
     if (filter_has_var(INPUT_POST, 'form_numberofwings')) {
-
         $numberofwings_var = test_input(filter_var($_POST["form_numberofwings"], FILTER_SANITIZE_STRING));
     }
 
-//*************************************   form_thenumberoffloors   *********************************
-
+   //   form_thenumberoffloors
     if (empty($_POST["form_thenumberoffloors"])) {
         $thenumberoffloors_var_Err = "الرجاء ادخال عدد الأدوار .";
         $_POST["form_thenumberoffloors"] = '';
     }
     if (filter_has_var(INPUT_POST, 'form_thenumberoffloors')) {
-
         $thenumberoffloors_var = test_input(filter_var($_POST["form_thenumberoffloors"], FILTER_SANITIZE_STRING));
     }
 
-//*************************************  form_numberoflifts     *********************************
-
+    //  form_numberoflifts
     if (empty($_POST["form_numberoflifts"])) {
         $numberoflifts_var_Err = "الرجاء ادخال عدد المصاعد .";
         $_POST["form_numberoflifts"] = '';
     }
     if (filter_has_var(INPUT_POST, 'form_numberoflifts')) {
-
         $numberoflifts_var = test_input(filter_var($_POST["form_numberoflifts"], FILTER_SANITIZE_STRING));
     }
 
-//*************************************   form_Numberofmeetingroom   *********************************
-
+    //   form_Numberofmeetingroom
     if (empty($_POST["form_Numberofmeetingroom"])) {
         $Numberofmeetingroom_var_Err = "الرجاء ادخال عدد غرف الإجتماعات .";
         $_POST["form_Numberofmeetingroom"] = '';
     }
     if (filter_has_var(INPUT_POST, 'form_Numberofmeetingroom')) {
-
         $Numberofmeetingroom_var = test_input(filter_var($_POST["form_Numberofmeetingroom"], FILTER_SANITIZE_STRING));
     }
 
-//*************************************   form_numberofwarehouses   *********************************
-
+    //   form_numberofwarehouses
     if (empty($_POST["form_numberofwarehouses"])) {
         $numberofwarehouses_var_Err = "الرجاء ادخال عدد المستودعات .";
         $_POST["form_numberofwarehouses"] = '';
     }
     if (filter_has_var(INPUT_POST, 'form_numberofwarehouses')) {
-
         $numberofwarehouses_var = test_input(filter_var($_POST["form_numberofwarehouses"], FILTER_SANITIZE_STRING));
     }
 
-//*************************************   form_Numberofrestaurants  *********************************
-
+    //   form_Numberofrestaurants
     if (empty($_POST["form_Numberofrestaurants"])) {
         $Numberofrestaurants_Err = "الرجاء ادخالعدد المطاعم .";
         $_POST["form_Numberofrestaurants"] = '';
     }
     if (filter_has_var(INPUT_POST, 'form_Numberofrestaurants')) {
-
         $Numberofrestaurants_var = test_input(filter_var($_POST["form_Numberofrestaurants"], FILTER_SANITIZE_STRING));
     }
 
-//*************************************  form_numberofkitchens  *********************************
-
+    //  form_numberofkitchens
     if (empty($_POST["form_numberofkitchens"])) {
         $numberofkitchens_var_Err = "الرجاء ادخال عدد المطابخ .";
         $_POST["form_numberofkitchens"] = '';
     }
     if (filter_has_var(INPUT_POST, 'form_numberofkitchens')) {
-
         $numberofkitchens_var = test_input(filter_var($_POST["form_numberofkitchens"], FILTER_SANITIZE_STRING));
     }
 
-//*************************************                   *********************************
-    /*
-        if (empty($_POST["form_Supplementnumber"])) {
-            $Supplementnumber_var_Err = "الرجاء ادخال عدد الملاحق .";
-            $_POST["form_Supplementnumber"] = '';
-        }
-        if (filter_has_var(INPUT_POST, 'form_Supplementnumber')) {
+    // form_Supplementnumber
+    if (empty($_POST["form_Supplementnumber"])) {
+        $Supplementnumber_var_Err = "الرجاء ادخال عدد الملاحق .";
+        $_POST["form_Supplementnumber"] = '';
+    }
+    if (filter_has_var(INPUT_POST, 'form_Supplementnumber')) {
+        $Supplementnumber_var = test_input(filter_var($_POST["form_Supplementnumber"], FILTER_SANITIZE_STRING));
+    }
 
-            $Supplementnumber_var = test_input(filter_var($_POST["form_Supplementnumber"], FILTER_SANITIZE_STRING));
-        }
-    */
-//************************************* form_Numberofparking       *********************************
-
+    // form_Numberofparking
     if (empty($_POST["form_Numberofparking"])) {
         $Numberofparking_var_Err = "الرجاء ادخال عدد المواقف .";
         $_POST["form_Numberofparking"] = '';
     }
     if (filter_has_var(INPUT_POST, 'form_Numberofparking')) {
-
         $Numberofparking_var = test_input(filter_var($_POST["form_Numberofparking"], FILTER_SANITIZE_STRING));
     }
 
-//************************************* form_numberofstreet *********************************
-
+    // form_numberofstreet
     if (empty($_POST["form_numberofstreet"])) {
         $numberofstreet_var_Err = "الرجاء ادخال عدد الشوارع .";
         $_POST["form_numberofstreet"] = '';
     }
     if (filter_has_var(INPUT_POST, 'form_numberofstreet')) {
-
         $numberofstreet_var = test_input(filter_var($_POST["form_numberofstreet"], FILTER_SANITIZE_STRING));
     }
 
-//*************************************  form_Reception    *********************************
-
+    //  form_Reception
     if (empty($_POST["form_Reception"])) {
         $Reception_var_Err = "الرجاء ادخال عدد الإستقبال .";
         $_POST["form_Reception"] = '';
     }
     if (filter_has_var(INPUT_POST, 'form_Reception')) {
-
         $Reception_var = test_input(filter_var($_POST["form_Reception"], FILTER_SANITIZE_STRING));
     }
 
-//*************************************  form_Typeoftoilets  *********************************
-
+    //  form_Typeoftoilets
     if (empty($_POST["form_Typeoftoilets"])) {
         $Typeoftoilets_var_Err = "الرجاء ادخال نوع دورات المياه .";
         $_POST["form_Typeoftoilets"] = '';
     }
     if (filter_has_var(INPUT_POST, 'form_Typeoftoilets')) {
-
         $Typeoftoilets_var = test_input(filter_var($_POST["form_Typeoftoilets"], FILTER_SANITIZE_STRING));
     }
 
-//*************************************  form_diraction   *********************************
-
+    //  form_direction
     if (empty($_POST["form_diraction"])) {
         $diraction_var_Err = "الرجاء ادخال الإتجاه.";
         $_POST["form_diraction"] = '';
     }
     if (filter_has_var(INPUT_POST, 'form_diraction')) {
-
         $diraction_var = test_input(filter_var($_POST["form_diraction"], FILTER_SANITIZE_STRING));
     }
 
-//*************************************  form_Features   *********************************
-
+    //  form_Features
     if (empty($_POST["form_Features"])) {
         $Features_var_Err = "الرجاء ادخال المميزات الإضافيه  .";
         $_POST["form_Features"] = '';
     }
     if (filter_has_var(INPUT_POST, 'form_Features')) {
-
         $Features_var = test_input(filter_var($_POST["form_Features"], FILTER_SANITIZE_STRING));
     }
 
-//*************************************  check form_space                 *********************************
-
+    //  check form_space
     if (empty($_POST["form_space"])) {
         $space_var_Err = "الرجاء ادخال المساحه.";
         $_POST["form_space"] = '';
     }
     if (filter_has_var(INPUT_POST, 'form_space')) {
-
         $space_var = test_input(filter_var($_POST["form_space"], FILTER_SANITIZE_STRING));
     }
 
-//*************************************  form_AgeOfProperty   *********************************
-
+    //  form_AgeOfProperty
     if (empty($_POST["form_AgeOfProperty"])) {
         $AgeOfProperty_var_Err = "الرجاء ادخال عمر العقار .";
         $_POST["form_AgeOfProperty"] = '';
     }
     if (filter_has_var(INPUT_POST, 'form_AgeOfProperty')) {
-
         $AgeOfProperty_var = test_input(filter_var($_POST["form_AgeOfProperty"], FILTER_SANITIZE_STRING));
     }
 
-//*************************************  form add hotel ********************************* end
-
-//************************************* sql add hotel *********************************  start
-
-    $sql = 'insert into hotel 
-    (id,TypeOfOffer,numberofrooms,numberofwings,thenumberoffloors,numberoflifts, Numberofmeetingroom,numberofwarehouses, Numberofrestaurants,numberofkitchens,/*Supplementnumber,*/Numberofparking,numberofstreet,Reception,Typeoftoilets,diraction,Features,space,AgeOfProperty)
-  values(:itid,:itTypeOfOffer,:itnumberofrooms,:itnumberofwings,:itthenumberoffloors,:itnumberoflifts,:itNumberofmeetingroom,:itnumberofwarehouses,:itNumberofrestaurants,:itnumberofkitchens,/*:itSupplementnumber,*/:itNumberofparking,:itnumberofstreet,:itReception,:itTypeoftoilets,:itdiraction,:itFeatures,:itspace,:itAgeOfProperty
-)';
+    // sql add hotel   start
+    $sql = 'insert into hotel  (id,TypeOfOffer,numberofrooms,numberofwings,thenumberoffloors,numberoflifts,
+                    Numberofmeetingroom,numberofwarehouses, Numberofrestaurants,numberofkitchens,Supplementnumber,
+                    Numberofparking,numberofstreet,Reception,Typeoftoilets,diraction,Features,space,AgeOfProperty)
+          values(:itid,:itTypeOfOffer,:itnumberofrooms,:itnumberofwings,:itthenumberoffloors,:itnumberoflifts,:itNumberofmeetingroom,
+                :itnumberofwarehouses,:itNumberofrestaurants,:itnumberofkitchens,:itSupplementnumber,:itNumberofparking,:itnumberofstreet,
+             :itReception,:itTypeoftoilets,:itdiraction,:itFeatures,:itspace,:itAgeOfProperty)';
 
     if (isset($pdo)) {
         $stmt = $pdo->prepare($sql);
@@ -637,58 +577,39 @@ if (isset($_POST['submit_form_add_hotel'])) {
 
     $stmt->execute($r = array(
         'itid'                       => null,
-        'itTypeOfOffer'              => $TypeOfOffer_var,
-        'itnumberofrooms'            => $numberofrooms_var,
-        'itnumberofwings'            => $numberofwings_var,
-        'itthenumberoffloors'        => $thenumberoffloors_var,
-        'itnumberoflifts'            => $numberoflifts_var,
-        'itNumberofmeetingroom'      => $Numberofmeetingroom_var,
-        'itnumberofwarehouses'       => $numberofwarehouses_var,
-        'itNumberofrestaurants'      => $Numberofrestaurants_var,
-        'itnumberofkitchens'         => $numberofkitchens_var,
+        'itTypeOfOffer'              => $TypeOfOffer_var,          'itnumberofrooms'             => $numberofrooms_var,
+        'itnumberofwings'            => $numberofwings_var,         'itthenumberoffloors'        => $thenumberoffloors_var,
+        'itnumberoflifts'            => $numberoflifts_var,         'itNumberofmeetingroom'      => $Numberofmeetingroom_var,
+        'itnumberofwarehouses'       => $numberofwarehouses_var,    'itNumberofrestaurants'      => $Numberofrestaurants_var,
+        'itnumberofkitchens'         => $numberofkitchens_var,      'itNumberofparking'          => $Numberofparking_var,
+        'itnumberofstreet'           => $numberofstreet_var,        'itReception'                => $Reception_var,
+        'itTypeoftoilets'            => $Typeoftoilets_var,         'itdiraction'                => $diraction_var,
+        'itFeatures'                 => $Features_var,              'itspace'                    => $space_var,
+        'itAgeOfProperty'            => $AgeOfProperty_var));
+   }
 
-        'itNumberofparking'          => $Numberofparking_var,
-        'itnumberofstreet'           => $numberofstreet_var,
-        'itReception'                => $Reception_var,
-        'itTypeoftoilets'            => $Typeoftoilets_var,
-        'itdiraction'                => $diraction_var,
-        'itFeatures'                 => $Features_var,
-        'itspace'                    => $space_var,
-        'itAgeOfProperty'            => $AgeOfProperty_var
-    ));
-// 'itSupplementnumber'         => $Supplementnumber_var,
-// ***********************************  sql_add_hotel  *****************************  end
+    //   form_add_villa
+    if (isset($_POST['submit_form_add_villa'])) {
 
-}
-// ***********************************  form_add_hotel  ******************************  end
-
-
-// ***********************************  form_add_villa *****************************  start
-if (isset($_POST['submit_form_add_villa'])) {
-//************************************* form_TypeOfOffer  *********************************
-
+    // form_TypeOfOffer
     if (empty($_POST["form_TypeOfOffer"])) {
         $TypeOfOffer_var_Err = "الرجاء ادخال نوع العرض .";
         $_POST["form_TypeOfOffer"] = '';
     }
     if (filter_has_var(INPUT_POST, 'form_TypeOfOffer')) {
-
         $TypeOfOffer_var = test_input(filter_var($_POST["form_TypeOfOffer"], FILTER_SANITIZE_STRING));
     }
 
-//*************************************  form_Numberoftoilets  *********************************
-
+    //  form_Numberoftoilets
     if (empty($_POST["form_Numberoftoilets"])) {
         $Numberoftoilets_var_Err = "الرجاء ادخال عدد دورات المياه .";
         $_POST["form_Numberoftoilets"] = '';
     }
     if (filter_has_var(INPUT_POST, 'form_Numberoftoilets')) {
-
         $Numberoftoilets_var = test_input(filter_var($_POST["form_Numberoftoilets"], FILTER_SANITIZE_STRING));
     }
 
-//*************************************  form_numberofwings   *********************************
-
+    //  form_numberofwings
     if (empty($_POST["form_numberofwings"])) {
         $numberofwings_var_Err = "الرجاء ادخال عددالأجنحه .";
         $_POST["form_numberofwings"] = '';
@@ -698,7 +619,7 @@ if (isset($_POST['submit_form_add_villa'])) {
         $numberofwings_var = test_input(filter_var($_POST["form_numberofwings"], FILTER_SANITIZE_STRING));
     }
 
-    //*************************************   form_Numberoflounges    *********************************
+    //   form_Numberoflounges    
 
     if (empty($_POST["form_Numberoflounges"])) {
         $Numberoflounges_var_Err = "الرجاء ادخال عدد الصالات .";
@@ -709,7 +630,7 @@ if (isset($_POST['submit_form_add_villa'])) {
         $Numberoflounges_var = test_input(filter_var($_POST["form_Numberoflounges"], FILTER_SANITIZE_STRING));
     }
 
-    //**************************    form_Numberofkitchen    *********************************
+    //    form_Numberofkitchen    
 
     if (empty($_POST["form_Numberofkitchen"])) {
         $Numberofkitchen_var_Err = "الرجاء ادخال عدد المطابخ .";
@@ -720,7 +641,7 @@ if (isset($_POST['submit_form_add_villa'])) {
         $Numberofkitchen_var = test_input(filter_var($_POST["form_Numberofkitchen"], FILTER_SANITIZE_STRING));
     }
 
-//************************************* form_Numberofbedrooms   *********************************
+// form_Numberofbedrooms   
     if (empty($_POST["form_Numberofbedrooms"])) {
         $Numberofbedrooms_var_Err = "الرجاء ادخال عدد غرف النوم  .";
         $_POST["form_Numberofbedrooms"] = '';
@@ -730,7 +651,7 @@ if (isset($_POST['submit_form_add_villa'])) {
         $Numberofbedrooms_var = test_input(filter_var($_POST["form_Numberofbedrooms"], FILTER_SANITIZE_STRING));
     }
 
-//************************************* form_BoardNumber  *********************************
+// form_BoardNumber  
 
     if (empty($_POST["form_BoardNumber"])) {
         $BoardNumber_var_Err = "الرجاء ادخال عدد المجلس .";
@@ -741,7 +662,7 @@ if (isset($_POST['submit_form_add_villa'])) {
         $BoardNumber_var = test_input(filter_var($_POST["form_BoardNumber"], FILTER_SANITIZE_STRING));
     }
 
-//************************************* form_Numberofclippers  *********************************
+// form_Numberofclippers  
 
     if (empty($_POST["form_Numberofclippers"])) {
         $Numberofclippers_var_Err = "الرجاء ادخال عدد المقلط .";
@@ -752,7 +673,7 @@ if (isset($_POST['submit_form_add_villa'])) {
         $Numberofclippers_var = test_input(filter_var($_POST["form_Numberofclippers"], FILTER_SANITIZE_STRING));
     }
 
-//************************************* form_Numberofwarehouse     *********************************
+// form_Numberofwarehouse     
     if (empty($_POST["form_Numberofwarehouse"])) {
         $Numberofwarehouse_var_Err = "الرجاء ادخال عدد المستودعات .";
         $_POST["form_Numberofwarehouse"] = '';
@@ -762,7 +683,7 @@ if (isset($_POST['submit_form_add_villa'])) {
         $Numberofwarehouse_var = test_input(filter_var($_POST["form_Numberofwarehouse"], FILTER_SANITIZE_STRING));
     }
 
-//*************************************  form_numberofstreet  *********************************
+//  form_numberofstreet  
 
 
     if (empty($_POST["form_numberofstreet"])) {
@@ -774,7 +695,7 @@ if (isset($_POST['submit_form_add_villa'])) {
         $numberofstreet_var = test_input(filter_var($_POST["form_numberofstreet"], FILTER_SANITIZE_STRING));
     }
 
-//*************************************  form_Typeoftoilets   *********************************
+//  form_Typeoftoilets   
 
     if (empty($_POST["form_Typeoftoilets"])) {
         $Typeoftoilets_var_Err = "الرجاء ادخال نوع دورات المياه .";
@@ -785,7 +706,7 @@ if (isset($_POST['submit_form_add_villa'])) {
         $Typeoftoilets_var = test_input(filter_var($_POST["form_Typeoftoilets"], FILTER_SANITIZE_STRING));
     }
 
-//*************************************  form_typeofkitchen  *********************************
+//  form_typeofkitchen  
 
     if (empty($_POST["form_typeofkitchen"])) {
         $typeofkitchen_var_Err = "الرجاء ادخال نوع المطبخ .";
@@ -796,7 +717,7 @@ if (isset($_POST['submit_form_add_villa'])) {
         $typeofkitchen_var = test_input(filter_var($_POST["form_typeofkitchen"], FILTER_SANITIZE_STRING));
     }
 
-//*************************************  form_diraction   *********************************
+//  form_diraction   
 
     if (empty($_POST["form_diraction"])) {
         $diraction_var_Err = "الرجاء ادخال الإتجاه.";
@@ -808,7 +729,7 @@ if (isset($_POST['submit_form_add_villa'])) {
     }
 
 
-//******************************************* check form_features ***********************************************
+// check form_features 
     if (empty($_POST["form_features"])) {
         $features_var_Err = "الرجاء ادخال عدد المميزات إضافيه.";
         $_POST["form_features"] = '';
@@ -817,7 +738,7 @@ if (isset($_POST['submit_form_add_villa'])) {
 
         $features_var = test_input(filter_var($_POST["form_features"], FILTER_SANITIZE_STRING));
     }
-    //************************************** check  form_space *******************************************
+    // check  form_space 
     if (empty($_POST["form_space"])) {
         $space_var_Err = "الرجاء كتابة المساحه";
         $_POST["form_space"] = '';
@@ -826,7 +747,7 @@ if (isset($_POST['submit_form_add_villa'])) {
 
         $space_var = test_input(filter_var($_POST["form_space"], FILTER_SANITIZE_STRING));
     }
-    //************************************* form_numberofwarehouses  *********************************
+    // form_numberofwarehouses  
 
     if (empty($_POST["form_numberofwarehouses"])) {
         $numberofwarehouses_var_Err = "الرجاء ادخال عدد المستودعات .";
@@ -838,7 +759,7 @@ if (isset($_POST['submit_form_add_villa'])) {
     }
 
 
-//********************************** check form_AgeOfProperty ******************************************
+// check form_AgeOfProperty 
     if (empty($_POST["form_AgeOfProperty"])) {
         $AgeOfProperty_var_Err = "الرجاء ادخال عمر العقار.";
         $_POST["form_AgeOfProperty"] = '';
@@ -848,9 +769,9 @@ if (isset($_POST['submit_form_add_villa'])) {
         $AgeOfProperty_var = test_input(filter_var($_POST["form_AgeOfProperty"], FILTER_SANITIZE_STRING));
     }
 
-//*************************************  form add villa          ********************************* end
+//  form add villa           end
 
-//*************************************  sql add villa **************** ********************************* start
+//  sql add villa   start
 
     $sql = 'insert into villa (id,numberofstreet,TypeOfOffer,Numberoftoilets,numberofwings,Numberoflounges,Numberofkitchen,Numberofclippers,numberofwarehouses,Typeoftoilets,diraction,Features,space,AgeOfProperty,typeofkitchen)
      values(:itid,:itnumberofstreet,:itTypeOfOffer,:itNumberoftoilets,:itnumberofwings,:itNumberoflounges,:itNumberofkitchen,:itNumberofclippers,:itnumberofwarehouses,:itTypeoftoilets,:itdiraction,:itFeatures,:itspace,:itAgeOfProperty,:ittypeofkitchen)';
@@ -879,15 +800,13 @@ if (isset($_POST['submit_form_add_villa'])) {
 
 
     ));
- // ***********************************  sql_add_villa ****************************************  end
+    //   sql_add_villa   end
 
 }
-// ***********************************  form_add_villa *****************************  end
 
-
-// ***********************************  form_add_shop *****************************  start
-if(isset($_POST['submit_form_add_shop'])){
-    //*************************************  form_TypeOfOffer   *********************************
+    //   form_add_shop
+    if(isset($_POST['submit_form_add_shop'])){
+    //  form_TypeOfOffer   
     if (empty($_POST["form_TypeOfOffer"])) {
         $TypeOfOffer_var_Err = "الرجاء ادخال نوع العرض .";
         $_POST["form_TypeOfOffer"] = '';
@@ -896,7 +815,7 @@ if(isset($_POST['submit_form_add_shop'])){
 
         $TypeOfOffer_var = test_input(filter_var($_POST["form_TypeOfOffer"], FILTER_SANITIZE_STRING));
     }
-//************************************* form_Numberoftoilets  *********************************
+// form_Numberoftoilets  
 
     if (empty($_POST["form_Numberoftoilets"])) {
         $Numberoftoilets_var_Err = "الرجاء ادخال عدد دورات المياه .";
@@ -907,7 +826,7 @@ if(isset($_POST['submit_form_add_shop'])){
         $Numberoftoilets_var = test_input(filter_var($_POST["form_Numberoftoilets"], FILTER_SANITIZE_STRING));
     }
 
-//************************************* form_numberofstreet *********************************
+// form_numberofstreet 
 
     if (empty($_POST["form_numberofstreet"])) {
         $numberofstreet_var_Err = "الرجاء ادخال عدد الشوارع .";
@@ -918,7 +837,7 @@ if(isset($_POST['submit_form_add_shop'])){
         $numberofstreet_var = test_input(filter_var($_POST["form_numberofstreet"], FILTER_SANITIZE_STRING));
     }
 
-//*************************************  form_numberofroles *********************************
+//  form_numberofroles 
 
     if (empty($_POST["form_numberofroles"])) {
         $numberofroles_var_Err = "الرجاء ادخال عدد الأدوار .";
@@ -929,7 +848,7 @@ if(isset($_POST['submit_form_add_shop'])){
         $numberofroles_var = test_input(filter_var($_POST["form_numberofroles"], FILTER_SANITIZE_STRING));
     }
 
-//************************************* form_Warehousenumber  *********************************
+// form_Warehousenumber  
 
     if (empty($_POST["form_Warehousenumber"])) {
         $Warehousenumber_var_Err = "الرجاء ادخال عدد المستودعات .";
@@ -940,7 +859,7 @@ if(isset($_POST['submit_form_add_shop'])){
         $Warehousenumber_var = test_input(filter_var($_POST["form_Warehousenumber"], FILTER_SANITIZE_STRING));
     }
 
-//************************************* form_Typeoftoilets *********************************
+// form_Typeoftoilets 
 
     if (empty($_POST["form_Typeoftoilets"])) {
         $Typeoftoilets_var_Err = "الرجاء ادخال نوع دورات المياه .";
@@ -951,7 +870,7 @@ if(isset($_POST['submit_form_add_shop'])){
         $Typeoftoilets_var = test_input(filter_var($_POST["form_Typeoftoilets"], FILTER_SANITIZE_STRING));
     }
 
-//*************************************  form_diraction  *********************************
+//  form_diraction  
 
     if (empty($_POST["form_diraction"])) {
         $diraction_var_Err = "الرجاء ادخال الإتجاه.";
@@ -962,7 +881,7 @@ if(isset($_POST['submit_form_add_shop'])){
         $diraction_var = test_input(filter_var($_POST["form_diraction"], FILTER_SANITIZE_STRING));
     }
 
-//************************************* form_Features *********************************
+// form_Features 
 
     if (empty($_POST["form_Features"])) {
         $Features_var_Err = "الرجاء ادخال المميزات الإضافيه  .";
@@ -973,64 +892,50 @@ if(isset($_POST['submit_form_add_shop'])){
         $Features_var = test_input(filter_var($_POST["form_Features"], FILTER_SANITIZE_STRING));
     }
 
-//*************************************  form_space *********************************
-
+    //  form_space
     if (empty($_POST["form_space"])) {
         $space_var_Err = "الرجاء ادخال المساحه.";
         $_POST["form_space"] = '';
     }
     if (filter_has_var(INPUT_POST, 'form_space')) {
-
         $space_var = test_input(filter_var($_POST["form_space"], FILTER_SANITIZE_STRING));
     }
 
-//*************************************  form_AgeOfProperty   *********************************
-
+    //  form_AgeOfProperty
     if (empty($_POST["form_AgeOfProperty"])) {
         $AgeOfProperty_var_Err = "الرجاء ادخال عمر العقار .";
         $_POST["form_AgeOfProperty"] = '';
     }
     if (filter_has_var(INPUT_POST, 'form_AgeOfProperty')) {
-
         $AgeOfProperty_var = test_input(filter_var($_POST["form_AgeOfProperty"], FILTER_SANITIZE_STRING));
     }
 
-//*************************************  form add shop ********************************* end
 
-//*************************************  sql add shop ********************************* start
-
-    $sql = 'insert into shop  (id,TypeOfOffer,Numberoftoilets,numberofstreet,numberofroles,Warehousenumber,Typeoftoilets,diraction,Features,space,AgeOfProperty)
-  values(:itid,:itTypeOfOffer,:itNumberoftoilet,:itnumberofstreet,:itnumberofroles,:itWarehousenumber,:itTypeoftoilets,:itdiraction,:itFeatures,:itspace,:itAgeOfProperty
-)';
+    //  sql add shop  start
+    $sql = 'insert into shop  (id,TypeOfOffer,Numberoftoilets,numberofstreet,numberofroles,Warehousenumber,
+                   Typeoftoilets,diraction,Features,space,AgeOfProperty)
+            values(:itid,:itTypeOfOffer,:itNumberoftoilet,:itnumberofstreet,:itnumberofroles,:itWarehousenumber,
+                   :itTypeoftoilets,:itdiraction,:itFeatures,:itspace,:itAgeOfProperty)';
 
     if (isset($pdo)) {
         $stmt = $pdo->prepare($sql);
     }
 
     $stmt->execute($r = array(
-        'itid'    => null,
-        'itTypeOfOffer'    => $TypeOfOffer_var,
-        'itNumberoftoilet'   =>$Numberoftoilets_var,
-        'itnumberofstreet'   =>  $numberofstreet_var,
-        'itnumberofroles' =>  $numberofroles_var,
-        'itWarehousenumber'  => $Warehousenumber_var,
-        'itTypeoftoilets'  => $Typeoftoilets_var,
-        'itdiraction'  => $diraction_var,
-        'itFeatures'  => $Features_var,
-        'itspace'  => $space_var,
-        'itAgeOfProperty'=> $AgeOfProperty_var
-    ));
+        'itid' => null,
+        'itTypeOfOffer'     => $TypeOfOffer_var,       'itNumberoftoilet' => $Numberoftoilets_var,
+        'itnumberofstreet'  => $numberofstreet_var,    'itnumberofroles'  => $numberofroles_var,
+        'itWarehousenumber' => $Warehousenumber_var,   'itTypeoftoilets'  => $Typeoftoilets_var,
+        'itdiraction'       => $diraction_var,         'itFeatures'       => $Features_var,
+        'itspace'           => $space_var,             'itAgeOfProperty'  => $AgeOfProperty_var));
 
-//*************************************  sql add shop ********************************* end
+//  sql add shop  end
 
 }
-// ***********************************  form_add_shop *****************************  end
 
-
-
-//*************************************  form add land ********************************* start
-if(isset($_POST['submit_form_add_land'])){
-    //************************************* form_TypeOfOffer   *********************************
+    //  form add land
+    if(isset($_POST['submit_form_add_land'])){
+    // form_TypeOfOffer
 
     if (empty($_POST["form_TypeOfOffer"])) {
         $TypeOfOffer_var_Err = "الرجاء ادخال نوع العرض .";
@@ -1041,7 +946,7 @@ if(isset($_POST['submit_form_add_land'])){
         $TypeOfOffer_var = test_input(filter_var($_POST["form_TypeOfOffer"], FILTER_SANITIZE_STRING));
     }
 
-//************************************* form_numberofstreet  *********************************
+// form_numberofstreet  
 
     if (empty($_POST["form_numberofstreet"])) {
         $numberofstreet_var_Err = "الرجاء ادخال عدد الشوارع .";
@@ -1052,7 +957,7 @@ if(isset($_POST['submit_form_add_land'])){
         $numberofstreet_var = test_input(filter_var($_POST["form_numberofstreet"], FILTER_SANITIZE_STRING));
     }
 
-//************************************* form_diraction  *********************************
+// form_diraction  
 
     if (empty($_POST["form_diraction"])) {
         $diraction_var_Err = "الرجاء ادخال الإتجاه.";
@@ -1063,7 +968,7 @@ if(isset($_POST['submit_form_add_land'])){
         $diraction_var = test_input(filter_var($_POST["form_diraction"], FILTER_SANITIZE_STRING));
     }
 
-//************************************* form_Typeofinstrument *********************************
+// form_Typeofinstrument 
 
     if (empty($_POST["form_Typeofinstrument"])) {
         $Typeofinstrument_var_Err = "الرجاء ادخال نوع الصك.";
@@ -1075,7 +980,7 @@ if(isset($_POST['submit_form_add_land'])){
     }
 
 
- //************************************** check  form_space *******************************************
+    // check  form_space
     if (empty($_POST["form_space"])) {
         $space_var_Err = "الرجاء كتابة المساحه";
         $_POST["form_space"] = '';
@@ -1084,7 +989,7 @@ if(isset($_POST['submit_form_add_land'])){
 
         $space_var = test_input(filter_var($_POST["form_space"], FILTER_SANITIZE_STRING));
     }
-//********************************** check form_AgeOfProperty ******************************************
+// check form_AgeOfProperty 
     if (empty($_POST["form_AgeOfProperty"])) {
         $AgeOfProperty_var_Err = "الرجاء ادخال عمر العقار.";
         $_POST["form_AgeOfProperty"] = '';
@@ -1095,8 +1000,7 @@ if(isset($_POST['submit_form_add_land'])){
     }
 
 
-
-//************************************* form_Features  *********************************
+// form_Features
 
     if (empty($_POST["form_Features"])) {
         $Features_var_Err = "الرجاء ادخال المميزات الإضافيه  .";
@@ -1106,7 +1010,7 @@ if(isset($_POST['submit_form_add_land'])){
 
         $Features_var = test_input(filter_var($_POST["form_Features"], FILTER_SANITIZE_STRING));
     }
-    // ******************************** check form_priceofonemeter ******************************************
+    //  check form_priceofonemeter 
     if (empty($_POST["form_priceofonemeter"])) {
         $priceofonemeter_var_Err = "الرجاء ادخال سعر المتر.";
         $_POST["form_priceofonemeter"] = '';
@@ -1117,8 +1021,7 @@ if(isset($_POST['submit_form_add_land'])){
     }
 
 
-
-    //*************************************** sql add land **************************************   start
+    // sql add land    start
     $sql=  'insert into land (id,TypeOfOffer, numberofstreet,diraction,Typeofinstrument , space,priceofonemeter, AgeOfProperty )
                     values(:itid,:tiTypeOfOffer, :itnumberofstreet,
                            :itdiraction, :itTypeofinstrument , :itspace,
@@ -1140,15 +1043,12 @@ if(isset($_POST['submit_form_add_land'])){
 
     ));
 
-    //****************************************** sql add land  ******************************* end
+    // sql add land   end
 }
-//*************************************  form add land ********************************* end
 
-
-//*************************************** form add farm ******************************* start
-if(isset($_POST['submit_form_add_farm']))
-{
-    //************************************* form_Numberofwells  *********************************
+    // form add farm
+    if(isset($_POST['submit_form_add_farm'])){
+    // form_Numberofwells  
     if (empty($_POST["form_Numberofwells"])) {
         $Numberofwells_var_Err = "الرجاء ادخال عدد الأبار .";
         $_POST["form_Numberofwells"] = '';
@@ -1157,7 +1057,7 @@ if(isset($_POST['submit_form_add_farm']))
 
         $Numberofwells_var = test_input(filter_var($_POST["form_Numberofwells"], FILTER_SANITIZE_STRING));
     }
-//*************************************  form_Numberofpalms *********************************
+//  form_Numberofpalms 
 
     if (empty($_POST["form_Numberofpalms"])) {
         $Numberofpalms_var_Err = "الرجاء ادخال عدد النخيل .";
@@ -1167,7 +1067,7 @@ if(isset($_POST['submit_form_add_farm']))
 
         $Numberofpalms_var = test_input(filter_var($_POST["form_Numberofpalms"], FILTER_SANITIZE_STRING));
     }
-//*************************************  form_Numberoftrees  *********************************
+//  form_Numberoftrees  
 
     if (empty($_POST["form_Numberoftrees"])) {
         $Numberoftrees_var_Err = "الرجاء ادخال عدد الأشجار .";
@@ -1177,7 +1077,7 @@ if(isset($_POST['submit_form_add_farm']))
 
         $Numberoftrees_var = test_input(filter_var($_POST["form_Numberoftrees"], FILTER_SANITIZE_STRING));
     }
-//*************************************  form_Numberoftoilets  *********************************
+//  form_Numberoftoilets  
 
     if (empty($_POST["form_Numberoftoilets"])) {
         $Numberoftoilets_var_Err = "الرجاء ادخال عدد دورات المياه .";
@@ -1188,7 +1088,7 @@ if(isset($_POST['submit_form_add_farm']))
         $Numberoftoilets_var = test_input(filter_var($_POST["form_Numberoftoilets"], FILTER_SANITIZE_STRING));
     }
 
-//************************************* form_numberofstreet *********************************
+// form_numberofstreet 
     if (empty($_POST["form_numberofstreet"])) {
         $numberofstreet_var_Err = "الرجاء ادخال عدد الشوارع .";
         $_POST["form_numberofstreet"] = '';
@@ -1198,7 +1098,7 @@ if(isset($_POST['submit_form_add_farm']))
         $numberofstreet_var = test_input(filter_var($_POST["form_numberofstreet"], FILTER_SANITIZE_STRING));
     }
 
-//************************************* form_Break  *********************************
+// form_Break  
     if (empty($_POST["form_Break"])) {
         $Break_var_Err = "الرجاء ادخال عدد الإستراحات .";
         $_POST["form_Break"] = '';
@@ -1208,7 +1108,7 @@ if(isset($_POST['submit_form_add_farm']))
         $Break_var = test_input(filter_var($_POST["form_Break"], FILTER_SANITIZE_STRING));
     }
 
-//*************************************  form_electricity  *********************************
+//  form_electricity  
 
     if (empty($_POST["form_electricity"])) {
         $electricity_var_Err = "هل المزرعه موصوله بالكهرباء ؟ .";
@@ -1219,7 +1119,7 @@ if(isset($_POST['submit_form_add_farm']))
         $electricity_var = test_input(filter_var($_POST["form_electricity"], FILTER_SANITIZE_STRING));
     }
 
-//************************************* form_asphalt     *********************************
+// form_asphalt     
     if (empty($_POST["form_asphalt"])) {
         $asphalt_var_Err = "هل المزرعه موصوله بالإسفلت ؟ .";
         $_POST["form_asphalt"] = '';
@@ -1229,7 +1129,7 @@ if(isset($_POST['submit_form_add_farm']))
         $asphalt_var = test_input(filter_var($_POST["form_asphalt"], FILTER_SANITIZE_STRING));
     }
 
-//********************************* form_Typeoftoilets       *********************************
+// form_Typeoftoilets       
 
     if (empty($_POST["form_Typeoftoilets"])) {
         $Typeoftoilets_var_Err = "الرجاء ادخال نوع دورات المياه .";
@@ -1240,7 +1140,7 @@ if(isset($_POST['submit_form_add_farm']))
         $Typeoftoilets_var = test_input(filter_var($_POST["form_Typeoftoilets"], FILTER_SANITIZE_STRING));
     }
 
-//************************************* form_diraction    *********************************
+// form_diraction    
     if (empty($_POST["form_diraction"])) {
         $diraction_var_Err = "الرجاء ادخال الإتجاه.";
         $_POST["form_diraction"] = '';
@@ -1250,7 +1150,7 @@ if(isset($_POST['submit_form_add_farm']))
         $diraction_var = test_input(filter_var($_POST["form_diraction"], FILTER_SANITIZE_STRING));
     }
 
-//*************************************  form_Features  *********************************
+//  form_Features  
 
     if (empty($_POST["form_Features"])) {
         $Features_var_Err = "الرجاء ادخال المميزات الإضافيه  .";
@@ -1261,7 +1161,7 @@ if(isset($_POST['submit_form_add_farm']))
         $Features_var = test_input(filter_var($_POST["form_Features"], FILTER_SANITIZE_STRING));
     }
 
-//************************************** check  form_TypeOfOffer *******************************************
+// check  form_TypeOfOffer 
     if (empty($_POST["form_TypeOfOffer"])) {
         $TypeOfOffer_var_Err = "الرجاء ادخال نوع العرض .";
         $_POST["form_TypeOfOffer"] = '';
@@ -1271,7 +1171,7 @@ if(isset($_POST['submit_form_add_farm']))
         $TypeOfOffer_var = test_input(filter_var($_POST["form_TypeOfOffer"], FILTER_SANITIZE_STRING));
     }
 
-    //************************************** check  form_space *******************************************
+    // check  form_space 
     if (empty($_POST["form_space"])) {
         $space_var_Err = "الرجاء إدخال المساحه";
         $_POST["form_space"] = '';
@@ -1280,7 +1180,7 @@ if(isset($_POST['submit_form_add_farm']))
 
         $space_var = test_input(filter_var($_POST["form_space"], FILTER_SANITIZE_STRING));
     }
-//********************************** check form_AgeOfProperty ******************************************
+// check form_AgeOfProperty 
     if (empty($_POST["form_AgeOfProperty"])) {
         $AgeOfProperty_var_Err = "الرجاء ادخال عمر العقار.";
         $_POST["form_AgeOfProperty"] = '';
@@ -1290,7 +1190,7 @@ if(isset($_POST['submit_form_add_farm']))
         $AgeOfProperty_var = test_input(filter_var($_POST["form_AgeOfProperty"], FILTER_SANITIZE_STRING));
     }
 
-// ******************************** check form_priceofonemeter ******************************************
+//  check form_priceofonemeter 
     if (empty($_POST["form_priceofonemeter"])) {
         $priceofonemeter_var_Err = "الرجاء ادخال سعر المتر.";
         $_POST["form_priceofonemeter"] = '';
@@ -1299,7 +1199,7 @@ if(isset($_POST['submit_form_add_farm']))
 
         $priceofonemeter_var = test_input(filter_var($_POST["form_priceofonemeter"], FILTER_SANITIZE_STRING));
     }
-// ********************************  form_Typeofinstrument *****************************************
+//   form_Typeofinstrument 
 
     if (empty($_POST["form_Typeofinstrument"])) {
         $Typeofinstrument_var_Err = "الرجاء ادخال نوع الصك.";
@@ -1309,9 +1209,9 @@ if(isset($_POST['submit_form_add_farm']))
 
         $Typeofinstrument_var = test_input(filter_var($_POST["form_Typeofinstrument"], FILTER_SANITIZE_STRING));
     }
-// ********************************  form add farm ****************************************** end
+//   form add farm  end
 
-// ********************************  sql add farm ****************************************** start
+//   sql add farm  start
 
     $sql=  'insert into farm (id,Numberofwells,Numberofpalms,Numberoftrees, Numberoftoilets,numberofstreet,Break,electricity,asphalt,Typeoftoilets,diraction,Typeofoffer,Features,Typeofinstrument,space,priceofonemeter,AgeOfProperty ) 
          values(:itid,:itNumberofwells,:itNumberofpalms,:itNumberoftrees,:itNumberoftoilets, :itnumberofstreet,:itBreak,:itelectricity,:itasphalt,:itTypeoftoilets,:itdiraction,:itTypeofoffer,:itFeatures,:itTypeofinstrument,:itspace,:itpriceofonemeter,:itAgeOfProperty)' ;
@@ -1340,12 +1240,10 @@ if(isset($_POST['submit_form_add_farm']))
         'itAgeOfProperty' => $AgeOfProperty_var));
 
 
-
-// ********************************  sql add farm ****************************************** end
+//   sql add farm  end
 
 
 }
-//*************************************** form add farm ******************************* end
 
 
 function hu4654646 (){
@@ -1384,24 +1282,24 @@ function hu4654646 (){
 //}
 //
 //
-//// *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* نهاية استقبال بيانات الصورة *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-
+//// ---------------- نهاية استقبال بيانات الصورة ------------------
 //
 //
 //
 //
-//// vilter name_f *-*-*-*-*-*-*-*--*-*-*-*-*-*-*--*-*
+//// vilter name_f ------------------
 //if (empty($_post["name_f"]))
 //{ $descriptionerr="الرجاء كتابة المدينة"; $_post["name_f"]=''; }
 //if(filter_has_var(input_post,'name_f'))
 //{ $name=test_input(filter_var($_post["name_f"],filter_sanitize_string)); }
 //
-////********************************************
+////
 //
 //
 //
 //
 //
-//                                        //*******************************************
+//                                        //
 //
 //                                        $arra_list_state=array(
 //                                            "مكة المكرمة", "المدينة المنورة", "الرياض",
@@ -1412,9 +1310,9 @@ function hu4654646 (){
 //
 //                                        $length_state=count($arra_list_state);
 //
-//                                        //********************************************
+//                                        //
 //
-//                                        $sql = "select *from countsusers where ip_address=:ip_address";
+//                                        $sql = "select from countsusers where ip_address=:ip_address";
 //                                        $stmt = $conn->prepare($sql);
 //                                        $stmt->bindvalue("ip_address",$visitor_ip);
 //                                        $stmt->execute();
@@ -1425,7 +1323,7 @@ function hu4654646 (){
 //
 //                                        }
 //
-//                                        //*****************************************************
+//                                        //
 //
 //                                        function test_input($data) {
 //                                            $data=trim($data);
@@ -1434,7 +1332,7 @@ function hu4654646 (){
 //                                            return $data;
 //                                        }
 //
-//                                        //******************************************
+//                                        //
 //
 //                                        if(filter_has_var(input_post,"search_status"))
 //                                        {

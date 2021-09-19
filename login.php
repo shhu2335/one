@@ -1,12 +1,12 @@
 <?php
 include "header.php";
-include "conection.php";
+include "config.php";
 
 
 
 ?>
 
-
+<body >
 
 <div class="container ">
 
@@ -61,16 +61,16 @@ include "conection.php";
                 <label for="username_form" class="form-label"></label>
 
 
-                <button type="submit" class="btn btn-warning bg-gradient text-white mb-3 form-control" name="submit_form_login">دخول</button>
+                <button type="submit" class="btn btn-primary bg-gradient text-white mb-3 form-control" name="submit_form_login">دخول</button>
             </div>
 
             <div class="col">
-                <a class="link-warning " href="index.php">نسيت كلمة المرور؟</a>
+                <a class="link-primary text-decoration-none" href="index.php">نسيت كلمة المرور؟</a>
             </div>
 
         </form>
         <p>
-            <a class="btn btn-outline-warning  mb-3 text-center"
+            <a class="btn btn-primary  mb-3 text-center"
                data-bs-toggle="collapse"
                href="#collapseExample"
                role="button"
@@ -94,3 +94,4 @@ include "conection.php";
 
 </div>
 
+</body>

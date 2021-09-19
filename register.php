@@ -1,5 +1,5 @@
 <?php
-include "conection.php";
+include "config.php";
 include "header.php";
 
 
@@ -7,14 +7,19 @@ include "header.php";
 
 
 <div class="container p-5 ">
+<?php
 
-   isset(){ echo "<div  class='m-2  alert alert-warning text-center mx-auto h5'  style='width: 450px;' >
+   if(isset($alert_successfully_inserted_user)){
+       echo "<div  class='m-2  alert alert-warning text-center mx-auto h5'  >
+      .$alert_successfully_inserted_user.</div>";
+   }?>
 
-      .$alert_successfully_inserted_user.</div>";}
+    <div class="text-center mx-auto  bg-transparent bg-gradient m-2 mt-5 shadow-lg  rounded-3">
 
-    <div class="text-center w-auto  bg-light  shadow-lg  rounded-3">
-        <p class="fw-bolder bg-warning text-light  h4 shadow  text-center p-2 rounded-1"> تسجيل </p>
-        <form class="row p-5  text-end" method="post" action="register.php">
+        <p class="fw-bolder  bg-white  bg-transparent bg-gradient text-dark  h4 shadow text-center p-2 rounded-3">دخول</p>
+
+
+        <form class="row p-4  text-end" method="post" action="register.php">
 
             <div class="col-md-4">
                 <label for="name_form" class="form-label">الاسم</label>
@@ -68,7 +73,7 @@ include "header.php";
 
             <div class="col-md-4 mx-auto">
 
-                <button type="submit" class="btn btn-warning text-light form-control" name="submit_form_user">تسجيل</button>
+                <button type="submit" class="btn btn-primary text-light form-control" name="submit_form_user">تسجيل</button>
             </div>
         </form>
 

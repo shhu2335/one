@@ -1,7 +1,7 @@
 <?php
 
 
-include "conection.php";
+include "config.php";
 include "header.php";
 include "fun.php";
 ?>

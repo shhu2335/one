@@ -2,7 +2,7 @@
 
 
 <?php
-include "conection.php";
+include "config.php";
 include "header.php";
 
 function test_input($data)

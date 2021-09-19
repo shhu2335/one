@@ -41,7 +41,7 @@ include "fun.php";
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="#"><?php  echo 'مرحبا  '. $_SESSION['name']; ?></a>
+                    <a class="nav-link" href="#"><?php if(!empty($_SESSION['name'])){echo 'مرحبا  '. $_SESSION['name']; }?></a>
                 </li>
 <!--                <li class="nav-item dropdown">-->
 <!--                    <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">-->
