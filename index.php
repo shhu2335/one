@@ -77,32 +77,33 @@ include "header.php";
 
 </div>
 
-
     <div class="mb-3 py-4 bg-dark bg-gradient  py-1 bg-light text-danger text-center">
-        <a href="Add_Hotal.php"     class="text-decoration-none border-5 rounded-3 px-1  bg-light border-end border-start border-secondary text-dark   my-1  p-1">إضافة فندق</a>
-        <a href="Add_Villa.php"     class="text-decoration-none border-5 rounded-3 px-1  bg-light border-end border-start border-secondary text-dark   my-1  p-1">إضافة فلة</a>
-        <a href="Add_Building.php"  class="text-decoration-none border-5 rounded-3 px-1  bg-light border-end border-start border-secondary text-dark   my-1  p-1">إضافة عمارة</a>
-        <a href="Add_Shop.php"      class="text-decoration-none border-5 rounded-3 px-1  bg-light border-end border-start border-secondary text-dark   my-1  p-1">إضافة محل</a>
-        <a href="Add_Land.php"      class="text-decoration-none border-5 rounded-3 px-1  bg-light border-end border-start border-secondary text-dark   my-1  p-1">إضافة أرض</a>
-        <a href="Add_Farm.php"      class="text-decoration-none border-5 rounded-3 px-1  bg-light border-end border-start border-secondary text-dark   my-1  p-1">إضافة مزرعة</a>
-        <a href="logout.php"        class="text-decoration-none border-5 rounded-3 px-1  bg-light border-end border-start border-secondary text-dark   my-1  p-1">إضافة استديو</a>
-        <a href="logout.php"        class="text-decoration-none border-5 rounded-3 px-1  bg-light border-end border-start border-secondary text-dark   my-1  p-1">إضافة استراحة</a>
-        <a href="Add_Dianiyah.php"  class="text-decoration-none border-5 rounded-3 px-1  bg-light border-end border-start border-secondary text-dark   my-0  p-1">إضافة شالية</a>
-        <a href="Add_Apartment.php" class="text-decoration-none border-5 rounded-3 px-1  bg-light border-end border-start border-secondary text-dark   my-1  p-1">إضافة شقة</a>
-        <a href="Add_Castle.php"    class="text-decoration-none border-5 rounded-3 px-1  bg-light border-end border-start border-secondary text-dark   my-1  p-1">إضافة قصر</a>
-        <a href="Add_Office.php"    class="text-decoration-none border-5 rounded-3 px-1  bg-light border-end border-start border-secondary text-dark   my-1  p-1">إضافة مكتب</a>
+        <a href="index.php?hus"     class="text-decoration-none border-5 rounded-1 px-1  py-4 bg-light border-end border-start border-secondary text-dark   my-1  p-1">إضافة فندق</a>
+        <a href="index.php?shouq"   class="text-decoration-none border-5 rounded-1 px-1  py-4 bg-light border-end border-start border-secondary text-dark   my-1  p-1">إضافة فلة</a>
+        <a href="Add_Building.php"  class="text-decoration-none border-5 rounded-1 px-1  py-4 bg-light border-end border-start border-secondary text-dark   my-1  p-1">إضافة عمارة</a>
+        <a href="Add_Shop.php"      class="text-decoration-none border-5 rounded-1 px-1  py-4 bg-light border-end border-start border-secondary text-dark   my-1  p-1">إضافة محل</a>
+        <a href="Add_Land.php"      class="text-decoration-none border-5 rounded-1 px-1  py-4 bg-light border-end border-start border-secondary text-dark   my-1  p-1">إضافة أرض</a>
+        <a href="Add_Farm.php"      class="text-decoration-none border-5 rounded-1 px-1  py-4 bg-light border-end border-start border-secondary text-dark   my-1  p-1">إضافة مزرعة</a>
+        <a href="logout.php"        class="text-decoration-none border-5 rounded-1 px-1  py-4 bg-light border-end border-start border-secondary text-dark   my-1  p-1">إضافة استديو</a>
+        <a href="logout.php"        class="text-decoration-none border-5 rounded-1 px-1  py-4 bg-light border-end border-start border-secondary text-dark   my-1  p-1">إضافة استراحة</a>
+        <a href="Add_Dianiyah.php"  class="text-decoration-none border-5 rounded-1 px-1  py-4 bg-light border-end border-start border-secondary text-dark   my-0  p-1">إضافة شالية</a>
+        <a href="Add_Apartment.php" class="text-decoration-none border-5 rounded-1 px-1  py-4 bg-light border-end border-start border-secondary text-dark   my-1  p-1">إضافة شقة</a>
+        <a href="Add_Castle.php"    class="text-decoration-none border-5 rounded-1 px-1  py-4 bg-light border-end border-start border-secondary text-dark   my-1  p-1">إضافة قصر</a>
+        <a href="Add_Office.php"    class="text-decoration-none border-5 rounded-1 px-1  py-4 bg-light border-end border-start border-secondary text-dark   my-1  p-1">إضافة مكتب</a>
     </div>
 <div class="container p-1 mb-5">
 
+<?php if (isset($_GET['hus'])){
 
+ ?>
     <div class="row d-flex row-cols-md-12 row-cols-sm-4  g-3  align-items: center  justify-content: center">
 
         <?php
 
-        $stmt = $pdo->query('SELECT * FROM villa');
+        $stmt = $pdo->query('SELECT * FROM villa limit 4');
         foreach ($stmt as $row) { ?>
             <div class="col">
-                <div class="card h-200 text-center border border-2 border-dark rounded-3">
+                <div class="card h-200 text-center shadow-lg  rounded-3">
 
                     <!--  8888888888888888888888888   -->
                     <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
@@ -130,7 +131,7 @@ include "header.php";
                     </div>
                     <!--  8888888888888888888888888   -->
 
-                    <h5 class="card-title bg-gradient p-1 m-0"><?php echo $row['TypeOfOffer']; ?>  </h5>
+                    <h5 class="card-title bg-gradient p-1 m-0 fs-6"><?php echo $row['TypeOfOffer']; ?>  </h5>
                     <div class="card-body p-0 m-0">
                         <table class="table table-striped overflow-scroll m-0 p-0 ">
                             <thead>
@@ -156,6 +157,7 @@ include "header.php";
                                 <th scope="col"><?php
                                     echo ' السعر:   ' . number_format($row['Numberofclippers'], 2, ",", ".");
                                     ?></th>
+                                <th>تفاصيل اكثر</th>
                             </tr>
 
                             </tbody>
@@ -170,6 +172,98 @@ include "header.php";
         <?php } ?>
 
     </div>
+<?php } ?>
+
+    <?php if (isset($_GET['shouq'])){
+
+        ?> <div class="bg-primary m5 p-5 ">
+            <select class="form-select" aria-label="Default select example">
+                <option selected>Open this select menu</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+            </select>
+        </div>
+        <div class="row d-flex row-cols-md-12 row-cols-sm-4  g-3  align-items: center  justify-content: center">
+
+            <?php
+
+            $stmt = $pdo->query('SELECT * FROM hotel limit 4');
+            foreach ($stmt as $row) { ?>
+                <div class="col">
+                    <div class="card h-200 text-center shadow-lg  rounded-3">
+
+                        <!--  8888888888888888888888888   -->
+                        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="img/Villa_Riyadh.jpg" class="d-block w-100" alt="فيلا بالرياض للبيع">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="img/hussam.PNG" class="d-block w-100" alt="...">
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="img/hussam.PNG" class="d-block w-100" alt="...">
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+                                    data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+                                    data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        </div>
+                        <!--  8888888888888888888888888   -->
+
+                        <h5 class="card-title bg-gradient p-1 m-0 fs-6"><?php echo $row['TypeOfOffer']; ?>  </h5>
+                        <div class="card-body p-0 m-0">
+                            <table class="table table-striped overflow-scroll m-0 p-0 ">
+                                <thead>
+                                <tr>
+                                    <th scope="col">المساحة</th>
+                                    <th scope="col">الواجهة</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td><?php echo $row['space']; ?></td>
+                                    <td><?php echo $row['diraction']; ?></td>
+                                </tr>
+                                <tr>
+                                    <th scope="col">عمر العقار</th>
+                                    <th scope="col">نوع الغرض</th>
+                                </tr>
+                                <tr>
+                                    <td><?php echo $row['Supplementnumber']; ?></td>
+                                    <td><?php echo $row['TypeOfOffer']; ?></td>
+                                </tr>
+                                <tr>
+                                    <th scope="col"><?php
+                                        echo ' السعر:   ' . number_format($row['thenumberoffloors'], 2, ",", ".");
+                                        ?></th>
+                                    <th>تفاصيل اكثر</th>
+                                </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!--                    <div class="card-footer">-->
+                        <!--                        <small class="text-muted"></small>-->
+                        <!--                    </div>-->
+                    </div>
+                </div>
+            <?php } ?>
+
+        </div>
+    <?php } ?>
+
+
+
 </div>
 </body>
 </html>
