@@ -16,7 +16,7 @@ include "fun.php";
 
     <div class="mx-auto  bg-light  shadow-lg m-2 mt-5 rounded-3" style="width: 450px;" >
             <p class="fw-bolder bg-transparent text-dark  h4 shadow  text-center p-2 rounded-1"> تسجيل </p>
-        <form class="row  d-block p-4  text-end"
+        <form class="row  d-block p-4"
               method="post"
               action="login.php">
             <div class="col">
@@ -58,7 +58,7 @@ include "fun.php";
             </div>
 
             <div class="col">
-                <a class="link-warning " href="index.php">نسيت كلمة المرور؟</a>
+                <a class="link-primary text-decoration-none " href="index.php">نسيت كلمة المرور؟</a>
             </div>
 
         </form>
