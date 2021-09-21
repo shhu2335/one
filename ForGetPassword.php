@@ -5,26 +5,22 @@
 include "conection.php";
 include "header.php";
 ?>
-<div class = "container p-5">
-    <div class="text-center m-5 p-5 bg-light  shadow-lg  rounded-3">
-    <p class="fs-6">نسيت كلمة المرور</p>
-        <form class="row g-2">
-
-        <div class="col-md-6">
-        <label for="inputEmail4" class="form-label">الايميل</label>
+<div class = "container">
+    <div class="mx-auto  p-4  mt-5 bg-white  shadow border border-1  bg-gradient  rounded-3 text-secondary" style="width: 450px;" >
+        <h4 class="card-title text-center ">نسيت كلمة المرور</h4>
+        <form class="row w-100">
+        <div class="col-md-12 mb-3 mx-auto">
+             <label for="inputEmail4" class="form-label">الايميل</label>
             <input type="email" class="form-control" id="inputEmail4">
         </div>
-            <div class="col-md-6">
-            <label for="inputPassword4" class="form-label">اسم المستخدم</label>
-                <input type="text" class="form-control" id="inputPassword4">
-            </div>
-
-            <div class="col-md-10 mx-auto">
-            <button type="submit" class="btn btn-primary">استعادة كلمة المرور</button>
+            <div class="col-md-12 mb-3 mx-auto ">
+            <button type="submit" class="btn btn-primary">ارسال كلمة المرور</button>
             </div>
         </form>
-
-        <a href = "logout.php" tite = "Logout" class="btn btn-outline-dark m-3">لتسجيل اضغط هنا  </a>
+        <hr>
+        <div class="col-md-12 mx-auto text-center">
+            <a class="link-primary text-decoration-none" href="login.php">تسجيل دخول </a>
+        </div>
 
     </div>
 

@@ -1358,6 +1358,81 @@ if(isset($_POST['submit_form_add_farm']))
 //*************************************** form add farm ******************************* end
 
 
+
+
+if (isset($_POST['submit_form_ِِAdd_studio'])) {
+
+
+// *********************  defined variable     $var_Type_Offer   *******************************************
+    if (empty($_POST["Form_Type_Offer"])) {
+        $var_Type_Offer_err = "الرجاء أختيار نوع العرض";
+        $_POST["Form_Type_Offer"] = '';
+    }
+    if (filter_has_var(input_post, 'Form_Type_Offer'))
+    {
+        $var_Type_Offer = test_input(filter_var($_POST['Form_Type_Offer'], filter_sanitize_string));
+    }
+// *********************  defined variable    $var_Direction   *******************************************
+if (empty($_POST["Form_Direction"]))
+{
+    $var_Direction_err = "الرجاء الاختيار ";
+    $_POST["Form_Direction"] = '';
+}
+if (filter_has_var(input_post, 'Form_Direction'))
+{
+    $var_Direction = test_input(filter_var($_POST['Form_Direction'], filter_sanitize_string));
+}
+
+// *********************  defined variable    $var_Number_Toilets   *******************************************
+if (empty($_POST["Form_Number_Toilets"]))
+{
+    $var_Number_Toilets_err = "الرجاء ألاختيار ";
+    $_POST["Form_Number_Toilets"] = '';
+}
+if (filter_has_var(input_post, 'Form_Number_Toilets'))
+{
+    $var_Number_Toilets = test_input(filter_var($_POST['Form_Number_Toilets'], filter_sanitize_string));
+}
+
+// *********************  defined variable    $var_Types_Toilets   *******************************************
+if (empty($_POST["Form_Types_Toilets"]))
+{
+    $var_Types_Toilets_err = "الرجاء ألاختيار ";
+    $_POST["Form_Types_Toilets"] = '';
+}
+if (filter_has_var(input_post, 'Form_Types_Toilets'))
+{
+    $var_Types_Toilets = test_input(filter_var($_POST['Form_Types_Toilets'], filter_sanitize_string));
+}
+
+// *********************  defined variable    $var_Meeting_Rooms   *******************************************
+if (empty($_POST["Form_Meeting_Rooms"]))
+{
+    $var_Meeting_Rooms_err = "الرجاء ألاختيار ";
+    $_POST["Form_Meeting_Rooms"] = '';
+}
+if (filter_has_var(input_post, 'Form_Meeting_Rooms'))
+{
+    $var_Meeting_Rooms = test_input(filter_var($_POST['Form_Meeting_Rooms'], filter_sanitize_string));
+}
+
+// *********************  defined variable    $var_Date   *******************************************
+if (empty($_POST["Form_Date"]))
+{
+    $var_Date_err = "الرجاء ألاختيار ";
+    $_POST["Form_Date"] = '';
+}
+if (filter_has_var(input_post, 'Form_Date'))
+{
+    $var_Date = test_input(filter_var($_POST['Form_Date'], filter_sanitize_string));
+}
+
+$var_insert_build = '  تمت إضافه العماره بنجاح' ;
+$istrue = 1;
+
+}
+
+
 function hu4654646 (){
 
 

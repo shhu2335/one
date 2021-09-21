@@ -2,7 +2,7 @@
 :lang(ar) .form-group label{
     /* You can put here all the desired properties */
 
-    direction: rtl;
+    /*direction: rtl;*/
 
 }
 body {
@@ -15,10 +15,10 @@ body {
     direction: rtl;
     /*background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);*/
     /*background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);*/
-    background-image: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);
-    /*background-image: linear-gradient(to top, #a8edea 0%, #fed6e3 100%);*/
-    /*background-image: linear-gradient(to right, #eea2a2 0%, #bbc1bf 19%, #57c6e1 42%, #b49fda 79%, #7ac5d8 100%);*/
-
+    /*background-image: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);*/
+    background-image: linear-gradient(to top, #f8f9fa 0%, #f8f9fa 100%);
+    /*background-image: linear-gradient(to right, #a4a4a4 0%, #a4a4a4 19%, #57c6e1 42%, #b49fda 79%, #7ac5d8 100%);*/
+    /*background-color: #a4a4a4 ;*/
 }
 
 img{
@@ -72,3 +72,4 @@ img{
         width: 100%;
     }
 }
+

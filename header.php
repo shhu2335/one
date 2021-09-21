@@ -27,10 +27,10 @@ session_start();
 <!--    <a class="m-1 p-1 btn btn-outline-light" href="index.php">الخريطه</a>-->
 <!--</div>-->
 
-<nav class="navbar navbar-expand-lg navbar-light bg-white text-dark text-center">
+<nav class="navbar navbar-expand-lg navbar-light bg-white  text-primary ">
 
-    <div class=".container-sm	container-fluid">
-        <a class="navbar-brand" href="index.php">H & SH للعقارات
+    <div class=".container-sm	container-fluid ">
+        <a class="navbar-brand text-primary" href="index.php">H & SH للعقارات
             <?php if (! empty($_SESSION['name']))
             {
             echo "مرحبا : ".$_SESSION['name'];
@@ -39,14 +39,14 @@ session_start();
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarScroll">
+        <div class="collapse navbar-collapse text-primary" id="navbarScroll">
             <ul class="navbar-nav navbar-nav-scroll" style="--bs-scroll-height: 100px;">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="index.php" >الرئيسيه</a>
+                    <a class="nav-link active text-primary d-none" aria-current="page" href="index.php" >الرئيسيه</a>
 
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">إشعار المستخدم </a>
+                    <a class="nav-link f8f9fa text-primary d-none" href="#">إشعار المستخدم </a>
                 </li>
 <!--                <li class="nav-item dropdown">-->
 <!--                    <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">-->
@@ -60,7 +60,7 @@ session_start();
 <!--                    </ul>-->
 <!--                </li>-->
                 <li class="nav-item">
-                    <a class="nav-link " href="#" tabindex="-1" aria-disabled="true">الخريطه </a>
+                    <a class="nav-link d-none" href="#" tabindex="-1" aria-disabled="true">الخريطه </a>
                 </li>
             </ul>
 
@@ -73,7 +73,7 @@ session_start();
         </div>
 <?php if (empty($_SESSION['name'])) {
     ?>
-        <a class="nav nav-item nav-link justify-content-end me-lg-5 d-flex " href="login.php">تسجيل دخول</a>
+        <a class="nav nav-item nav-link justify-content-end  d-flex " href="login.php">تسجيل دخول</a>
         <a class="nav nav-link" href="register.php">تسجيل </a>
         <?php
         }elseif(!empty($_SESSION['name'])){
@@ -87,5 +87,6 @@ session_start();
 
 </nav>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+<hr class="m-0">
 </body>
 </html>
