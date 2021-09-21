@@ -73,8 +73,8 @@ session_start();
         </div>
 <?php if (empty($_SESSION['name'])) {
     ?>
-        <a class="nav nav-item nav-link justify-content-end  d-flex " href="login.php">تسجيل دخول</a>
-        <a class="nav nav-link" href="register.php">تسجيل </a>
+        <a class="nav nav-item nav-link justify-content-end mx-0  d-flex " href="login.php">تسجيل دخول</a>
+        <a class="nav nav-link mx-0" href="register.php">تسجيل </a>
         <?php
         }elseif(!empty($_SESSION['name'])){
     ?>

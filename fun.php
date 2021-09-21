@@ -181,6 +181,7 @@ if (isset($_POST['submit_form_user'])) {
                     'itphonenumber' => $phone_number_var,
                     'itemail' => $email_from_var,
                 ));
+                header('location: index.php');
             }
 
 

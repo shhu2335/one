@@ -20,20 +20,30 @@ include "header.php";
 
 
 
-<div   class="px-2 bg-secondary bg-gradient mx-auto text-start">
-    <h1 class="display-1 bg-light rounded-pill p-5 d-inline-block text-secondary mt-5  mb-3 "  STYLE="width: 220px; height: 220px;">نقدم </h1>
-    <p class="display-3 d-inline text-light mt-5 mb-0 mx-auto ">   حلول عقارية لا مثيل لها</p>
-    <form>
-        <div class="input-group pb-3 w-75 mx-auto">
-            <input type="text" class="form-control rounded-pill mx-3" placeholder="أبحث هنا .." aria-label="" aria-describedby="button-addon2">
-            <button class="btn btn-outline-light  rounded-pill" type="button" id="button-addon2">أبـــحـــث</button>
-        </div> </form>
+<div   class="px-2 m-5  mx-auto text-start text-center" style="background-color: #f8f9fa;">
+<!--    <h1 class="display-1  rounded-pill p-5 d-inline-block text-secondary mt-5  mb-3 "  STYLE="background-color: #adb5bd;width: 220px; height: 220px;">نقدم </h1>-->
+    <h1 class="display-3 d-inline text-secondary" >   حلول عقارية لا مثيل لها</h1>
+</div>
+<hr class="m-0 p-0">
+<div   class="row bg-white bg-gradient p-4  mx-auto text-center">
+    <div class="col-3 bg-transparent mx-auto bg-gradient text-primary shadow  border-start border-end  border-primary border-5 rounded-pill">
+        <p class="fs-md-4 fs-sm-4 p-sm-0 m-0 p-0"> الرياض</p>
+        <p class="fs-md-4 fs-sm-4 p-sm-0 m-0 p-0">4</p>
+    </div>
 
+    <div class="col-3  bg-transparent  bg-gradient text-primary shadow border-start border-end  border-primary border-5 rounded-pill">
+        <p class="fs-md-4 fs-sm-4 p-sm-0 m-0 p-0"> عـدد المكاتب</p>
+        <p class="fs-md-4 fs-sm-4 p-sm-0 m-0 p-0">4</p>
+    </div>
+
+    <div class="col-3 bg-transparent mx-auto bg-gradient text-primary  shadow border-start border-end  border-primary border-5 rounded-pill">
+        <p class="fs-md-4 fs-sm-4 p-sm-0 m-0 p-0"> عـدد العقارات</p>
+        <p class="fs-md-4 fs-sm-4 p-sm-0 m-0 p-0">4</p>
+    </div>
 
 </div>
-
-
-<div class="m-0 p-2 bg-danger bg-gradient text-center mx-auto text-white">
+<hr class="m-0 p-0">
+<div class="m-0 p-2 bg-danger bg-gradient text-center mx-auto text-white d-none">
 
     <div    class="btn btn-outline-light rounded-pill my-2 m-sm-2 mx-5">
     <h4 class="h5 d-inline"> عـ العقارات   </h4>
@@ -77,7 +87,60 @@ include "header.php";
 
 </div>
 
-    <div class="mb-3 py-4 bg-dark bg-gradient  py-1 bg-light text-danger text-center">
+<div  class="bg-gradient mx-auto p-4 text-center"  STYLE="background-color: #f8f9fa;">
+    <div class="container">
+        <div class="row g-2 ">
+            <div class="col-3">
+                <div class="p-3 border bg-light rounded-3"> الفلل</div>
+            </div>
+            <div class="col-3">
+                <div class="p-3 border bg-light rounded-3"> العمائر</div>
+            </div>
+            <div class="col-3">
+                <div class="p-3 border bg-light rounded-3"> الشقق</div>
+            </div>
+
+            <div class="col-3">
+                <div class="p-3 border bg-light rounded-3">الاراضي</div>
+            </div>
+
+            <div class="col-3">
+                <div class="p-3 border bg-light rounded-3">الفنادق</div>
+            </div>
+
+            <div class="col-3">
+                <div class="p-3 border bg-light rounded-3">الفنادق</div>
+            </div>
+
+            <div class="col-3">
+                <div class="p-3 border bg-light rounded-3">الفنادق</div>
+            </div>
+
+            <div class="col-3">
+                <div class="p-3 border bg-light rounded-3">الفنادق</div>
+            </div>
+
+            <div class="col-3">
+                <div class="p-3 border bg-light rounded-3">الفنادق</div>
+            </div>
+
+            <div class="col-3">
+                <div class="p-3 border bg-light rounded-3">المزارع</div>
+            </div>
+
+            <div class="col-3">
+                <div class="p-3 border bg-light rounded-3">المحلات</div>
+            </div>
+
+            <div class="col-3">
+                <div class="p-3 border bg-light rounded-3">استديوهات</div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+    <div class="d-none py-4 bg-dark bg-gradient  py-1 bg-light text-danger text-center">
         <a href="index.php?hus"     class="text-decoration-none border-5 rounded-1 px-1  py-4 bg-light border-end border-start border-secondary text-dark   my-1  p-1">إضافة فندق</a>
         <a href="index.php?shouq"   class="text-decoration-none border-5 rounded-1 px-1  py-4 bg-light border-end border-start border-secondary text-dark   my-1  p-1">إضافة فلة</a>
         <a href="Add_Building.php"  class="text-decoration-none border-5 rounded-1 px-1  py-4 bg-light border-end border-start border-secondary text-dark   my-1  p-1">إضافة عمارة</a>
@@ -91,7 +154,7 @@ include "header.php";
         <a href="Add_Castle.php"    class="text-decoration-none border-5 rounded-1 px-1  py-4 bg-light border-end border-start border-secondary text-dark   my-1  p-1">إضافة قصر</a>
         <a href="Add_Office.php"    class="text-decoration-none border-5 rounded-1 px-1  py-4 bg-light border-end border-start border-secondary text-dark   my-1  p-1">إضافة مكتب</a>
     </div>
-<div class="container p-1 mb-5">
+
 
 <?php if (isset($_GET['hus'])){
 
@@ -176,7 +239,7 @@ include "header.php";
 
     <?php if (isset($_GET['shouq'])){
 
-        ?> <div class="bg-primary m5 p-5 ">
+        ?> <div class="container p-1 mb-5"><div class="bg-primary m5 p-5 ">
             <select class="form-select" aria-label="Default select example">
                 <option selected>Open this select menu</option>
                 <option value="1">One</option>
