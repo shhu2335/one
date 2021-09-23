@@ -159,10 +159,11 @@
 
                     <?php
                     if (isset($var_bed_room_err)){
-                        echo '<span  class="badge bg-danger rounded-pill">';   echo  '</span>';
+                        echo '<span  class="badge bg-danger rounded-pill">';
                         echo $var_bed_room_err;
+                        echo  '</span>';
                     }
-                    echo  '</span>';
+
                     ?>
             </div>
 
@@ -261,13 +262,13 @@
                 </select>
 
                     <?php
-                    echo '<span  class="badge bg-danger rounded-pill">';
-                    if (isset($var_number_Bathrooms_err)){
-                        echo $var_number_Bathrooms_err;
-                    }
-                    echo  '</span>';
-                    ?>
 
+                    if (isset($var_number_Bathrooms_err)){
+                        echo '<span  class="badge bg-danger rounded-pill">';
+                        echo $var_number_Bathrooms_err;
+                        echo  '</span>';
+                    }
+                    ?>
             </div>
 
             <!--  ===========     get value of  property_age   ===========  done  -->
