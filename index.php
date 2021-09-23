@@ -140,7 +140,7 @@ include "header.php";
 
 </div>
 
-    <div class="d-none py-4 bg-dark bg-gradient  py-1 bg-light text-danger text-center">
+    <div class="py-4 bg-dark bg-gradient  py-1 bg-light text-danger text-center">
         <a href="index.php?hus"     class="text-decoration-none border-5 rounded-1 px-1  py-4 bg-light border-end border-start border-secondary text-dark   my-1  p-1">إضافة فندق</a>
         <a href="index.php?shouq"   class="text-decoration-none border-5 rounded-1 px-1  py-4 bg-light border-end border-start border-secondary text-dark   my-1  p-1">إضافة فلة</a>
         <a href="Add_Building.php"  class="text-decoration-none border-5 rounded-1 px-1  py-4 bg-light border-end border-start border-secondary text-dark   my-1  p-1">إضافة عمارة</a>
@@ -150,7 +150,7 @@ include "header.php";
         <a href="logout.php"        class="text-decoration-none border-5 rounded-1 px-1  py-4 bg-light border-end border-start border-secondary text-dark   my-1  p-1">إضافة استديو</a>
         <a href="logout.php"        class="text-decoration-none border-5 rounded-1 px-1  py-4 bg-light border-end border-start border-secondary text-dark   my-1  p-1">إضافة استراحة</a>
         <a href="Add_Dianiyah.php"  class="text-decoration-none border-5 rounded-1 px-1  py-4 bg-light border-end border-start border-secondary text-dark   my-0  p-1">إضافة شالية</a>
-        <a href="Add_Apartment.php" class="text-decoration-none border-5 rounded-1 px-1  py-4 bg-light border-end border-start border-secondary text-dark   my-1  p-1">إضافة شقة</a>
+        <a href="add_apartment.php" class="text-decoration-none border-5 rounded-1 px-1  py-4 bg-light border-end border-start border-secondary text-dark   my-1  p-1">إضافة شقة</a>
         <a href="Add_Castle.php"    class="text-decoration-none border-5 rounded-1 px-1  py-4 bg-light border-end border-start border-secondary text-dark   my-1  p-1">إضافة قصر</a>
         <a href="Add_Office.php"    class="text-decoration-none border-5 rounded-1 px-1  py-4 bg-light border-end border-start border-secondary text-dark   my-1  p-1">إضافة مكتب</a>
     </div>

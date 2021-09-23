@@ -61,7 +61,7 @@ if (isset($_POST['submit_form_login']))
 
         if ($count === 0)
         {
-            $message_user_not_found = "اسم المستخدم او كلمه المرور غير صحيحه .";
+            $message_user_not_found = "أسم المستخدم أو كلمه المرور غير صحيحه";
         }
         else{
 
@@ -77,7 +77,7 @@ if (isset($_POST['submit_form_login']))
                 header("Location: index.php");
             }
             else{
-                $message_user_not_found = "اسم المستخدم او كلمه المرور غير صحيحه .";
+                $message_user_not_found = "أسم المستخدم أو كلمه المرور غير صحيحه";
             }
 
         }
@@ -1156,8 +1156,8 @@ if(isset($_POST['submit_form_add_land'])){
 //*************************************  form add land ********************************* end
 
 
-//*************************************** form add farm ******************************* start
-if(isset($_POST['submit_form_add_farm']))
+    // ======================  start submit_farm  ======================
+    if(isset($_POST['submit_form_add_farm']))
 {
     //************************************* form_Numberofwells  *********************************
     if (empty($_POST["form_Numberofwells"])) {
@@ -1356,12 +1356,11 @@ if(isset($_POST['submit_form_add_farm']))
 
 
 }
-//*************************************** form add farm ******************************* end
+    // ======================   end submit_farm   ======================
 
 
-
-
-if (isset($_POST['submit_form_ِِAdd_studio'])) {
+    // ======================  start submit_studio  ====================== DONE LAST_UPDATE
+    if (isset($_POST['submit_form_ِِAdd_studio'])) {
 
 
 // *********************  defined variable     $var_Type_Offer   *******************************************
@@ -1432,6 +1431,184 @@ $var_insert_build = '  تمت إضافه العماره بنجاح' ;
 $istrue = 1;
 
 }
+    // ======================   end submit_studio   ======================
+
+
+    // ======================  start submit_apartment  ====================== DONE
+    if (isset($_POST['submit_apartment'])) {
+    $count_apartment =0;
+
+
+    //  ======================  defined variable     sale_type   ====================== done
+    if (empty($_POST["sale_type"])){
+        $var_sale_type_err = "حقل إجباري";
+        $_POST["sale_type"] = '';
+    }else{
+    //  ======================  filter variable      sale_type   ====================== done
+    if (filter_has_var(INPUT_POST, 'sale_type')){
+        $var_apartment_sale_type = test_input(filter_var($_POST['sale_type'], FILTER_SANITIZE_STRING));
+        $count_apartment  += 1;
+    }}
+
+
+    //  ======================  defined variable     number_rooms   ====================== done
+    if (empty($_POST["number_rooms"])){
+        $var_number_rooms_err = "حقل إجباري";
+        $_POST["number_rooms"] = '';
+    }else{
+    //  ======================  filter variable    number_rooms     ====================== done
+    if (filter_has_var(INPUT_POST, 'number_rooms')){
+        $var_apartment_number_rooms = test_input(filter_var($_POST['number_rooms'], FILTER_SANITIZE_NUMBER_INT));
+        $count_apartment  += 1;
+    }}
+
+
+    //  ======================  defined variable     number_halls   ====================== done
+    if (empty($_POST["number_halls"])){
+        $var_number_halls_err = "حقل إجباري";
+        $_POST["number_halls"] = '';
+    }else{
+    //  ======================  filter variable    number_halls     ====================== done
+    if (filter_has_var(INPUT_POST, 'number_halls')){
+        $var_apartment_number_halls = test_input(filter_var($_POST['number_halls'], FILTER_SANITIZE_NUMBER_INT));
+        $count_apartment  += 1;
+    }}
+
+
+    //  ======================  defined variable     number_Kitchens   ====================== done
+    if (empty($_POST["number_Kitchens"])){
+        $var_number_Kitchens_err = "حقل إجباري";
+        $_POST["number_Kitchens"] = '';
+    }else{
+    //  ======================  filter variable    number_Kitchens     ====================== done
+    if (filter_has_var(INPUT_POST, 'number_Kitchens')){
+        $var_apartment_number_Kitchens = test_input(filter_var($_POST['number_Kitchens'], FILTER_SANITIZE_NUMBER_INT ));
+        $count_apartment  += 1;
+    }
+    }
+
+
+    //  ======================  defined variable     type_Kitchen   ====================== done
+    if (empty($_POST["type_Kitchen"])){
+        $var_type_Kitchen_err = "حقل إجباري";
+        $_POST["type_Kitchen"] = '';
+    }else{
+    //  ======================  filter variable    type_Kitchen     ====================== done
+    if (filter_has_var(INPUT_POST, 'type_Kitchen')){
+        $var_apartment_type_Kitchen = test_input(filter_var($_POST['type_Kitchen'], FILTER_SANITIZE_STRING));
+        $count_apartment  += 1;
+    }
+    }
+
+
+    //  ======================  defined variable     bed_room   ====================== done
+    if (empty($_POST["bed_room"])){
+        $var_bed_room_err = "حقل إجباري";
+        $_POST["bed_room"] = '';
+    }else{
+    //  ======================  filter variable    bed_room     ====================== done
+    if (filter_has_var(INPUT_POST, 'bed_room')){
+        $var_apartment_bed_room = test_input(filter_var($_POST['bed_room'], FILTER_SANITIZE_NUMBER_INT));
+        $count_apartment  += 1;
+    }
+    }
+
+
+    //  ======================  defined variable     number_boards   ====================== done
+    if (empty($_POST["number_boards"])){
+        $var_number_boards_err = "حقل إجباري";
+        $_POST["number_boards"] = '';
+    }else{
+    //  ======================  filter variable      number_boards   ====================== done
+    if (filter_has_var(INPUT_POST, 'number_boards')){
+        $var_apartment_number_boards = test_input(filter_var($_POST['number_boards'], FILTER_SANITIZE_NUMBER_INT));
+        $count_apartment  += 1;
+    }
+    }
+
+
+    //  ======================  defined variable     number_clippers   ====================== done
+    if (empty($_POST["number_clippers"])){
+        $var_number_clippers_err = "حقل إجباري";
+        $_POST["number_clippers"] = '';
+    }else{
+    //  ======================  filter variable    number_clippers     ====================== done
+    if (filter_has_var(INPUT_POST, 'number_clippers')){
+        $var_apartment_number_clippers = test_input(filter_var($_POST['number_clippers'], FILTER_SANITIZE_NUMBER_INT));
+        $count_apartment  += 1;
+    }}
+
+
+    //  ======================  defined variable     number_Warehouses   ====================== done
+    if (empty($_POST["number_Warehouses"])){
+        $var_number_Warehouses_err = "حقل إجباري";
+        $_POST["number_Warehouses"] = '';
+    }else{
+    //  ======================  filter variable    number_Warehouses     ====================== done
+    if (filter_has_var(INPUT_POST, 'number_Warehouses')){
+        $var_apartment_number_Warehouses = test_input(filter_var($_POST['number_Warehouses'], FILTER_SANITIZE_NUMBER_INT));
+        $count_apartment  += 1;
+    }
+    }
+
+
+    //  ======================  defined variable     number_Bathrooms   ====================== done
+    if (empty($_POST["number_Bathrooms"])){
+        $var_number_Bathrooms_err = "حقل إجباري";
+        $_POST["number_Bathrooms"] = '';
+    }else{
+    //  ======================  filter variable    number_Warehouses     ====================== done
+    if (filter_has_var(INPUT_POST, 'number_Bathrooms')){
+        $var_apartment_number_Bathrooms = test_input(filter_var($_POST['number_Bathrooms'], FILTER_SANITIZE_NUMBER_INT));
+        $count_apartment  += 1;
+    }
+    }
+
+    //  ======================  defined variable     property_age   ====================== done
+    if (empty($_POST["property_age"])){
+        $var_property_age_err = "حقل إجباري";
+        $_POST["property_age"] = '';
+    }else{
+    //  ======================  filter variable      property_age   ====================== done
+    if (filter_has_var(INPUT_POST, 'property_age')){
+        $var_apartment__property_age = test_input(filter_var($_POST['property_age'], FILTER_SANITIZE_NUMBER_INT));
+        $count_apartment  += 1;
+    }
+    }
+
+
+    //  ======================  defined variable     Describe   ====================== done
+    if (empty($_POST["Describe"])){
+        $var_Describe_err = "حقل إجباري";
+        $_POST["Describe"] = '';
+    }else{
+    //  ======================  filter variable    Describe     ====================== done
+    if (filter_has_var(INPUT_POST, 'Describe')){
+        $var_apartment_Describe = test_input(filter_var($_POST['Describe'], FILTER_SANITIZE_STRING));
+        $count_apartment  += 1;
+    }
+    }
+
+   echo  $count_apartment ;
+
+    if ($count_apartment===12){
+
+    }
+
+
+    $var_insert_build = '  تمت إضافه العماره بنجاح' ;
+}
+    // ======================   end submit_apartment   ======================
+
+//    المصفوفه غرض البيع
+    $arra_list_State = array( "للبيع", "الإيجار", "إيجار منتهي بالتمليك");
+//    المصفوفه عدد الغرفة
+    $length_State = count($arra_list_State);
+
+//    المصفوفه عدد الغرف
+    $arra_list_numberRoom = array( "1","2","3","4","5","6","7","8", "9","10" );
+    //    عدد للمصفوفه عدد الغرفة
+    $length_numberRoom = count($arra_list_numberRoom);
 
 
 function hu4654646 (){
@@ -1529,6 +1706,7 @@ function hu4654646 (){
 //                                        }
 
 }
+
 
 
 ?>

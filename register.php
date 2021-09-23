@@ -20,15 +20,17 @@ include "fun.php";
 
 <div class="container p-5 ">
 
-<?php
-if (isset($alert_successfully_inserted_user)){
- echo "<div  class='m-2  alert alert-warning text-center mx-auto h5'  style='width: 450px;' >
+    <?php
+    if (isset($alert_successfully_inserted_user)){
+        echo "<div  class='m-2  alert alert-warning text-center mx-auto h5'  style='width: 450px;' >
        .$alert_successfully_inserted_user.</div>";}?>
 
     <div class="w-auto  bg-white border border-1  bg-gradient shadow  rounded-3">
 
-            <h4 class="card-title mt-3 text-center text-secondary">تسجيل</h4>
-        <form class="row p-3 text-secondary " method="post" action="register.php">
+            <h4 class="card-title  mt-3 text-center text-secondary">تسجيل</h4>
+
+        <form class="row p-3 g-3 text-secondary " method="post" action="register.php">
+
             <div class="col-md-4">
                 <label for="name_form" class="form-label">الاسم</label>
                 <input type="text" class="form-control" id="name_form" name="name_form">
@@ -37,6 +39,7 @@ if (isset($alert_successfully_inserted_user)){
                         echo $name_var_Err;
                     } ?> </label>
             </div>
+
             <div class="col-md-4">
                 <label for="username_form" class="form-label">اسم المستخدم</label>
                 <input type="text" class="form-control" id="username_form" name="username_form">
@@ -53,7 +56,6 @@ if (isset($alert_successfully_inserted_user)){
                         echo $email_from_var_Err;
                     } ?> </label>
             </div>
-
 
             <div class="col-md-4">
                 <label for="phone_number_form" class="form-label">رقم الجوال</label>
@@ -84,12 +86,14 @@ if (isset($alert_successfully_inserted_user)){
                 </button>
             </div>
         </form>
-        <hr>
+        <hr class="w-auto mx-auto">
         <div class="col-md-4 mx-auto mb-3 text-center">
             <a class="link-primary text-decoration-none" href="login.php">تسجيل دخول</a>
         </div>
 
     </div>
 
-</div></body>
+</div>
+
+</body>
 </html>
