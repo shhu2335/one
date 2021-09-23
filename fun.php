@@ -11,10 +11,6 @@ function test_input($data)
 // عدد الصالات
 
 
-
-
-
-
 // ^^^^^^^^^^ hussam ^^^^^^^^^^ login system ^^^^^^^^^^^^^^^^^^^^^  start
 
 if (isset($_POST['submit_form_login']))
@@ -86,7 +82,6 @@ if (isset($_POST['submit_form_login']))
 
 
 }
-
 
 
 // // ^^^^^^^^^^ hussam ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^  end

@@ -21,8 +21,8 @@ include "fun.php";
 
 
 <div class="container p-5 ">
-    <div class="text-center w-auto  bg-light  shadow-lg  rounded-3">
-        <p class="fw-bolder bg-warning text-light shadow  text-center p-2 rounded-1">إضافه قصر</p>
+    <div class="text-center w-auto    shadow-lg  rounded-3">
+        <p class="fw-bolder  text-light shadow  text-center p-2 rounded-1 f82a8">إضافه قصر</p>
         <form class="row g-3  p-5  text-end" method="post" action="thanks.php">
             <div class="col-md-4">
                 <select class="form-select" aria-label="Default select example">
@@ -114,7 +114,7 @@ include "fun.php";
 
 
             <div class="col-md-5 mx-5">
-                <button type="submit" class="btn btn-warning text-light form-control" name="submit_form_user">حفظ
+                <button type="submit" class="btn btn-primary text-light form-control" name="submit_form_user">حفظ
                 </button>
             </div>
         </form>

@@ -54,7 +54,7 @@ include 'fun.php';
 
 <div class="container p-5 ">
     <div class="text-center w-auto  bg-light  shadow-lg  rounded-3">
-        <p class="fw-bolder bg-warning text-light shadow  text-center p-2 rounded-1">إضافه عماره</p>
+        <p class="fw-bolder  text-light shadow  text-center p-2 rounded-1 f82a8" >إضافه عماره</p>
         <form  onsubmit="return myFunction()" class="row g-3  p-5  text-end" method="POST" action="Add_Building.php">
             <div class="form-label col-md-6 text-lg-start">
                 <label for="phone_number_form" class="form-label">المساحه</label>
@@ -191,7 +191,7 @@ include 'fun.php';
             </div>
 
             <div class="col-md-5 mx-5">
-                <button type="submit" onclick="myFunction()" class="btn btn-warning text-light form-control"  name="submit_form_add_building">حفظ
+                <button type="submit" onclick="myFunction()" class="btn btn-primary text-light form-control"  name="submit_form_add_building">حفظ
                 </button>
             </div>
         </form>
