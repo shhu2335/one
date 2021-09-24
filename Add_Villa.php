@@ -26,8 +26,8 @@ include "fun.php";
 
 
 <div class="container p-5 ">
-    <div class="text-center w-auto  bg-light  shadow-lg  rounded-3">
-        <p class="fw-bolder bg-warning text-light shadow  text-center p-2 rounded-1">إضافه فله</p>
+    <div class="text-center w-auto shadow-lg  rounded-3" >
+        <p class="fw-bolder  text-light shadow  text-center p-2 rounded-1 f82a8">إضافه فله</p>
         <form class="row g-3  p-5  text-end" method="POST" action="fun.php">
             <div class="form-label col-md-6 text-lg-start">
                 <label for="phone_number_form " class="form-label">المساحه</label>
@@ -214,7 +214,7 @@ include "fun.php";
 
 
             <div class="col-md-5 mx-5">
-                <button type="submit" class="btn btn-warning text-light form-control" name="submit_form_add_villa">حفظ
+                <button type="submit" class="btn btn-primary text-light form-control" name="submit_form_add_villa">حفظ
                 </button>
             </div>
         </form>

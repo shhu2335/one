@@ -25,21 +25,88 @@ include "header.php";
     <h1 class="display-3 d-inline text-secondary" >   حلول عقارية لا مثيل لها</h1>
 </div>
 <hr class="m-0 p-0">
-<div   class="row bg-white bg-gradient p-4  mx-auto text-center">
-    <div class="col-3 bg-transparent mx-auto bg-gradient text-primary shadow  border-start border-end  border-primary border-5 rounded-pill">
-        <p class="fs-md-4 fs-sm-4 p-sm-0 m-0 p-0"> الرياض</p>
-        <p class="fs-md-4 fs-sm-4 p-sm-0 m-0 p-0">4</p>
+<!--<div   class="d-none row bg-white bg-gradient p-4  mx-auto text-center">-->
+<!--    <div class="col-3 bg-transparent mx-auto bg-gradient text-primary shadow  border-start border-end  border-primary border-5 rounded-pill">-->
+<!--        <p class="fs-md-4 fs-sm-4 p-sm-0 m-0 p-0"> عدد الزوار</p>-->
+<!--        <p class="fs-md-4 fs-sm-4 p-sm-0 m-0 p-0">4</p>-->
+<!--    </div>-->
+<!---->
+<!--    <div class="col-3  bg-transparent  bg-gradient text-primary shadow border-start border-end  border-primary border-5 rounded-pill">-->
+<!--        <p class="fs-md-4 fs-sm-4 p-sm-0 m-0 p-0"> عـدد المكاتب</p>-->
+<!--        <p class="fs-md-4 fs-sm-4 p-sm-0 m-0 p-0">4</p>-->
+<!--    </div>-->
+<!---->
+<!--    <div class="col-3 bg-transparent mx-auto bg-gradient text-primary  shadow border-start border-end  border-primary border-5 rounded-pill">-->
+<!--        <p class="fs-md-4 fs-sm-4 p-sm-0 m-0 p-0"> عـدد العقارات</p>-->
+<!--        <p class="fs-md-4 fs-sm-4 p-sm-0 m-0 p-0">4</p>-->
+<!--    </div>-->
+<!---->
+<!--</div>-->
+<div class="m-0 p-1 e2d1c3  text-center mx-auto text-white " >
+
+    <style>
+        .container {
+            margin-top: 100px
+        }
+
+        .counter-box {
+            display: block;
+            /*background: #4b1d1d;*/
+            padding: 40px 20px 37px;
+            text-align: center
+        }
+
+        .counter-box p {
+            margin: 5px 0 0;
+            padding: 0;
+            color: #909090;
+            font-size: 18px;
+            font-weight: 500
+        }
+
+        .counter-box i {
+            font-size: 60px;
+            margin: 0 0 15px;
+            /*color: #d2d2d2*/
+        }
+
+        .counter {
+            display: block;
+            font-size: 32px;
+            font-weight: 700;
+            color: #666;
+            line-height: 28px
+        }
+
+
+    </style>
+
+    <div class="container">
+        <div class="row">
+            <div class="four col-md-3">
+                <div class="counter-box f82a8"> <i class="fa fa-thumbs-o-up"></i> <span class="counter">2147</span>
+                    <p>عدد زورا الموقع </p>
+                </div>
+            </div>
+            <div class="four col-md-3">
+                <div class="counter-box  f82a8"> <i class="fa fa-group"></i> <span class="counter">3275</span>
+                    <p>عدد مكاتب العقار</p>
+                </div>
+            </div>
+            <div class="four col-md-3">
+                <div class="counter-box bg-transparent f82a8"> <i class="fa fa-shopping-cart"></i> <span class="counter">289</span>
+                    <p>عدد العقارات </p>
+                </div>
+            </div>
+            <div class="four col-md-3">
+                <div class="counter-box bg-transparent"> <i class="fa fa-user"></i> <span class="counter">1563</span>
+                    <p>Saved Trees</p>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <div class="col-3  bg-transparent  bg-gradient text-primary shadow border-start border-end  border-primary border-5 rounded-pill">
-        <p class="fs-md-4 fs-sm-4 p-sm-0 m-0 p-0"> عـدد المكاتب</p>
-        <p class="fs-md-4 fs-sm-4 p-sm-0 m-0 p-0">4</p>
-    </div>
 
-    <div class="col-3 bg-transparent mx-auto bg-gradient text-primary  shadow border-start border-end  border-primary border-5 rounded-pill">
-        <p class="fs-md-4 fs-sm-4 p-sm-0 m-0 p-0"> عـدد العقارات</p>
-        <p class="fs-md-4 fs-sm-4 p-sm-0 m-0 p-0">4</p>
-    </div>
 
 </div>
 <hr class="m-0 p-0">
@@ -87,53 +154,75 @@ include "header.php";
 
 </div>
 
+<style>
+    .cards:hover {
+        box-shadow: 5px 6px 6px 2px #e9ecef;
+        transform: scale(1.03)
+    }
+</style>
 <div  class="bg-gradient mx-auto p-4 text-center"  STYLE="background-color: #f8f9fa;">
     <div class="container">
         <div class="row g-2 ">
             <div class="col-3">
-                <div class="p-3 border bg-light rounded-3"> الفلل</div>
-            </div>
-            <div class="col-3">
-                <div class="p-3 border bg-light rounded-3"> العمائر</div>
-            </div>
-            <div class="col-3">
-                <div class="p-3 border bg-light rounded-3"> الشقق</div>
+                <a href="Add_Villa.php" class="text-decoration-none text-dark ">
+                <div  class="cards  p-3 border bg-light rounded-3 w-100 table-hover" > الفلل</div>
+                </a>
             </div>
 
             <div class="col-3">
-                <div class="p-3 border bg-light rounded-3">الاراضي</div>
+                <a href="Add_Castle.php" class="text-decoration-none text-dark ">
+                <div  class="cards  p-3 border bg-light rounded-3 w-100 table-hover" > القصور </div>
+                </a>
+            </div>
+            <div class="col-3">
+                <a href="Add_Apartment.php" class="text-decoration-none text-dark ">
+                    <div class="cards p-3 border bg-light rounded-3"> الشقق</div></a>
             </div>
 
             <div class="col-3">
-                <div class="p-3 border bg-light rounded-3">الفنادق</div>
+                <a href="Add_Land.php" class="text-decoration-none text-dark ">
+                    <div class="cards p-3 border bg-light rounded-3">الاراضي</div></a>
             </div>
 
             <div class="col-3">
-                <div class="p-3 border bg-light rounded-3">الفنادق</div>
+                <a href="Add_Hotal.php" class="text-decoration-none text-dark ">
+                    <div class="cards p-3 border bg-light rounded-3">الفنادق</div></a>
             </div>
 
             <div class="col-3">
-                <div class="p-3 border bg-light rounded-3">الفنادق</div>
+                <a href="Add_Dianiyah.php" class="text-decoration-none text-dark ">
+                    <div class="cards p-3 border bg-light rounded-3">الإستراحات </div></a>
             </div>
 
             <div class="col-3">
-                <div class="p-3 border bg-light rounded-3">الفنادق</div>
+                <a href=" " class="text-decoration-none text-dark ">
+                    <div class="cards p-3 border bg-light rounded-3">الشاليهات </div></a>
+                                       <!--                تحتاج فورم-->
             </div>
 
             <div class="col-3">
-                <div class="p-3 border bg-light rounded-3">الفنادق</div>
+                <a href="Add_Office.php" class="text-decoration-none text-dark ">
+                    <div class="cards p-3 border bg-light rounded-3">المكاتب</div></a>
             </div>
 
             <div class="col-3">
-                <div class="p-3 border bg-light rounded-3">المزارع</div>
+                <a href="Add_Building.php" class="text-decoration-none text-dark ">
+                    <div class="cards p-3 border bg-light rounded-3">العمائر</div></a>
             </div>
 
             <div class="col-3">
-                <div class="p-3 border bg-light rounded-3">المحلات</div>
+                <a href="Add_Farm.php" class="text-decoration-none text-dark ">
+                    <div class="cards p-3 border bg-light rounded-3">المزارع</div></a>
             </div>
 
             <div class="col-3">
-                <div class="p-3 border bg-light rounded-3">استديوهات</div>
+                <a href="Add_Shop.php" class="text-decoration-none text-dark ">
+                    <div class="cards p-3 border bg-light rounded-3">المحلات</div></a>
+            </div>
+
+            <div class="col-3">
+                <a href="Add_Studio.php" class="text-decoration-none text-dark ">
+                    <div class="cards p-3 border bg-light rounded-3">استديوهات</div></a>
             </div>
         </div>
     </div>
