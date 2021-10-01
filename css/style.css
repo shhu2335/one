@@ -74,36 +74,9 @@ img{
     }
 }
 /* -------------------------------------- Add ad page ------------------------------------------*/
-.container {
-    margin-top: 100px
-}
+
 .f82a8 {background-color: #5f82a8;}
-.counter-box {
-    display: block;
-    background: #5f82a8;
-    padding: 40px 20px 37px;
-    text-align: center
+.cards:hover {
+    box-shadow: 5px 6px 6px 2px #e9ecef;
+    transform: scale(1.001);
 }
-
-.counter-box p {
-    margin: 5px 0 0;
-    padding: 0;
-    color: #2a1e17;
-    font-size: 18px;
-    font-weight: 500
-}
-
-.counter-box i {
-    font-size: 60px;
-    margin: 0 0 15px;
-    /*color: #d2d2d2*/
-}
-
-.counter {
-    display: block;
-    font-size: 32px;
-    font-weight: 700;
-    color: #0c0806;
-    line-height: 28px}
-
-/* -------------------------------------- Add ad page ---------------------------------END--*/

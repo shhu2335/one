@@ -43,58 +43,20 @@ include "header.php";
 <!---->
 <!--</div>-->
 <div class="m-0 p-1 e2d1c3  text-center mx-auto text-white " >
-
-    <style>
-        .container {
-            margin-top: 100px
-        }
-
-        .counter-box {
-            display: block;
-            /*background: #4b1d1d;*/
-            padding: 40px 20px 37px;
-            text-align: center
-        }
-
-        .counter-box p {
-            margin: 5px 0 0;
-            padding: 0;
-            color: #909090;
-            font-size: 18px;
-            font-weight: 500
-        }
-
-        .counter-box i {
-            font-size: 60px;
-            margin: 0 0 15px;
-            /*color: #d2d2d2*/
-        }
-
-        .counter {
-            display: block;
-            font-size: 32px;
-            font-weight: 700;
-            color: #666;
-            line-height: 28px
-        }
-
-
-    </style>
-
     <div class="container">
         <div class="row">
             <div class="four col-md-3">
-                <div class="counter-box f82a8"> <i class="fa fa-thumbs-o-up"></i> <span class="counter">2147</span>
+                <div class="counter-box bg-transparent"> <i class="fa fa-thumbs-o-up"></i> <span class="counter">2147</span>
                     <p>عدد زورا الموقع </p>
                 </div>
             </div>
             <div class="four col-md-3">
-                <div class="counter-box  f82a8"> <i class="fa fa-group"></i> <span class="counter">3275</span>
+                <div class="counter-box  bg-transparent"> <i class="fa fa-group"></i> <span class="counter">3275</span>
                     <p>عدد مكاتب العقار</p>
                 </div>
             </div>
             <div class="four col-md-3">
-                <div class="counter-box bg-transparent f82a8"> <i class="fa fa-shopping-cart"></i> <span class="counter">289</span>
+                <div class="counter-box bg-transparent"> <i class="fa fa-shopping-cart"></i> <span class="counter">289</span>
                     <p>عدد العقارات </p>
                 </div>
             </div>
@@ -228,22 +190,6 @@ include "header.php";
     </div>
 
 </div>
-
-    <div class="py-4 bg-dark bg-gradient  py-1 bg-light text-danger text-center">
-        <a href="index.php?hus"     class="text-decoration-none border-5 rounded-1 px-1  py-4 bg-light border-end border-start border-secondary text-dark   my-1  p-1">إضافة فندق</a>
-        <a href="index.php?shouq"   class="text-decoration-none border-5 rounded-1 px-1  py-4 bg-light border-end border-start border-secondary text-dark   my-1  p-1">إضافة فلة</a>
-        <a href="Add_Building.php"  class="text-decoration-none border-5 rounded-1 px-1  py-4 bg-light border-end border-start border-secondary text-dark   my-1  p-1">إضافة عمارة</a>
-        <a href="Add_Shop.php"      class="text-decoration-none border-5 rounded-1 px-1  py-4 bg-light border-end border-start border-secondary text-dark   my-1  p-1">إضافة محل</a>
-        <a href="Add_Land.php"      class="text-decoration-none border-5 rounded-1 px-1  py-4 bg-light border-end border-start border-secondary text-dark   my-1  p-1">إضافة أرض</a>
-        <a href="Add_Farm.php"      class="text-decoration-none border-5 rounded-1 px-1  py-4 bg-light border-end border-start border-secondary text-dark   my-1  p-1">إضافة مزرعة</a>
-        <a href="logout.php"        class="text-decoration-none border-5 rounded-1 px-1  py-4 bg-light border-end border-start border-secondary text-dark   my-1  p-1">إضافة استديو</a>
-        <a href="logout.php"        class="text-decoration-none border-5 rounded-1 px-1  py-4 bg-light border-end border-start border-secondary text-dark   my-1  p-1">إضافة استراحة</a>
-        <a href="Add_Dianiyah.php"  class="text-decoration-none border-5 rounded-1 px-1  py-4 bg-light border-end border-start border-secondary text-dark   my-0  p-1">إضافة شالية</a>
-        <a href="add_apartment.php" class="text-decoration-none border-5 rounded-1 px-1  py-4 bg-light border-end border-start border-secondary text-dark   my-1  p-1">إضافة شقة</a>
-        <a href="Add_Castle.php"    class="text-decoration-none border-5 rounded-1 px-1  py-4 bg-light border-end border-start border-secondary text-dark   my-1  p-1">إضافة قصر</a>
-        <a href="Add_Office.php"    class="text-decoration-none border-5 rounded-1 px-1  py-4 bg-light border-end border-start border-secondary text-dark   my-1  p-1">إضافة مكتب</a>
-    </div>
-
 
 <?php if (isset($_GET['hus'])){
 
