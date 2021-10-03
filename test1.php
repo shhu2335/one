@@ -6,56 +6,88 @@
 
 include "conection.php";
 include 'header.php';
+?>
+<!--<ul class="list-group list-group-horizontal my-4 p-2">-->
+<!--    <li class="list-group-item m-3 p-2 col-2 p-2 mt-5  mx-2 d-inline-block  ">An item</li>-->
+<!--    <li class="list-group-item m-3 p-2 col-2 p-2 mt-5  mx-2 d-inline-block">A second item</li>-->
+<!--    <li class="list-group-item m-3 p-2 col-2 p-2 mt-5  mx-2 d-inline-block">A third item</li>-->
+<!--    <li class="list-group-item m-3 p-2 col-2 p-2 mt-5  mx-2 d-inline-block ">A third item</li>-->
+<!--</ul>-->
+<!--<ul class="list-group list-group-horizontal ">-->
+<!--    <li class="list-group-item m-3 p-2 col-2 p-2 mt-5  mx-2 d-inline-block">An item</li>-->
+<!--    <li class="list-group-item m-3 p-2 col-2 p-2 mt-5  mx-2 d-inline-block">A second item</li>-->
+<!--    <li class="list-group-item m-3 p-2 col-2 p-2 mt-5  mx-2 d-inline-block">A third item</li>-->
+<!--    <li class="list-group-item m-3 p-2 col-2 p-2 mt-5  mx-2 d-inline-block">A third item</li>-->
+<!--</ul>-->
+<!--<div class="container py-2">-->
+<!--<div class="row f82a8 text-center  m-3 p-3">-->
+<!--    <div class="col-2 p-2 px-0 mt-5  mx-2">-->
+<!--        <div class="card">-->
+<!--            <div class="card-body ">-->
+<!--                <h5 class="card-title">الفلل</h5>-->
+<!--                </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <div class="col-2 p-2 px-0 mt-5  mx-2">-->
+<!--        <div class="card">-->
+<!--            <div class="card-body">-->
+<!--                <h5 class="card-title">الفلل</h5>-->
+<!--                 </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <div class="col-2 p-2 px-0 mt-5  mx-2">-->
+<!--        <div class="card">-->
+<!--            <div class="card-body ">-->
+<!--                <h5 class="card-title">الفلل</h5>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <div class="col-2 p-2 px-0 mt-5  mx-2">-->
+<!--        <div class="card">-->
+<!--            <div class="card-body">-->
+<!--                <h5 class="card-title">الفلل</h5>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+<!--</div>-->
 
-function test_input($data)
-{
-    $data = trim($data);
-    $data = stripslashes($data);
-    $data = htmlspecialchars($data);
-    return $data;
-}
+<div class="container">
 
-/*session_start();
-    $name = 'huss';
-    $name ='shuq';
-    $_SESSION['USER'] = $name;
+<div class="text-center  m-5 p-3">
+    <div class="col-2  border border-1 border-white-50 p-3  pt-5 pb-5  mt-2  mx-2  f82a8 text-center  text-dark d-inline-block">
+        <p>hi</p>
+    </div>
+    <div class="col-2  border border-1 border-white-50 p-3  pt-5 pb-5 mt-2  mx-2 f82a8 text-center  text-dark d-inline-block">
+        <p>hi</p>
+    </div>
+    <div class="col-2  border border-1 border-white-50 p-3  pt-5 pb-5 mt-2  mx-2 f82a8 text-center  text-dark d-inline-block">
+        <p>hi</p>
+    </div>
+    <div class="col-2  border border-1 border-white-50 p-3  pt-5 pb-5 mt-2  mx-2 f82a8 text-center  text-dark d-inline-block">
+        <p>hi1</p>
+    </div>
+</div>
 
-
-$_SESSION['ss'] = 'hussam';
-
-*/
-$phoneNO = $pdo->escape_string($_POST["phoneNO"]);
-    $result  = $pdo->query("SELECT * FROM customer WHERE Customer_num ='$phoneNO' Limit 1");
-    if($result->num_rows == 0) { // use doesnt exist!
-        $erorr = "رقم الجوال أو كلمة المرور غير صحيح ";
-        // header("location:error.php");
-    }
-    else{// User exists
-
-     $user = $result->fetch_assoc();
-
-/* @var $_POST type                */
-        if(password_verify($_POST['Pwd'] , $user['CustomerPwd']) ) {
-
-        $_SESSION['admin'] = $user['admin'];
-        $_SESSION['phoneNO'] = $user['Customer_num'];
-        $_SESSION['CustomerID']= $user['CustomerID'];
-        $_SESSION['Name']= $user['CustomerName'];
-        $_SESSION['Block']= $user['Block'];
-        $_SESSION['CustomerTown']= $user['CustomerTown'];
-
-        $_SESSION['logged_in'] = true;
-        header("Location:home.php");
-     }
-     else {
-        $erorr = "رقم الجوال أو كلمة المرور غير صحيح ";
-//        $_SESSION['logged_in'] = false;
-        // header("location:error.php");
-     } }
+    <div class="text-center mt-5 mb-1 p-3" >
+        <div class="col-2  border border-1 border-white-50 p-3  pt-5 pb-5  mt-2  mx-2  f82a8 text-center  text-dark d-inline-block">
+            <p >hi</p>
+        </div>
+        <div class="col-2  border   p-3  pt-5 pb-5  mx-3 f82a8   text-dark d-inline-block">
+            <p>hi</p>
+        </div>
+        <div class="col-2  border   p-3  pt-5 pb-5  mx-3 f82a8   text-dark d-inline-flex">
+            <p>hi</p>
+        </div>
+        <div class="col-2  border   p-3  pt-5 pb-5  mx-3 f82a8 text-dark d-inline-flex">
+            <p>hi1</p>
+        </div>
+    </div>
 
 
-/*
-echo $name;
-echo $_SESSION["USER"]." - -  - ".$_SESSION['ss'] ;
-*/
 
+</div>
+
+
+
+</div>

@@ -92,6 +92,63 @@ include "header.php";
 
     </style>
 
+
+
+
+
+
+    <?php
+
+
+    include "conection.php";
+    include 'header.php';
+    ?>
+    <!--<ul class="list-group list-group-horizontal my-4 p-3">-->
+    <!--    <li class="list-group-item m-3 p-3 col-3 d-inline-block  ">An item</li>-->
+    <!--    <li class="list-group-item m-3 p-3 col-3 d-inline-block">A second item</li>-->
+    <!--    <li class="list-group-item m-3 p-3 col-3 d-inline-block">A third item</li>-->
+    <!--    <li class="list-group-item m-3 p-3 col-3 d-inline-block ">A third item</li>-->
+    <!--</ul>-->
+    <!--<ul class="list-group list-group-horizontal ">-->
+    <!--    <li class="list-group-item m-3 p-3 col-3 d-inline-block">An item</li>-->
+    <!--    <li class="list-group-item m-3 p-3 col-3 d-inline-block">A second item</li>-->
+    <!--    <li class="list-group-item m-3 p-3 col-3 d-inline-block">A third item</li>-->
+    <!--    <li class="list-group-item m-3 p-3 col-3 d-inline-block">A third item</li>-->
+    <!--</ul>-->
+
+    <div class="row">
+        <div class="col-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Special title treatment</h5>
+                </div>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Special title treatment</h5>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Special title treatment</h5>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Special title treatment</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="container">
         <div class="row">
             <div class="four col-md-3">
@@ -141,29 +198,6 @@ include "header.php";
 
 </div>
 <!-- my mx me ms m  py px pe ps  05-->
-
-<div class="mt-3  bg-transparent bg-gradient shadow-lg py-3  bg-light text-center d-none" >
-
-    <div class="mx-4 d-inline-block bg-secondary text-white">
-        <div class="m-0 p-0 "> <img src="img/person.jpg" ></div>
-        <div class="m-0 p-0"><p> منال </p></div>
-    </div>
-
-
-    <div class="mx-4 d-inline-block bg-secondary text-white">
-        <div class="m-0 p-0 "> <img src="img/person.jpg" ></div>
-        <div class="m-0 p-0"><p> منال </p></div>
-    </div>
-
-    <div class="mx-4 d-inline-block bg-secondary text-white">
-        <div class="m-0 p-0 "> <img src="img/person.jpg" ></div>
-        <div class="m-0 p-0"><p > منال </p></div>
-    </div>
-
-
-
-
-</div>
 
 </div>
 

@@ -84,17 +84,13 @@ session_start();
         </div>
 <?php if (empty($_SESSION['name'])) {
     ?>
-    <div class="cards row bg-white bg-gradient p-1  text-center col-1 bg-transparent mx-auto bg-gradient text-primary shadow  border-start border-end  border-primary border-5 rounded-pill">
-        <a  href="Add_ad.php" class="text-decoration-none fs-md-2 fs-sm-2 p-sm-0 m-0 p-0">إضافه إعلان </a>
-    </div>
+        <a class="nav nav-item nav-link justify-content-end mx-0  d-flex " href="register.php">إضافه إعلان</a>
         <a class="nav nav-item nav-link justify-content-end mx-0  d-flex " href="login.php">تسجيل دخول</a>
         <a class="nav nav-link mx-0" href="register.php">تسجيل </a>
         <?php
         }elseif(!empty($_SESSION['name'])){
     ?>
-    <div class="mb-3 py-2 py-1 text-start">
-        <a href="Add_ad.php" class=" text-decoration-none text-primary text-start  border-2 rounded-1 px-1  py-2 bg-transparent border-end border-start border-secondary my-1  p-1">إضافه إعلان </a>
-    </div>
+    <a class="nav nav-item nav-link justify-content-end mx-0  d-flex " href="Add_ad.php">إضافه إعلان</a>
     <a class="nav nav-link" href="personal_page.php">الصفحه الشخصيه  </a>
         <a class="nav nav-link" href="logout.php">تسجيل خروج  </a>
     <?php } ?>

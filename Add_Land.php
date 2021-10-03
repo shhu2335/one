@@ -29,94 +29,166 @@ include "fun.php";
 <body>
 
 
-<div class="container p-5 ">
+<div class="container ">
+    <!--    Verify that the land is add-->
+    <?php
+    if (isset( $alert_insert_land_by_successfully)){
+        echo ' <div class="alert alert-success text-center m-0  
+  border border-1    rounded-3" role="alert">';
+        echo   $alert_insert_land_by_successfully;
+        echo '  </div>';
+    }
+    ?>
+    <!--   the land addition form-->
     <div class="text-center w-auto  bg-light  shadow-lg  rounded-3">
         <p class="fw-bolder  text-light shadow  text-center p-2 rounded-1 f82a8">إضافه أرض </p>
-        <form class="row g-3  p-5  text-end" method="post" action="fun.php">
-            <div class="form-label col-md-6 text-lg-start">
+        <form class="row g-3  p-5  text-end" method="post" action="Add_Land.php">
+            <!--            space-->
+            <div class="form-label col-md-6 text-start">
                 <label for="phone_number_form" class="form-label">المساحه</label>
                 <input type="number" class="form-control" id="phone_number_form" name="form_space">
-                <label for="username_form" class="form-label">
-                    <?php if (isset($space_var_Err)) {echo $space_var_Err;} ?>
-                </label> </div>
-
-            <div class="form-label col-md-6 text-lg-start">
+                <?php
+                if (isset($space_var_Err)){
+                    echo '<span  class="badge bg-danger rounded-pill">';
+                    echo $space_var_Err;
+                    echo '<span >';
+                }
+                ?>
+            </div>
+            <!--            property age-->
+            <div class="form-label col-md-6 text-start">
                 <label for="phone_number_form" class="form-label ">عمر العقار</label>
                 <input type="number" class="form-control" id="phone_number_form" name="form_AgeOfProperty">
-                <label for="username_form" class="form-label">
-                    <?php if (isset($AgeOfProperty_var_Err)) {echo $AgeOfProperty_var_Err;} ?> </label>
+                <?php
+                if (isset($AgeOfProperty_var_Err)){
+                    echo '<span  class="badge bg-danger rounded-pill">';
+                    echo $AgeOfProperty_var_Err;
+                    echo '<span >';
+                }
+                ?>
             </div>
-
-            <div class="col-md-4">
-                <select class="form-select" aria-label="Default select example" name="form_TypeOfOffer">
-                    <option selected>نوع العرض العقار</option>
-                    <option value="1">للبيع</option>
-                    <option value="2">الإيجار</option>
-                    <option value="3">إيجار منتهي بالتمليك</option>
-                </select>
-                <?php if (isset($TypeOfOffer_var_Err)) {echo $TypeOfOffer_var_Err;} ?> </label>
-
-            </div>
-
-            <div class="col-md-4">
-                <select class="form-select" aria-label="Default select example" name="form_numberofstreet">
-                    <option selected>عددالشوارع </option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                </select>
-                <?php if (isset($numberofstreet_var_Err)) {echo $numberofstreet_var_Err;} ?> </label>
-
-            </div>
-
-            <div class="col-md-4">
-                <select class="form-select" aria-label="Default select example" name="form_diraction">
-                    <option selected>الواجهه</option>
-                    <option value="1">شمالي</option>
-                    <option value="2">شرقي</option>
-                    <option value="3">غربي</option>
-                    <option value="1">جنوبي</option>
-                    <option value="2">شمالي شرقي</option>
-                    <option value="3">شمالي غربي</option>
-                    <option value="2"> جنوبي شرقي</option>
-                    <option value="3"> جنوبي غربي</option>
-                </select>
-                <?php if (isset($diraction_var_Err)) {echo $diraction_var_Err;} ?> </label>
-
-            </div>
-
-
-            <div class="col-md-4">
-                <select class="form-select" aria-label="Default select example" name="form_Typeofinstrument">
-                    <option selected>نوع الصك</option>
-                    <option value="1">زراعي </option>
-                    <option value="2">سكني </option>
-                    <option value="3">تجاري </option>
-                </select>
-                <?php if (isset($Typeofinstrument_var_Err)) {echo $Typeofinstrument_var_Err;} ?> </label>
-
-            </div>
-
-            <div class="form-label col-md-6 text-lg-start">
+            <!--           price of one meter-->
+            <div class="form-label col-md-6 text-start">
                 <label for="phone_number_form" class="form-label">سعر المتر</label>
-                <input type="number" class="form-control" id="phone_number_form" name="form_priceofonemeter">
-                <label for="username_form" class="form-label"><?php if (isset($priceofonemeter_var_Err)) {
-                        echo $priceofonemeter_var_Err;
-                    } ?> </label>
+                <input type="number" class="form-control" id="phone_number_form" name="form_space">
+                <?php
+                if (isset($priceofonemeter_var_Err)){
+                    echo '<span  class="badge bg-danger rounded-pill">';
+                    echo $priceofonemeter_var_Err;
+                    echo '<span >';
+                }
+                ?>
             </div>
+            <!--            type of offer -->
+            <div class="col-md-6 form-label  text-start mt-5">
+                <!--                <label > </label>-->
+                <select class="form-select" aria-label="Default select example">
+                    <option selected value="">-- الغرض من عرض العقار --</option>
+                    <?php if (!empty($length_State)) {
+                        for ($i = 0; $i < $length_State; $i++) { ?>
+                            <option value="<?php if (!empty($arra_list_State)) {
+                                echo $arra_list_State[$i];
+                            } ?>">
+                                <?php if (!empty($arra_list_State)) {
+                                    echo $arra_list_State[$i];
+                                } ?> </option>
+                        <?php }
+                    } ?>
+                </select>
+                <?php
+                if (isset($TypeOfOffer_var_Err )){
+                    echo '<span  class="badge bg-danger rounded-pill">';
+                    echo $TypeOfOffer_var_Err ;
+                    echo '<span >';
+                }
+                ?>
 
-
-
-            <div class="form-group  form-label text-lg-start">
+            </div>
+            <!--            number of streets-->
+            <div class="col-md-4 form-label text-start">
+                <select class="form-select" aria-label="Default select example">
+                    <option selected>عدد الشوارع </option>
+                    <?php if (!empty($length_numberStreets)) {
+                        for ($i = 0; $i < $length_numberStreets; $i++) { ?>
+                            <option value="<?php if (!empty($arra_list_numberStreets)) {
+                                echo $arra_list_numberStreets[$i];
+                            } ?>">
+                                <?php if (!empty($arra_list_numberStreets)) {
+                                    echo $arra_list_numberStreets[$i];
+                                } ?> </option>
+                        <?php }
+                    } ?>
+                </select>
+                <?php
+                if (isset($numberofstreet_var_Err)){
+                    echo '<span  class="badge bg-danger rounded-pill">';
+                    echo  $numberofstreet_var_Err;
+                    echo '<span >';
+                }
+                ?>
+            </div>
+            <!--            direction-->
+            <div class="col-md-4 form-label text-start">
+                <select class="form-select"  aria-label="Default select example">
+                    <option selected>الواجهه </option>
+                    <?php if (!empty($length_direction)) {
+                        for ($i = 0; $i < $length_direction; $i++) { ?>
+                            <option value="<?php if (!empty($arra_list_direction)) {
+                                echo $arra_list_direction[$i];
+                            } ?>">
+                                <?php if (!empty($arra_list_direction)) {
+                                    echo $arra_list_direction[$i];
+                                } ?> </option>
+                        <?php }
+                    } ?>
+                </select>
+                <?php
+                if (isset($diraction_var_Err)){
+                    echo '<span  class="badge bg-danger rounded-pill">';
+                    echo  $diraction_var_Err;
+                    echo '<span >';
+                }
+                ?>
+            </div>
+            <!--            Instrument type-->
+            <div class="col-md-4 form-labeltext-start">
+                <select class="form-select"  aria-label="Default select example">
+                    <option selected>نوع الصك </option>
+                    <?php if (!empty($length_direction)) {
+                        for ($i = 0; $i < $length_direction; $i++) { ?>
+                            <option value="<?php if (!empty($arra_list_direction)) {
+                                echo $arra_list_direction[$i];
+                            } ?>">
+                                <?php if (!empty($arra_list_direction)) {
+                                    echo $arra_list_direction[$i];
+                                } ?> </option>
+                        <?php }
+                    } ?>
+                </select>
+                <?php
+                if (isset($Typeofinstrument_var_Err)){
+                    echo '<span  class="badge bg-danger rounded-pill">';
+                    echo  $Typeofinstrument_var_Err;
+                    echo '<span >';
+                }
+                ?>
+            </div>
+            <!--            Additional features-->
+            <div class="form-group  form-label text-start">
                 <label for="exampleFormControlTextarea1">مميزات إضافيه</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" name="form_Features" rows="5"></textarea>
-                <?php if (isset($Features_var_Err)) {echo $Features_var_Err;} ?> </label>
+                <textarea class="form-control" name="form_features" id="exampleFormControlTextarea1" rows="5"></textarea>
+                <?php
+                if (isset($Features_var_Err)){
+                    echo '<span  class="badge bg-danger rounded-pill">';
+                    echo $Features_var_Err;
+                    echo '<span >';
+                }
+                ?>
 
             </div>
-
+            <!--            save button-->
             <div class="col-md-5 mx-5">
-                <button type="submit" class="btn btn-primary text-light form-control" name="submit_form_add_land">حفظ
+                <button type="submit" onclick="myFunction()" class="btn btn-primary text-light form-control"  name="submit_form_add_land">حفظ
                 </button>
             </div>
         </form>
