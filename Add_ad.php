@@ -15,8 +15,8 @@ include "fun.php";
 <div class="container">
 
     <div class="text-center mt-5 mb-1 p-3" >
-        <a href="index.php" ><div class="col-2  border   p-3  pt-5 pb-5  mx-3 f82a8 text-center text-dark text-decoration-none  d-inline-block ">
-           <p >hi</p>
+        <a href="Add_Villa.php" ><div class="col-2  border   p-3  pt-5 pb-5  mx-3 f82a8 text-center text-dark text-decoration-none  d-inline-block ">
+           <p >الفلل</p>
         </div></a>
         <a href="index.php" ><div class="col-2  border   p-3  pt-5 pb-5  mx-3 f82a8 text-center text-dark text-decoration-none  d-inline-block ">
                 <p >hi</p>

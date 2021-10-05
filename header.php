@@ -83,8 +83,7 @@ session_start();
 <!--            </form>-->
         </div>
 <?php if (empty($_SESSION['name'])) {
-    ?>
-        <a class="nav nav-item nav-link justify-content-end mx-0  d-flex " href="register.php">إضافه إعلان</a>
+ ?>
         <a class="nav nav-item nav-link justify-content-end mx-0  d-flex " href="login.php">تسجيل دخول</a>
         <a class="nav nav-link mx-0" href="register.php">تسجيل </a>
         <?php
