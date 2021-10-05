@@ -10,20 +10,69 @@ include "header.php";
 <html>
 
 <head>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+
+
+<!--        <meta charset="utf-8">-->
+<!--        <meta name="viewport" content="width=device-width, initial-scale=1">-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
 </head>
 
 
 <body>
 
-
-
-
-<div   class="px-2 m-5  mx-auto text-start text-center" style="background-color: #f8f9fa;">
+<!--<div   class="px-2 m-5  mx-auto text-start text-center" style="background-color: #f8f9fa;">-->
 <!--    <h1 class="display-1  rounded-pill p-5 d-inline-block text-secondary mt-5  mb-3 "  STYLE="background-color: #adb5bd;width: 220px; height: 220px;">نقدم </h1>-->
-    <h1 class="display-3 d-inline text-secondary" >   حلول عقارية لا مثيل لها</h1>
-</div>
+<!--    <h1 class="display-3 d-inline text-secondary" >   حلول عقارية لا مثيل لها</h1>-->
+
+    <div id="myCarousel" class="carousel slide text-center m-0 p-0" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators ">
+            <li data-target="#myCarousel" data-slide-to="0" class="active text-center"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+
+            <div class="item active text-center">
+                <img   <source src="img/help3.gif"  alt="00" style="width:1360px; height:302px; ">
+                <div class="carousel-caption">
+
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="img/help4.gif" alt="00" style="width:1360px; height:302px; ">
+                <div class="carousel-caption">
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="img/help5.gif" alt="00" style="width:1360px; height:302px; ">
+                <div class="carousel-caption">
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Left and right controls -->
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+
+
+
 <hr class="m-0 p-0">
 <!--<div   class="d-none row bg-white bg-gradient p-4  mx-auto text-center">-->
 <!--    <div class="col-3 bg-transparent mx-auto bg-gradient text-primary shadow  border-start border-end  border-primary border-5 rounded-pill">-->
