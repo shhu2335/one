@@ -22,7 +22,7 @@ include 'fun.php';
 
 <head>
 
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <!---->
 
@@ -42,10 +42,10 @@ include 'fun.php';
     ?>
                         <!--    Building addition form-->
     <div class="text-center w-auto  bg-light  shadow-lg  rounded-3">
-        <p class="fw-bolder  text-light shadow  text-center p-2 rounded-1 f82a8" >إضافه عماره</p>
+        <p class="fw-bolder  text-light shadow  text-center  p-2 rounded-1 f82a8" >إضافه عماره</p>
         <form class="row g-3  p-5  text-end" method="POST" action="Add_Building.php">
                          <!--            space-->
-            <div class="form-label col-md-6 text-start">
+            <div class="form-label col-md-6 text-end">
                 <label for="phone_number_form" class="form-label">المساحه</label>
                 <input type="number" class="form-control" id="phone_number_form" name="form_space">
                 <?php
@@ -57,7 +57,7 @@ include 'fun.php';
                 ?>
             </div>
                           <!--            property age-->
-            <div class="form-label col-md-6 text-start">
+            <div class="form-label col-md-6 text-end">
                 <label for="phone_number_form" class="form-label ">عمر العقار</label>
                 <input type="number" class="form-control" id="phone_number_form" name="form_AgeOfProperty">
                 <?php
@@ -69,7 +69,7 @@ include 'fun.php';
                 ?>
             </div>
                          <!--            type of offer -->
-            <div class="col-md-4 form-label  text-start">
+            <div class="col-md-4 form-label  text-end">
 <!--                <label > </label>-->
                 <select class="form-select" aria-label="Default select example">
 
@@ -95,7 +95,7 @@ include 'fun.php';
 
             </div>
                          <!--            Number of apartments-->
-            <div class="col-md-4 text-start">
+            <div class="col-md-4 text-end">
                 <select class="form-select" aria-label="Default select example">
                     <option selected>عدد الشقق </option>
                     <?php if (!empty($length_numberRoom)) {
@@ -118,7 +118,7 @@ include 'fun.php';
                 ?>
             </div>
                         <!--            the number of floors-->
-            <div class="col-md-4 text-start">
+            <div class="col-md-4 text-end">
                 <select class="form-select" aria-label="Default select example">
                     <option selected>عدد الطوابق </option>
                     <?php if (!empty($length_numberRoom)) {
@@ -141,7 +141,7 @@ include 'fun.php';
                 ?>
             </div>
                         <!--            number of lifts-->
-            <div class="col-md-4 text-start">
+            <div class="col-md-4 text-end">
                 <select class="form-select" aria-label="Default select example">
                     <option selected>عدد المصاعد </option>
                     <?php if (!empty($length_numberRoom)) {
@@ -164,7 +164,7 @@ include 'fun.php';
                 ?>
             </div>
                         <!--            Number of parking-->
-            <div class="col-md-4 text-start">
+            <div class="col-md-4 text-end">
                 <select class="form-select" aria-label="Default select example">
                     <option selected>عدد المواقف </option>
                     <?php if (!empty($length_numberRoom)) {
@@ -187,7 +187,7 @@ include 'fun.php';
                 ?>
             </div>
                         <!--            number of streets-->
-            <div class="col-md-4 text-start">
+            <div class="col-md-4 text-end">
                 <select class="form-select" aria-label="Default select example">
                     <option selected>عدد الشوارع </option>
                     <?php if (!empty($length_numberStreets)) {
@@ -210,9 +210,12 @@ include 'fun.php';
                 ?>
             </div>
                         <!--            direction-->
-            <div class="col-md-4 text-start">
+
+
+            <div class="col-md-6 text-end">
+                <p>الواجهه</p>
                 <select class="form-select"  aria-label="Default select example">
-                    <option selected>الواجهه </option>
+                    <option selected>اختيار </option>
                     <?php if (!empty($length_direction)) {
                         for ($i = 0; $i < $length_direction; $i++) { ?>
                             <option value="<?php if (!empty($arra_list_direction)) {
@@ -232,8 +235,24 @@ include 'fun.php';
                 }
                 ?>
             </div>
+
+            <!--            price-->
+            <div class="form-label col-md-6 text-end"><
+                <p for="phone_number_form" class="form-label">سعر المتر</p>
+                <input type="number" class="form-control" id="phone_number_form" name="form_price">
+
+
+                <?php
+
+                if (isset($price_var_Err)){
+                    echo '<span  class="badge bg-danger rounded-pill">';
+                    echo $price_var_Err;
+                    echo '<span >';
+                }
+                ?>
+            </div>
                         <!--            Apartment type-->
-            <div class="col-md-12  text-start">
+            <div class="col-md-6  text-end">
                 <label for="phone_number_form" class="form-label">نوع الشقق </label>
                 <div class="form-check form-check-inline">
                     <input class="form-check-input" type="checkbox" name="form_double_room" id="inlineCheckbox1" value="option1">
@@ -255,8 +274,9 @@ include 'fun.php';
                 }
                 ?>
             </div>
+
                         <!--            Additional features-->
-            <div class="form-group  form-label text-start">
+            <div class="form-group  form-label text-end">
                 <label for="exampleFormControlTextarea1">مميزات إضافيه</label>
                 <textarea class="form-control" name="form_features" id="exampleFormControlTextarea1" rows="5"></textarea>
                 <?php
@@ -268,6 +288,7 @@ include 'fun.php';
                 ?>
 
             </div>
+
                         <!--            save button-->
             <div class="col-md-5 mx-5">
                 <button type="submit" class="btn btn-primary text-light form-control"  name="submit_form_add_building">حفظ

@@ -17,11 +17,16 @@ session_start();
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap-reboot.css">
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap-grid.rtl.css">
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap-grid.css">
-    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.rtl.css">
+<!--    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.rtl.css">-->
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.rtl.min.css" rel="stylesheet" integrity="sha384-LPvXVVAlyPoBSGkX8UddpctDks+1P4HG8MhT7/YwqHtJ40bstjzCqjj+VVVDhsCo" crossorigin="anonymous">
+<!--  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.rtl.min.css" rel="stylesheet" integrity="sha384-LPvXVVAlyPoBSGkX8UddpctDks+1P4HG8MhT7/YwqHtJ40bstjzCqjj+VVVDhsCo" crossorigin="anonymous">-->
     <link rel="stylesheet" href="css/style.css">
     <link rel="shortcut icon" href="img/h-s.jpg">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
 
 
 </head>
@@ -89,14 +94,14 @@ session_start();
         <?php
         }elseif(!empty($_SESSION['name'])){
     ?>
-    <a class="nav nav-item nav-link justify-content-end mx-0  d-flex " href="Add_ad.php">إضافه إعلان</a>
+    <a class="nav nav-item nav-link justify-content-end m-0  d-flex " href="Add_ad.php">إضافه إعلان</a>
     <a class="nav nav-link" href="personal_page.php">الصفحه الشخصيه  </a>
         <a class="nav nav-link" href="logout.php">تسجيل خروج  </a>
     <?php } ?>
     </div>
 
 </nav>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+
 <hr class="m-0">
 </body>
 </html>

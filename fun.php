@@ -338,6 +338,17 @@ if (isset($_POST['submit_form_add_building'])) {
         $features_var = test_input(filter_var($_POST["form_features"], FILTER_SANITIZE_STRING));
         $count_building+=1;
     }
+
+    //******************************************* check form_features ***********************************************
+    if (empty($_POST["form_price"])) {
+        $price_var_Err = "الرجاء ادخال السعر.";
+        $_POST["form_features"] = '';
+    }
+    if (filter_has_var(INPUT_POST, 'form_price')) {
+
+        $price_var = test_input(filter_var($_POST["form_features"], FILTER_SANITIZE_STRING));
+        $count_building+=1;
+    }
 // ******************************************** form_add_building *********************** end
 
 
