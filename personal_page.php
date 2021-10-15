@@ -50,10 +50,20 @@ if (! empty($_SESSION['logged_in']))
             <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
                عقاراتك
             </a>
-            <a href="#" class="list-group-item list-group-item-action">عدد الشقق</a>
-            <a href="#" class="list-group-item list-group-item-action">عدد الاارضي</a>
-            <a href="#" class="list-group-item list-group-item-action">عدد العمائر</a>
-        </div>
+
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                عدد الشقق
+                <span class="badge bg-primary rounded-pill">14</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                عدد المحلات
+                <span class="badge bg-primary rounded-pill">2</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                            عدد العمائر
+                <span class="badge bg-primary rounded-pill">1</span>
+            </li>
+        </ul>
 
     </div>
 
