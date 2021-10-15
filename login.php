@@ -8,14 +8,19 @@ include "fun.php";
 
 <div class="container ">
 
+
+
     <?php
     if (isset($message_user_not_found)){
-        echo "<div  class='m-2  alert alert-warning text-center mx-auto h5'  style='width: 450px;' >
-       .$message_user_not_found.</div>";}?>
+        echo "<div class='mx-auto p-3 m-5 bg-white  shadow border border-1  bg-gradient  rounded-3 text-secondary' style='width: 450px;' >
+            <h4 class='card-title  mb-4 py-2 text-center fs-3 bg-primary text-white rounded-3'>أشعار</h4>
+                <div  class='m-1  alert alert-danger text-center mx-auto p-1 '   >
+       $message_user_not_found</div>
+       <div class='mt-3  alert alert-info text-center mx-auto p-1'>الرجاء كتابة أسم المتخدم و كلمة المرور بشكل صيحيح</div></div></div>";}?>
 
 
-    <div class="mx-auto  mt-5 bg-white  shadow border border-1  bg-gradient  rounded-3 text-secondary" style="width: 450px;" >
-        <h4 class="card-title mt-3 text-center ">تسجيل دخول</h4>
+    <div class="mx-auto  mt-5 p-3 bg-white  shadow border border-1  bg-gradient  rounded-3 text-secondary" style="width: 450px;" >
+        <h4 class="card-title mb-2 py-2 text-center fs-3 bg-primary text-white rounded-3">تسجيل دخول</h4>
         <form class="row  d-block p-4"
               method="post"
               action="login.php">
@@ -27,7 +32,7 @@ include "fun.php";
                        id="form_user_name"
                        name="form_user_name">
                 <label for="username_form"
-                       class="alert- alert-danger mb-3 px-2 shadow  rounded-3">
+                       class="alert- alert-danger my-1 px-2   rounded-3">
                     <?php
                     if (isset($var_user_name_err))
                     {
@@ -41,7 +46,7 @@ include "fun.php";
                 <label for="form_password" class="form-label">كلمة المرور</label>
                 <input type="text" class="form-control" id="form_password" name="form_password">
                 <label for="form_password"
-                       class="lert- alert-danger shadow mb-3 px-2 rounded-2">
+                       class="lert- alert-danger my-1 px-2   rounded-3">
                     <?php
                     if (isset($var_password_err))
                     {
@@ -52,9 +57,14 @@ include "fun.php";
             </div>
 
             <div class="col">
-                <label for="username_form" class="form-label"></label>
+                <label for="username_form"
+                       class="form-label">
+                </label>
 
-                <button type="submit" class="btn btn-primary bg-gradient text-white mb-3 form-control" name="submit_form_login">دخول</button>
+                <button type="submit"
+                        class="btn btn-primary bg-gradient text-white mb-3 form-control"
+                        name="submit_form_login">دخول
+                </button>
             </div>
 
         </form>

@@ -20,9 +20,9 @@ include "fun.php";
 <body>
 
 <div class="container">
-    <div class="mx-auto p-3 my-0 bg-white  shadow border border-1  bg-gradient  rounded-3 text-secondary" >
-        <p class="my-2 text-center fs-3 ">إضافه شقة</p>
-        <form class="row  g-3 text-end" method="post" action="Add_Studio.php">
+    <div class="mx-auto p-3 my-5 bg-white  shadow border border-1  bg-gradient  rounded-3 text-secondary" >
+        <p class="mb-2 py-2 text-center fs-3 bg-primary text-white rounded-3">إضافه استديو</p>
+        <form class="row  g-3 p-5 text-end" method="post" action="Add_Studio.php">
 
 
             <div class="col-md-4">

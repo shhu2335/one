@@ -57,7 +57,7 @@ if (isset($_POST['submit_form_login']))
 
         if ($count === 0)
         {
-            $message_user_not_found = "أسم المستخدم أو كلمه المرور غير صحيحه";
+            $message_user_not_found = "أسم المستخدم أو كلمة المرور غير صحيحة";
         }
         else{
 

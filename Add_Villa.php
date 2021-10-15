@@ -12,11 +12,7 @@ include "fun.php";
 
 
 <head>
-   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-   <link rel="stylesheet" href="css/style.css">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.rtl.min.css"
-          integrity="sha384-gXt9imSW0VcJVHezoNQsP+TNrjYXoGcrqBZJpry9zJt8PCQjobwmhMGaDHTASo9N" crossorigin="anonymous">
+
 
 
 </head>
@@ -35,8 +31,8 @@ if (isset( $alert_insert_villa_by_successfully)){
 ?>
 <!--   the villa addition form-->
 <div class="container">
-    <div class="text-center w-auto shadow-lg  rounded-3" >
-        <p class="fw-bolder  text-light shadow  text-center p-2 rounded-1 f82a8">إضافه فله</p>
+    <div class="w-auto mx-auto p-3 m-5 bg-white  shadow border border-1  bg-gradient  rounded-3 text-secondary">
+        <p class="card-title  mb-2 py-2 text-center fs-3 bg-primary text-white rounded-3">إضافه فلة</p>
         <form class="row g-3  p-5  text-end" method="POST" action="Add_Villa.php">
             <!--            space-->
             <div class="form-label col-md-6 text-start">
@@ -378,8 +374,8 @@ if (isset( $alert_insert_villa_by_successfully)){
 
             </div>
             <!--            save button-->
-            <div class="col-md-5 mx-5">
-                <button type="submit" class="btn btn-primary text-light form-control"  name="submit_form_add_villa">حفظ
+            <div class="col-md-4">
+                <button type="submit" class="btn btn-primary text-light form-control"  name="submit_form_add_villa">إضافة
                 </button>
             </div>
         </form>

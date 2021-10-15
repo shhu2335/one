@@ -40,7 +40,7 @@ session_start();
 <!--    <a class="m-1 p-1 btn btn-outline-light" href="index.php">الخريطه</a>-->
 <!--</div>-->
 
-<nav class="navbar navbar-expand-lg navbar-light bg-white  text-primary ">
+<nav class="navbar navbar-expand-lg navbar-light bg-white  m-0 text-primary ">
 
     <div class=".container-sm	container-fluid ">
         <a class="navbar-brand text-primary" href="index.php">H & SH للعقارات
@@ -84,8 +84,8 @@ session_start();
         </div>
 <?php if (empty($_SESSION['name'])) {
  ?>
-        <a class="nav nav-item nav-link justify-content-end mx-0  d-flex " href="login.php">تسجيل دخول</a>
-        <a class="nav nav-link mx-0" href="register.php">تسجيل </a>
+        <a class="nav nav-item nav-link justify-content-end m-0 px-3 d-flex " href="login.php">تسجيل دخول</a>
+        <a class="nav nav-link m-0 p-0" href="register.php">تسجيل </a>
         <?php
         }elseif(!empty($_SESSION['name'])){
     ?>
@@ -97,6 +97,6 @@ session_start();
 
 </nav>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
-<hr class="m-0">
+<hr class="m-0 p-0 ">
 </body>
 </html>

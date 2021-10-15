@@ -22,14 +22,14 @@ include "fun.php";
 
     <?php
     if (isset($alert_successfully_inserted_user)){
-        echo "<div  class='m-2  alert alert-warning text-center mx-auto h5'  style='width: 450px;' >
+        echo "<div  class='m-2  alert alert-warning text-center mx-auto h5'>
        .$alert_successfully_inserted_user.</div>";}?>
 
-    <div class="w-auto  bg-white border border-1  bg-gradient shadow  rounded-3">
+    <div class="w-auto mx-auto p-3  bg-white  shadow border border-1  bg-gradient  rounded-3 text-secondary">
 
-            <h4 class="card-title  mt-3 text-center text-secondary">تسجيل</h4>
+            <h4 class="card-title  mb-3 py-2 text-center fs-3 bg-primary text-white rounded-3">تسجيل</h4>
 
-        <form class="row p-3 g-3 text-secondary " method="post" action="register.php">
+        <form class="row  g-1 text-secondary " method="post" action="register.php">
 
             <div class="col-md-4">
                 <label for="name_form" class="form-label">الاسم</label>

@@ -40,8 +40,8 @@ include "fun.php";
     }
     ?>
     <!--   the land addition form-->
-    <div class="text-center w-auto  bg-light  shadow-lg  rounded-3">
-        <p class="fw-bolder  text-light shadow  text-center p-2 rounded-1 f82a8">إضافه أرض </p>
+    <div class="w-auto mx-auto p-3 m-5 bg-white  shadow border border-1  bg-gradient  rounded-3 text-secondary">
+        <p class="card-title  mb-2 py-2 text-center fs-3 bg-primary text-white rounded-3">إضافة أرض</p>
         <form class="row g-3  p-5  text-end" method="post" action="Add_Land.php">
             <!--            space-->
             <div class="form-label col-md-6 text-start">
@@ -187,8 +187,8 @@ include "fun.php";
 
             </div>
             <!--            save button-->
-            <div class="col-md-5 mx-5">
-                <button type="submit" onclick="myFunction()" class="btn btn-primary text-light form-control"  name="submit_form_add_land">حفظ
+            <div class="col-md-4">
+                <button type="submit" onclick="myFunction()" class="btn btn-primary text-light form-control"  name="submit_form_add_land">إضافة
                 </button>
             </div>
         </form>

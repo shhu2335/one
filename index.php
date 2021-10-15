@@ -11,9 +11,8 @@ include "header.php";
 
 <head>
 
-
-<!--        <meta charset="utf-8">-->
-<!--        <meta name="viewport" content="width=device-width, initial-scale=1">-->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -37,23 +36,23 @@ include "header.php";
         </ol>
 
         <!-- Wrapper for slides -->
-        <div class="carousel-inner">
+        <div class="carousel-inner m-0">
 
             <div class="item active text-center">
-                <img   <source src="img/help3.gif"  alt="00" style="width:1360px; height:302px; ">
+                <img   <source src="img/help3.gif" class="w-100"  alt="00" style=" height:500px; ">
                 <div class="carousel-caption">
 
                 </div>
             </div>
 
             <div class="item">
-                <img src="img/help4.gif" alt="00" style="width:1360px; height:302px; ">
+                <img src="img/help4.gif" alt="00"  class="w-100" style=" height:500px; ">
                 <div class="carousel-caption">
                 </div>
             </div>
 
             <div class="item">
-                <img src="img/help5.gif" alt="00" style="width:1360px; height:302px; ">
+                <img src="img/help5.gif" alt="00"  class="w-100" style=" height:500px; ">
                 <div class="carousel-caption">
                 </div>
             </div>
@@ -321,7 +320,7 @@ include "header.php";
     </div>
 <?php } ?>
 
-    <?php if (isset($_GET['shouq'])){
+<?php if (isset($_GET['shouq'])){
 
         ?> <div class="container p-1 mb-5"><div class="bg-primary m5 p-5 ">
             <select class="form-select" aria-label="Default select example">
