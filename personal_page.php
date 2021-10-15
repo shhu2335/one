@@ -26,7 +26,7 @@ if (! empty($_SESSION['logged_in']))
         <div class="row g-3  text-center">
 
     <div class="w-50 p-0 m-0 bg-white bg-gradient text-center ">
-        <img src="img/person.jpg" class="w-100">
+        <img src="img/person.jpg" class="w-50 h-50 rounded-circle">
         <div class="px-3 pt-2 ">
 
             <ul class="list-group">
