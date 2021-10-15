@@ -21,9 +21,9 @@ if (! empty($_SESSION['logged_in']))
 <div class="container">
 
     <div class="w-auto mx-auto p-3 my-5 bg-white  shadow border border-1  bg-gradient  rounded-3 text-secondary">
-        <p class="card-title  mb-4 py-2 text-center fs-3 bg-primary text-white rounded-3"> الصفحة الشخصية </p>
+        <p class="card-title  mb-5 py-2 text-center fs-3 bg-primary text-white rounded-3"> الصفحة الشخصية </p>
 
-        <div class="row g-3  text-center">
+        <div class="row g-3 p-2 text-center">
 
     <div class="w-50 p-0 m-0 bg-white bg-gradient text-center ">
         <img src="img/person.jpg" class="w-50 h-50 rounded-circle">
@@ -35,7 +35,7 @@ if (! empty($_SESSION['logged_in']))
                 <li class="list-group-item">الايميل:  <?php echo $_SESSION['email']; ?></li>
                 <li class="list-group-item">رقم الجوال: <?php echo $_SESSION['phonenumber']; ?></li>
                 <li class="list-group-item">  أسم المستخدم:<?php echo $_SESSION['usernmae']; ?></li>
-                <li class="list-group-item"><button class="btn btn-outline-dark m-4 mx-auto">تعديل الملف</button></li>
+                <li class="list-group-item"><button class="btn btn-outline-dark  mx-auto">تعديل الملف</button></li>
             </ul>
 <!--        <p class="fs-md-3 fs-sm-3"></p>-->
 <!--        <p class="fs-md-3 fs-sm-3"></p>-->
