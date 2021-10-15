@@ -45,9 +45,15 @@ if (! empty($_SESSION['logged_in']))
         </div>
 
     </div>
-    <div class="w-50 p-0 m-0 bg-warning bg-gradient">
-
-        <p class="h5">esrgdhgfgjkjlkj,hmgffdvsc</p>
+    <div class="w-50 p-0 m-0 p-3 mb-5 bg-white   border border-1  bg-gradient  rounded-3 text-secondary">
+        <div class="list-group">
+            <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+               عقاراتك
+            </a>
+            <a href="#" class="list-group-item list-group-item-action">عدد الشقق</a>
+            <a href="#" class="list-group-item list-group-item-action">عدد الاارضي</a>
+            <a href="#" class="list-group-item list-group-item-action">عدد العمائر</a>
+        </div>
 
     </div>
 
