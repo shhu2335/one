@@ -20,8 +20,12 @@ if (! empty($_SESSION['logged_in']))
 <body>
 <div class="container">
 
-<div CLASS="row g-2 m-5">
-    <div class="w-25 p-0 m-0 bg-white bg-gradient text-center ">
+    <div class="w-auto mx-auto p-3 my-5 bg-white  shadow border border-1  bg-gradient  rounded-3 text-secondary">
+        <p class="card-title  mb-4 py-2 text-center fs-3 bg-primary text-white rounded-3"> الصفحة الشخصية </p>
+
+        <div class="row g-3  text-center">
+
+    <div class="w-50 p-0 m-0 bg-white bg-gradient text-center ">
         <img src="img/person.jpg" class="w-100">
         <div class="px-3 pt-2 ">
         <p class="fs-md-3 fs-sm-3">   المعرف :<?php echo $_SESSION['id']; ?></p>
@@ -32,7 +36,7 @@ if (! empty($_SESSION['logged_in']))
         </div>
         <button class="btn btn-outline-dark m-4 mx-auto">تعديل الملف</button>
     </div>
-    <div class="w-75 p-0 m-0 bg-warning bg-gradient">
+    <div class="w-50 p-0 m-0 bg-warning bg-gradient">
 
         <p class="h5">esrgdhgfgjkjlkj,hmgffdvsc</p>
 
