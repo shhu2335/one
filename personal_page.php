@@ -28,13 +28,22 @@ if (! empty($_SESSION['logged_in']))
     <div class="w-50 p-0 m-0 bg-white bg-gradient text-center ">
         <img src="img/person.jpg" class="w-100">
         <div class="px-3 pt-2 ">
-        <p class="fs-md-3 fs-sm-3">   المعرف :<?php echo $_SESSION['id']; ?></p>
-        <p class="fs-md-3 fs-sm-3">   الاسم :<?php echo $_SESSION['name']; ?></p>
-        <p class="fs-md-3 fs-sm-3">الايميل:  <?php echo $_SESSION['email']; ?></p>
-        <p class="fs-md-3 fs-sm-3">رقم الجوال: <?php echo $_SESSION['phonenumber']; ?></p>
-        <p class="fs-md-3 fs-sm-3">  أسم المستخدم:<?php echo $_SESSION['usernmae']; ?></p>
+
+            <ul class="list-group">
+                <li class="list-group-item">   المعرف :<?php echo $_SESSION['id']; ?></li>
+                <li class="list-group-item">   الاسم :<?php echo $_SESSION['name']; ?></li>
+                <li class="list-group-item">الايميل:  <?php echo $_SESSION['email']; ?></li>
+                <li class="list-group-item">رقم الجوال: <?php echo $_SESSION['phonenumber']; ?></li>
+                <li class="list-group-item">  أسم المستخدم:<?php echo $_SESSION['usernmae']; ?></li>
+                <li class="list-group-item"><button class="btn btn-outline-dark m-4 mx-auto">تعديل الملف</button></li>
+            </ul>
+<!--        <p class="fs-md-3 fs-sm-3"></p>-->
+<!--        <p class="fs-md-3 fs-sm-3"></p>-->
+<!--        <p class="fs-md-3 fs-sm-3"></p>-->
+<!--        <p class="fs-md-3 fs-sm-3"></p>-->
+<!--        <p class="fs-md-3 fs-sm-3"></p>-->
         </div>
-        <button class="btn btn-outline-dark m-4 mx-auto">تعديل الملف</button>
+
     </div>
     <div class="w-50 p-0 m-0 bg-warning bg-gradient">
 
