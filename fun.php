@@ -10,6 +10,22 @@ function test_input($data)
 // اختصارات
 // عدد الصالات
 
+//
+//function di_img()
+//{
+//    $q =$pdo->query('SELECT * FROM villa');
+//    return $r = $q;
+//}
+//
+
+
+
+
+
+
+
+
+
 
 // ^^^^^^^^^^ hussam ^^^^^^^^^^ login system ^^^^^^^^^^^^^^^^^^^^^  start
 
@@ -375,81 +391,11 @@ if($count_building ===13) {
     $alert_insert_building_by_successfully = '  تمت إضافه العماره بنجاح';
 
 
+
 }
 
 
 
-    if (isset($_POST['submit_form_ِِAdd_studio'])) {
-
-
-// *********************  defined variable     $var_Type_Offer   *******************************************
-        if (empty($_POST["Form_Type_Offer"])) {
-            $var_Type_Offer_err = "الرجاء أختيار نوع العرض";
-            $_POST["Form_Type_Offer"] = '';
-        }
-        if (filter_has_var(input_post, 'Form_Type_Offer'))
-        {
-            $var_Type_Offer = test_input(filter_var($_POST['Form_Type_Offer'], filter_sanitize_string));
-        }
-
-// *********************  defined variable    $var_Direction   *******************************************
-        if (empty($_POST["Form_Direction"]))
-        {
-            $var_Direction_err = "الرجاء الاختيار ";
-            $_POST["Form_Direction"] = '';
-        }
-        if (filter_has_var(input_post, 'Form_Direction'))
-        {
-            $var_Direction = test_input(filter_var($_POST['Form_Direction'], filter_sanitize_string));
-        }
-
-// *********************  defined variable    $var_Number_Toilets   *******************************************
-        if (empty($_POST["Form_Number_Toilets"]))
-        {
-            $var_Number_Toilets_err = "الرجاء ألاختيار ";
-            $_POST["Form_Number_Toilets"] = '';
-        }
-        if (filter_has_var(input_post, 'Form_Number_Toilets'))
-        {
-            $var_Number_Toilets = test_input(filter_var($_POST['Form_Number_Toilets'], filter_sanitize_string));
-        }
-
-// *********************  defined variable    $var_Types_Toilets   *******************************************
-        if (empty($_POST["Form_Types_Toilets"]))
-        {
-            $var_Types_Toilets_err = "الرجاء ألاختيار ";
-            $_POST["Form_Types_Toilets"] = '';
-        }
-        if (filter_has_var(input_post, 'Form_Types_Toilets'))
-        {
-            $var_Types_Toilets = test_input(filter_var($_POST['Form_Types_Toilets'], filter_sanitize_string));
-        }
-
-// *********************  defined variable    $var_Meeting_Rooms   *******************************************
-        if (empty($_POST["Form_Meeting_Rooms"]))
-        {
-            $var_Meeting_Rooms_err = "الرجاء ألاختيار ";
-            $_POST["Form_Meeting_Rooms"] = '';
-        }
-        if (filter_has_var(input_post, 'Form_Meeting_Rooms'))
-        {
-            $var_Meeting_Rooms = test_input(filter_var($_POST['Form_Meeting_Rooms'], filter_sanitize_string));
-        }
-
-// *********************  defined variable    $var_Date   *******************************************
-        if (empty($_POST["Form_Date"]))
-        {
-            $var_Date_err = "الرجاء ألاختيار ";
-            $_POST["Form_Date"] = '';
-        }
-        if (filter_has_var(input_post, 'Form_Date'))
-        {
-            $var_Date = test_input(filter_var($_POST['Form_Date'], filter_sanitize_string));
-        }
-
-
-
-    }
 
 
 }
@@ -895,6 +841,8 @@ if ( $count_villa ===16){
 
     if (isset($pdo)) {
         $stmt = $pdo->prepare($sql);
+
+
     }
 
     $stmt->execute($r = array(
@@ -1649,6 +1597,14 @@ if (filter_has_var(input_post, 'Form_Date'))
     $var_insert_build = '  تمت إضافه العماره بنجاح' ;
 }
     // ======================   end submit_apartment   ======================
+
+
+
+
+
+
+
+
 
 //    المصفوفه غرض البيع
     $arra_list_State = array( "للبيع", "الإيجار", "إيجار منتهي بالتمليك");

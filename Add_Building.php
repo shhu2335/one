@@ -73,7 +73,7 @@ include 'fun.php';
 <!--                <label > </label>-->
                 <select class="form-select" aria-label="Default select example">
 
-                    <option selected value="">-- الغرض من عرض العقار --</option>
+                    <option selected value="" name="form_taype_of_offer">-- الغرض من عرض العقار --</option>
                     <?php if (!empty($length_State)) {
                         for ($i = 0; $i < $length_State; $i++) { ?>
                             <option value="<?php if (!empty($arra_list_State)) {
@@ -90,7 +90,7 @@ include 'fun.php';
                     echo '<span  class="badge bg-danger rounded-pill">';
                     echo $taype_of_offer_var_Err ;
                     echo '<span >';
-                }
+                }else{}
                 ?>
 
             </div>
