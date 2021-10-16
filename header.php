@@ -43,12 +43,7 @@ session_start();
 <nav class="navbar navbar-expand-lg navbar-light bg-white  m-0 text-primary ">
 
     <div class=".container-sm	container-fluid ">
-        <a class="navbar-brand text-primary" href="index.php">H & SH للعقارات
-            <?php if (! empty($_SESSION['name']))
-            {
-            echo "مرحبا : ".$_SESSION['name'];
-            }?>
-        </a>
+        <a class="navbar-brand text-primary " href="index.php">مجموعة الأبتكارات العقارية</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -84,14 +79,12 @@ session_start();
         </div>
 <?php if (empty($_SESSION['name'])) {
  ?>
-        <a class="nav nav-item nav-link justify-content-end m-0 px-3 d-flex " href="login.php">تسجيل دخول</a>
+        <a class="nav nav-item nav-link justify-content-end m-0 px-2 d-flex " href="login.php">تسجيل دخول</a>
         <a class="nav nav-link m-0 p-0" href="register.php">تسجيل </a>
-        <?php
-        }elseif(!empty($_SESSION['name'])){
-    ?>
-    <a class="nav nav-item nav-link justify-content-end mx-0  d-flex " href="Add_ad.php">إضافه إعلان</a>
-    <a class="nav nav-link" href="personal_page.php">الصفحه الشخصيه  </a>
-        <a class="nav nav-link" href="logout.php">تسجيل خروج  </a>
+        <?php }elseif(!empty($_SESSION['name'])){?>
+    <a class="nav nav-item nav-link justify-content-end mx-0  d-flex px-1 alert-link" href="Add_ad.php">إضافه إعلان</a>
+    <a class="nav nav-link px-1 alert-link" href="personal_page.php">الملف الشخصي</a>
+    <a class="nav nav-link px-1 alert-link" href="logout.php">تسجيل خروج  </a>
     <?php } ?>
     </div>
 

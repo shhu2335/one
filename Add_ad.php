@@ -12,7 +12,7 @@ include "fun.php";
 <body>
 <div class="container">
     <div class="w-auto mx-auto p-3 my-5 bg-white  shadow border border-1  bg-gradient  rounded-3 text-secondary">
-        <p class="card-title  mb-4 py-2 text-center fs-3 bg-primary text-white rounded-3"> الأضافات</p>
+        <p class="card-title  mb-4 py-2 text-center fs-3 bg-primary text-white rounded-3"> إضف عقارك</p>
 
     <div class="row g-3  text-center">
         <div class="col-3">

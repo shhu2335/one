@@ -15,13 +15,19 @@ if (! empty($_SESSION['logged_in']))
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title></title>
+    <title>مجموعة الأبتكارات العقارية</title>
+
 </head>
 <body>
 <div class="container">
 
     <div class="w-auto mx-auto p-3 my-5 bg-white  shadow border border-1  bg-gradient  rounded-3 text-secondary">
-        <p class="card-title  mb-5 py-2 text-center fs-3 bg-primary text-white rounded-3"> الصفحة الشخصية </p>
+        <p class="card-title  mb-5 py-2 text-center fs-3 bg-primary text-white rounded-3">
+            <?php if (! empty($_SESSION['name']))
+            {
+                echo "مرحبا, ".$_SESSION['name'];
+            }?>
+        </p>
 
         <div class="row g-3 p-2 text-center ">
 

@@ -31,6 +31,8 @@ include "header.php";
             min-height: 280px;
         }
     </style>
+
+    <title>مجموعة الأبتكارات العقارية</title>
 </head>
 
 
@@ -51,13 +53,13 @@ include "header.php";
     </div>
     <div class="carousel-inner ">
         <div class="carousel-item active">
-            <img src="img/help3.gif" class="d-block w-100 h-auto" alt="...">
+            <img src="img/help3.gif" class="d-block w-100" style="height: 500px; max-height: 50%" alt="...">
         </div>
         <div class="carousel-item">
-            <img src="img/help4.gif" class="d-block w-100 h-auto" alt="...">
+            <img src="img/help4.gif" class="d-block w-100" style="height: 500px; max-height: 50%" alt="...">
         </div>
         <div class="carousel-item">
-            <img src="img/help5.gif" class="d-block w-100 h-auto" alt="...">
+            <img src="img/help5.gif" class="d-block w-100" style="height: 500px; max-height: 50%" alt="...">
         </div>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -88,26 +90,27 @@ include "header.php";
 <!--    </div>-->
 <!---->
 <!--</div>-->
-<div class="m-0 p-1 e2d1c3  text-center mx-auto text-white " >
+<div class="text-center p-3 " >
+
     <div class="container">
-        <div class="row">
-            <div class="four col-md-3">
-                <div class="counter-box bg-transparent"> <i class="fa fa-thumbs-o-up"></i> <span class="counter">2147</span>
+        <div class="row text-white ">
+            <div class="col bg-primary bg-gradient rounded-pill shadow mx-2 ">
+                <div class="bg-transparent"> <i class="fa fa-thumbs-o-up"></i> <span class="counter"><?php echo number_format(2147, 0, ",", ".");?></span>
                     <p>عدد زورا الموقع </p>
                 </div>
             </div>
-            <div class="four col-md-3">
-                <div class="counter-box  bg-transparent"> <i class="fa fa-group"></i> <span class="counter">3275</span>
+            <div class="col bg-warning bg-gradient rounded-pill shadow mx-2 ">
+                <div class="bg-transparent"> <i class="fa fa-group"></i> <span class="counter"><?php echo number_format(365, 0, ",", ".");?></span>
                     <p>عدد مكاتب العقار</p>
                 </div>
             </div>
-            <div class="four col-md-3">
-                <div class="counter-box bg-transparent"> <i class="fa fa-shopping-cart"></i> <span class="counter">289</span>
+            <div class="col bg-success bg-gradient rounded-pill shadow mx-2 ">
+                <div class="bg-transparent"> <i class="fa fa-shopping-cart"></i> <span class="counter"><?php echo number_format(952, 0, ",", ".");?></span>
                     <p>عدد العقارات </p>
                 </div>
             </div>
-            <div class="four col-md-3">
-                <div class="counter-box bg-transparent"> <i class="fa fa-user"></i> <span class="counter">1563</span>
+            <div class="col bg-danger bg-gradient rounded-pill shadow mx-2 ">
+                <div class=bg-transparent"> <i class="fa fa-user"></i> <span class="counter"><?php echo number_format(15085, 0, ",", ".");?></span>
                     <p>Saved Trees</p>
                 </div>
             </div>
@@ -162,13 +165,6 @@ include "header.php";
 
 </div>
 
-<style>
-    .cards:hover {
-        box-shadow: 5px 6px 6px 2px #e9ecef;
-        transform: scale(1.03)
-    }
-</style>
-
 
 
 <div class="container">
@@ -177,34 +173,35 @@ include "header.php";
     <div class="row g-2 ">
         <!--            Villa-->
         <div class="col-3">
-            <a href="index.php?Villa" class="text-decoration-none text-dark ">
+            <a  href="index.php?Villa&?#Villa"  class="text-decoration-none text-dark ">
                 <div  class="cards  p-3 border bg-light rounded-3 w-100 table-hover" > الفلل</div>
+
             </a>
         </div>
         <!--            ?Building-->
         <div class="col-3">
-            <a href="index.php?Building" class="text-decoration-none text-dark ">
+            <a href="index.php?Building&?#Building" class="text-decoration-none text-dark ">
                 <div class="cards p-3 border bg-light rounded-3">العمائر</div></a>
         </div>
         <!--            Land-->
         <div class="col-3">
-            <a href="index.php?Land" class="text-decoration-none text-dark ">
+            <a href="index.php?Land&?#Land" class="text-decoration-none text-dark ">
                 <div class="cards p-3 border bg-light rounded-3">الاراضي</div></a>
         </div>
 
         <!--            hotel-->
         <div class="col-3">
-            <a href="index.php?hotel" class="text-decoration-none text-dark ">
+            <a href="index.php?hotel&?#hotel" class="text-decoration-none text-dark ">
                 <div class="cards p-3 border bg-light rounded-3">الفنادق</div></a>
         </div>
         <!--            Shop-->
         <div class="col-3">
-            <a href="index.php?Shop" class="text-decoration-none text-dark ">
+            <a href="index.php?Shop&?#Shop" class="text-decoration-none text-dark ">
                 <div class="cards p-3 border bg-light rounded-3">المحلات</div></a>
         </div>
         <!--            Farm-->
         <div class="col-3">
-            <a href="index.php?Farm" class="text-decoration-none text-dark ">
+            <a href="index.php?Farm&?#Farm" class="text-decoration-none text-dark ">
                 <div class="cards p-3 border bg-light rounded-3">المزارع</div></a>
         </div>
 
@@ -213,36 +210,36 @@ include "header.php";
 
         <!--            Castle-->
         <div class="col-3">
-            <a href="index.php?Castle" class="text-decoration-none text-dark ">
+            <a href="index.php?Castle&?#Castle" class="text-decoration-none text-dark ">
                 <div  class="cards  p-3 border bg-light rounded-3 w-100 table-hover" > القصور </div>
             </a>
         </div>
         <!--            Apartment-->
         <div class="col-3">
-            <a href="index.php?Apartment" class="text-decoration-none text-dark ">
+            <a href="index.php?Apartment&?#Apartment" class="text-decoration-none text-dark ">
                 <div class="cards p-3 border bg-light rounded-3"> الشقق</div></a>
         </div>
 
         <!--            Dianiyah-->
         <div class="col-3">
-            <a href="index.php?Dianiyah" class="text-decoration-none text-dark ">
+            <a href="index.php?Dianiyah&?#Dianiyah" class="text-decoration-none text-dark ">
                 <div class="cards p-3 border bg-light rounded-3">الإستراحات </div></a>
         </div>
         <!--            لشاليهات-->
         <div class="col-3">
-            <a href="index.php? " class="text-decoration-none text-dark ">
+            <a href="index.php?&?#Dianiyah" class="text-decoration-none text-dark ">
                 <div class="cards p-3 border bg-light rounded-3">الشاليهات </div></a>
             <!--                تحتاج فورم-->
         </div>
         <!--            Office-->
         <div class="col-3">
-            <a href="index.php?Office" class="text-decoration-none text-dark ">
+            <a href="index.php?Office&?#Office" class="text-decoration-none text-dark ">
                 <div class="cards p-3 border bg-light rounded-3">المكاتب</div></a>
         </div>
         <!--            Studio-->
         <div class="col-3">
-            <a href="index.php?Studio" class="text-decoration-none text-dark ">
-                <div class="cards p-3 border bg-light rounded-3">استديوهات</div></a>
+            <a href="index.php?Studio&?#Studio" class="text-decoration-none text-dark ">
+                <div class="cards p-3 border bg-light rounded-3" >استديوهات</div></a>
         </div>
 
 
@@ -256,7 +253,7 @@ include "header.php";
 
     ?>
 
-    <div class="row d-flex row-cols-md-12 row-cols-sm-4  g-3  align-items: center  justify-content: center">
+    <div class="row d-flex row-cols-md-12 row-cols-sm-4  g-3  align-items: center  justify-content: center" id="Villa" >
         <?php
 
         $stmt = $pdo->query('SELECT * FROM villa limit 8');
@@ -355,7 +352,7 @@ include "header.php";
 <?php if (isset($_GET['Building'])){
 
     ?>
-    <div class="row d-flex row-cols-md-12 row-cols-sm-4  g-3  align-items: center  justify-content: center">
+    <div class="row d-flex row-cols-md-12 row-cols-sm-4  g-3  align-items: center  justify-content: center" id="Building">
 
         <?php
 
@@ -439,7 +436,7 @@ include "header.php";
 
 <?php if (isset($_GET['Land'])){?>
 
-    <div class="row d-flex row-cols-md-12 row-cols-sm-4  g-3  align-items: center  justify-content: center">
+    <div class="row d-flex row-cols-md-12 row-cols-sm-4  g-3  align-items: center  justify-content: center" id="Land">
 
         <?php
 
@@ -526,7 +523,7 @@ include "header.php";
 <?php if (isset($_GET['hotel'])){?>
 
 
-    <div class="row d-flex row-cols-md-12 row-cols-sm-4  g-3  align-items: center  justify-content: center">
+    <div class="row d-flex row-cols-md-12 row-cols-sm-4  g-3  align-items: center  justify-content: center" id="hotel">
         <?php
 
         $stmt = $pdo->query('SELECT * FROM hotel limit 8');
@@ -611,7 +608,7 @@ include "header.php";
 <?php if (isset($_GET['Shop'])){?>
 
 
-    <div class="row d-flex row-cols-md-12 row-cols-sm-4  g-3  align-items: center  justify-content: center">
+    <div class="row d-flex row-cols-md-12 row-cols-sm-4  g-3  align-items: center  justify-content: center"id="Shop" >
         <?php
 
         $stmt = $pdo->query('SELECT * FROM Shop limit 8');
@@ -694,7 +691,7 @@ include "header.php";
 
 <?php if (isset($_GET['Farm'])){?>
 
-    <div class="row d-flex row-cols-md-12 row-cols-sm-4  g-3  align-items: center  justify-content: center">
+    <div class="row d-flex row-cols-md-12 row-cols-sm-4  g-3  align-items: center  justify-content: center" id="Farm">
 
         <?php
 
@@ -777,7 +774,7 @@ include "header.php";
 <?php } ?>
 
 <?php if (isset($_GET['Castle'])){?>
-    <div class="row d-flex row-cols-md-12 row-cols-sm-4  g-3  align-items: center  justify-content: center">
+    <div class="row d-flex row-cols-md-12 row-cols-sm-4  g-3  align-items: center  justify-content: center" id="Castle">
         <?php
 
         $stmt = $pdo->query('SELECT * FROM castle limit 8');
@@ -862,7 +859,7 @@ include "header.php";
 <?php if (isset($_GET['Studio'])){
 
     ?>
-    <div class="row d-flex row-cols-md-12 row-cols-sm-4  g-3  align-items: center  justify-content: center">
+    <div class="row d-flex row-cols-md-12 row-cols-sm-4  g-3  align-items: center  justify-content: center" id="Studio">
 
         <?php
 
@@ -947,7 +944,7 @@ include "header.php";
 <?php if (isset($_GET['  '])){
 
     ?>
-    <div class="row d-flex row-cols-md-12 row-cols-sm-4  g-3  align-items: center  justify-content: center">
+    <div class="row d-flex row-cols-md-12 row-cols-sm-4  g-3  align-items: center  justify-content: center" id="">
 
         <?php
 
@@ -1033,7 +1030,7 @@ include "header.php";
 <?php if (isset($_GET['Dianiyah'])){
 
     ?>
-    <div class="row d-flex row-cols-md-12 row-cols-sm-4  g-3  align-items: center  justify-content: center">
+    <div class="row d-flex row-cols-md-12 row-cols-sm-4  g-3  align-items: center  justify-content: center" id="Dianiyah">
 
         <?php
 
@@ -1118,7 +1115,7 @@ include "header.php";
 <?php if (isset($_GET['Apartment'])){
 
     ?>
-    <div class="row d-flex row-cols-md-12 row-cols-sm-4  g-3  align-items: center  justify-content: center">
+    <div class="row d-flex row-cols-md-12 row-cols-sm-4  g-3  align-items: center  justify-content: center" id="Apartment">
 
         <?php
 
@@ -1203,7 +1200,7 @@ include "header.php";
 <?php if (isset($_GET['Office'])){
 
     ?>
-    <div class="row d-flex row-cols-md-12 row-cols-sm-4  g-3  align-items: center  justify-content: center">
+    <div class="row d-flex row-cols-md-12 row-cols-sm-4  g-3  align-items: center  justify-content: center" id="Office">
         <?php
 
         $stmt = $pdo->query('SELECT * FROM desk limit 8');

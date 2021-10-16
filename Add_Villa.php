@@ -61,7 +61,7 @@ if (isset( $alert_insert_villa_by_successfully)){
             <!--            type of offer -->
             <div class="col-md-4 form-label  text-start">
                 <!--                <label > </label>-->
-                <select class="form-select" aria-label="Default select example">
+                <select class="form-select" name="form_TypeOfOffer" aria-label="Default select example">
 
                     <option selected value="">-- الغرض من عرض العقار --</option>
                     <?php if (!empty($length_State)) {
@@ -86,7 +86,7 @@ if (isset( $alert_insert_villa_by_successfully)){
             </div>
             <!--             number of toilets-->
             <div class="col-md-4 form-label text-start">
-                <select class="form-select"  aria-label="Default select example">
+                <select class="form-select" name="form_Numberoftoilets" aria-label="Default select example">
                     <option selected>عدد دورات المياه </option>
                     <?php if (!empty($length_numberRoom)) {
                         for ($i = 0; $i < $length_numberRoom; $i++) { ?>
@@ -109,7 +109,7 @@ if (isset( $alert_insert_villa_by_successfully)){
             </div>
             <!--           Type of toilets-->
             <div class="col-md-4 form-label text-start">
-                <select class="form-select" aria-label="Default select example">
+                <select class="form-select" name="form_Typeoftoilets" aria-label="Default select example">
                     <option selected>نوع دورات المياه </option>
                     <?php if (!empty($length_Type_of_toilets)) {
                         for ($i = 0; $i < $length_Type_of_toilets; $i++) { ?>
@@ -132,7 +132,7 @@ if (isset( $alert_insert_villa_by_successfully)){
             </div>
             <!--            number of halls  -->
             <div class="col-md-4 form-label text-start">
-                <select class="form-select"  aria-label="Default select example">
+                <select class="form-select" name="form_Numberoflounges" aria-label="Default select example">
                     <option selected>عدد الصالات  </option>
                     <?php if (!empty($length_numberRoom)) {
                         for ($i = 0; $i < $length_numberRoom; $i++) { ?>
@@ -155,7 +155,7 @@ if (isset( $alert_insert_villa_by_successfully)){
             </div>
             <!--            number of clippers-->
             <div class="col-md-4 form-label text-start">
-                <select class="form-select"  aria-label="Default select example">
+                <select class="form-select" name="form_Numberofclippers" aria-label="Default select example">
                     <option selected>عدد المقلط </option>
                     <?php if (!empty($length_numberRoom)) {
                         for ($i = 0; $i < $length_numberRoom; $i++) { ?>
@@ -178,7 +178,7 @@ if (isset( $alert_insert_villa_by_successfully)){
             </div>
             <!--             number of kitchens -->
             <div class="col-md-4 form-label text-start">
-                <select class="form-select"  aria-label="Default select example">
+                <select class="form-select" name="form_Numberofkitchen" aria-label="Default select example">
                     <option selected>عدد المطابخ </option>
                     <?php if (!empty($length_numberRoom)) {
                         for ($i = 0; $i < $length_numberRoom; $i++) { ?>
@@ -201,7 +201,7 @@ if (isset( $alert_insert_villa_by_successfully)){
             </div>
             <!--            number of bedrooms-->
             <div class="col-md-4 form-label text-start">
-                <select class="form-select"  aria-label="Default select example">
+                <select class="form-select" name="form_Numberofbedrooms" aria-label="Default select example">
                     <option selected>عدد غرف النوم </option>
                     <?php if (!empty($length_numberRoom)) {
                         for ($i = 0; $i < $length_numberRoom; $i++) { ?>
@@ -224,7 +224,7 @@ if (isset( $alert_insert_villa_by_successfully)){
             </div>
             <!--            number of wings -->
             <div class="col-md-4 form-label text-start">
-                <select class="form-select"  aria-label="Default select example">
+                <select class="form-select" name="form_numberofwings" aria-label="Default select example">
                     <option selected>عدد الأجنحه   </option>
                     <?php if (!empty($length_numberRoom)) {
                         for ($i = 0; $i < $length_numberRoom; $i++) { ?>
@@ -247,7 +247,7 @@ if (isset( $alert_insert_villa_by_successfully)){
             </div>
             <!--            Number of Warehouses-->
             <div class="col-md-4 form-label text-start">
-                <select class="form-select" aria-label="Default select example">
+                <select class="form-select"  name="form_numberofwarehouses" aria-label="Default select example">
                     <option selected>عدد المستودعات</option>
                     <?php if (!empty($length_numberRoom)) {
                         for ($i = 0; $i < $length_numberRoom; $i++) { ?>
@@ -270,7 +270,7 @@ if (isset( $alert_insert_villa_by_successfully)){
             </div>
            <!--            number of streets-->
             <div class="col-md-4 text-start">
-                <select class="form-select" aria-label="Default select example">
+                <select class="form-select" name="form_numberofstreet" aria-label="Default select example">
                     <option selected>عدد الشوارع </option>
                     <?php if (!empty($length_numberStreets)) {
                         for ($i = 0; $i < $length_numberStreets; $i++) { ?>
@@ -293,7 +293,7 @@ if (isset( $alert_insert_villa_by_successfully)){
             </div>
             <!--           number of boards -->
             <div class="col-md-4 text-start">
-                <select class="form-select" aria-label="Default select example">
+                <select class="form-select" name="form_BoardNumber" aria-label="Default select example">
                     <option selected>عدد المجالس   </option>
                     <?php if (!empty($length_numberRoom)) {
                         for ($i = 0; $i < $length_numberRoom; $i++) { ?>
@@ -316,7 +316,7 @@ if (isset( $alert_insert_villa_by_successfully)){
             </div>
             <!--          kitchen type   -->
             <div class="col-md-4 form-label text-start">
-                <select class="form-select" aria-label="Default select example">
+                <select class="form-select" name="form_typeofkitchen" aria-label="Default select example">
                     <option selected>نوع المطبخ  </option>
                     <?php if (!empty($length_Type_kitchen)) {
                         for ($i = 0; $i < $length_Type_kitchen; $i++) { ?>
@@ -339,7 +339,7 @@ if (isset( $alert_insert_villa_by_successfully)){
             </div>
             <!--            direction-->
             <div class="col-md-4 text-start">
-                <select class="form-select"  aria-label="Default select example">
+                <select class="form-select" name="form_diraction" aria-label="Default select example">
                     <option selected>الواجهه </option>
                     <?php if (!empty($length_direction)) {
                         for ($i = 0; $i < $length_direction; $i++) { ?>
@@ -363,7 +363,7 @@ if (isset( $alert_insert_villa_by_successfully)){
             <!--            Additional features-->
             <div class="form-group  form-label text-start">
                 <label for="exampleFormControlTextarea1">مميزات إضافيه</label>
-                <textarea class="form-control" name="form_features" id="exampleFormControlTextarea1" rows="5"></textarea>
+                <textarea class="form-control"  name="form_features" id="exampleFormControlTextarea1" rows="5"></textarea>
                 <?php
                 if (isset($features_var_Err)){
                     echo '<span  class="badge bg-danger rounded-pill">';

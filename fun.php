@@ -737,7 +737,7 @@ if (isset($_POST['submit_form_add_villa'])) {
         $count_villa =+1;}}
 
 //************************************* form_Numberofwarehouse     *********************************
-    if (empty($_POST["form_Numberofwarehouse"])) {
+    if (empty($_POST["form_numberofwarehouses"])) {
         $Numberofwarehouse_var_Err = "الرجاء ادخال عدد المستودعات .";
         $_POST["form_Numberofwarehouse"] = '';
     }
