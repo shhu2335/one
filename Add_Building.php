@@ -45,7 +45,7 @@ include 'fun.php';
         <p class="card-title  mb-2 py-2 text-center fs-3 bg-primary text-white rounded-3">إضافه عمارة</p>
         <form class="row g-3  p-5  text-end" method="POST" action="Add_Building.php">
                          <!--            space-->
-            <div class="form-label col-md-6 text-start">
+            <div class="form-label col-md-4 text-end">
                 <label for="phone_number_form" class="form-label">المساحه</label>
                 <input type="number" class="form-control" id="phone_number_form" name="form_space">
                 <?php
@@ -57,8 +57,8 @@ include 'fun.php';
                 ?>
             </div>
                           <!--            property age-->
-            <div class="form-label col-md-6 text-start">
-                <label for="phone_number_form" class="form-label ">عمر العقار</label>
+            <div class="form-label col-md-4 text-end">
+                <label for="phone_number_form"  class="form-label ">عمر العقار</label>
                 <input type="number" class="form-control" id="phone_number_form" name="form_AgeOfProperty">
                 <?php
                 if (isset($AgeOfProperty_var_Err)){
@@ -68,12 +68,24 @@ include 'fun.php';
                 }
                 ?>
             </div>
+            <!--            price-->
+            <div class="form-label col-md-4 text-end">
+                <label for="phone_number_form" class="form-label"> السعر</label>
+                <input type="number" class="form-control" id="phone_number_form" name="form_price">
+                <?php
+                if (isset($price_var_Err)){
+                    echo '<span  class="badge bg-danger rounded-pill">';
+                    echo $price_var_Err;
+                    echo '<span >';
+                }
+                ?>
+            </div>
                          <!--            type of offer -->
             <div class="col-md-4 form-label  text-start">
 <!--                <label > </label>-->
-                <select class="form-select" aria-label="Default select example">
+                <select class="form-select" aria-label="Default select example" name="form_taype_of_offer">
 
-                    <option selected value="" name="form_taype_of_offer">-- الغرض من عرض العقار --</option>
+                    <option selected value="" >-- الغرض من عرض العقار --</option>
                     <?php if (!empty($length_State)) {
                         for ($i = 0; $i < $length_State; $i++) { ?>
                             <option value="<?php if (!empty($arra_list_State)) {
@@ -86,9 +98,9 @@ include 'fun.php';
                     } ?>
                 </select>
                 <?php
-                if (isset($taype_of_offer_var_Err )){
+                if (isset($taype_of_offer_var_Err)){
                     echo '<span  class="badge bg-danger rounded-pill">';
-                    echo $taype_of_offer_var_Err ;
+                    echo $taype_of_offer_var_Err;
                     echo '<span >';
                 }else{}
                 ?>
@@ -96,8 +108,8 @@ include 'fun.php';
             </div>
                          <!--            Number of apartments-->
             <div class="col-md-4 text-start">
-                <select class="form-select" aria-label="Default select example">
-                    <option selected>عدد الشقق </option>
+                <select class="form-select" aria-label="Default select example" name="form_num_apartment">
+                    <option selected value="">عدد الشقق </option>
                     <?php if (!empty($length_numberRoom)) {
                         for ($i = 0; $i < $length_numberRoom; $i++) { ?>
                             <option value="<?php if (!empty($arra_list_numberRoom)) {
@@ -119,8 +131,8 @@ include 'fun.php';
             </div>
                         <!--            the number of floors-->
             <div class="col-md-4 text-start">
-                <select class="form-select" aria-label="Default select example">
-                    <option selected>عدد الطوابق </option>
+                <select class="form-select" aria-label="Default select example" name="form_num_flor">
+                    <option selected value="">عدد الطوابق </option>
                     <?php if (!empty($length_numberRoom)) {
                         for ($i = 0; $i < $length_numberRoom; $i++) { ?>
                             <option value="<?php if (!empty($arra_list_numberRoom)) {
@@ -142,8 +154,8 @@ include 'fun.php';
             </div>
                         <!--            number of lifts-->
             <div class="col-md-4 text-start">
-                <select class="form-select" aria-label="Default select example">
-                    <option selected>عدد المصاعد </option>
+                <select class="form-select" aria-label="Default select example" name="form_num_left">
+                    <option selected value="">عدد المصاعد </option>
                     <?php if (!empty($length_numberRoom)) {
                         for ($i = 0; $i < $length_numberRoom; $i++) { ?>
                             <option value="<?php if (!empty($arra_list_numberRoom)) {
@@ -165,8 +177,8 @@ include 'fun.php';
             </div>
                         <!--            Number of parking-->
             <div class="col-md-4 text-start">
-                <select class="form-select" aria-label="Default select example">
-                    <option selected>عدد المواقف </option>
+                <select class="form-select" aria-label="Default select example" name="form_num_parking">
+                    <option selected value="">عدد المواقف </option>
                     <?php if (!empty($length_numberRoom)) {
                         for ($i = 0; $i < $length_numberRoom; $i++) { ?>
                             <option value="<?php if (!empty($arra_list_numberRoom)) {
@@ -188,8 +200,8 @@ include 'fun.php';
             </div>
                         <!--            number of streets-->
             <div class="col-md-4 text-start">
-                <select class="form-select" aria-label="Default select example">
-                    <option selected>عدد الشوارع </option>
+                <select class="form-select" aria-label="Default select example" name="form_num_Street">
+                    <option selected value="">عدد الشوارع </option>
                     <?php if (!empty($length_numberStreets)) {
                         for ($i = 0; $i < $length_numberStreets; $i++) { ?>
                             <option value="<?php if (!empty($arra_list_numberStreets)) {
@@ -211,8 +223,8 @@ include 'fun.php';
             </div>
                         <!--            direction-->
             <div class="col-md-4 text-start">
-                <select class="form-select"  aria-label="Default select example">
-                    <option selected>الواجهه </option>
+                <select class="form-select"  aria-label="Default select example" name="form_direction">
+                    <option selected value="">الواجهه </option>
                     <?php if (!empty($length_direction)) {
                         for ($i = 0; $i < $length_direction; $i++) { ?>
                             <option value="<?php if (!empty($arra_list_direction)) {
@@ -233,18 +245,18 @@ include 'fun.php';
                 ?>
             </div>
                         <!--            Apartment type-->
-            <div class="col-md-12  text-start">
+            <div class="col-md-12  text-end">
                 <label for="phone_number_form" class="form-label">نوع الشقق </label>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" name="form_double_room" id="inlineCheckbox1" value="option1">
+                    <input class="form-check-input" type="checkbox" name="form_room" id="inlineCheckbox1" value="ثنائيه ">
                     <label class="form-check-label" for="inlineCheckbox1">ثنائيه</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" name="form_triple_room" id="inlineCheckbox2" value="option2">
+                    <input class="form-check-input" type="checkbox" name="form_room" id="inlineCheckbox2" value="ثلاثيه ">
                     <label class="form-check-label" for="inlineCheckbox2"> ثلاثيه</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" name="form_quad_room" id="inlineCheckbox3" value="option3" >
+                    <input class="form-check-input" type="checkbox" name="form_room" id="inlineCheckbox3" value="رباعيه " >
                     <label class="form-check-label" for="inlineCheckbox3"> رباعيه</label>
                 </div>
                 <?php
@@ -256,7 +268,7 @@ include 'fun.php';
                 ?>
             </div>
                         <!--            Additional features-->
-            <div class="form-group  form-label text-start">
+            <div class="form-group  form-label text-end">
                 <label for="exampleFormControlTextarea1">مميزات إضافيه</label>
                 <textarea class="form-control" name="form_features" id="exampleFormControlTextarea1" rows="5"></textarea>
                 <?php

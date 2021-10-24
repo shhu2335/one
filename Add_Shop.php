@@ -45,8 +45,8 @@ if (isset( $alert_insert_shop_by_successfully)){
         <p class="card-title  mb-2 py-2 text-center fs-3 bg-primary text-white rounded-3">إضافة محل</p>
         <form class="row g-3  p-5  text-end" method="post" action="Add_Shop.php">
             <!--            space-->
-            <div class="form-label col-md-6 text-start">
-                <label for="phone_number_form" class="form-label">المساحه</label>
+            <div class="form-label col-md-4 text-start">
+                <label for="phone_number_form"  class="form-label">المساحه</label>
                 <input type="number" class="form-control" id="phone_number_form" name="form_space">
                 <?php
                 if (isset($space_var_Err)){
@@ -57,9 +57,21 @@ if (isset( $alert_insert_shop_by_successfully)){
                 ?>
             </div>
             <!--            property age-->
-            <div class="form-label col-md-6 text-start">
+            <div class="form-label col-md-4 text-start">
                 <label for="phone_number_form" class="form-label ">عمر العقار</label>
                 <input type="number" class="form-control" id="phone_number_form" name="form_AgeOfProperty">
+                <?php
+                if (isset($AgeOfProperty_var_Err)){
+                    echo '<span  class="badge bg-danger rounded-pill">';
+                    echo $AgeOfProperty_var_Err;
+                    echo '<span >';
+                }
+                ?>
+            </div>
+            <!--           the price-->
+            <div class="form-label col-md-4 text-start">
+                <label for="phone_number_form" class="form-label ">السعر</label>
+                <input type="number" class="form-control" id="phone_number_form" name="form_price">
                 <?php
                 if (isset($AgeOfProperty_var_Err)){
                     echo '<span  class="badge bg-danger rounded-pill">';
@@ -71,8 +83,8 @@ if (isset( $alert_insert_shop_by_successfully)){
             <!--            type of offer -->
             <div class="col-md-4 form-label  text-start ">
                 <!--                <label > </label>-->
-                <select class="form-select" aria-label="Default select example">
-                    <option selected value="">-- الغرض من عرض العقار --</option>
+                <select class="form-select" aria-label="Default select example" name="form_TypeOfOffer">
+                    <option selected value="" value="">-- الغرض من عرض العقار --</option>
                     <?php if (!empty($length_State)) {
                         for ($i = 0; $i < $length_State; $i++) { ?>
                             <option value="<?php if (!empty($arra_list_State)) {
@@ -94,31 +106,31 @@ if (isset( $alert_insert_shop_by_successfully)){
             </div>
             <!--          Number of toilets -->
             <div class="col-md-4 form-label text-start">
-                <select class="form-select" aria-label="Default select example">
-                    <option selected>عدد دورات المياه </option>
-                    <?php if (!empty($length_numberStreets)) {
-                        for ($i = 0; $i < $length_numberStreets; $i++) { ?>
-                            <option value="<?php if (!empty($arra_list_numberStreets)) {
-                                echo $arra_list_numberStreets[$i];
+                <select class="form-select" aria-label="Default select example"name="form_Numberoftoilets">
+                    <option selected value="">عدد دورات المياه </option>
+                    <?php if (!empty($length_numberRoom)) {
+                        for ($i = 0; $i < $length_numberRoom; $i++) { ?>
+                            <option value="<?php if (!empty($arra_list_numberRoom)) {
+                                echo $arra_list_numberRoom[$i];
                             } ?>">
-                                <?php if (!empty($arra_list_numberStreets)) {
-                                    echo $arra_list_numberStreets[$i];
+                                <?php if (!empty($arra_list_numberRoom)) {
+                                    echo $arra_list_numberRoom[$i];
                                 } ?> </option>
                         <?php }
                     } ?>
                 </select>
                 <?php
-                if (isset($numberofstreet_var_Err)){
+                if (isset($Numberoftoilets_var_Err)){
                     echo '<span  class="badge bg-danger rounded-pill">';
-                    echo  $numberofstreet_var_Err;
+                    echo  $Numberoftoilets_var_Err;
                     echo '<span >';
                 }
                 ?>
             </div>
             <!--            the number of floors-->
             <div class="col-md-4 text-start">
-                <select class="form-select" aria-label="Default select example">
-                    <option selected>عدد الطوابق </option>
+                <select class="form-select" aria-label="Default select example" name="form_numberofroles">
+                    <option selected value="">عدد الطوابق </option>
                     <?php if (!empty($length_numberRoom)) {
                         for ($i = 0; $i < $length_numberRoom; $i++) { ?>
                             <option value="<?php if (!empty($arra_list_numberRoom)) {
@@ -140,8 +152,8 @@ if (isset( $alert_insert_shop_by_successfully)){
             </div>
             <!--            Number of Warehouses-->
             <div class="col-md-4 form-label text-start">
-                <select class="form-select" aria-label="Default select example">
-                    <option selected>عدد المستودعات</option>
+                <select class="form-select" name="form_Warehousenumber" aria-label="Default select example">
+                    <option selected value="">عدد المستودعات</option>
                     <?php if (!empty($length_numberRoom)) {
                         for ($i = 0; $i < $length_numberRoom; $i++) { ?>
                             <option value="<?php if (!empty($arra_list_numberRoom)) {
@@ -163,8 +175,8 @@ if (isset( $alert_insert_shop_by_successfully)){
             </div>
             <!--           Type of toilets-->
             <div class="col-md-4 form-label text-start">
-                <select class="form-select" aria-label="Default select example">
-                    <option selected>نوع دورات المياه </option>
+                <select class="form-select"name="form_Typeoftoilets" aria-label="Default select example">
+                    <option selected value="">نوع دورات المياه </option>
                     <?php if (!empty($length_Type_of_toilets)) {
                         for ($i = 0; $i < $length_Type_of_toilets; $i++) { ?>
                             <option value="<?php if (!empty($arra_list_Type_of_toilets)) {
@@ -186,8 +198,8 @@ if (isset( $alert_insert_shop_by_successfully)){
             </div>
             <!--            direction-->
             <div class="col-md-4 text-start">
-                <select class="form-select"  aria-label="Default select example">
-                    <option selected>الواجهه </option>
+                <select class="form-select" name="form_diraction" aria-label="Default select example">
+                    <option selected value="">الواجهه </option>
                     <?php if (!empty($length_direction)) {
                         for ($i = 0; $i < $length_direction; $i++) { ?>
                             <option value="<?php if (!empty($arra_list_direction)) {
@@ -209,8 +221,8 @@ if (isset( $alert_insert_shop_by_successfully)){
             </div>
             <!--            number of streets-->
             <div class="col-md-4 form-label text-start">
-                <select class="form-select" aria-label="Default select example">
-                    <option selected>عدد الشوارع </option>
+                <select class="form-select" name="form_numberofstreet" aria-label="Default select example">
+                    <option selected value="" value="">عدد الشوارع </option>
                     <?php if (!empty($length_numberStreets)) {
                         for ($i = 0; $i < $length_numberStreets; $i++) { ?>
                             <option value="<?php if (!empty($arra_list_numberStreets)) {
@@ -232,8 +244,8 @@ if (isset( $alert_insert_shop_by_successfully)){
             </div>
             <!--            number of lifts-->
             <div class="col-md-4 form-label text-start">
-                <select class="form-select" aria-label="Default select example">
-                    <option selected>عدد المصاعد </option>
+                <select class="form-select" name="form_numberoflifts" aria-label="Default select example">
+                    <option selected value="">عدد المصاعد </option>
                     <?php if (!empty($length_numberRoom)) {
                         for ($i = 0; $i < $length_numberRoom; $i++) { ?>
                             <option value="<?php if (!empty($arra_list_numberRoom)) {
@@ -255,8 +267,8 @@ if (isset( $alert_insert_shop_by_successfully)){
             </div>
             <!--            Number of parking-->
             <div class="col-md-4 form-label text-start">
-                <select class="form-select" aria-label="Default select example">
-                    <option selected>عدد المواقف </option>
+                <select class="form-select" name="form_Numberofparking" aria-label="Default select example">
+                    <option selected value="">عدد المواقف </option>
                     <?php if (!empty($length_numberRoom)) {
                         for ($i = 0; $i < $length_numberRoom; $i++) { ?>
                             <option value="<?php if (!empty($arra_list_numberRoom)) {
@@ -279,7 +291,7 @@ if (isset( $alert_insert_shop_by_successfully)){
             <!--            Additional features-->
             <div class="form-group  form-label text-start">
                 <label for="exampleFormControlTextarea1">مميزات إضافيه</label>
-                <textarea class="form-control" name="form_features" id="exampleFormControlTextarea1" rows="5"></textarea>
+                <textarea class="form-control" name="form_Features" id="exampleFormControlTextarea1" rows="5"></textarea>
                 <?php
                 if (isset($Features_var_Err)){
                     echo '<span  class="badge bg-danger rounded-pill">';

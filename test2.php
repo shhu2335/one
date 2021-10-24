@@ -1,8 +1,16 @@
 <!-- start of conection -->
 <?php
-include "conection.php";
-include "header.php";
+//include "conection.php";
+//include "header.php";
 //if (! empty($_SESSION['logged_in']))
+
+function test_input($data)
+{
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+}
 //{
 ?>
 <!-- start of header -->
@@ -38,1272 +46,217 @@ include "header.php";
 
 <body>
 
-<!--<div   class="px-2 m-5  mx-auto text-start text-center" style="background-color: #f8f9fa;">-->
-<!--    <h1 class="display-1  rounded-pill p-5 d-inline-block text-secondary mt-5  mb-3 "  STYLE="background-color: #adb5bd;width: 220px; height: 220px;">نقدم </h1>-->
-<!--    <h1 class="display-3 d-inline text-secondary" >   حلول عقارية لا مثيل لها</h1>-->
-
-<!--  صور العرض  Display Pictures-->
+<?php
 
 
-<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-indicators ">
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-    </div>
-    <div class="carousel-inner ">
-        <div class="carousel-item active">
-            <img src="img/help3.gif" class="d-block w-100 h-auto" alt="...">
-        </div>
-        <div class="carousel-item">
-            <img src="img/help4.gif" class="d-block w-100 h-auto" alt="...">
-        </div>
-        <div class="carousel-item">
-            <img src="img/help5.gif" class="d-block w-100 h-auto" alt="...">
-        </div>
-    </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-    </button>
-</div>
+// ======================  start submit_farm  ======================
+if(isset($_POST['submit_form_add_farm']))
+{  $count_farm =0;
+    //************************************* form_Numberofwells  *********************************
+    if (empty($_POST["form_Numberofwells"])) {
+        $Numberofwells_var_Err = "الرجاء ادخال عدد الأبار .";
+        $_POST["form_Numberofwells"] = '';
+    }
+    else{if (filter_has_var(INPUT_POST, 'form_Numberofwells')) {
 
-<div class="container">
+        $Numberofwells_var = test_input(filter_var($_POST["form_Numberofwells"], FILTER_SANITIZE_STRING));
+        $count_farm =+1;}}
+//*************************************  form_Numberofpalms *********************************
 
-    <hr class="m-0 p-0">
-    <!--<div   class="d-none row bg-white bg-gradient p-4  mx-auto text-center">-->
-    <!--    <div class="col-3 bg-transparent mx-auto bg-gradient text-primary shadow  border-start border-end  border-primary border-5 rounded-pill">-->
-    <!--        <p class="fs-md-4 fs-sm-4 p-sm-0 m-0 p-0"> عدد الزوار</p>-->
-    <!--        <p class="fs-md-4 fs-sm-4 p-sm-0 m-0 p-0">4</p>-->
-    <!--    </div>-->
-    <!---->
-    <!--    <div class="col-3  bg-transparent  bg-gradient text-primary shadow border-start border-end  border-primary border-5 rounded-pill">-->
-    <!--        <p class="fs-md-4 fs-sm-4 p-sm-0 m-0 p-0"> عـدد المكاتب</p>-->
-    <!--        <p class="fs-md-4 fs-sm-4 p-sm-0 m-0 p-0">4</p>-->
-    <!--    </div>-->
-    <!---->
-    <!--    <div class="col-3 bg-transparent mx-auto bg-gradient text-primary  shadow border-start border-end  border-primary border-5 rounded-pill">-->
-    <!--        <p class="fs-md-4 fs-sm-4 p-sm-0 m-0 p-0"> عـدد العقارات</p>-->
-    <!--        <p class="fs-md-4 fs-sm-4 p-sm-0 m-0 p-0">4</p>-->
-    <!--    </div>-->
-    <!---->
-    <!--</div>-->
+    if (empty($_POST["form_Numberofpalms"])) {
+        $Numberofpalms_var_Err = "الرجاء ادخال عدد النخيل .";
+        $_POST["form_Numberofpalms"] = '';
+    }
+    else{if (filter_has_var(INPUT_POST, 'form_Numberofpalms')) {
 
-    <!--    عرض ارقام زوار الموقع و مكاتب العقار View the numbers of visitors to the site and real estate offices-->
-    <div class="h3 m-0 p-1 e2d1c3  text-center mx-auto text-black-50 " >
+        $Numberofpalms_var = test_input(filter_var($_POST["form_Numberofpalms"], FILTER_SANITIZE_STRING));
+        $count_farm =+1;}}
+//*************************************  form_Numberoftrees  *********************************
 
-        <div class="row">
-            <div class="four col-md-4">
-                <br>
-                <i class="bi bi-graph-up"></i><br><br>
-                <div class="counter-box bg-transparent"> <i class="fa fa-thumbs-o-up"></i> <span class="counter">2147</span>
-                    <p>عدد زورا الموقع </p>
-                </div>
-            </div>
-            <div class="four col-md-4">
-                <br>
-                <i class="bi bi-bank"></i><br><br>
-                <div class="counter-box  bg-transparent"> <i class="fa fa-group"></i> <span class="counter">3275</span>
-                    <p>عدد مكاتب العقار</p>
-                </div>
-            </div>
-            <div class="four col-md-4">
-                <br>
-                <i class="bi bi-building"></i><br><br>
-                <div class="counter-box bg-transparent"> <i class="fa fa-shopping-cart"></i> <span class="counter">289</span>
-                    <p>عدد العقارات </p>
-                </div>
-            </div>
+    if (empty($_POST["form_Numberoftrees"])) {
+        $Numberoftrees_var_Err = "الرجاء ادخال عدد الأشجار .";
+        $_POST["form_Numberoftrees"] = '';
+    }
+    else{if (filter_has_var(INPUT_POST, 'form_Numberoftrees')) {
 
+        $Numberoftrees_var = test_input(filter_var($_POST["form_Numberoftrees"], FILTER_SANITIZE_STRING));
+        $count_farm =+1;}}
+//*************************************  form_Numberoftoilets  *********************************
 
-        </div>
+    if (empty($_POST["form_Numberoftoilets"])) {
+        $Numberoftoilets_var_Err = "الرجاء ادخال عدد دورات المياه .";
+        $_POST["form_Numberoftoilets"] = '';
+    }
+    else{if (filter_has_var(INPUT_POST, 'form_Numberoftoilets')) {
 
+        $Numberoftoilets_var = test_input(filter_var($_POST["form_Numberoftoilets"], FILTER_SANITIZE_STRING));
+        $count_farm =+1;}}
 
+//************************************* form_numberofstreet *********************************
+    if (empty($_POST["form_numberofstreet"])) {
+        $numberofstreet_var_Err = "الرجاء ادخال عدد الشوارع .";
+        $_POST["form_numberofstreet"] = '';
+    }
+    else{if (filter_has_var(INPUT_POST, 'form_numberofstreet')) {
 
-    </div>
-    <hr class="m-0 p-0">
-    <div class="m-0 p-2 bg-danger bg-gradient text-center mx-auto text-white d-none">
+        $numberofstreet_var = test_input(filter_var($_POST["form_numberofstreet"], FILTER_SANITIZE_STRING));
+        $count_farm =+1;}}
 
-        <div    class="btn btn-outline-light rounded-pill my-2 m-sm-2 mx-5">
-            <h4 class="h5 d-inline"> عـ العقارات   </h4>
-            <p class="p-2 d-inline">5,464</p>
-        </div>
+//************************************* form_Break  *********************************
+    if (empty($_POST["form_Break"])) {
+        $Break_var_Err = "حقل إجباري .";
+        $_POST["form_Break"] = '';
+    }
+    else{if (filter_has_var(INPUT_POST, 'form_Break')) {
 
-        <div    class="btn btn-outline-light rounded-pill my-2 m-sm-2 mx-5">
-            <h4 class="h5 d-inline"> عـ مكاتب العقارات </h4>
-            <p class="p-2 d-inline">5,4643</p>
-        </div>
-        <div    class="btn btn-outline-light rounded-pill my-2 m-sm-2 mx-5">
-            <h4 class="h5 d-inline"> عـ الزوار </h4>
-            <p class="p-2 d-inline">5,464</p>
-        </div>
+        $Break_var = test_input(filter_var($_POST["form_Break"], FILTER_SANITIZE_STRING));
+        $count_farm =+1;}}
 
-    </div>
-    <!-- my mx me ms m  py px pe ps  05-->
+//*************************************  form_electricity  *********************************
 
+    if (empty($_POST["form_electricity"])) {
+        $electricity_var_Err = "هل المزرعه موصوله بالكهرباء ؟ .";
+        $_POST["form_electricity"] = '';
+    }
+    else{if (filter_has_var(INPUT_POST, 'form_electricity')) {
 
-    <!--افضل مكاتب العقار The best real estate offices-->
-    <div class="mt-3  bg-transparent bg-gradient shadow-lg py-3  bg-light text-center d-none" >
+        $electricity_var = test_input(filter_var($_POST["form_electricity"], FILTER_SANITIZE_STRING));
+        $count_farm =+1;}}
 
-        <div class="mx-4 d-inline-block bg-secondary text-white">
-            <div class="m-0 p-0 "> <img src="img/person.jpg" ></div>
-            <div class="m-0 p-0"><p> منال </p></div>
-        </div>
+//************************************* form_asphalt     *********************************
+    if (empty($_POST["form_asphalt"])) {
+        $asphalt_var_Err = "هل المزرعه موصوله بالإسفلت ؟ .";
+        $_POST["form_asphalt"] = '';
+    }
+    else{if (filter_has_var(INPUT_POST, 'form_asphalt')) {
 
+        $asphalt_var = test_input(filter_var($_POST["form_asphalt"], FILTER_SANITIZE_STRING));
+        $count_farm =+1;}}
 
-        <div class="mx-4 d-inline-block bg-secondary text-white">
-            <div class="m-0 p-0 "> <img src="img/person.jpg" ></div>
-            <div class="m-0 p-0"><p> منال </p></div>
-        </div>
+//********************************* form_Typeoftoilets       *********************************
 
-        <div class="mx-4 d-inline-block bg-secondary text-white">
-            <div class="m-0 p-0 "> <img src="img/person.jpg" ></div>
-            <div class="m-0 p-0"><p > منال </p></div>
-        </div>
+    if (empty($_POST["form_Typeoftoilets"])) {
+        $Typeoftoilets_var_Err = "الرجاء ادخال نوع دورات المياه .";
+        $_POST["form_Typeoftoilets"] = '';
+    }
+    else{if (filter_has_var(INPUT_POST, 'form_Typeoftoilets')) {
 
+        $Typeoftoilets_var = test_input(filter_var($_POST["form_Typeoftoilets"], FILTER_SANITIZE_STRING));
+        $count_farm =+1;}}
 
+//************************************* form_diraction    *********************************
+    if (empty($_POST["form_diraction"])) {
+        $diraction_var_Err = "الرجاء ادخال الإتجاه.";
+        $_POST["form_diraction"] = '';
+    }
+    else{if (filter_has_var(INPUT_POST, 'form_diraction')) {
 
+        $diraction_var = test_input(filter_var($_POST["form_diraction"], FILTER_SANITIZE_STRING));
+        $count_farm =+1;}}
 
-    </div>
+//*************************************  form_Features  *********************************
 
+    if (empty($_POST["form_Features"])) {
+        $Features_var_Err = "الرجاء ادخال المميزات الإضافيه  .";
+        $_POST["form_Features"] = '';
+    }
+    else{if (filter_has_var(INPUT_POST, 'form_Features')) {
 
-    <style>
-        .cards:hover {
-            box-shadow: 5px 6px 6px 2px #e9ecef;
-            transform: scale(1.03)
+        $Features_var = test_input(filter_var($_POST["form_Features"], FILTER_SANITIZE_STRING));
+        $count_farm =+1;}}
+
+//************************************** check  form_TypeOfOffer *******************************************
+    if (empty($_POST["form_TypeOfOffer"])) {
+        $TypeOfOffer_var_Err = "الرجاء ادخال نوع العرض .";
+        $_POST["form_TypeOfOffer"] = '';
+    }
+    else{if (filter_has_var(INPUT_POST, 'form_TypeOfOffer')) {
+
+        $TypeOfOffer_var = test_input(filter_var($_POST["form_TypeOfOffer"], FILTER_SANITIZE_STRING));
+        $count_farm =+1;}}
+
+    //************************************** check  form_space *******************************************
+    if (empty($_POST["form_space"])) {
+        $space_var_Err = "الرجاء إدخال المساحه";
+        $_POST["form_space"] = '';
+    }
+    else{if (filter_has_var(INPUT_POST, 'form_space')) {
+
+        $space_var = test_input(filter_var($_POST["form_space"], FILTER_SANITIZE_STRING));
+        $count_farm =+1;}}
+//********************************** check form_AgeOfProperty ******************************************
+    if (empty($_POST["form_AgeOfProperty"])) {
+        $AgeOfProperty_var_Err = "الرجاء ادخال عمر العقار.";
+        $_POST["form_AgeOfProperty"] = '';
+    }
+    else{if (filter_has_var(INPUT_POST, 'form_AgeOfProperty')) {
+
+        $AgeOfProperty_var = test_input(filter_var($_POST["form_AgeOfProperty"], FILTER_SANITIZE_STRING));
+        $count_farm =+1;}}
+
+// ******************************** check form_priceofonemeter ******************************************
+    if (empty($_POST["form_priceofonemeter"])) {
+        $priceofonemeter_var_Err = "الرجاء ادخال سعر المتر.";
+        $_POST["form_priceofonemeter"] = '';
+    }
+    else{if (filter_has_var(INPUT_POST, 'form_priceofonemeter')) {
+
+        $priceofonemeter_var = test_input(filter_var($_POST["form_priceofonemeter"], FILTER_SANITIZE_STRING));
+        $count_farm =+1;}}
+// ********************************  form_Typeofinstrument *****************************************
+
+    if (empty($_POST["form_Typeofinstrument"])) {
+        $Typeofinstrument_var_Err = "الرجاء ادخال نوع الصك.";
+        $_POST["form_Typeofinstrument"] = '';
+    }
+    else{if (filter_has_var(INPUT_POST, 'form_Typeofinstrument')) {
+
+        $Typeofinstrument_var = test_input(filter_var($_POST["form_Typeofinstrument"], FILTER_SANITIZE_STRING));
+        $count_farm =+1;}}
+// ********************************  form add farm ****************************************** end
+
+// ********************************  sql add farm ****************************************** start
+    if ( $count_farm ===16){
+        $sql=  'insert into farm (id,Numberofwells,Numberofpalms,Numberoftrees, Numberoftoilets,numberofstreet,Break,electricity,asphalt,Typeoftoilets,diraction,Typeofoffer,Features,Typeofinstrument,space,priceofonemeter,AgeOfProperty ) 
+         values(:itid,:itNumberofwells,:itNumberofpalms,:itNumberoftrees,:itNumberoftoilets, :itnumberofstreet,:itBreak,:itelectricity,:itasphalt,:itTypeoftoilets,:itdiraction,:itTypeofoffer,:itFeatures,:itTypeofinstrument,:itspace,:itpriceofonemeter,:itAgeOfProperty)' ;
+        if (isset($pdo))
+        {
+            $stmt=$pdo->prepare($sql);
+
         }
-    </style>
-
-
-
-    <div  class="bg-gradient mx-auto p-4 text-center"  STYLE="background-color: #f8f9fa;">
-
-        <div class="row g-2 ">
-            <!--            Villa-->
-            <div class="col-3">
-                <a href="index.php?Villa" class="text-decoration-none text-dark ">
-                    <div  class="cards  p-3 border bg-light rounded-3 w-100 table-hover" > الفلل</div>
-                </a>
-            </div>
-            <!--            ?Building-->
-            <div class="col-3">
-                <a href="index.php?Building" class="text-decoration-none text-dark ">
-                    <div class="cards p-3 border bg-light rounded-3">العمائر</div></a>
-            </div>
-            <!--            Land-->
-            <div class="col-3">
-                <a href="index.php?Land" class="text-decoration-none text-dark ">
-                    <div class="cards p-3 border bg-light rounded-3">الاراضي</div></a>
-            </div>
-
-            <!--            hotel-->
-            <div class="col-3">
-                <a href="index.php?hotel" class="text-decoration-none text-dark ">
-                    <div class="cards p-3 border bg-light rounded-3">الفنادق</div></a>
-            </div>
-            <!--            Shop-->
-            <div class="col-3">
-                <a href="index.php?Shop" class="text-decoration-none text-dark ">
-                    <div class="cards p-3 border bg-light rounded-3">المحلات</div></a>
-            </div>
-            <!--            Farm-->
-            <div class="col-3">
-                <a href="index.php?Farm" class="text-decoration-none text-dark ">
-                    <div class="cards p-3 border bg-light rounded-3">المزارع</div></a>
-            </div>
-
-
-
-
-            <!--            Castle-->
-            <div class="col-3">
-                <a href="index.php?Castle" class="text-decoration-none text-dark ">
-                    <div  class="cards  p-3 border bg-light rounded-3 w-100 table-hover" > القصور </div>
-                </a>
-            </div>
-            <!--            Apartment-->
-            <div class="col-3">
-                <a href="index.php?Apartment" class="text-decoration-none text-dark ">
-                    <div class="cards p-3 border bg-light rounded-3"> الشقق</div></a>
-            </div>
-
-            <!--            Dianiyah-->
-            <div class="col-3">
-                <a href="index.php?Dianiyah" class="text-decoration-none text-dark ">
-                    <div class="cards p-3 border bg-light rounded-3">الإستراحات </div></a>
-            </div>
-            <!--            لشاليهات-->
-            <div class="col-3">
-                <a href="index.php? " class="text-decoration-none text-dark ">
-                    <div class="cards p-3 border bg-light rounded-3">الشاليهات </div></a>
-                <!--                تحتاج فورم-->
-            </div>
-            <!--            Office-->
-            <div class="col-3">
-                <a href="index.php?Office" class="text-decoration-none text-dark ">
-                    <div class="cards p-3 border bg-light rounded-3">المكاتب</div></a>
-            </div>
-            <!--            Studio-->
-            <div class="col-3">
-                <a href="index.php?Studio" class="text-decoration-none text-dark ">
-                    <div class="cards p-3 border bg-light rounded-3">استديوهات</div></a>
-            </div>
-
-
-
-        </div>
-
-    </div>
-
-
-    <?php if (isset($_GET['Villa'])){
-
-        ?>
-
-        <div class="row d-flex row-cols-md-12 row-cols-sm-4  g-3  align-items: center  justify-content: center">
-            <?php
-
-            $stmt = $pdo->query('SELECT * FROM villa limit 8');
-
-            $stmt->execute();
-            $getAllproductVs = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-
-            foreach ($getAllproductVs as $row) {
-
-                ?>
-
-                <div class="col">
-                    <div class="card h-200 text-center shadow-lg  rounded-3">
-
-                        <!--  img   -->
-                        <a class="text-decoration-none" href="more_details.php?productV=<?php echo $row['id']?>">
-                            <!--                        <img class="card-img-top" src="--><?php //echo $imgUrl ?><!--" alt="--><?php //echo $productV['productV_name'] ?><!--">-->
-
-                            <div id="carouselExampleControls" class="carousel slide " data-bs-ride="carousel">
-                                <div class="carousel-inner ">
-                                    <div class="carousel-item active">
-                                        <img src="img/Villa_Riyadh.jpg" class="d-block w-100" alt="فيلا بالرياض للبيع">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="img/hussam.PNG" class="d-block w-100" alt="...">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="img/hussam.PNG" class="d-block w-100" alt="...">
-                                    </div>
-                                </div>
-                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
-                                        data-bs-slide="prev">
-                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Previous</span>
-                                </button>
-                                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
-                                        data-bs-slide="next">
-                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Next</span>
-                                </button>
-                            </div>
-
-                            <!--  title   -->
-                            <h5 class="card-title bg-gradient p-1 m-0 fs-6 text-dark"><?php echo " فله ". $row['TypeOfOffer']  ; ?>   </h5>
-                            <div class="card-body p-0 m-0">
-                                <table class="table table-striped overflow-scroll m-0 p-0 ">
-                                    <thead>
-                                    <tr>
-                                        <th scope="col">المساحة</th>
-                                        <th scope="col">الواجهة</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td><?php echo $row['space']; ?></td>
-                                        <td><?php echo $row['diraction']; ?></td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="col">عمر العقار</th>
-                                        <th scope="col">نوع الغرض</th>
-                                    </tr>
-                                    <tr>
-                                        <td><?php echo $row['AgeOfProperty']; ?></td>
-                                        <td><?php echo $row['TypeOfOffer']; ?></td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="col">
-                                            <?php
-                                            echo ' السعر:   ' . number_format($row['price'], 2, ",", ".");
-                                            ?></th>
-
-                                        <th>تفاصيل اكثر</th>
-
-                                    </tr>
-
-                                    </tbody>
-                                </table>
-                            </div>
-
-                            <!--                    <div class="card-footer">-->
-                            <!--                        <small class="text-muted"></small>-->
-                            <!--                    </div>-->
-
-                        </a>
-                    </div>
-                </div>
-            <?php }
-            ?>
-
-            <!--    **********************************************************************************-->
-
-        </div>
-    <?php } ?>
-
-    <?php if (isset($_GET['Building'])){
-
-        ?>
-        <div class="row d-flex row-cols-md-12 row-cols-sm-4  g-3  align-items: center  justify-content: center">
-
-            <?php
-
-            $stmt = $pdo->query('SELECT * FROM building limit 8');
-            $stmt->execute();
-            $getAllproductBs = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-            foreach ($getAllproductBs as $row) { ?>
-                <div class="col-4">
-                    <div class="card h-200 text-center shadow-lg  rounded-3">
-
-                        <!--  8888888888888888888888888   -->
-                        <a class="text-decoration-none text-dark" href="more_details.php?productB=<?php echo $row['id']?>">
-                            <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-                                <div class="carousel-inner">
-                                    <div class="carousel-item active">
-                                        <img src="img/Villa_Riyadh.jpg" class="d-block w-100" alt="فيلا بالرياض للبيع">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="img/hussam.PNG" class="d-block w-100" alt="...">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="img/hussam.PNG" class="d-block w-100" alt="...">
-                                    </div>
-                                </div>
-                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
-                                        data-bs-slide="prev">
-                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Previous</span>
-                                </button>
-                                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
-                                        data-bs-slide="next">
-                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Next</span>
-                                </button>
-                            </div>
-                            <!--  8888888888888888888888888   -->
-
-                            <h5 class="card-title bg-gradient p-1 m-0 fs-6 "><?php echo "عماره". $row['type_of_offer']; ?>  </h5>
-                            <div class="card-body p-0 m-0">
-                                <table class="table table-striped overflow-scroll m-0 p-0 ">
-                                    <thead>
-                                    <tr>
-                                        <th scope="col">المساحة</th>
-                                        <th scope="col">الواجهة</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td><?php echo $row['space']; ?></td>
-                                        <td><?php echo $row['diraction']; ?></td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="col">عمر العقار</th>
-                                        <th scope="col">نوع الغرض</th>
-                                    </tr>
-                                    <tr>
-                                        <td><?php echo $row['AgeOfProperty']; ?></td>
-                                        <td><?php echo $row['type_of_offer']; ?></td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="col"><?php
-                                            echo ' السعر:   ' . number_format($row['price'], 2, ",", ".");
-                                            ?></th>
-                                        <th>تفاصيل اكثر</th>
-                                    </tr>
-
-                                    </tbody>
-                                </table>
-                            </div>
-
-                            <!--                    <div class="card-footer">-->
-                            <!--                        <small class="text-muted"></small>-->
-                            <!--                    </div>-->
-                        </a></div>
-                </div>
-            <?php } ?>
-
-        </div>
-    <?php } ?>
-
-    <?php if (isset($_GET['Land'])){?>
-
-        <div class="row d-flex row-cols-md-12 row-cols-sm-4  g-3  align-items: center  justify-content: center">
-
-            <?php
-
-            $stmt = $pdo->query('SELECT * FROM Land limit 8');
-            $stmt->execute();
-            $getAllproductLs = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            foreach ($getAllproductLs as $row) { ?>
-                <div class="col">
-                    <div class="card h-200 text-center shadow-lg  rounded-3">
-                        <!--  img   -->
-                        <a class="text-decoration-none" href="more_details.php?productL=<?php echo $row['id']?>">
-                            <!--                        <img class="card-img-top" src="--><?php //echo $imgUrl ?><!--" alt="--><?php //echo $productL['productL_name'] ?><!--">-->
-
-                            <!--  8888888888888888888888888   -->
-                            <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-                                <div class="carousel-inner">
-                                    <div class="carousel-item active">
-                                        <img src="img/Villa_Riyadh.jpg" class="d-block w-100" alt="فيلا بالرياض للبيع">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="img/hussam.PNG" class="d-block w-100" alt="...">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="img/hussam.PNG" class="d-block w-100" alt="...">
-                                    </div>
-                                </div>
-                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
-                                        data-bs-slide="prev">
-                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Previous</span>
-                                </button>
-                                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
-                                        data-bs-slide="next">
-                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Next</span>
-                                </button>
-                            </div>
-                            <!--  8888888888888888888888888   -->
-
-                            <h5 class="card-title bg-gradient p-1 m-0 fs-6"><?php echo  "ارض " .$row['TypeOfOffer']; ?>  </h5>
-                            <div class="card-body p-0 m-0">
-                                <table class="table table-striped overflow-scroll m-0 p-0 ">
-                                    <thead>
-                                    <tr>
-                                        <th scope="col">المساحة</th>
-                                        <th scope="col">الواجهة</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td><?php echo $row['space']; ?></td>
-                                        <td><?php echo $row['diraction']; ?></td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="col">عمر العقار</th>
-                                        <th scope="col">نوع الغرض</th>
-                                    </tr>
-                                    <tr>
-                                        <td><?php echo $row['AgeOfProperty']; ?></td>
-                                        <td><?php echo $row['TypeOfOffer']; ?></td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="col"><?php
-                                            echo ' السعر:   ' . number_format($row['priceofonemeter'], 2, ",", ".");
-                                            ?></th>
-                                        <th>تفاصيل اكثر</th>
-                                    </tr>
-
-                                    </tbody>
-                                </table>
-                            </div></a>
-
-                        <!--                    <div class="card-footer">-->
-                        <!--                        <small class="text-muted"></small>-->
-                        <!--                    </div>-->
-                    </div>
-
-                </div>
-            <?php } ?>
-
-        </div>
-    <?php } ?>
-
-    <?php if (isset($_GET['hotel'])){?>
-
-
-        <div class="row d-flex row-cols-md-12 row-cols-sm-4  g-3  align-items: center  justify-content: center">
-            <?php
-
-            $stmt = $pdo->query('SELECT * FROM hotel limit 8');
-            $stmt->execute();
-            $getAllproductHs = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            foreach ($getAllproductHs as $row) { ?>
-                <div class="col">
-                    <div class="card h-200 text-center shadow-lg  rounded-3 text-dark">
-                        <!--  img   -->
-                        <a class="text-decoration-none text-dark" href="more_details.php?productH=<?php echo $row['id']?>">
-                            <!--                        <img class="card-img-top" src="--><?php //echo $imgUrl ?><!--" alt="--><?php //echo $productH['productH_name'] ?><!--">-->
-
-                            <!--  8888888888888888888888888   -->
-                            <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-                                <div class="carousel-inner">
-                                    <div class="carousel-item active">
-                                        <img src="img/Villa_Riyadh.jpg" class="d-block w-100" alt="فيلا بالرياض للبيع">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="img/hussam.PNG" class="d-block w-100" alt="...">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="img/hussam.PNG" class="d-block w-100" alt="...">
-                                    </div>
-                                </div>
-                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
-                                        data-bs-slide="prev">
-                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Previous</span>
-                                </button>
-                                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
-                                        data-bs-slide="next">
-                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Next</span>
-                                </button>
-                            </div>
-                            <!--  8888888888888888888888888   -->
-
-                            <h5 class="card-title bg-gradient p-1 m-0 fs-6"><?php echo $row['TypeOfOffer']; ?>  </h5>
-                            <div class="card-body p-0 m-0">
-                                <table class="table table-striped overflow-scroll m-0 p-0 ">
-                                    <thead>
-                                    <tr>
-                                        <th scope="col">المساحة</th>
-                                        <th scope="col">الواجهة</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td><?php echo $row['space']; ?></td>
-                                        <td><?php echo $row['diraction']; ?></td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="col">عمر العقار</th>
-                                        <th scope="col">نوع الغرض</th>
-                                    </tr>
-                                    <tr>
-                                        <td><?php echo $row['Supplementnumber']; ?></td>
-                                        <td><?php echo $row['TypeOfOffer']; ?></td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="col"><?php
-                                            echo ' السعر:   ' . number_format($row['thenumberoffloors'], 2, ",", ".");
-                                            ?></th>
-                                        <th>تفاصيل اكثر</th>
-                                    </tr>
-
-                                    </tbody>
-                                </table>
-                            </div></a>
-
-                        <!--                    <div class="card-footer">-->
-                        <!--                        <small class="text-muted"></small>-->
-                        <!--                    </div>-->
-                    </div>
-                </div>
-            <?php } ?>
-
-        </div>
-    <?php } ?>
-
-    <?php if (isset($_GET['Shop'])){?>
-
-
-        <div class="row d-flex row-cols-md-12 row-cols-sm-4  g-3  align-items: center  justify-content: center">
-            <?php
-
-            $stmt = $pdo->query('SELECT * FROM Shop limit 8');
-            $stmt->execute();
-            $getAllproductSHs = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            foreach ($getAllproductSHs as $row) { ?>
-                <div class="col">
-                    <div class="card h-200 text-center shadow-lg  rounded-3">
-                        <a class="text-decoration-none text-dark" href="more_details.php?productSH=<?php echo $row['id']?>">
-                            <!--                        <img class="card-img-top" src="--><?php //echo $imgUrl ?><!--" alt="--><?php //echo $productH['productH_name'] ?><!--">-->
-
-                            <!--  8888888888888888888888888   -->
-                            <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-                                <div class="carousel-inner">
-                                    <div class="carousel-item active">
-                                        <img src="img/Villa_Riyadh.jpg" class="d-block w-100" alt="فيلا بالرياض للبيع">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="img/hussam.PNG" class="d-block w-100" alt="...">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="img/hussam.PNG" class="d-block w-100" alt="...">
-                                    </div>
-                                </div>
-                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
-                                        data-bs-slide="prev">
-                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Previous</span>
-                                </button>
-                                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
-                                        data-bs-slide="next">
-                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Next</span>
-                                </button>
-                            </div>
-                            <!--  8888888888888888888888888   -->
-
-                            <h5 class="card-title bg-gradient p-1 m-0 fs-6"><?php echo "المحل " . $row['TypeOfOffer']; ?>  </h5>
-                            <div class="card-body p-0 m-0">
-                                <table class="table table-striped overflow-scroll m-0 p-0 ">
-                                    <thead>
-                                    <tr>
-                                        <th scope="col">المساحة</th>
-                                        <th scope="col">الواجهة</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td><?php echo $row['space']; ?></td>
-                                        <td><?php echo $row['diraction']; ?></td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="col">عمر العقار</th>
-                                        <th scope="col">نوع الغرض</th>
-                                    </tr>
-                                    <tr>
-                                        <td><?php echo $row['AgeOfProperty']; ?></td>
-                                        <td><?php echo $row['TypeOfOffer']; ?></td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="col"><?php
-                                            echo ' السعر:   ' . number_format($row['price'], 2, ",", ".");
-                                            ?></th>
-                                        <th>تفاصيل اكثر</th>
-                                    </tr>
-
-                                    </tbody>
-                                </table>
-                            </div></a>
-
-                        <!--                    <div class="card-footer">-->
-                        <!--                        <small class="text-muted"></small>-->
-                        <!--                    </div>-->
-                    </div>
-                </div>
-            <?php } ?>
-
-        </div>
-    <?php } ?>
-
-    <?php if (isset($_GET['Farm'])){?>
-
-        <div class="row d-flex row-cols-md-12 row-cols-sm-4  g-3  align-items: center  justify-content: center">
-
-            <?php
-
-            $stmt = $pdo->query('SELECT * FROM Farm limit 8');
-            $stmt->execute();
-            $getAllproductFs = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            foreach ($getAllproductFs as $row) { ?>
-                <div class="col">
-                    <div class="card h-200 text-center shadow-lg  rounded-3">
-                        <a class="text-decoration-none text-dark" href="more_details.php?productF=<?php echo $row['id']?>">
-                            <!--                        <img class="card-img-top" src="--><?php //echo $imgUrl ?><!--" alt="--><?php //echo $productH['productH_name'] ?><!--">-->
-
-                            <!--  8888888888888888888888888   -->
-                            <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-                                <div class="carousel-inner">
-                                    <div class="carousel-item active">
-                                        <img src="img/Villa_Riyadh.jpg" class="d-block w-100" alt="فيلا بالرياض للبيع">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="img/hussam.PNG" class="d-block w-100" alt="...">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="img/hussam.PNG" class="d-block w-100" alt="...">
-                                    </div>
-                                </div>
-                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
-                                        data-bs-slide="prev">
-                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Previous</span>
-                                </button>
-                                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
-                                        data-bs-slide="next">
-                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Next</span>
-                                </button>
-                            </div>
-                            <!--  8888888888888888888888888   -->
-
-                            <h5 class="card-title bg-gradient p-1 m-0 fs-6"><?php echo $row['Typeofoffer']; ?>  </h5>
-                            <div class="card-body p-0 m-0">
-                                <table class="table table-striped overflow-scroll m-0 p-0 ">
-                                    <thead>
-                                    <tr>
-                                        <th scope="col">المساحة</th>
-                                        <th scope="col">الواجهة</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td><?php echo $row['space']; ?></td>
-                                        <td><?php echo $row['diraction']; ?></td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="col">عمر العقار</th>
-                                        <th scope="col">نوع الغرض</th>
-                                    </tr>
-                                    <tr>
-                                        <td><?php echo $row['AgeOfProperty']; ?></td>
-                                        <td><?php echo $row['Typeofoffer']; ?></td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="col"><?php
-                                            echo ' السعر:   ' . number_format($row['priceofonemeter'], 2, ",", ".");
-                                            ?></th>
-                                        <th>تفاصيل اكثر</th>
-                                    </tr>
-
-                                    </tbody>
-                                </table>
-                            </div></a>
-
-                        <!--                    <div class="card-footer">-->
-                        <!--                        <small class="text-muted"></small>-->
-                        <!--                    </div>-->
-                    </div>
-                </div>
-            <?php } ?>
-
-        </div>
-    <?php } ?>
-
-    <?php if (isset($_GET['Castle'])){?>
-        <div class="row d-flex row-cols-md-12 row-cols-sm-4  g-3  align-items: center  justify-content: center">
-            <?php
-
-            $stmt = $pdo->query('SELECT * FROM castle limit 8');
-            $stmt->execute();
-            $getAllproductCs = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            foreach ($getAllproductCs as $row) { ?>
-                <div class="col">
-                    <div class="card h-200 text-center shadow-lg  rounded-3">
-                        <a class="text-decoration-none text-dark" href="more_details.php?productC=<?php echo $row['id']?>">
-                            <!--                        <img class="card-img-top" src="--><?php //echo $imgUrl ?><!--" alt="--><?php //echo $productH['productH_name'] ?><!--">-->
-
-                            <!--  img   -->
-                            <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-                                <div class="carousel-inner">
-                                    <div class="carousel-item active">
-                                        <img src="img/Villa_Riyadh.jpg" class="d-block w-100" alt="فيلا بالرياض للبيع">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="img/hussam.PNG" class="d-block w-100" alt="...">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="img/hussam.PNG" class="d-block w-100" alt="...">
-                                    </div>
-                                </div>
-                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
-                                        data-bs-slide="prev">
-                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Previous</span>
-                                </button>
-                                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
-                                        data-bs-slide="next">
-                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Next</span>
-                                </button>
-                            </div>
-
-                            <!--  title   -->
-                            <h5 class="card-title bg-gradient p-1 m-0 fs-6"><?php echo " عماره ". $row['TypeOfOffer']  ; ?>   </h5>
-                            <div class="card-body p-0 m-0">
-                                <table class="table table-striped overflow-scroll m-0 p-0 ">
-                                    <thead>
-                                    <tr>
-                                        <th scope="col">المساحة</th>
-                                        <th scope="col">الواجهة</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td><?php echo $row['space']; ?></td>
-                                        <td><?php echo $row['diraction']; ?></td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="col">عمر العقار</th>
-                                        <th scope="col">نوع الغرض</th>
-                                    </tr>
-                                    <tr>
-                                        <td><?php echo $row['AgeOfProperty']; ?></td>
-                                        <td><?php echo $row['TypeOfOffer']; ?></td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="col">
-                                            <?php
-                                            echo ' السعر:   ' . number_format($row['price'], 2, ",", ".");
-                                            ?></th>
-                                        <th>تفاصيل اكثر</th>
-                                    </tr>
-
-                                    </tbody>
-                                </table>
-                            </div></a>
-
-                        <!--                    <div class="card-footer">-->
-                        <!--                        <small class="text-muted"></small>-->
-                        <!--                    </div>-->
-                    </div>
-                </div>
-            <?php } ?>
-
-        </div>
-    <?php } ?>
-
-    <?php if (isset($_GET['Studio'])){
-
-        ?>
-        <div class="row d-flex row-cols-md-12 row-cols-sm-4  g-3  align-items: center  justify-content: center">
-
-            <?php
-
-            $stmt = $pdo->query('SELECT * FROM Studio limit 8');
-            $stmt->execute();
-            $getAllproductSs = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            foreach ($getAllproductSs as $row) { ?>
-                <div class="col">
-                    <div class="card h-200 text-center shadow-lg  rounded-3">
-                        <a class="text-decoration-none text-dark" href="more_details.php?productS=<?php echo $row['id']?>">
-                            <!--                        <img class="card-img-top" src="--><?php //echo $imgUrl ?><!--" alt="--><?php //echo $productH['productH_name'] ?><!--">-->
-
-                            <!--  8888888888888888888888888   -->
-                            <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-                                <div class="carousel-inner">
-                                    <div class="carousel-item active">
-                                        <img src="img/Villa_Riyadh.jpg" class="d-block w-100" alt="فيلا بالرياض للبيع">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="img/hussam.PNG" class="d-block w-100" alt="...">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="img/hussam.PNG" class="d-block w-100" alt="...">
-                                    </div>
-                                </div>
-                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
-                                        data-bs-slide="prev">
-                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Previous</span>
-                                </button>
-                                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
-                                        data-bs-slide="next">
-                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Next</span>
-                                </button>
-                            </div>
-                            <!--  8888888888888888888888888   -->
-
-                            <h5 class="card-title bg-gradient p-1 m-0 fs-6"><?php echo $row['TypeOfOffer']; ?>  </h5>
-                            <div class="card-body p-0 m-0">
-                                <table class="table table-striped overflow-scroll m-0 p-0 ">
-                                    <thead>
-                                    <tr>
-                                        <th scope="col">المساحة</th>
-                                        <th scope="col">الواجهة</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td><?php echo $row['space']; ?></td>
-                                        <td><?php echo $row['diraction']; ?></td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="col">عمر العقار</th>
-                                        <th scope="col">نوع الغرض</th>
-                                    </tr>
-                                    <tr>
-                                        <td><?php echo $row['Numberofclippers']; ?></td>
-                                        <td><?php echo $row['TypeOfOffer']; ?></td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="col"><?php
-                                            echo ' السعر:   ' . number_format($row['Numberofclippers'], 2, ",", ".");
-                                            ?></th>
-                                        <th>تفاصيل اكثر</th>
-                                    </tr>
-
-                                    </tbody>
-                                </table>
-                            </div></a>
-
-                        <!--                    <div class="card-footer">-->
-                        <!--                        <small class="text-muted"></small>-->
-                        <!--                    </div>-->
-                    </div>
-                </div>
-            <?php } ?>
-
-        </div>
-    <?php } ?>
-
-    <?php if (isset($_GET['  '])){
-
-        ?>
-        <div class="row d-flex row-cols-md-12 row-cols-sm-4  g-3  align-items: center  justify-content: center">
-
-            <?php
-
-            $stmt = $pdo->query('SELECT * FROM hotel limit 4');
-            $stmt->execute();
-            $getAllproductWs = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            foreach ($getAllproductWs as $row) { ?>
-                <div class="col">
-                    <div class="card h-200 text-center shadow-lg  rounded-3">
-                        <a class="text-decoration-none text-dark" href="more_details.php?productW=<?php echo $row['id']?>">
-                            <!--                        <img class="card-img-top" src="--><?php //echo $imgUrl ?><!--" alt="--><?php //echo $productH['productH_name'] ?><!--">-->
-
-
-                            <!--  8888888888888888888888888   -->
-                            <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-                                <div class="carousel-inner">
-                                    <div class="carousel-item active">
-                                        <img src="img/Villa_Riyadh.jpg" class="d-block w-100" alt="فيلا بالرياض للبيع">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="img/hussam.PNG" class="d-block w-100" alt="...">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="img/hussam.PNG" class="d-block w-100" alt="...">
-                                    </div>
-                                </div>
-                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
-                                        data-bs-slide="prev">
-                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Previous</span>
-                                </button>
-                                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
-                                        data-bs-slide="next">
-                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Next</span>
-                                </button>
-                            </div>
-                            <!--  8888888888888888888888888   -->
-
-                            <h5 class="card-title bg-gradient p-1 m-0 fs-6"><?php echo $row['TypeOfOffer']; ?>  </h5>
-                            <div class="card-body p-0 m-0">
-                                <table class="table table-striped overflow-scroll m-0 p-0 ">
-                                    <thead>
-                                    <tr>
-                                        <th scope="col">المساحة</th>
-                                        <th scope="col">الواجهة</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td><?php echo $row['space']; ?></td>
-                                        <td><?php echo $row['diraction']; ?></td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="col">عمر العقار</th>
-                                        <th scope="col">نوع الغرض</th>
-                                    </tr>
-                                    <tr>
-                                        <td><?php echo $row['Supplementnumber']; ?></td>
-                                        <td><?php echo $row['TypeOfOffer']; ?></td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="col"><?php
-                                            echo ' السعر:   ' . number_format($row['thenumberoffloors'], 2, ",", ".");
-                                            ?></th>
-                                        <th>تفاصيل اكثر</th>
-                                    </tr>
-
-                                    </tbody>
-                                </table>
-                            </div></a>
-
-                        <!--                    <div class="card-footer">-->
-                        <!--                        <small class="text-muted"></small>-->
-                        <!--                    </div>-->
-                    </div>
-                </div>
-            <?php } ?>
-
-        </div>
-    <?php } ?>
-
-    <?php if (isset($_GET['Dianiyah'])){
-
-        ?>
-        <div class="row d-flex row-cols-md-12 row-cols-sm-4  g-3  align-items: center  justify-content: center">
-
-            <?php
-
-            $stmt = $pdo->query('SELECT * FROM diwaniyah limit 8');
-            $stmt->execute();
-            $getAllproductDs = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            foreach ($getAllproductDs as $row) { ?>
-                <div class="col">
-                    <div class="card h-200 text-center shadow-lg  rounded-3">
-                        <a class="text-decoration-none text-dark" href="more_details.php?productD=<?php echo $row['id']?>">
-                            <!--                        <img class="card-img-top" src="--><?php //echo $imgUrl ?><!--" alt="--><?php //echo $productH['productH_name'] ?><!--">-->
-
-                            <!--  8888888888888888888888888   -->
-                            <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-                                <div class="carousel-inner">
-                                    <div class="carousel-item active">
-                                        <img src="img/Villa_Riyadh.jpg" class="d-block w-100" alt="فيلا بالرياض للبيع">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="img/hussam.PNG" class="d-block w-100" alt="...">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="img/hussam.PNG" class="d-block w-100" alt="...">
-                                    </div>
-                                </div>
-                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
-                                        data-bs-slide="prev">
-                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Previous</span>
-                                </button>
-                                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
-                                        data-bs-slide="next">
-                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Next</span>
-                                </button>
-                            </div>
-                            <!--  8888888888888888888888888   -->
-
-                            <h5 class="card-title bg-gradient p-1 m-0 fs-6"><?php echo $row['TypeOfOffer']; ?>  </h5>
-                            <div class="card-body p-0 m-0">
-                                <table class="table table-striped overflow-scroll m-0 p-0 ">
-                                    <thead>
-                                    <tr>
-                                        <th scope="col">المساحة</th>
-                                        <th scope="col">الواجهة</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td><?php echo $row['space']; ?></td>
-                                        <td><?php echo $row['diraction']; ?></td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="col">عمر العقار</th>
-                                        <th scope="col">نوع الغرض</th>
-                                    </tr>
-                                    <tr>
-                                        <td><?php echo $row['Supplementnumber']; ?></td>
-                                        <td><?php echo $row['TypeOfOffer']; ?></td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="col"><?php
-                                            echo ' السعر:   ' . number_format($row['thenumberoffloors'], 2, ",", ".");
-                                            ?></th>
-                                        <th>تفاصيل اكثر</th>
-                                    </tr>
-
-                                    </tbody>
-                                </table>
-                            </div></a>
-
-                        <!--                    <div class="card-footer">-->
-                        <!--                        <small class="text-muted"></small>-->
-                        <!--                    </div>-->
-                    </div>
-                </div>
-            <?php } ?>
-
-        </div>
-    <?php } ?>
-
-    <?php if (isset($_GET['Apartment'])){
-
-        ?>
-        <div class="row d-flex row-cols-md-12 row-cols-sm-4  g-3  align-items: center  justify-content: center">
-
-            <?php
-
-            $stmt = $pdo->query('SELECT * FROM Apartment limit 8');
-            $stmt->execute();
-            $getAllproductAs = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            foreach ($getAllproductAs as $row) { ?>
-                <div class="col">
-                    <div class="card h-200 text-center shadow-lg  rounded-3">
-                        <a class="text-decoration-none text-dark" href="more_details.php?productA=<?php echo $row['id']?>">
-                            <!--                        <img class="card-img-top" src="--><?php //echo $imgUrl ?><!--" alt="--><?php //echo $productH['productH_name'] ?><!--">-->
-
-                            <!--  8888888888888888888888888   -->
-                            <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-                                <div class="carousel-inner">
-                                    <div class="carousel-item active">
-                                        <img src="img/Villa_Riyadh.jpg" class="d-block w-100" alt="فيلا بالرياض للبيع">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="img/hussam.PNG" class="d-block w-100" alt="...">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="img/hussam.PNG" class="d-block w-100" alt="...">
-                                    </div>
-                                </div>
-                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
-                                        data-bs-slide="prev">
-                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Previous</span>
-                                </button>
-                                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
-                                        data-bs-slide="next">
-                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Next</span>
-                                </button>
-                            </div>
-                            <!--  8888888888888888888888888   -->
-
-                            <h5 class="card-title bg-gradient p-1 m-0 fs-6"><?php echo $row['TypeOfOffer']; ?>  </h5>
-                            <div class="card-body p-0 m-0">
-                                <table class="table table-striped overflow-scroll m-0 p-0 ">
-                                    <thead>
-                                    <tr>
-                                        <th scope="col">المساحة</th>
-                                        <th scope="col">الواجهة</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td><?php echo $row['space']; ?></td>
-                                        <td><?php echo $row['diraction']; ?></td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="col">عمر العقار</th>
-                                        <th scope="col">نوع الغرض</th>
-                                    </tr>
-                                    <tr>
-                                        <td><?php echo $row['Supplementnumber']; ?></td>
-                                        <td><?php echo $row['TypeOfOffer']; ?></td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="col"><?php
-                                            echo ' السعر:   ' . number_format($row['thenumberoffloors'], 2, ",", ".");
-                                            ?></th>
-                                        <th>تفاصيل اكثر</th>
-                                    </tr>
-
-                                    </tbody>
-                                </table>
-                            </div></a>
-
-                        <!--                    <div class="card-footer">-->
-                        <!--                        <small class="text-muted"></small>-->
-                        <!--                    </div>-->
-                    </div>
-                </div>
-            <?php } ?>
-
-        </div>
-    <?php } ?>
-
-    <?php if (isset($_GET['Office'])){
-
-        ?>
-        <div class="row d-flex row-cols-md-12 row-cols-sm-4  g-3  align-items: center  justify-content: center">
-            <?php
-
-            $stmt = $pdo->query('SELECT * FROM desk limit 8');
-            $stmt->execute();
-            $getAllproductOs = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            foreach ($getAllproductOs as $row) { ?>
-                <div class="col">
-                    <div class="card h-200 text-center shadow-lg  rounded-3">
-                        <a class="text-decoration-none text-dark" href="more_details.php?productO=<?php echo $row['id']?>">
-                            <!--                        <img class="card-img-top" src="--><?php //echo $imgUrl ?><!--" alt="--><?php //echo $productH['productH_name'] ?><!--">-->
-
-                            <!--  IMG   -->
-                            <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-                                <div class="carousel-inner">
-                                    <div class="carousel-item active">
-                                        <img src="img/Villa_Riyadh.jpg" class="d-block w-100" alt="فيلا بالرياض للبيع">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="img/hussam.PNG" class="d-block w-100" alt="...">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img src="img/hussam.PNG" class="d-block w-100" alt="...">
-                                    </div>
-                                </div>
-                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
-                                        data-bs-slide="prev">
-                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Previous</span>
-                                </button>
-                                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
-                                        data-bs-slide="next">
-                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                    <span class="visually-hidden">Next</span>
-                                </button>
-                            </div>
-                            <!--  TITA   -->
-
-                            <h5 class="card-title bg-gradient p-1 m-0 fs-6"><?php echo $row['TypeOfOffer']; ?>  </h5>
-                            <div class="card-body p-0 m-0">
-                                <table class="table table-striped overflow-scroll m-0 p-0 ">
-                                    <thead>
-                                    <tr>
-                                        <th scope="col">المساحة</th>
-                                        <th scope="col">الواجهة</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td><?php echo $row['space']; ?></td>
-                                        <td><?php echo $row['diraction']; ?></td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="col">عمر العقار</th>
-                                        <th scope="col">نوع الغرض</th>
-                                    </tr>
-                                    <tr>
-                                        <td><?php echo $row['Supplementnumber']; ?></td>
-                                        <td><?php echo $row['TypeOfOffer']; ?></td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="col"><?php
-                                            echo ' السعر:   ' . number_format($row['thenumberoffloors'], 2, ",", ".");
-                                            ?></th>
-                                        <th>تفاصيل اكثر</th>
-                                    </tr>
-
-                                    </tbody>
-                                </table>
-                            </div></a>
-
-                        <!--                    <div class="card-footer">-->
-                        <!--                        <small class="text-muted"></small>-->
-                        <!--                    </div>-->
-                    </div>
-                </div>
-            <?php } ?>
-
-        </div>
-    <?php } ?>
-
-
-
-
-
-
-</div>
-
-
+        $stmt->execute($r = array(
+            'itid'=>null,
+            'itNumberofwells' => $Numberofwells_var,
+            'itNumberofpalms'=> $Numberofpalms_var,
+            'itNumberoftrees'=> $Numberoftrees_var,
+            'itNumberoftoilets' => $Numberoftoilets_var,
+            'itnumberofstreet'=> $numberofstreet_var,
+            'itBreak'=> $Break_var,
+            'itelectricity'=> $electricity_var,
+            'itasphalt' => $asphalt_var,
+            'itTypeoftoilets' => $Typeoftoilets_var,
+            'itdiraction' => $diraction_var,
+            'itTypeofoffer' => $TypeOfOffer_var,
+            'itFeatures' => $Features_var,
+            'itTypeofinstrument' => $Typeofinstrument_var,
+            'itspace' => $space_var,
+            'itpriceofonemeter' => $priceofonemeter_var,
+            'itAgeOfProperty' => $AgeOfProperty_var));
+
+
+
+// ********************************  sql add farm ****************************************** end
+        $alert_insert_farm_by_successfully = "تمت الإضافه بنجاح ";
+
+    }
+}
+// ======================   end submit_farm   ======================
+
+?>
 </body>
 </html>
 <!-- start of footer -->
-<?php include "footer.php";  //}else{
+<?php //include "footer.php";  //}else{
 // header("location:login.php");
 //}
 ?>

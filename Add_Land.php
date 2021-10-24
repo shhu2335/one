@@ -70,7 +70,7 @@ include "fun.php";
             <!--           price of one meter-->
             <div class="form-label col-md-6 text-start">
                 <label for="phone_number_form" class="form-label">سعر المتر</label>
-                <input type="number" class="form-control" id="phone_number_form" name="form_space">
+                <input type="number" class="form-control"  name="form_priceofonemeter">
                 <?php
                 if (isset($priceofonemeter_var_Err)){
                     echo '<span  class="badge bg-danger rounded-pill">';
@@ -82,7 +82,7 @@ include "fun.php";
             <!--            type of offer -->
             <div class="col-md-6 form-label  text-start mt-5">
                 <!--                <label > </label>-->
-                <select class="form-select" aria-label="Default select example">
+                <select class="form-select" aria-label="Default select example" name="form_TypeOfOffer">
                     <option selected value="">-- الغرض من عرض العقار --</option>
                     <?php if (!empty($length_State)) {
                         for ($i = 0; $i < $length_State; $i++) { ?>
@@ -106,8 +106,8 @@ include "fun.php";
             </div>
             <!--            number of streets-->
             <div class="col-md-4 form-label text-start">
-                <select class="form-select" aria-label="Default select example">
-                    <option selected>عدد الشوارع </option>
+                <select class="form-select" aria-label="Default select example" name="form_numberofstreet">
+                    <option selected value="">عدد الشوارع </option>
                     <?php if (!empty($length_numberStreets)) {
                         for ($i = 0; $i < $length_numberStreets; $i++) { ?>
                             <option value="<?php if (!empty($arra_list_numberStreets)) {
@@ -129,8 +129,8 @@ include "fun.php";
             </div>
             <!--            direction-->
             <div class="col-md-4 form-label text-start">
-                <select class="form-select"  aria-label="Default select example">
-                    <option selected>الواجهه </option>
+                <select class="form-select"  aria-label="Default select example" name="form_diraction">
+                    <option selected value="">الواجهه </option>
                     <?php if (!empty($length_direction)) {
                         for ($i = 0; $i < $length_direction; $i++) { ?>
                             <option value="<?php if (!empty($arra_list_direction)) {
@@ -152,15 +152,15 @@ include "fun.php";
             </div>
             <!--            Instrument type-->
             <div class="col-md-4 form-labeltext-start">
-                <select class="form-select"  aria-label="Default select example">
-                    <option selected>نوع الصك </option>
-                    <?php if (!empty($length_direction)) {
-                        for ($i = 0; $i < $length_direction; $i++) { ?>
-                            <option value="<?php if (!empty($arra_list_direction)) {
-                                echo $arra_list_direction[$i];
+                <select class="form-select"  aria-label="Default select example" name="form_Typeofinstrument">
+                    <option selected value="">نوع الصك </option>
+                    <?php if (!empty($length_Typeofinstrument)) {
+                        for ($i = 0; $i < $length_Typeofinstrument; $i++) { ?>
+                            <option value="<?php if (!empty($arra_list_Typeofinstrument)) {
+                                echo $arra_list_Typeofinstrument[$i];
                             } ?>">
-                                <?php if (!empty($arra_list_direction)) {
-                                    echo $arra_list_direction[$i];
+                                <?php if (!empty($arra_list_Typeofinstrument)) {
+                                    echo $arra_list_Typeofinstrument[$i];
                                 } ?> </option>
                         <?php }
                     } ?>
@@ -175,8 +175,8 @@ include "fun.php";
             </div>
             <!--            Additional features-->
             <div class="form-group  form-label text-start">
-                <label for="exampleFormControlTextarea1">مميزات إضافيه</label>
-                <textarea class="form-control" name="form_features" id="exampleFormControlTextarea1" rows="5"></textarea>
+                <label for="exampleFormControlTextarea1" >مميزات إضافيه</label>
+                <textarea class="form-control" name="form_Features" id="exampleFormControlTextarea1" rows="5"></textarea>
                 <?php
                 if (isset($Features_var_Err)){
                     echo '<span  class="badge bg-danger rounded-pill">';

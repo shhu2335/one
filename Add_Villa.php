@@ -35,7 +35,7 @@ if (isset( $alert_insert_villa_by_successfully)){
         <p class="card-title  mb-2 py-2 text-center fs-3 bg-primary text-white rounded-3">إضافه فلة</p>
         <form class="row g-3  p-5  text-end" method="POST" action="Add_Villa.php">
             <!--            space-->
-            <div class="form-label col-md-6 text-start">
+            <div class="form-label col-md-4 text-end">
                 <label for="phone_number_form" class="form-label">المساحه</label>
                 <input type="number" class="form-control" id="phone_number_form" name="form_space">
                 <?php
@@ -47,7 +47,7 @@ if (isset( $alert_insert_villa_by_successfully)){
                 ?>
             </div>
             <!--            property age-->
-            <div class="form-label col-md-6 text-start">
+            <div class="form-label col-md-4 text-end">
                 <label for="phone_number_form" class="form-label ">عمر العقار</label>
                 <input type="number" class="form-control" id="phone_number_form" name="form_AgeOfProperty">
                 <?php
@@ -58,12 +58,24 @@ if (isset( $alert_insert_villa_by_successfully)){
                 }
                 ?>
             </div>
+            <!--            price-->
+            <div class="form-label col-md-4 text-end">
+                <label for="phone_number_form" class="form-label"> السعر</label>
+                <input type="number" class="form-control" id="phone_number_form" name="form_price">
+                <?php
+                if (isset($price_var_Err)){
+                    echo '<span  class="badge bg-danger rounded-pill">';
+                    echo $price_var_Err;
+                    echo '<span >';
+                }
+                ?>
+            </div>
             <!--            type of offer -->
             <div class="col-md-4 form-label  text-start">
                 <!--                <label > </label>-->
                 <select class="form-select" name="form_TypeOfOffer" aria-label="Default select example">
 
-                    <option selected value="">-- الغرض من عرض العقار --</option>
+                    <option selected  value="" value="">-- الغرض من عرض العقار --</option>
                     <?php if (!empty($length_State)) {
                         for ($i = 0; $i < $length_State; $i++) { ?>
                             <option value="<?php if (!empty($arra_list_State)) {
@@ -74,6 +86,7 @@ if (isset( $alert_insert_villa_by_successfully)){
                                 } ?> </option>
                         <?php }
                     } ?>
+
                 </select>
                 <?php
                 if (isset($TypeOfOffer_var_Err )){
@@ -83,11 +96,12 @@ if (isset( $alert_insert_villa_by_successfully)){
                 }
                 ?>
 
+
             </div>
             <!--             number of toilets-->
             <div class="col-md-4 form-label text-start">
                 <select class="form-select" name="form_Numberoftoilets" aria-label="Default select example">
-                    <option selected>عدد دورات المياه </option>
+                    <option selected  value="">عدد دورات المياه </option>
                     <?php if (!empty($length_numberRoom)) {
                         for ($i = 0; $i < $length_numberRoom; $i++) { ?>
                             <option value="<?php if (!empty($arra_list_numberRoom)) {
@@ -110,7 +124,7 @@ if (isset( $alert_insert_villa_by_successfully)){
             <!--           Type of toilets-->
             <div class="col-md-4 form-label text-start">
                 <select class="form-select" name="form_Typeoftoilets" aria-label="Default select example">
-                    <option selected>نوع دورات المياه </option>
+                    <option selected  value="" value="">نوع دورات المياه </option>
                     <?php if (!empty($length_Type_of_toilets)) {
                         for ($i = 0; $i < $length_Type_of_toilets; $i++) { ?>
                             <option value="<?php if (!empty($arra_list_Type_of_toilets)) {
@@ -133,7 +147,7 @@ if (isset( $alert_insert_villa_by_successfully)){
             <!--            number of halls  -->
             <div class="col-md-4 form-label text-start">
                 <select class="form-select" name="form_Numberoflounges" aria-label="Default select example">
-                    <option selected>عدد الصالات  </option>
+                    <option selected  value="">عدد الصالات  </option>
                     <?php if (!empty($length_numberRoom)) {
                         for ($i = 0; $i < $length_numberRoom; $i++) { ?>
                             <option value="<?php if (!empty($arra_list_numberRoom)) {
@@ -156,7 +170,7 @@ if (isset( $alert_insert_villa_by_successfully)){
             <!--            number of clippers-->
             <div class="col-md-4 form-label text-start">
                 <select class="form-select" name="form_Numberofclippers" aria-label="Default select example">
-                    <option selected>عدد المقلط </option>
+                    <option selected  value="">عدد المقلط </option>
                     <?php if (!empty($length_numberRoom)) {
                         for ($i = 0; $i < $length_numberRoom; $i++) { ?>
                             <option value="<?php if (!empty($arra_list_numberRoom)) {
@@ -179,7 +193,7 @@ if (isset( $alert_insert_villa_by_successfully)){
             <!--             number of kitchens -->
             <div class="col-md-4 form-label text-start">
                 <select class="form-select" name="form_Numberofkitchen" aria-label="Default select example">
-                    <option selected>عدد المطابخ </option>
+                    <option selected  value="">عدد المطابخ </option>
                     <?php if (!empty($length_numberRoom)) {
                         for ($i = 0; $i < $length_numberRoom; $i++) { ?>
                             <option value="<?php if (!empty($arra_list_numberRoom)) {
@@ -202,7 +216,7 @@ if (isset( $alert_insert_villa_by_successfully)){
             <!--            number of bedrooms-->
             <div class="col-md-4 form-label text-start">
                 <select class="form-select" name="form_Numberofbedrooms" aria-label="Default select example">
-                    <option selected>عدد غرف النوم </option>
+                    <option selected  value="">عدد غرف النوم </option>
                     <?php if (!empty($length_numberRoom)) {
                         for ($i = 0; $i < $length_numberRoom; $i++) { ?>
                             <option value="<?php if (!empty($arra_list_numberRoom)) {
@@ -225,7 +239,7 @@ if (isset( $alert_insert_villa_by_successfully)){
             <!--            number of wings -->
             <div class="col-md-4 form-label text-start">
                 <select class="form-select" name="form_numberofwings" aria-label="Default select example">
-                    <option selected>عدد الأجنحه   </option>
+                    <option selected  value="">عدد الأجنحه   </option>
                     <?php if (!empty($length_numberRoom)) {
                         for ($i = 0; $i < $length_numberRoom; $i++) { ?>
                             <option value="<?php if (!empty($arra_list_numberRoom)) {
@@ -248,7 +262,7 @@ if (isset( $alert_insert_villa_by_successfully)){
             <!--            Number of Warehouses-->
             <div class="col-md-4 form-label text-start">
                 <select class="form-select"  name="form_numberofwarehouses" aria-label="Default select example">
-                    <option selected>عدد المستودعات</option>
+                    <option selected  value="">عدد المستودعات</option>
                     <?php if (!empty($length_numberRoom)) {
                         for ($i = 0; $i < $length_numberRoom; $i++) { ?>
                             <option value="<?php if (!empty($arra_list_numberRoom)) {
@@ -271,7 +285,7 @@ if (isset( $alert_insert_villa_by_successfully)){
            <!--            number of streets-->
             <div class="col-md-4 text-start">
                 <select class="form-select" name="form_numberofstreet" aria-label="Default select example">
-                    <option selected>عدد الشوارع </option>
+                    <option selected  value="">عدد الشوارع </option>
                     <?php if (!empty($length_numberStreets)) {
                         for ($i = 0; $i < $length_numberStreets; $i++) { ?>
                             <option value="<?php if (!empty($arra_list_numberStreets)) {
@@ -294,14 +308,14 @@ if (isset( $alert_insert_villa_by_successfully)){
             <!--           number of boards -->
             <div class="col-md-4 text-start">
                 <select class="form-select" name="form_BoardNumber" aria-label="Default select example">
-                    <option selected>عدد المجالس   </option>
+                    <option selected  value="">عدد المجالس   </option>
                     <?php if (!empty($length_numberRoom)) {
                         for ($i = 0; $i < $length_numberRoom; $i++) { ?>
                             <option value="<?php if (!empty($arra_list_numberRoom)) {
                                 echo $arra_list_numberRoom[$i];
                             } ?>">
                                 <?php if (!empty($arra_list_numberRoom)) {
-                                    echo $arra_list_numberStreets[$i];
+                                    echo $arra_list_numberRoom[$i];
                                 } ?> </option>
                         <?php }
                     } ?>
@@ -317,7 +331,7 @@ if (isset( $alert_insert_villa_by_successfully)){
             <!--          kitchen type   -->
             <div class="col-md-4 form-label text-start">
                 <select class="form-select" name="form_typeofkitchen" aria-label="Default select example">
-                    <option selected>نوع المطبخ  </option>
+                    <option selected  value="">نوع المطبخ  </option>
                     <?php if (!empty($length_Type_kitchen)) {
                         for ($i = 0; $i < $length_Type_kitchen; $i++) { ?>
                             <option value="<?php if (!empty($arra_list_Type_kitchen)) {
@@ -340,7 +354,7 @@ if (isset( $alert_insert_villa_by_successfully)){
             <!--            direction-->
             <div class="col-md-4 text-start">
                 <select class="form-select" name="form_diraction" aria-label="Default select example">
-                    <option selected>الواجهه </option>
+                    <option selected  value="">الواجهه </option>
                     <?php if (!empty($length_direction)) {
                         for ($i = 0; $i < $length_direction; $i++) { ?>
                             <option value="<?php if (!empty($arra_list_direction)) {
@@ -361,7 +375,7 @@ if (isset( $alert_insert_villa_by_successfully)){
                 ?>
             </div>
             <!--            Additional features-->
-            <div class="form-group  form-label text-start">
+            <div class="form-group  form-label text-end">
                 <label for="exampleFormControlTextarea1">مميزات إضافيه</label>
                 <textarea class="form-control"  name="form_features" id="exampleFormControlTextarea1" rows="5"></textarea>
                 <?php

@@ -22,11 +22,6 @@ function test_input($data)
 
 
 
-
-
-
-
-
 // ^^^^^^^^^^ hussam ^^^^^^^^^^ login system ^^^^^^^^^^^^^^^^^^^^^  start
 
 if (isset($_POST['submit_form_login']))
@@ -226,13 +221,12 @@ if (isset($_POST['submit_form_add_building'])) {
     if (empty($_POST["form_AgeOfProperty"])) {
         $AgeOfProperty_var_Err = "الرجاء ادخال عمر العقار.";
         $_POST["form_AgeOfProperty"] = '';
-    }
+    }else{
     if (filter_has_var(INPUT_POST, 'form_AgeOfProperty')) {
 
         $AgeOfProperty_var = test_input(filter_var($_POST["form_AgeOfProperty"], FILTER_SANITIZE_STRING));
         $count_building+=1;
-    }
-
+    }}
 
 //**************************************  form_taype_of_offer ***************************************
 
@@ -240,153 +234,166 @@ if (isset($_POST['submit_form_add_building'])) {
         $taype_of_offer_var_Err = "الرجاء ادخال نوع عرض العقار.";
         $_POST["form_taype_of_offer"] = '';
     }
-    if (filter_has_var(INPUT_POST, 'form_taype_of_offer')) {
+    else{    if (filter_has_var(INPUT_POST, 'form_taype_of_offer')) {
 
         $taype_of_offer_var = test_input(filter_var($_POST["form_taype_of_offer"], FILTER_SANITIZE_STRING));
         $count_building+=1;
-    }
-
-
+    }}
 
 //********************************  form_num_apartment **************************************************
     if (empty($_POST["form_num_apartment"])) {
         $num_apartment_var_Err = "الرجاء ادخال عدد الشقق.";
         $_POST["form_num_apartment"] = '';
     }
+    else{
     if (filter_has_var(INPUT_POST, 'form_num_apartment')) {
 
         $num_apartment_var = test_input(filter_var($_POST["form_num_apartment"], FILTER_SANITIZE_STRING));
         $count_building+=1;
-    }
+    }}
 
 //**************************************** check form_num_flor **********************************************
     if (empty($_POST["form_num_flor"])) {
         $num_flor_var_Err = "الرجاء ادخال عدد الطوابق.";
         $_POST["form_num_flor"] = '';
-    }
+    }else{
     if (filter_has_var(INPUT_POST, 'form_num_flor')) {
 
         $num_flor_var = test_input(filter_var($_POST["form_num_flor"], FILTER_SANITIZE_STRING));
         $count_building+=1;
-    }
+    }}
 
     //*********************************** check form_num_left **********************************************
     if (empty($_POST["form_num_left"])) {
         $num_left_var_Err = "الرجاء ادخال عدد المصاعد.";
         $_POST["form_num_left"] = '';
-    }
+    }else{
     if (filter_has_var(INPUT_POST, 'form_num_left')) {
 
         $num_left_var = test_input(filter_var($_POST["form_num_left"], FILTER_SANITIZE_STRING));
         $count_building+=1;
-    }
+    }}
 
     //**************************** check form_num_parking ********************************
     if (empty($_POST["form_num_parking"])) {
         $num_parking_var_Err = "الرجاء اختيار عدد المواقف.";
         $_POST["form_num_parking"] = '';
-    }
+    }else{
     if (filter_has_var(INPUT_POST, 'form_num_parking')) {
 
         $num_parking_var = test_input(filter_var($_POST["form_num_parking"], FILTER_SANITIZE_STRING));
         $count_building+=1;
-    }
+    }}
     //*************************** check form_num_Street *****************************************
     if (empty($_POST["form_num_Street"])) {
         $num_Street_var_Err = "الرجاءاختيار عدد الشوارع.";
         $_POST["form_num_Street"] = '';
-    }
+    }else{
     if (filter_has_var(INPUT_POST, 'form_num_Street')) {
 
         $num_Street_var = test_input(filter_var($_POST["form_num_Street"], FILTER_SANITIZE_STRING));
         $count_building+=1;
-    }
+    }}
     //************************************* check    form_direction ********************************************
     if (empty($_POST["form_direction"])) {
         $direction_var_Err = "الرجاء اختيار الواجهه.";
         $_POST["form_direction"] = '';
-    }
+    }else{
     if (filter_has_var(INPUT_POST, 'form_direction')) {
 
         $direction_var = test_input(filter_var($_POST["form_direction"], FILTER_SANITIZE_STRING));
         $count_building+=1;
-    }
+    }}
 
 //******************************************** check form_double_room *****************************************
-    if (empty($_POST["form_double_room"])) {
+    $count_checkbox1=0;
+    $checkbox1 =$_POST["form_room"];
+    for ($i=0; $i<lengt($checkbox1);$i++) {
+        $count_checkbox1+=1;
+    if (empty($checkbox1[i])) {
+        $count_checkbox1===3;
         $double_room_var_Err = "الرجاء الرجاء الإختيار.";
         $_POST["form_double_room"] = '';
-    }
+    }else{
     if (filter_has_var(INPUT_POST, 'form_double_room')) {
+        $checkbox1 =$_POST["form_room"];
 
         $double_room_var = test_input(filter_var($_POST["form_double_room"], FILTER_SANITIZE_STRING));
         $count_building+=1;
-    }
+    }}}
 
 //************************************* check form_triple_room *********************************************
     if (empty($_POST["form_triple_room"])) {
         $_triple_room_var_Err = "الرجاء الرجاء الإختيار.";
         $_POST["form_triple_room"] = '';
-    }
+    }else{
     if (filter_has_var(INPUT_POST, 'form_triple_room')) {
 
         $_triple_room_var = test_input(filter_var($_POST["form_triple_room"], FILTER_SANITIZE_STRING));
-        $count_building+=1;
-    }
+//        $count_building+=1;
+    }}
 //**************************************** check form_quad_room *******************************************
     if (empty($_POST["form_quad_room"])) {
         $quad_room_var_Err = "الرجاء الرجاء الإختيار.";
         $_POST["form_quad_room"] = '';
-    }
+    }else{
     if (filter_has_var(INPUT_POST, 'form_quad_room')) {
 
         $quad_room_var = test_input(filter_var($_POST["form_quad_room"], FILTER_SANITIZE_STRING));
-        $count_building+=1;
-    }
+//        $count_building+=1;
+    }}
 
 //******************************************* check form_features ***********************************************
     if (empty($_POST["form_features"])) {
         $features_var_Err = "الرجاء ادخال عدد المميزات إضافيه.";
         $_POST["form_features"] = '';
-    }
+    }else{
     if (filter_has_var(INPUT_POST, 'form_features')) {
 
         $features_var = test_input(filter_var($_POST["form_features"], FILTER_SANITIZE_STRING));
-        $count_building+=1;
-    }
+      $count_building+=1;
+    }}
 
-    //******************************************* check form_features ***********************************************
+    //******************************************* check form_price ***********************************************
+
     if (empty($_POST["form_price"])) {
-        $price_var_Err = "الرجاء ادخال السعر.";
-        $_POST["form_features"] = '';
-    }
-    if (filter_has_var(INPUT_POST, 'form_price')) {
+        $price_var_Err = "الرجاء كتابه السعر .";
+        $_POST["form_price"] = '';
+    }else{
+        if (filter_has_var(INPUT_POST, 'form_price')) {
 
-        $price_var = test_input(filter_var($_POST["form_features"], FILTER_SANITIZE_STRING));
-        $count_building+=1;
-    }
+            $price_var = test_input(filter_var($_POST["form_price"], FILTER_SANITIZE_STRING));
+            $count_building+=1;
+        }}
+
 // ******************************************** form_add_building *********************** end
 
-
 // ******************************************** SQL_add_building *********************** start
-if($count_building ===13) {
-    $sql = 'insert into building  (id,Numberofapartments,Numberoftsrees,Features,Apartmenttype,space,AgeOfProperty,type_of_offer)
-                   values(:itid,:itNumberofapartments,:itNumberoftsrees,:itFeatures,:itApartmenttype,:itspace,:itAgeOfProperty,:ittype_of_offer)';
+if($count_building ===12) {
+    $sql = 'insert into building  (id,Numberofapartments, Numberofstreet, Features, Apartmenttype, space, AgeOfProperty, type_of_offer, price, diraction,num_left,num_flor,num_parking)
+                   values(:itid,:itNumberofapartments,:itNumberofstreet,:itFeatures,:itApartmenttype,:itspace,:itAgeOfProperty,:ittype_of_offer ,:itprice ,:itdiraction,:itnum_left,:itnum_flor,:itnum_parking)';
 
     if (isset($pdo)) {
         $stmt = $pdo->prepare($sql);
     }
-
-
+    
     $stmt->execute($r = array(
-        'itid' => null,
-        'itNumberofapartments' => $num_apartment_var,
-        'itNumberoftsrees' => $num_Street_var,
-        'itFeatures' => $features_var,
-        'itApartmenttype' => $num_apartment_var,
-        'itspace' => $space_var,
-        'itAgeOfProperty' => $AgeOfProperty_var,
-        'ittype_of_offer' => $taype_of_offer_var
+        'itid'=>null,
+    'itNumberofapartments'=>$num_apartment_var,
+    'itNumberofstreet'=>$num_Street_var,
+    'itFeatures'=>$features_var,
+    'itApartmenttype'=>$double_room_var,
+    'itspace'=>$space_var,
+    'itAgeOfProperty'=>$AgeOfProperty_var,
+    'ittype_of_offer'=>$taype_of_offer_var ,
+        'itprice'=>$price_var ,
+    'itdiraction'=>$direction_var,
+        'itnum_left'=>$num_left_var,
+        'itnum_flor'=>$num_flor_var,
+        'itnum_parking'=>$num_parking_var
+
+
+
     ));
     $alert_insert_building_by_successfully = '  تمت إضافه العماره بنجاح';
 
@@ -401,7 +408,6 @@ if($count_building ===13) {
 }
 // ************************************ SQL_add_building ********************************* end
 
-
 // ***********************************  form_add_hotel  ***********************************  start
 if (isset($_POST['submit_form_add_hotel'])) {
     $count_hotel =0;
@@ -409,7 +415,8 @@ if (isset($_POST['submit_form_add_hotel'])) {
     if (empty($_POST["form_TypeOfOffer"])) {
         $TypeOfOffer_var_Err = "الرجاء ادخال نوع العرض .";
         $_POST["form_TypeOfOffer"] = '';
-    }else{if (filter_has_var(INPUT_POST, 'form_TypeOfOffer')) {
+    }else
+    {if (filter_has_var(INPUT_POST, 'form_TypeOfOffer')) {
 
         $TypeOfOffer_var = test_input(filter_var($_POST["form_TypeOfOffer"], FILTER_SANITIZE_STRING));
 
@@ -430,7 +437,9 @@ if (isset($_POST['submit_form_add_hotel'])) {
     if (empty($_POST["form_numberofwings"])) {
         $numberofwings_var_Err = "الرجاء ادخال عدد الأجنحه .";
         $_POST["form_numberofwings"] = '';
-    }else{if (filter_has_var(INPUT_POST, 'form_numberofwings')) {
+    }
+
+    else {if (filter_has_var(INPUT_POST, 'form_numberofwings')) {
 
         $numberofwings_var = test_input(filter_var($_POST["form_numberofwings"], FILTER_SANITIZE_STRING));
         $count_hotel+=1;}
@@ -516,12 +525,12 @@ if (isset($_POST['submit_form_add_hotel'])) {
         $Numberofparking_var_Err = "الرجاء ادخال عدد المواقف .";
         $_POST["form_Numberofparking"] = '';
     }
-  else {
-      if (filter_has_var(INPUT_POST, 'form_Numberofparking')) {
+    else {
+        if (filter_has_var(INPUT_POST, 'form_Numberofparking')) {
 
-          $Numberofparking_var = test_input(filter_var($_POST["form_Numberofparking"], FILTER_SANITIZE_STRING));
-          $count_hotel+=1;}
-  }
+            $Numberofparking_var = test_input(filter_var($_POST["form_Numberofparking"], FILTER_SANITIZE_STRING));
+            $count_hotel+=1;}
+    }
 //************************************* form_numberofstreet *********************************
 
     if (empty($_POST["form_numberofstreet"])) {
@@ -606,40 +615,51 @@ if (isset($_POST['submit_form_add_hotel'])) {
             $AgeOfProperty_var = test_input(filter_var($_POST["form_AgeOfProperty"], FILTER_SANITIZE_STRING));
             $count_hotel+=1;}
     }
+
+//******************************************* check form_price ***********************************************
+
+    if (empty($_POST["form_price"])) {
+        $price_var_Err = "الرجاء كتابه السعر .";
+        $_POST["form_price"] = '';
+    }else{
+        if (filter_has_var(INPUT_POST, 'form_price')) {
+
+            $price_var = test_input(filter_var($_POST["form_price"], FILTER_SANITIZE_STRING));
+            $count_hotel+=1;
+        }}
 //*************************************  form add hotel ********************************* end
 
 //************************************* sql add hotel *********************************  start
-if( $count_hotel===17){
-    $sql = 'insert into hotel 
-    (id,TypeOfOffer,numberofrooms,numberofwings,thenumberoffloors,numberoflifts, Numberofmeetingroom,numberofwarehouses, Numberofrestaurants,numberofkitchens,/*Supplementnumber,*/Numberofparking,numberofstreet,Reception,Typeoftoilets,diraction,Features,space,AgeOfProperty)
-  values(:itid,:itTypeOfOffer,:itnumberofrooms,:itnumberofwings,:itthenumberoffloors,:itnumberoflifts,:itNumberofmeetingroom,:itnumberofwarehouses,:itNumberofrestaurants,:itnumberofkitchens,/*:itSupplementnumber,*/:itNumberofparking,:itnumberofstreet,:itReception,:itTypeoftoilets,:itdiraction,:itFeatures,:itspace,:itAgeOfProperty
-)';
+    if( $count_hotel===18){
+        $sql = 'insert into hotel (id, TypeOfOffer, numberofrooms, numberofwings, thenumberoffloors, numberoflifts, Numberofmeetingroom, numberofwarehouses, Numberofrestaurants, numberofkitchens, Numberofparking, numberofstreet, Reception, Typeoftoilets, diraction, Features, space, AgeOfProperty,price)values(:itid,:itTypeOfOffer,:itnumberofrooms,:itnumberofwings,:itthenumberoffloors,:itnumberoflifts,:itNumberofmeetingroom,:itnumberofwarehouses,:itNumberofrestaurants,:itnumberofkitchens,:itNumberofparking,:itnumberofstreet,:itReception,:itTypeoftoilets,:itdiraction,:itFeatures,:itspace, :itAgeOfProperty,:itprice)';
 
-    if (isset($pdo)) {
-        $stmt = $pdo->prepare($sql);
-    }
+        if (isset($pdo)) {
+            $stmt = $pdo->prepare($sql);
+        }
 
-    $stmt->execute($r = array(
-        'itid'                       => null,
-        'itTypeOfOffer'              => $taype_of_offer_var,
-        'itnumberofrooms'            => $numberofrooms_var,
-        'itnumberofwings'            => $numberofwings_var,
-        'itthenumberoffloors'        => $thenumberoffloors_var,
-        'itnumberoflifts'            => $numberoflifts_var,
-        'itNumberofmeetingroom'      => $Numberofmeetingroom_var,
-        'itnumberofwarehouses'       => $numberofwarehouses_var,
-        'itNumberofrestaurants'      => $Numberofrestaurants_var,
-        'itnumberofkitchens'         => $numberofkitchens_var,
-        'itNumberofparking'          => $Numberofparking_var,
-        'itnumberofstreet'           => $numberofstreet_var,
-        'itReception'                => $Reception_var,
-        'itTypeoftoilets'            => $Typeoftoilets_var,
-        'itdiraction'                => $diraction_var,
-        'itFeatures'                 => $Features_var,
-        'itspace'                    => $space_var,
-        'itAgeOfProperty'            => $AgeOfProperty_var
-    ));
-    $alert_insert_hotal_by_successfully = '  تمت إضافه بنجاح';}
+        $stmt->execute($r = array(
+            'itid'=>null,
+            'itTypeOfOffer'=>$TypeOfOffer_var,
+            'itnumberofrooms'=>$numberofrooms_var,
+            'itnumberofwings'=>$numberofwings_var,
+            'itthenumberoffloors'=>$thenumberoffloors_var,
+            'itnumberoflifts'=>$numberoflifts_var,
+            'itNumberofmeetingroom'=>$Numberofmeetingroom_var,
+            'itnumberofwarehouses'=>$numberofwarehouses_var,
+            'itNumberofrestaurants'=>$Numberofrestaurants_var,
+            'itnumberofkitchens'=>$numberofkitchens_var,
+            'itNumberofparking'=>$Numberofparking_var,
+            'itnumberofstreet'=>$numberofstreet_var,
+            'itReception'=>$Reception_var,
+            'itTypeoftoilets'=>$Typeoftoilets_var,
+            'itdiraction'=>$diraction_var,
+            'itFeatures'=>$Features_var,
+            'itspace'=>$space_var,
+            'itAgeOfProperty'=>$AgeOfProperty_var,
+            'itprice'=>$price_var
+
+        ));
+        $alert_insert_hotal_by_successfully = '  تمت إضافه الفندق بنجاح';}
 // 'itSupplementnumber'         => $Supplementnumber_var,
 // ***********************************  sql_add_hotel  *****************************  end
 
@@ -658,7 +678,18 @@ if (isset($_POST['submit_form_add_villa'])) {
     else{if (filter_has_var(INPUT_POST, 'form_TypeOfOffer')) {
 
         $TypeOfOffer_var = test_input(filter_var($_POST["form_TypeOfOffer"], FILTER_SANITIZE_STRING));
-        $count_villa =+1;}}
+        $count_villa +=1;}}
+//******************************************* check form_price ***********************************************
+
+    if (empty($_POST["form_price"])) {
+        $price_var_Err = "الرجاء كتابه السعر .";
+        $_POST["form_price"] = '';
+    }else{
+        if (filter_has_var(INPUT_POST, 'form_price')) {
+
+            $price_var = test_input(filter_var($_POST["form_price"], FILTER_SANITIZE_STRING));
+            $count_villa+=1;
+        }}
 
 //*************************************  form_Numberoftoilets  *********************************
 
@@ -669,7 +700,7 @@ if (isset($_POST['submit_form_add_villa'])) {
     else{if (filter_has_var(INPUT_POST, 'form_Numberoftoilets')) {
 
         $Numberoftoilets_var = test_input(filter_var($_POST["form_Numberoftoilets"], FILTER_SANITIZE_STRING));
-        $count_villa =+1;}}
+        $count_villa +=1;}}
 
 //*************************************  form_numberofwings   *********************************
 
@@ -680,7 +711,7 @@ if (isset($_POST['submit_form_add_villa'])) {
     else{if (filter_has_var(INPUT_POST, 'form_numberofwings')) {
 
         $numberofwings_var = test_input(filter_var($_POST["form_numberofwings"], FILTER_SANITIZE_STRING));
-        $count_villa =+1;}}
+        $count_villa +=1;}}
 
     //*************************************   form_Numberoflounges    *********************************
 
@@ -691,7 +722,7 @@ if (isset($_POST['submit_form_add_villa'])) {
     else{if (filter_has_var(INPUT_POST, 'form_Numberoflounges')) {
 
         $Numberoflounges_var = test_input(filter_var($_POST["form_Numberoflounges"], FILTER_SANITIZE_STRING));
-        $count_villa =+1;}}
+        $count_villa +=1;}}
 
     //**************************    form_Numberofkitchen    *********************************
 
@@ -702,7 +733,7 @@ if (isset($_POST['submit_form_add_villa'])) {
     else{if (filter_has_var(INPUT_POST, 'form_Numberofkitchen')) {
 
         $Numberofkitchen_var = test_input(filter_var($_POST["form_Numberofkitchen"], FILTER_SANITIZE_STRING));
-       $count_villa =+1;}}
+       $count_villa +=1;}}
 
 //************************************* form_Numberofbedrooms   *********************************
     if (empty($_POST["form_Numberofbedrooms"])) {
@@ -712,7 +743,7 @@ if (isset($_POST['submit_form_add_villa'])) {
     else{if (filter_has_var(INPUT_POST, 'form_Numberofbedrooms')) {
 
         $Numberofbedrooms_var = test_input(filter_var($_POST["form_Numberofbedrooms"], FILTER_SANITIZE_STRING));
-        $count_villa =+1;}}
+        $count_villa +=1;}}
 
 //************************************* form_BoardNumber  *********************************
 
@@ -723,7 +754,7 @@ if (isset($_POST['submit_form_add_villa'])) {
     else{if (filter_has_var(INPUT_POST, 'form_BoardNumber')) {
 
         $BoardNumber_var = test_input(filter_var($_POST["form_BoardNumber"], FILTER_SANITIZE_STRING));
-        $count_villa =+1;}}
+        $count_villa +=1;}}
 
 //************************************* form_Numberofclippers  *********************************
 
@@ -734,7 +765,7 @@ if (isset($_POST['submit_form_add_villa'])) {
     else{if (filter_has_var(INPUT_POST, 'form_Numberofclippers')) {
 
         $Numberofclippers_var = test_input(filter_var($_POST["form_Numberofclippers"], FILTER_SANITIZE_STRING));
-        $count_villa =+1;}}
+        $count_villa +=1;}}
 
 //************************************* form_Numberofwarehouse     *********************************
     if (empty($_POST["form_numberofwarehouses"])) {
@@ -744,7 +775,7 @@ if (isset($_POST['submit_form_add_villa'])) {
     else{if (filter_has_var(INPUT_POST, 'form_Numberofwarehouse')) {
 
         $Numberofwarehouse_var = test_input(filter_var($_POST["form_Numberofwarehouse"], FILTER_SANITIZE_STRING));
-        $count_villa =+1;}}
+        $count_villa +=1;}}
 
 //*************************************  form_numberofstreet  *********************************
 
@@ -756,7 +787,7 @@ if (isset($_POST['submit_form_add_villa'])) {
     else{if (filter_has_var(INPUT_POST, 'form_numberofstreet')) {
 
         $numberofstreet_var = test_input(filter_var($_POST["form_numberofstreet"], FILTER_SANITIZE_STRING));
-        $count_villa =+1;}}
+        $count_villa +=1;}}
 
 //*************************************  form_Typeoftoilets   *********************************
 
@@ -767,7 +798,7 @@ if (isset($_POST['submit_form_add_villa'])) {
     else{if (filter_has_var(INPUT_POST, 'form_Typeoftoilets')) {
 
         $Typeoftoilets_var = test_input(filter_var($_POST["form_Typeoftoilets"], FILTER_SANITIZE_STRING));
-        $count_villa =+1;}}
+        $count_villa +=1;}}
 
 //*************************************  form_typeofkitchen  *********************************
 
@@ -778,7 +809,7 @@ if (isset($_POST['submit_form_add_villa'])) {
     else{if (filter_has_var(INPUT_POST, 'form_typeofkitchen')) {
 
         $typeofkitchen_var = test_input(filter_var($_POST["form_typeofkitchen"], FILTER_SANITIZE_STRING));
-        $count_villa =+1;}}
+        $count_villa +=1;}}
 
 //*************************************  form_diraction   *********************************
 
@@ -789,7 +820,7 @@ if (isset($_POST['submit_form_add_villa'])) {
     else{if (filter_has_var(INPUT_POST, 'form_diraction')) {
 
         $diraction_var = test_input(filter_var($_POST["form_diraction"], FILTER_SANITIZE_STRING));
-        $count_villa =+1;}}
+        $count_villa +=1;}}
 
 
 //******************************************* check form_features ***********************************************
@@ -800,7 +831,7 @@ if (isset($_POST['submit_form_add_villa'])) {
     else{if (filter_has_var(INPUT_POST, 'form_features')) {
 
         $features_var = test_input(filter_var($_POST["form_features"], FILTER_SANITIZE_STRING));
-        $count_villa =+1;}}
+        $count_villa +=1;}}
     //************************************** check  form_space *******************************************
     if (empty($_POST["form_space"])) {
         $space_var_Err = "الرجاء كتابة المساحه";
@@ -809,7 +840,7 @@ if (isset($_POST['submit_form_add_villa'])) {
     else{if (filter_has_var(INPUT_POST, 'form_space')) {
 
         $space_var = test_input(filter_var($_POST["form_space"], FILTER_SANITIZE_STRING));
-        $count_villa =+1;}}
+        $count_villa +=1;}}
     //************************************* form_numberofwarehouses  *********************************
 
     if (empty($_POST["form_numberofwarehouses"])) {
@@ -819,7 +850,7 @@ if (isset($_POST['submit_form_add_villa'])) {
     else{if (filter_has_var(INPUT_POST, 'form_numberofwarehouses')) {
 
         $numberofwarehouses_var = test_input(filter_var($_POST["form_numberofwarehouses"], FILTER_SANITIZE_STRING));
-        $count_villa =+1;}}
+        $count_villa +=1;}}
 
 
 //********************************** check form_AgeOfProperty ******************************************
@@ -830,14 +861,14 @@ if (isset($_POST['submit_form_add_villa'])) {
     else{if (filter_has_var(INPUT_POST, 'form_AgeOfProperty')) {
 
         $AgeOfProperty_var = test_input(filter_var($_POST["form_AgeOfProperty"], FILTER_SANITIZE_STRING));
-        $count_villa =+1;}}
+        $count_villa +=1;}}
 
 //*************************************  form add villa          ********************************* end
 
 //*************************************  sql add villa **************** ********************************* start
-if ( $count_villa ===16){
-    $sql = 'insert into villa (id,numberofstreet,TypeOfOffer,Numberoftoilets,numberofwings,Numberoflounges,Numberofkitchen,Numberofclippers,numberofwarehouses,Typeoftoilets,diraction,Features,space,AgeOfProperty,typeofkitchen)
-     values(:itid,:itnumberofstreet,:itTypeOfOffer,:itNumberoftoilets,:itnumberofwings,:itNumberoflounges,:itNumberofkitchen,:itNumberofclippers,:itnumberofwarehouses,:itTypeoftoilets,:itdiraction,:itFeatures,:itspace,:itAgeOfProperty,:ittypeofkitchen)';
+if ( $count_villa ===17){
+    $sql = 'insert into villa (id,numberofstreet,TypeOfOffer,Numberoftoilets,numberofwings,Numberoflounges,Numberofkitchen,Numberofclippers,Numberofwarehouse,Typeoftoilets,diraction,Features,space,AgeOfProperty,typeofkitchen,BoardNumber,Numberofbedrooms, price)
+     values(:itid,:itnumberofstreet,:itTypeOfOffer,:itNumberoftoilets,:itnumberofwings,:itNumberoflounges,:itNumberofkitchen,:itNumberofclippers,:itnumberofwarehouses,:itTypeoftoilets,:itdiraction,:itFeatures,:itspace,:itAgeOfProperty,:ittypeofkitchen,:itBoardNumber,:itNumberofbedrooms, :itprice)';
 
     if (isset($pdo)) {
         $stmt = $pdo->prepare($sql);
@@ -855,17 +886,21 @@ if ( $count_villa ===16){
         'itNumberofkitchen'=>$Numberofkitchen_var,
         'itNumberofclippers'=>$Numberofclippers_var,
         'itnumberofwarehouses'=>$numberofwarehouses_var,
-
         'itTypeoftoilets'=>$Typeoftoilets_var,
         'itdiraction'=>$diraction_var,
         'itFeatures'=>$features_var,
         'itspace'=>$space_var,
         'itAgeOfProperty'=>$AgeOfProperty_var,
-        'ittypeofkitchen'=>$typeofkitchen_var
+        'ittypeofkitchen'=>$typeofkitchen_var,
+        'itBoardNumber'=> $BoardNumber_var ,
+        'itNumberofbedrooms'=>$Numberofbedrooms_var  ,
+    'itprice'=>$price_var
+
 
 
     ));
     // ***********************************  sql_add_villa ****************************************  end
+    $alert_insert_villa_by_successfully = '  تمت إضافه الفله بنجاح';
 
 }
 }
@@ -884,7 +919,7 @@ if(isset($_POST['submit_form_add_shop'])){
     {if (filter_has_var(INPUT_POST, 'form_TypeOfOffer')) {
 
         $TypeOfOffer_var = test_input(filter_var($_POST["form_TypeOfOffer"], FILTER_SANITIZE_STRING));
-        $count_shop =+1; }}
+        $count_shop +=1; }}
 
 
 //************************************* form_Numberofparking       *********************************
@@ -907,7 +942,7 @@ if(isset($_POST['submit_form_add_shop'])){
     else{if (filter_has_var(INPUT_POST, 'form_Numberoftoilets')) {
 
         $Numberoftoilets_var = test_input(filter_var($_POST["form_Numberoftoilets"], FILTER_SANITIZE_STRING));
-        $count_shop =+1; }}
+        $count_shop +=1; }}
 //************************************* form_numberofstreet *********************************
     if (empty($_POST["form_numberofstreet"])) {
         $numberofstreet_var_Err = "الرجاء ادخال عدد الشوارع .";
@@ -916,7 +951,7 @@ if(isset($_POST['submit_form_add_shop'])){
     else{if (filter_has_var(INPUT_POST, 'form_numberofstreet')) {
 
         $numberofstreet_var = test_input(filter_var($_POST["form_numberofstreet"], FILTER_SANITIZE_STRING));
-        $count_shop =+1; }}
+        $count_shop +=1; }}
 //*************************************  form_numberofroles *********************************
     if (empty($_POST["form_numberofroles"])) {
         $numberofroles_var_Err = "الرجاء ادخال عدد الأدوار .";
@@ -925,7 +960,7 @@ if(isset($_POST['submit_form_add_shop'])){
     else{if (filter_has_var(INPUT_POST, 'form_numberofroles')) {
 
         $numberofroles_var = test_input(filter_var($_POST["form_numberofroles"], FILTER_SANITIZE_STRING));
-        $count_shop =+1; }}
+        $count_shop +=1; }}
 //************************************* form_Warehousenumber  *********************************
     if (empty($_POST["form_Warehousenumber"])) {
         $Warehousenumber_var_Err = "الرجاء ادخال عدد المستودعات .";
@@ -934,7 +969,7 @@ if(isset($_POST['submit_form_add_shop'])){
     else{if (filter_has_var(INPUT_POST, 'form_Warehousenumber')) {
 
         $Warehousenumber_var = test_input(filter_var($_POST["form_Warehousenumber"], FILTER_SANITIZE_STRING));
-        $count_shop =+1; }}
+        $count_shop +=1; }}
 
 //************************************* form_Typeoftoilets *********************************
 
@@ -945,7 +980,7 @@ if(isset($_POST['submit_form_add_shop'])){
     else{if (filter_has_var(INPUT_POST, 'form_Typeoftoilets')) {
 
         $Typeoftoilets_var = test_input(filter_var($_POST["form_Typeoftoilets"], FILTER_SANITIZE_STRING));
-        $count_shop =+1; }}
+        $count_shop +=1; }}
 
 //*************************************  form_diraction  *********************************
     if (empty($_POST["form_diraction"])) {
@@ -955,7 +990,7 @@ if(isset($_POST['submit_form_add_shop'])){
     else{if (filter_has_var(INPUT_POST, 'form_diraction')) {
 
         $diraction_var = test_input(filter_var($_POST["form_diraction"], FILTER_SANITIZE_STRING));
-        $count_shop =+1; }}
+        $count_shop +=1; }}
 
 //************************************* form_Features *********************************
 
@@ -966,7 +1001,7 @@ if(isset($_POST['submit_form_add_shop'])){
     else{if (filter_has_var(INPUT_POST, 'form_Features')) {
 
         $Features_var = test_input(filter_var($_POST["form_Features"], FILTER_SANITIZE_STRING));
-        $count_shop =+1; }}
+        $count_shop +=1; }}
 
 //*************************************  form_space *********************************
 
@@ -977,7 +1012,7 @@ if(isset($_POST['submit_form_add_shop'])){
     else{if (filter_has_var(INPUT_POST, 'form_space')) {
 
         $space_var = test_input(filter_var($_POST["form_space"], FILTER_SANITIZE_STRING));
-        $count_shop =+1; }}
+        $count_shop +=1; }}
 
 //*************************************  form_AgeOfProperty   *********************************
 
@@ -988,7 +1023,7 @@ if(isset($_POST['submit_form_add_shop'])){
     else{if (filter_has_var(INPUT_POST, 'form_AgeOfProperty')) {
 
         $AgeOfProperty_var = test_input(filter_var($_POST["form_AgeOfProperty"], FILTER_SANITIZE_STRING));
-        $count_shop =+1; }}
+        $count_shop +=1; }}
 
 
 //*************************************  form_numberoflifts     *********************************
@@ -1003,13 +1038,23 @@ if(isset($_POST['submit_form_add_shop'])){
         $count_shop+=1;}
     }
 
+//******************************************* check form_price ***********************************************
+
+    if (empty($_POST["form_price"])) {
+        $price_var_Err = "الرجاء كتابه السعر .";
+        $_POST["form_price"] = '';
+    }else{
+        if (filter_has_var(INPUT_POST, 'form_price')) {
+
+            $price_var = test_input(filter_var($_POST["form_price"], FILTER_SANITIZE_STRING));
+            $count_shop+=1;
+        }}
 //*************************************  form add shop ********************************* end
 
 //*************************************  sql add shop ********************************* start
-if($count_shop ===10){
-    $sql = 'insert into shop  (id,TypeOfOffer,Numberoftoilets,numberofstreet,numberofroles,Warehousenumber,Typeoftoilets,diraction,Features,space,AgeOfProperty,numberoflifts,Numberofparking)
-  values(:itid,:itTypeOfOffer,:itNumberoftoilet,:itnumberofstreet,:itnumberofroles,:itWarehousenumber,:itTypeoftoilets,:itdiraction,:itFeatures,:itspace,:itAgeOfProperty
-,:itnumberoflifts, :itNumberofparking)';
+if($count_shop ===13){
+    $sql = 'insert into shop  (id,TypeOfOffer,Numberoftoilets,numberofstreet,numberofroles,Warehousenumber,Typeoftoilets,diraction,Features,space,AgeOfProperty,num_lifts,num_parking,price)
+  values(:itid,:itTypeOfOffer,:itNumberoftoilet,:itnumberofstreet,:itnumberofroles,:itWarehousenumber,:itTypeoftoilets,:itdiraction,:itFeatures,:itspace,:itAgeOfProperty,:itnum_lifts, :itnum_parking,:itprice)';
 
     if (isset($pdo)) {
         $stmt = $pdo->prepare($sql);
@@ -1027,8 +1072,9 @@ if($count_shop ===10){
         'itFeatures'  => $Features_var,
         'itspace'  => $space_var,
         'itAgeOfProperty'=> $AgeOfProperty_var,
-        'itnumberoflifts'=> $numberoflifts_var,
-        'itNumberofparking' => $Numberofparking_var
+        'itnum_lifts'=> $numberoflifts_var,
+        'itnum_parking' => $Numberofparking_var,
+        'itprice'=>$price_var
     ));
     $alert_insert_shop_by_successfully =" تمت الإضافه بنجاح ";
 //*************************************  sql add shop ********************************* end
@@ -1051,7 +1097,7 @@ if(isset($_POST['submit_form_add_land'])){
     else{if (filter_has_var(INPUT_POST, 'form_TypeOfOffer')) {
 
         $TypeOfOffer_var = test_input(filter_var($_POST["form_TypeOfOffer"], FILTER_SANITIZE_STRING));
-        $count_land =+1;}}
+        $count_land +=1;}}
 
 //************************************* form_numberofstreet  *********************************
 
@@ -1062,7 +1108,7 @@ if(isset($_POST['submit_form_add_land'])){
     else{if (filter_has_var(INPUT_POST, 'form_numberofstreet')) {
 
         $numberofstreet_var = test_input(filter_var($_POST["form_numberofstreet"], FILTER_SANITIZE_STRING));
-        $count_land =+1;}}
+        $count_land +=1;}}
 
 //************************************* form_diraction  *********************************
 
@@ -1073,7 +1119,7 @@ if(isset($_POST['submit_form_add_land'])){
     else{if (filter_has_var(INPUT_POST, 'form_diraction')) {
 
         $diraction_var = test_input(filter_var($_POST["form_diraction"], FILTER_SANITIZE_STRING));
-        $count_land =+1;}}
+        $count_land +=1;}}
 
 //************************************* form_Typeofinstrument *********************************
 
@@ -1084,8 +1130,7 @@ if(isset($_POST['submit_form_add_land'])){
     else{if (filter_has_var(INPUT_POST, 'form_Typeofinstrument')) {
 
         $Typeofinstrument_var = test_input(filter_var($_POST["form_Typeofinstrument"], FILTER_SANITIZE_STRING));
-        $count_land =+1; }}
-
+        $count_land +=1; }}
 
     //************************************** check  form_space *******************************************
     if (empty($_POST["form_space"])) {
@@ -1095,7 +1140,7 @@ if(isset($_POST['submit_form_add_land'])){
     else{if (filter_has_var(INPUT_POST, 'form_space')) {
 
         $space_var = test_input(filter_var($_POST["form_space"], FILTER_SANITIZE_STRING));
-        $count_land =+1; }}
+        $count_land +=1; }}
 //********************************** check form_AgeOfProperty ******************************************
     if (empty($_POST["form_AgeOfProperty"])) {
         $AgeOfProperty_var_Err = "الرجاء ادخال عمر العقار.";
@@ -1104,7 +1149,7 @@ if(isset($_POST['submit_form_add_land'])){
     else{if (filter_has_var(INPUT_POST, 'form_AgeOfProperty')) {
 
         $AgeOfProperty_var = test_input(filter_var($_POST["form_AgeOfProperty"], FILTER_SANITIZE_STRING));
-        $count_land =+1; }}
+        $count_land +=1; }}
 
 //************************************* form_Features  *********************************
 
@@ -1115,7 +1160,7 @@ if(isset($_POST['submit_form_add_land'])){
     else{if (filter_has_var(INPUT_POST, 'form_Features')) {
 
         $Features_var = test_input(filter_var($_POST["form_Features"], FILTER_SANITIZE_STRING));
-        $count_land =+1;}}
+        $count_land +=1;}}
     // ******************************** check form_priceofonemeter ******************************************
     if (empty($_POST["form_priceofonemeter"])) {
         $priceofonemeter_var_Err = "الرجاء ادخال سعر المتر.";
@@ -1124,32 +1169,31 @@ if(isset($_POST['submit_form_add_land'])){
     else{if (filter_has_var(INPUT_POST, 'form_priceofonemeter')) {
 
         $priceofonemeter_var = test_input(filter_var($_POST["form_priceofonemeter"], FILTER_SANITIZE_STRING));
-        $count_land =+1; }}
+        $count_land +=1; }}
 
 
     //*************************************** sql add land **************************************   start
-   if ( $count_land ===8) {
-       $sql = 'insert into land (id,TypeOfOffer, numberofstreet,diraction,Typeofinstrument , space,priceofonemeter, AgeOfProperty )
-                    values(:itid,:tiTypeOfOffer, :itnumberofstreet,
-                           :itdiraction, :itTypeofinstrument , :itspace,
-                           :itpriceofonemeter, :itAgeOfProperty)';
-       if (isset($pdo)) {
-           $stmt = $pdo->prepare($sql);
+    if ( $count_land ===8) {
+        $sql = 'insert into land (id,TypeOfOffer, numberofstreet,diraction,Typeofinstrument , space,priceofonemeter, AgeOfProperty,features )
+                    values(:itid,:tiTypeOfOffer, :itnumberofstreet,:itdiraction, :itTypeofinstrument , :itspace,:itpriceofonemeter, :itAgeOfProperty,:itfeatures)';
+        if (isset($pdo)) {
+            $stmt = $pdo->prepare($sql);
 
-       }
-       $stmt->execute($r = array(
-           'itid' => null,
-           'tiTypeOfOffer' => $TypeOfOffer_var,
-           'itnumberofstreet' => $numberofstreet_var,
-           'itdiraction' => $diraction_var,
-           'itTypeofinstrument' => $Typeofinstrument_var,
-           'itspace' => $space_var,
-           'itpriceofonemeter' => $priceofonemeter_var,
-           'itAgeOfProperty' => $AgeOfProperty_var
+        }
+        $stmt->execute($r = array(
+            'itid' => null,
+            'tiTypeOfOffer' => $TypeOfOffer_var,
+            'itnumberofstreet' => $numberofstreet_var,
+            'itdiraction' => $diraction_var,
+            'itTypeofinstrument' => $Typeofinstrument_var,
+            'itspace' => $space_var,
+            'itpriceofonemeter' => $priceofonemeter_var,
+            'itAgeOfProperty' => $AgeOfProperty_var,
+            'itfeatures'=>$Features_var
 
-       ));
-       $alert_insert_land_by_successfully="تمت الإضافه بنجاح. ";
-   }
+        ));
+        $alert_insert_land_by_successfully="تمت الإضافه بنجاح. ";
+    }
     //****************************************** sql add land  ******************************* end
 }
 //*************************************  form add land ********************************* end
@@ -1166,7 +1210,7 @@ if(isset($_POST['submit_form_add_land'])){
     else{if (filter_has_var(INPUT_POST, 'form_Numberofwells')) {
 
         $Numberofwells_var = test_input(filter_var($_POST["form_Numberofwells"], FILTER_SANITIZE_STRING));
-        $count_farm =+1;}}
+         $count_farm +=1;}}
 //*************************************  form_Numberofpalms *********************************
 
     if (empty($_POST["form_Numberofpalms"])) {
@@ -1176,7 +1220,7 @@ if(isset($_POST['submit_form_add_land'])){
     else{if (filter_has_var(INPUT_POST, 'form_Numberofpalms')) {
 
         $Numberofpalms_var = test_input(filter_var($_POST["form_Numberofpalms"], FILTER_SANITIZE_STRING));
-        $count_farm =+1;}}
+         $count_farm +=1;}}
 //*************************************  form_Numberoftrees  *********************************
 
     if (empty($_POST["form_Numberoftrees"])) {
@@ -1186,7 +1230,7 @@ if(isset($_POST['submit_form_add_land'])){
     else{if (filter_has_var(INPUT_POST, 'form_Numberoftrees')) {
 
         $Numberoftrees_var = test_input(filter_var($_POST["form_Numberoftrees"], FILTER_SANITIZE_STRING));
-        $count_farm =+1;}}
+         $count_farm +=1;}}
 //*************************************  form_Numberoftoilets  *********************************
 
     if (empty($_POST["form_Numberoftoilets"])) {
@@ -1196,7 +1240,7 @@ if(isset($_POST['submit_form_add_land'])){
     else{if (filter_has_var(INPUT_POST, 'form_Numberoftoilets')) {
 
         $Numberoftoilets_var = test_input(filter_var($_POST["form_Numberoftoilets"], FILTER_SANITIZE_STRING));
-        $count_farm =+1;}}
+         $count_farm +=1;}}
 
 //************************************* form_numberofstreet *********************************
     if (empty($_POST["form_numberofstreet"])) {
@@ -1206,7 +1250,7 @@ if(isset($_POST['submit_form_add_land'])){
     else{if (filter_has_var(INPUT_POST, 'form_numberofstreet')) {
 
         $numberofstreet_var = test_input(filter_var($_POST["form_numberofstreet"], FILTER_SANITIZE_STRING));
-        $count_farm =+1;}}
+         $count_farm +=1;}}
 
 //************************************* form_Break  *********************************
     if (empty($_POST["form_Break"])) {
@@ -1216,7 +1260,7 @@ if(isset($_POST['submit_form_add_land'])){
     else{if (filter_has_var(INPUT_POST, 'form_Break')) {
 
         $Break_var = test_input(filter_var($_POST["form_Break"], FILTER_SANITIZE_STRING));
-        $count_farm =+1;}}
+         $count_farm +=1;}}
 
 //*************************************  form_electricity  *********************************
 
@@ -1227,7 +1271,7 @@ if(isset($_POST['submit_form_add_land'])){
     else{if (filter_has_var(INPUT_POST, 'form_electricity')) {
 
         $electricity_var = test_input(filter_var($_POST["form_electricity"], FILTER_SANITIZE_STRING));
-        $count_farm =+1;}}
+         $count_farm +=1;}}
 
 //************************************* form_asphalt     *********************************
     if (empty($_POST["form_asphalt"])) {
@@ -1237,7 +1281,7 @@ if(isset($_POST['submit_form_add_land'])){
     else{if (filter_has_var(INPUT_POST, 'form_asphalt')) {
 
         $asphalt_var = test_input(filter_var($_POST["form_asphalt"], FILTER_SANITIZE_STRING));
-        $count_farm =+1;}}
+         $count_farm +=1;}}
 
 //********************************* form_Typeoftoilets       *********************************
 
@@ -1248,7 +1292,7 @@ if(isset($_POST['submit_form_add_land'])){
     else{if (filter_has_var(INPUT_POST, 'form_Typeoftoilets')) {
 
         $Typeoftoilets_var = test_input(filter_var($_POST["form_Typeoftoilets"], FILTER_SANITIZE_STRING));
-        $count_farm =+1;}}
+         $count_farm +=1;}}
 
 //************************************* form_diraction    *********************************
     if (empty($_POST["form_diraction"])) {
@@ -1258,7 +1302,7 @@ if(isset($_POST['submit_form_add_land'])){
     else{if (filter_has_var(INPUT_POST, 'form_diraction')) {
 
         $diraction_var = test_input(filter_var($_POST["form_diraction"], FILTER_SANITIZE_STRING));
-        $count_farm =+1;}}
+         $count_farm +=1;}}
 
 //*************************************  form_Features  *********************************
 
@@ -1269,7 +1313,7 @@ if(isset($_POST['submit_form_add_land'])){
     else{if (filter_has_var(INPUT_POST, 'form_Features')) {
 
         $Features_var = test_input(filter_var($_POST["form_Features"], FILTER_SANITIZE_STRING));
-        $count_farm =+1;}}
+         $count_farm +=1;}}
 
 //************************************** check  form_TypeOfOffer *******************************************
     if (empty($_POST["form_TypeOfOffer"])) {
@@ -1279,7 +1323,7 @@ if(isset($_POST['submit_form_add_land'])){
     else{if (filter_has_var(INPUT_POST, 'form_TypeOfOffer')) {
 
         $TypeOfOffer_var = test_input(filter_var($_POST["form_TypeOfOffer"], FILTER_SANITIZE_STRING));
-        $count_farm =+1;}}
+         $count_farm +=1;}}
 
     //************************************** check  form_space *******************************************
     if (empty($_POST["form_space"])) {
@@ -1289,7 +1333,7 @@ if(isset($_POST['submit_form_add_land'])){
     else{if (filter_has_var(INPUT_POST, 'form_space')) {
 
         $space_var = test_input(filter_var($_POST["form_space"], FILTER_SANITIZE_STRING));
-        $count_farm =+1;}}
+         $count_farm +=1;}}
 //********************************** check form_AgeOfProperty ******************************************
     if (empty($_POST["form_AgeOfProperty"])) {
         $AgeOfProperty_var_Err = "الرجاء ادخال عمر العقار.";
@@ -1298,7 +1342,7 @@ if(isset($_POST['submit_form_add_land'])){
     else{if (filter_has_var(INPUT_POST, 'form_AgeOfProperty')) {
 
         $AgeOfProperty_var = test_input(filter_var($_POST["form_AgeOfProperty"], FILTER_SANITIZE_STRING));
-        $count_farm =+1;}}
+         $count_farm +=1;}}
 
 // ******************************** check form_priceofonemeter ******************************************
     if (empty($_POST["form_priceofonemeter"])) {
@@ -1308,7 +1352,7 @@ if(isset($_POST['submit_form_add_land'])){
     else{if (filter_has_var(INPUT_POST, 'form_priceofonemeter')) {
 
         $priceofonemeter_var = test_input(filter_var($_POST["form_priceofonemeter"], FILTER_SANITIZE_STRING));
-        $count_farm =+1;}}
+         $count_farm +=1;}}
 // ********************************  form_Typeofinstrument *****************************************
 
     if (empty($_POST["form_Typeofinstrument"])) {
@@ -1318,7 +1362,7 @@ if(isset($_POST['submit_form_add_land'])){
     else{if (filter_has_var(INPUT_POST, 'form_Typeofinstrument')) {
 
         $Typeofinstrument_var = test_input(filter_var($_POST["form_Typeofinstrument"], FILTER_SANITIZE_STRING));
-        $count_farm =+1;}}
+         $count_farm +=1;}}
 // ********************************  form add farm ****************************************** end
 
 // ********************************  sql add farm ****************************************** start
@@ -1645,6 +1689,17 @@ $length_yes_or_no = count($arra_list_yes_or_no);
 $arra_list_Type_kitchen = array( "خارجي ", "داخلي ");
 //   عد المصفوفه نوع المطبخ
 $length_Type_kitchen = count($arra_list_Type_kitchen);
+
+
+
+
+//    المصفوفه أنواع الصك
+$arra_list_Typeofinstrument = array( "صك سكني ", "صك زراعي ","صك تجاري ");
+//   عد المصفوفه أنواع الصك
+$length_Typeofinstrument = count($arra_list_Typeofinstrument);
+
+
+
 
 function hu4654646 (){
 
