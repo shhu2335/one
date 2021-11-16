@@ -32,7 +32,7 @@ if (! empty($_SESSION['logged_in']))
         <div class="row g-3 p-2 text-center ">
 
     <div class="w-50 d-block p-0 m-0 bg-white bg-gradient text-center">
-        <img src="img/14-22.jpg" class="rounded-circle">
+        <img src="img/14-22.jpg" alt="صوره شخصيه " class="rounded-circle">
         <div class="px-3 pt-2 ">
 
             <ul class="list-group w-75 mx-auto d-block list-group-flush">

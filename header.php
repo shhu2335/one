@@ -21,7 +21,7 @@ session_start();
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
 <!--  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.rtl.min.css" rel="stylesheet" integrity="sha384-LPvXVVAlyPoBSGkX8UddpctDks+1P4HG8MhT7/YwqHtJ40bstjzCqjj+VVVDhsCo" crossorigin="anonymous">-->
     <link rel="stylesheet" href="css/style.css">
-    <link rel="shortcut icon" href="img/h-s.jpg">
+    <link rel="shortcut icon" href="img/logo.png"  alt="icon_shortcut" >
 
 
 </head>
@@ -43,7 +43,7 @@ session_start();
 <nav class="navbar navbar-expand-lg navbar-light bg-white  m-0 text-primary ">
 
     <div class=".container-sm	container-fluid ">
-        <a class="navbar-brand text-primary " href="index.php">مجموعة الأبتكارات العقارية</a>
+        <a class="navbar-brand text-primary " href="index.php"> <img src="img/logo1.png" alt="icon_logo" style="width:143px;height:47px;">  </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>

@@ -308,19 +308,36 @@ if (isset($_POST['submit_form_add_building'])) {
 //******************************************** check form_double_room *****************************************
     $count_checkbox1=0;
     $checkbox1 =$_POST["form_room"];
-    for ($i=0; $i<lengt($checkbox1);$i++) {
-        $count_checkbox1+=1;
-    if (empty($checkbox1[i])) {
-        $count_checkbox1===3;
-        $double_room_var_Err = "الرجاء الرجاء الإختيار.";
-        $_POST["form_double_room"] = '';
-    }else{
-    if (filter_has_var(INPUT_POST, 'form_double_room')) {
-        $checkbox1 =$_POST["form_room"];
 
-        $double_room_var = test_input(filter_var($_POST["form_double_room"], FILTER_SANITIZE_STRING));
-        $count_building+=1;
-    }}}
+//    if (empty($checkbox1)) {
+//        $double_room_var_Err = "الرجاء الرجاء الإختيار.";
+//        $_POST["form_room"] = '';}
+//       if($count_checkbox1==3) {
+//        $double_room_var_Err = "الرجاء الرجاء الإختيار.";
+//        $_POST["form_room"] = '';
+//    }
+//       elseif($checkbox1==2){$checkbox1+=1;}
+//    }else{$checkbox1 =$_POST["form_room"];}
+//
+//    if ($checkbox1==1){
+//    if (filter_has_var(INPUT_POST, 'form_room')) {
+//        $checkbox1 =$_POST["form_room"];
+//        $double_room_var = test_input(filter_var($_POST["form_room"], FILTER_SANITIZE_STRING));
+//        $count_building+=1;
+
+
+
+    $double_room_var1=$_POST["form_room"];
+    foreach ($double_room_var1 as $row)
+    {
+
+        $double_room_var = $row['name'];
+
+
+    }
+//    print_r($category_values);
+    $count_building+=1;
+//    }}
 
 //************************************* check form_triple_room *********************************************
     if (empty($_POST["form_triple_room"])) {

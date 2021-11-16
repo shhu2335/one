@@ -19,6 +19,9 @@ include "header.php";
     <!--        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>-->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="ابحث من خلال أكِنّه للعقارات عن عقار المناسب لك بكل سهولة
+ويسر في المدينةالتي تريدأن تسكن بها.">
+    <meta name="keywords" content="أكِنّه للعقارات , عقار, أكِنّه للعقارات عن عقار المناسب ">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
     <!-- Bootstrap Font Icon CSS -->
@@ -32,7 +35,7 @@ include "header.php";
         }
     </style>
 
-    <title>مجموعة الأبتكارات العقارية</title>
+    <title>أكِنّه للعقارات </title>
 </head>
 
 
@@ -53,13 +56,13 @@ include "header.php";
     </div>
     <div class="carousel-inner ">
         <div class="carousel-item active">
-            <img src="img/help3.gif" class="d-block w-100" style="height: 500px; max-height: 50%" alt="...">
+            <img src="img/help3.gif" class="d-block w-100" style="height: 500px; max-height: 50%" alt="carousel_img">
         </div>
         <div class="carousel-item">
-            <img src="img/help4.gif" class="d-block w-100" style="height: 500px; max-height: 50%" alt="...">
+            <img src="img/help4.gif" class="d-block w-100" style="height: 500px; max-height: 50%" alt="carousel1_img">
         </div>
         <div class="carousel-item">
-            <img src="img/help5.gif" class="d-block w-100" style="height: 500px; max-height: 50%" alt="...">
+            <img src="img/help5.gif" class="d-block w-100" style="height: 500px; max-height: 50%" alt="carousel2_img">
         </div>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -143,18 +146,18 @@ include "header.php";
     <div class="mt-3  bg-transparent bg-gradient shadow-lg py-3  bg-light text-center d-none" >
 
         <div class="mx-4 d-inline-block bg-secondary text-white">
-            <div class="m-0 p-0 "> <img src="img/person.jpg" ></div>
+            <div class="m-0 p-0 "> <img src="img/person.jpg" alt="great_office_pic" ></div>
             <div class="m-0 p-0"><p> منال </p></div>
         </div>
 
 
         <div class="mx-4 d-inline-block bg-secondary text-white">
-            <div class="m-0 p-0 "> <img src="img/person.jpg" ></div>
+            <div class="m-0 p-0 "> <img src="img/person.jpg" alt="great_office1_pic"></div>
             <div class="m-0 p-0"><p> منال </p></div>
         </div>
 
         <div class="mx-4 d-inline-block bg-secondary text-white">
-            <div class="m-0 p-0 "> <img src="img/person.jpg" ></div>
+            <div class="m-0 p-0 "> <img src="img/person.jpg"alt="great_office2_pic" ></div>
             <div class="m-0 p-0"><p > منال </p></div>
         </div>
 
@@ -276,13 +279,13 @@ include "header.php";
                         <div id="carouselExampleControls" class="carousel slide " data-bs-ride="carousel">
                             <div class="carousel-inner ">
                                 <div class="carousel-item active">
-                                    <img src="img/Villa_Riyadh.jpg" class="d-block w-100" alt="فيلا بالرياض للبيع">
+                                    <img src="img/Villa_Riyadh.jpg" class="d-block w-100" alt="فيلا  للبيع">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="img/hussam.PNG" class="d-block w-100" alt="...">
+                                    <img src="img/hussam.PNG" class="d-block w-100" alt="1فيلا  للبيع">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="img/hussam.PNG" class="d-block w-100" alt="...">
+                                    <img src="img/hussam.PNG" class="d-block w-100" alt="فيلا 1 للبيع">
                                 </div>
                             </div>
                             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
@@ -363,19 +366,18 @@ include "header.php";
         foreach ($getAllproductBs as $row) { ?>
             <div class="col-4">
                 <div class="card h-200 text-center shadow-lg  rounded-3">
-
                     <!--  8888888888888888888888888   -->
                     <a class="text-decoration-none text-dark" href="more_details.php?productB=<?php echo $row['id']?>">
                         <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
-                                    <img src="img/Villa_Riyadh.jpg" class="d-block w-100" alt="فيلا بالرياض للبيع">
+                                    <img src="img/Villa_Riyadh.jpg" class="d-block w-100" alt="عماره للبيع">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="img/hussam.PNG" class="d-block w-100" alt="...">
+                                    <img src="img/hussam.PNG" class="d-block w-100" alt="عماره1 للبيع">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="img/hussam.PNG" class="d-block w-100" alt="...">
+                                    <img src="img/hussam.PNG" class="d-block w-100" alt="عماره2 للبيع">
                                 </div>
                             </div>
                             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
@@ -454,13 +456,13 @@ include "header.php";
                         <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
-                                    <img src="img/Villa_Riyadh.jpg" class="d-block w-100" alt="فيلا بالرياض للبيع">
+                                    <img src="img/Villa_Riyadh.jpg" class="d-block w-100" alt="ارض للبيع">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="img/hussam.PNG" class="d-block w-100" alt="...">
+                                    <img src="img/hussam.PNG" class="d-block w-100" alt="ارض للبيع">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="img/hussam.PNG" class="d-block w-100" alt="...">
+                                    <img src="img/hussam.PNG" class="d-block w-100" alt="ارض للبيع">
                                 </div>
                             </div>
                             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
@@ -540,13 +542,13 @@ include "header.php";
                         <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
-                                    <img src="img/Villa_Riyadh.jpg" class="d-block w-100" alt="فيلا بالرياض للبيع">
+                                    <img src="img/Villa_Riyadh.jpg" class="d-block w-100" alt="فندق للبيع">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="img/hussam.PNG" class="d-block w-100" alt="...">
+                                    <img src="img/hussam.PNG" class="d-block w-100" alt="فندق للبيع">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="img/hussam.PNG" class="d-block w-100" alt="...">
+                                    <img src="img/hussam.PNG" class="d-block w-100" alt="فندق للبيع">
                                 </div>
                             </div>
                             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
@@ -624,13 +626,13 @@ include "header.php";
                         <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
-                                    <img src="img/Villa_Riyadh.jpg" class="d-block w-100" alt="فيلا بالرياض للبيع">
+                                    <img src="img/Villa_Riyadh.jpg" class="d-block w-100" alt="محل للبيع">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="img/hussam.PNG" class="d-block w-100" alt="...">
+                                    <img src="img/hussam.PNG" class="d-block w-100" alt="محل1 للبيع">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="img/hussam.PNG" class="d-block w-100" alt="...">
+                                    <img src="img/hussam.PNG" class="d-block w-100" alt="محل للبيع2">
                                 </div>
                             </div>
                             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
@@ -708,13 +710,13 @@ include "header.php";
                         <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
-                                    <img src="img/Villa_Riyadh.jpg" class="d-block w-100" alt="فيلا بالرياض للبيع">
+                                    <img src="img/Villa_Riyadh.jpg" class="d-block w-100" alt="مزرعه للبيع">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="img/hussam.PNG" class="d-block w-100" alt="...">
+                                    <img src="img/hussam.PNG" class="d-block w-100" alt="مزرعه1 للبيع">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="img/hussam.PNG" class="d-block w-100" alt="...">
+                                    <img src="img/hussam.PNG" class="d-block w-100" alt="مزرعه2 للبيع">
                                 </div>
                             </div>
                             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
@@ -790,13 +792,13 @@ include "header.php";
                         <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
-                                    <img src="img/Villa_Riyadh.jpg" class="d-block w-100" alt="فيلا بالرياض للبيع">
+                                    <img src="img/Villa_Riyadh.jpg" class="d-block w-100" alt="قصر للبيع">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="img/hussam.PNG" class="d-block w-100" alt="...">
+                                    <img src="img/hussam.PNG" class="d-block w-100" alt="قصر1 للبيع">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="img/hussam.PNG" class="d-block w-100" alt="...">
+                                    <img src="img/hussam.PNG" class="d-block w-100" alt="قصر2 للبيع">
                                 </div>
                             </div>
                             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
@@ -876,13 +878,13 @@ include "header.php";
                         <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
-                                    <img src="img/Villa_Riyadh.jpg" class="d-block w-100" alt="فيلا بالرياض للبيع">
+                                    <img src="img/Villa_Riyadh.jpg" class="d-block w-100" alt="استيديو للبيع">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="img/hussam.PNG" class="d-block w-100" alt="...">
+                                    <img src="img/hussam.PNG" class="d-block w-100" alt="استيديو للبيع1">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="img/hussam.PNG" class="d-block w-100" alt="...">
+                                    <img src="img/hussam.PNG" class="d-block w-100" alt="استيديو للبيع2">
                                 </div>
                             </div>
                             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
@@ -962,13 +964,13 @@ include "header.php";
                         <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
-                                    <img src="img/Villa_Riyadh.jpg" class="d-block w-100" alt="فيلا بالرياض للبيع">
+                                    <img src="img/Villa_Riyadh.jpg" class="d-block w-100" alt="فندق للبيع">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="img/hussam.PNG" class="d-block w-100" alt="...">
+                                    <img src="img/hussam.PNG" class="d-block w-100" alt="فندق للبيع1">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="img/hussam.PNG" class="d-block w-100" alt="...">
+                                    <img src="img/hussam.PNG" class="d-block w-100" alt="فندق للبيع2">
                                 </div>
                             </div>
                             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
@@ -1047,13 +1049,13 @@ include "header.php";
                         <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
-                                    <img src="img/Villa_Riyadh.jpg" class="d-block w-100" alt="فيلا بالرياض للبيع">
+                                    <img src="img/Villa_Riyadh.jpg" class="d-block w-100" alt="شاليه للبيع">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="img/hussam.PNG" class="d-block w-100" alt="...">
+                                    <img src="img/hussam.PNG" class="d-block w-100" alt="شاليه للبيع1">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="img/hussam.PNG" class="d-block w-100" alt="...">
+                                    <img src="img/hussam.PNG" class="d-block w-100" alt="شاليه للبيع2">
                                 </div>
                             </div>
                             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
@@ -1132,13 +1134,13 @@ include "header.php";
                         <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
-                                    <img src="img/Villa_Riyadh.jpg" class="d-block w-100" alt="فيلا بالرياض للبيع">
+                                    <img src="img/Villa_Riyadh.jpg" class="d-block w-100" alt="شقه للبيع">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="img/hussam.PNG" class="d-block w-100" alt="...">
+                                    <img src="img/hussam.PNG" class="d-block w-100" alt="شقه للبيع1">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="img/hussam.PNG" class="d-block w-100" alt="...">
+                                    <img src="img/hussam.PNG" class="d-block w-100" alt="شقه للبيع2">
                                 </div>
                             </div>
                             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
@@ -1216,13 +1218,13 @@ include "header.php";
                         <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
-                                    <img src="img/Villa_Riyadh.jpg" class="d-block w-100" alt="فيلا بالرياض للبيع">
+                                    <img src="img/Villa_Riyadh.jpg" class="d-block w-100" alt="مكتب للبيع">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="img/hussam.PNG" class="d-block w-100" alt="...">
+                                    <img src="img/hussam.PNG" class="d-block w-100" alt="مكتب للبيع1">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="img/hussam.PNG" class="d-block w-100" alt="...">
+                                    <img src="img/hussam.PNG" class="d-block w-100" alt="مكتب للبيع2">
                                 </div>
                             </div>
                             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
