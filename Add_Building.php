@@ -248,15 +248,15 @@ include 'fun.php';
             <div class="col-md-12  text-end">
                 <label for="phone_number_form" class="form-label">نوع الشقق </label>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" name="form_room[]" id="inlineCheckbox1" value="ثنائيه ">
+                    <input class="form-check-input" type="checkbox" name="form_room1" id="inlineCheckbox1" value="ثنائيه ">
                     <label class="form-check-label" for="inlineCheckbox1">ثنائيه</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" name="form_room[]" id="inlineCheckbox2" value="ثلاثيه ">
+                    <input class="form-check-input" type="checkbox" name="form_room2" id="inlineCheckbox2" value="ثلاثيه ">
                     <label class="form-check-label" for="inlineCheckbox2"> ثلاثيه</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" name="form_room[]" id="inlineCheckbox3" value="رباعيه " >
+                    <input class="form-check-input" type="checkbox" name="form_room3" id="inlineCheckbox3" value="رباعيه " >
                     <label class="form-check-label" for="inlineCheckbox3"> رباعيه</label>
                 </div>
                 <?php

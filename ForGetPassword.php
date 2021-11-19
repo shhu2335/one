@@ -5,6 +5,10 @@
 include "conection.php";
 include "header.php";
 ?>
+
+<html>
+<head></head>
+<body>
 <div class = "container">
     <div class="mx-auto p-3 m-5 bg-white  shadow border border-1  bg-gradient  rounded-3 text-secondary" style="width: 450px;" >
 
@@ -34,4 +38,8 @@ include "header.php";
     </div>
 
 </div>
+</body>
+
+<?php include "footer.php"?>
+</html>
 

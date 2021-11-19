@@ -10,6 +10,8 @@ session_start();
 <head>
 <!--    <meta charset="UTF-8">-->
 <!---->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="node_modules/bootstrap/js/src/util/index.js">
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap-utilities.rtl.css">
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap-utilities.css">

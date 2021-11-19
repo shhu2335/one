@@ -7,6 +7,7 @@ include "fun.php";
 <html>
 <header>
 <!--    <link rel="stylesheet" href="css/style.css">-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </header>
 
 <body>
@@ -15,64 +16,64 @@ include "fun.php";
         <p class="card-title  mb-4 py-2 text-center fs-3 bg-primary text-white rounded-3"> إضف عقارك</p>
 
     <div class="row g-3  text-center">
-        <div class="col-3">
+        <div class="col-6">
             <a href="Add_Villa.php" class="text-decoration-none text-dark ">
                 <div  class="cards  p-3 border bg-light rounded-3 w-100 table-hover" > الفلل</div>
             </a>
         </div>
 
-        <div class="col-3">
+        <div class="col-6">
             <a href="Add_Castle.php" class="text-decoration-none text-dark ">
                 <div  class="cards  p-3 border bg-light rounded-3 w-100 table-hover" > القصور </div>
             </a>
         </div>
-        <div class="col-3">
+        <div class="col-6">
             <a href="Add_Apartment.php" class="text-decoration-none text-dark ">
                 <div class="cards p-3 border bg-light rounded-3"> الشقق</div></a>
         </div>
 
-        <div class="col-3">
+        <div class="col-6">
             <a href="Add_Land.php" class="text-decoration-none text-dark ">
                 <div class="cards p-3 border bg-light rounded-3">الاراضي</div></a>
         </div>
 
-        <div class="col-3">
+        <div class="col-6">
             <a href="Add_Hotal.php" class="text-decoration-none text-dark ">
                 <div class="cards p-3 border bg-light rounded-3">الفنادق</div></a>
         </div>
 
-        <div class="col-3">
+        <div class="col-6">
             <a href="Add_Dianiyah.php" class="text-decoration-none text-dark ">
                 <div class="cards p-3 border bg-light rounded-3">الإستراحات </div></a>
         </div>
 
-        <div class="col-3">
+        <div class="col-6">
             <a href=" " class="text-decoration-none text-dark ">
                 <div class="cards p-3 border bg-light rounded-3">الشاليهات </div></a>
             <!--                تحتاج فورم-->
         </div>
 
-        <div class="col-3">
+        <div class="col-6">
             <a href="Add_Office.php" class="text-decoration-none text-dark ">
                 <div class="cards p-3 border bg-light rounded-3">المكاتب</div></a>
         </div>
 
-        <div class="col-3">
+        <div class="col-6">
             <a href="Add_Building.php" class="text-decoration-none text-dark ">
                 <div class="cards p-3 border bg-light rounded-3">العمائر</div></a>
         </div>
 
-        <div class="col-3">
+        <div class="col-6">
             <a href="Add_Farm.php" class="text-decoration-none text-dark ">
                 <div class="cards p-3 border bg-light rounded-3">المزارع</div></a>
         </div>
 
-        <div class="col-3">
+        <div class="col-6">
             <a href="Add_Shop.php" class="text-decoration-none text-dark ">
                 <div class="cards p-3 border bg-light rounded-3">المحلات</div></a>
         </div>
 
-        <div class="col-3">
+        <div class="col-6">
             <a href="Add_Studio.php" class="text-decoration-none text-dark ">
                 <div class="cards p-3 border bg-light rounded-3">استديوهات</div></a>
         </div>
@@ -133,6 +134,7 @@ include "fun.php";
 </div>
 
 </body>
+
 </html>
 
 <?php

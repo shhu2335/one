@@ -4,8 +4,13 @@ include "header.php";
 include "fun.php";
 ?>
 
+<html>
+<head>
 
 
+</head>
+
+<body>
 <div class="container ">
 
 
@@ -80,4 +85,8 @@ include "fun.php";
     </div>
 
 </div>
+</body>
 
+<?php include "footer.php"?>
+
+</html>

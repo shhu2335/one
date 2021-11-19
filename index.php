@@ -17,8 +17,7 @@ include "header.php";
     <!--        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">-->
     <!--        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>-->
     <!--        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>-->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <meta name="description" content="ابحث من خلال أكِنّه للعقارات عن عقار المناسب لك بكل سهولة
 ويسر في المدينةالتي تريدأن تسكن بها.">
     <meta name="keywords" content="أكِنّه للعقارات , عقار, أكِنّه للعقارات عن عقار المناسب ">
@@ -77,17 +76,17 @@ include "header.php";
 
 <hr class="m-0 p-0">
 <!--<div   class="d-none row bg-white bg-gradient p-4  mx-auto text-center">-->
-<!--    <div class="col-3 bg-transparent mx-auto bg-gradient text-primary shadow  border-start border-end  border-primary border-5 rounded-pill">-->
+<!--    <div class="col-6 bg-transparent mx-auto bg-gradient text-primary shadow  border-start border-end  border-primary border-5 rounded-pill">-->
 <!--        <p class="fs-md-4 fs-sm-4 p-sm-0 m-0 p-0"> عدد الزوار</p>-->
 <!--        <p class="fs-md-4 fs-sm-4 p-sm-0 m-0 p-0">4</p>-->
 <!--    </div>-->
 <!---->
-<!--    <div class="col-3  bg-transparent  bg-gradient text-primary shadow border-start border-end  border-primary border-5 rounded-pill">-->
+<!--    <div class="col-6  bg-transparent  bg-gradient text-primary shadow border-start border-end  border-primary border-5 rounded-pill">-->
 <!--        <p class="fs-md-4 fs-sm-4 p-sm-0 m-0 p-0"> عـدد المكاتب</p>-->
 <!--        <p class="fs-md-4 fs-sm-4 p-sm-0 m-0 p-0">4</p>-->
 <!--    </div>-->
 <!---->
-<!--    <div class="col-3 bg-transparent mx-auto bg-gradient text-primary  shadow border-start border-end  border-primary border-5 rounded-pill">-->
+<!--    <div class="col-6 bg-transparent mx-auto bg-gradient text-primary  shadow border-start border-end  border-primary border-5 rounded-pill">-->
 <!--        <p class="fs-md-4 fs-sm-4 p-sm-0 m-0 p-0"> عـدد العقارات</p>-->
 <!--        <p class="fs-md-4 fs-sm-4 p-sm-0 m-0 p-0">4</p>-->
 <!--    </div>-->
@@ -109,14 +108,11 @@ include "header.php";
             </div>
             <div class="col bg-success bg-gradient rounded-pill shadow mx-2 ">
                 <div class="bg-transparent"> <i class="fa fa-shopping-cart"></i> <span class="counter"><?php echo number_format(952, 0, ",", ".");?></span>
-                    <p>عدد العقارات </p>
+                    <p>عدد العقارات  </p>
+
                 </div>
             </div>
-            <div class="col bg-danger bg-gradient rounded-pill shadow mx-2 ">
-                <div class=bg-transparent"> <i class="fa fa-user"></i> <span class="counter"><?php echo number_format(15085, 0, ",", ".");?></span>
-                    <p>Saved Trees</p>
-                </div>
-            </div>
+
         </div>
     </div>
 
@@ -171,78 +167,78 @@ include "header.php";
 
 
 <div class="container">
-<div  class="bg-gradient mx-auto p-4 text-center"  STYLE="background-color: #f8f9fa;">
+<div  class="bg-gradient  p-4 text-center"  STYLE="background-color: #f8f9fa;">
 
-    <div class="row g-2 ">
+    <div class="row g-2 text-center ">
         <!--            Villa-->
-        <div class="col-3">
+        <div class="col-6">
             <a  href="index.php?Villa&?#Villa"  class="text-decoration-none text-dark ">
-                <div  class="cards  p-3 border bg-light rounded-3 w-100 table-hover" > الفلل</div>
+                <div  class="cards  p-3 border bg-light rounded-3 fs-6 w-100 table-hover" > الفلل</div>
 
             </a>
         </div>
         <!--            ?Building-->
-        <div class="col-3">
+        <div class="col-6">
             <a href="index.php?Building&?#Building" class="text-decoration-none text-dark ">
-                <div class="cards p-3 border bg-light rounded-3">العمائر</div></a>
+                <div class="cards p-3 border bg-light rounded-3 fs-6">العمائر</div></a>
         </div>
         <!--            Land-->
-        <div class="col-3">
+        <div class="col-6">
             <a href="index.php?Land&?#Land" class="text-decoration-none text-dark ">
-                <div class="cards p-3 border bg-light rounded-3">الاراضي</div></a>
+                <div class="cards p-3 border bg-light rounded-3 fs-6">الاراضي</div></a>
         </div>
 
         <!--            hotel-->
-        <div class="col-3">
+        <div class="col-6">
             <a href="index.php?hotel&?#hotel" class="text-decoration-none text-dark ">
-                <div class="cards p-3 border bg-light rounded-3">الفنادق</div></a>
+                <div class="cards p-3 border bg-light rounded-3 fs-6 text-center">الفنادق</div></a>
         </div>
         <!--            Shop-->
-        <div class="col-3">
+        <div class="col-6">
             <a href="index.php?Shop&?#Shop" class="text-decoration-none text-dark ">
-                <div class="cards p-3 border bg-light rounded-3">المحلات</div></a>
+                <div class="cards p-3 border bg-light rounded-3 fs-6">المحلات</div></a>
         </div>
         <!--            Farm-->
-        <div class="col-3">
+        <div class="col-6">
             <a href="index.php?Farm&?#Farm" class="text-decoration-none text-dark ">
-                <div class="cards p-3 border bg-light rounded-3">المزارع</div></a>
+                <div class="cards p-3 border bg-light rounded-3 fs-6">المزارع</div></a>
         </div>
 
 
 
 
         <!--            Castle-->
-        <div class="col-3">
+        <div class="col-6">
             <a href="index.php?Castle&?#Castle" class="text-decoration-none text-dark ">
-                <div  class="cards  p-3 border bg-light rounded-3 w-100 table-hover" > القصور </div>
+                <div  class="cards  p-3 border bg-light rounded-3 fs-6 w-100 table-hover" > القصور </div>
             </a>
         </div>
         <!--            Apartment-->
-        <div class="col-3">
+        <div class="col-6">
             <a href="index.php?Apartment&?#Apartment" class="text-decoration-none text-dark ">
-                <div class="cards p-3 border bg-light rounded-3"> الشقق</div></a>
+                <div class="cards p-3 border bg-light rounded-3 fs-6"> الشقق</div></a>
         </div>
 
         <!--            Dianiyah-->
-        <div class="col-3">
+        <div class="col-6">
             <a href="index.php?Dianiyah&?#Dianiyah" class="text-decoration-none text-dark ">
-                <div class="cards p-3 border bg-light rounded-3">الإستراحات </div></a>
+                <div class="cards p-3 border bg-light rounded-3 fs-6">الإستراحات </div></a>
         </div>
         <!--            لشاليهات-->
-        <div class="col-3">
+        <div class="col-6">
             <a href="index.php?&?#Dianiyah" class="text-decoration-none text-dark ">
-                <div class="cards p-3 border bg-light rounded-3">الشاليهات </div></a>
+                <div class="cards p-3 border bg-light rounded-3 fs-6">الشاليهات </div></a>
             <!--                تحتاج فورم-->
         </div>
         <!--            Office-->
-        <div class="col-3">
+        <div class="col-6">
             <a href="index.php?Office&?#Office" class="text-decoration-none text-dark ">
-                <div class="cards p-3 border bg-light rounded-3">المكاتب</div></a>
+                <div class="cards p-3 border bg-light rounded-3 fs-6">المكاتب</div></a>
         </div>
         <!--            Studio-->
-        <div class="col-3">
+        <div class="col-6">
             <a href="index.php?Studio&?#Studio" class="text-decoration-none text-dark ">
-                <div class="cards p-3 border bg-light rounded-3" >استديوهات</div></a>
+                <div class="cards p-3 border bg-light rounded-3 fs-6" >استديوهات</div></a>
         </div>
 
 
@@ -364,7 +360,7 @@ include "header.php";
         $getAllproductBs = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         foreach ($getAllproductBs as $row) { ?>
-            <div class="col-4">
+            <div class="col-6">
                 <div class="card h-200 text-center shadow-lg  rounded-3">
                     <!--  8888888888888888888888888   -->
                     <a class="text-decoration-none text-dark" href="more_details.php?productB=<?php echo $row['id']?>">
