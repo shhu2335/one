@@ -80,10 +80,11 @@ include "fun.php";
                 ?>
             </div>
             <!--            type of offer -->
-            <div class="col-md-6 form-label  text-start mt-5">
+            <div class="col-md-4 form-label  text-start">
                 <!--                <label > </label>-->
                 <select class="form-select" aria-label="Default select example" name="form_TypeOfOffer">
-                    <option selected value="">-- الغرض من عرض العقار --</option>
+
+                    <option selected value="" >-- الغرض من عرض العقار --</option>
                     <?php if (!empty($length_State)) {
                         for ($i = 0; $i < $length_State; $i++) { ?>
                             <option value="<?php if (!empty($arra_list_State)) {
@@ -96,14 +97,16 @@ include "fun.php";
                     } ?>
                 </select>
                 <?php
-                if (isset($TypeOfOffer_var_Err )){
+                if (isset($TypeOfOffer_var_Err)){
                     echo '<span  class="badge bg-danger rounded-pill">';
-                    echo $TypeOfOffer_var_Err ;
+                    echo $TypeOfOffer_var_Err;
                     echo '<span >';
-                }
+                }else{}
                 ?>
 
             </div>
+
+
             <!--            number of streets-->
             <div class="col-md-4 form-label text-start">
                 <select class="form-select" aria-label="Default select example" name="form_numberofstreet">

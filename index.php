@@ -251,12 +251,10 @@ include "header.php";
 <?php if (isset($_GET['Villa'])){
 
     ?>
-
     <div class="row d-flex row-cols-md-12 row-cols-sm-4  g-3  align-items: center  justify-content: center" id="Villa" >
         <?php
 
         $stmt = $pdo->query('SELECT * FROM villa limit 8');
-
         $stmt->execute();
         $getAllproductVs = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
@@ -313,20 +311,18 @@ include "header.php";
                                 </tr>
                                 <tr>
                                     <th scope="col">عمر العقار</th>
-                                    <th scope="col">نوع الغرض</th>
+                                    <th scope="col">السعر</th>
                                 </tr>
                                 <tr>
                                     <td><?php echo $row['AgeOfProperty']; ?></td>
-                                    <td><?php echo $row['TypeOfOffer']; ?></td>
+                                    <td> <?php
+                                    echo  number_format($row['price'], 2, ",", ".");
+                                    ?> </td>
                                 </tr>
                                 <tr>
                                     <th scope="col">
-                                        <?php
-                                        echo ' السعر:   ' . number_format($row['price'], 2, ",", ".");
-                                        ?></th>
-
+                                        </th>
                                     <th>تفاصيل اكثر</th>
-
                                 </tr>
 
                                 </tbody>
@@ -343,7 +339,7 @@ include "header.php";
         <?php }
         ?>
 
-        <!--    **********************************************************************************-->
+        <!--    ********************************************************************************** end -->
 
     </div>
 <?php } ?>
@@ -360,7 +356,7 @@ include "header.php";
         $getAllproductBs = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         foreach ($getAllproductBs as $row) { ?>
-            <div class="col-6">
+            <div class="col">
                 <div class="card h-200 text-center shadow-lg  rounded-3">
                     <!--  8888888888888888888888888   -->
                     <a class="text-decoration-none text-dark" href="more_details.php?productB=<?php echo $row['id']?>">
@@ -389,7 +385,7 @@ include "header.php";
                         </div>
                         <!--  8888888888888888888888888   -->
 
-                        <h5 class="card-title bg-gradient p-1 m-0 fs-6 "><?php echo "عماره". $row['type_of_offer']; ?>  </h5>
+                        <h5 class="card-title bg-gradient p-1 m-0 fs-6 "><?php echo "عماره ". $row['type_of_offer']; ?>  </h5>
                         <div class="card-body p-0 m-0">
                             <table class="table table-striped overflow-scroll m-0 p-0 ">
                                 <thead>
@@ -405,16 +401,16 @@ include "header.php";
                                 </tr>
                                 <tr>
                                     <th scope="col">عمر العقار</th>
-                                    <th scope="col">نوع الغرض</th>
+                                    <th scope="col">السعر</th>
                                 </tr>
                                 <tr>
                                     <td><?php echo $row['AgeOfProperty']; ?></td>
-                                    <td><?php echo $row['type_of_offer']; ?></td>
+                                    <td><?php
+                                        echo  number_format($row['price'], 2, ",", ".");
+                                        ?></td>
                                 </tr>
                                 <tr>
-                                    <th scope="col"><?php
-                                        echo ' السعر:   ' . number_format($row['price'], 2, ",", ".");
-                                        ?></th>
+
                                     <th>تفاصيل اكثر</th>
                                 </tr>
 
@@ -490,16 +486,16 @@ include "header.php";
                                 </tr>
                                 <tr>
                                     <th scope="col">عمر العقار</th>
-                                    <th scope="col">نوع الغرض</th>
+                                    <th scope="col">السعر</th>
                                 </tr>
                                 <tr>
                                     <td><?php echo $row['AgeOfProperty']; ?></td>
-                                    <td><?php echo $row['TypeOfOffer']; ?></td>
+                                    <td><?php
+                                        echo number_format($row['priceofonemeter'], 2, ",", ".");
+                                        ?></td>
                                 </tr>
                                 <tr>
-                                    <th scope="col"><?php
-                                        echo ' السعر:   ' . number_format($row['priceofonemeter'], 2, ",", ".");
-                                        ?></th>
+
                                     <th>تفاصيل اكثر</th>
                                 </tr>
 
@@ -560,7 +556,7 @@ include "header.php";
                         </div>
                         <!--  8888888888888888888888888   -->
 
-                        <h5 class="card-title bg-gradient p-1 m-0 fs-6"><?php echo $row['TypeOfOffer']; ?>  </h5>
+                        <h5 class="card-title bg-gradient p-1 m-0 fs-6"><?php echo "فندق ".$row['TypeOfOffer']; ?>  </h5>
                         <div class="card-body p-0 m-0">
                             <table class="table table-striped overflow-scroll m-0 p-0 ">
                                 <thead>
@@ -576,16 +572,16 @@ include "header.php";
                                 </tr>
                                 <tr>
                                     <th scope="col">عمر العقار</th>
-                                    <th scope="col">نوع الغرض</th>
+                                    <th scope="col">السعر</th>
                                 </tr>
                                 <tr>
-                                    <td><?php echo $row['Supplementnumber']; ?></td>
-                                    <td><?php echo $row['TypeOfOffer']; ?></td>
+                                    <td><?php echo $row['AgeOfProperty']; ?></td>
+                                    <td><?php
+                                        echo  number_format($row['thenumberoffloors'], 2, ",", ".");
+                                        ?></td>
                                 </tr>
                                 <tr>
-                                    <th scope="col"><?php
-                                        echo ' السعر:   ' . number_format($row['thenumberoffloors'], 2, ",", ".");
-                                        ?></th>
+
                                     <th>تفاصيل اكثر</th>
                                 </tr>
 
@@ -660,16 +656,16 @@ include "header.php";
                                 </tr>
                                 <tr>
                                     <th scope="col">عمر العقار</th>
-                                    <th scope="col">نوع الغرض</th>
+                                    <th scope="col">السعر </th>
                                 </tr>
                                 <tr>
                                     <td><?php echo $row['AgeOfProperty']; ?></td>
-                                    <td><?php echo $row['TypeOfOffer']; ?></td>
+                                    <td><?php
+                                        echo number_format($row['price'], 2, ",", ".");
+                                        ?></td>
                                 </tr>
                                 <tr>
-                                    <th scope="col"><?php
-                                        echo ' السعر:   ' . number_format($row['price'], 2, ",", ".");
-                                        ?></th>
+
                                     <th>تفاصيل اكثر</th>
                                 </tr>
 
@@ -728,7 +724,7 @@ include "header.php";
                         </div>
                         <!--  8888888888888888888888888   -->
 
-                        <h5 class="card-title bg-gradient p-1 m-0 fs-6"><?php echo $row['Typeofoffer']; ?>  </h5>
+                        <h5 class="card-title bg-gradient p-1 m-0 fs-6"><?php echo "مزرعه ". $row['Typeofoffer']; ?>  </h5>
                         <div class="card-body p-0 m-0">
                             <table class="table table-striped overflow-scroll m-0 p-0 ">
                                 <thead>
@@ -744,16 +740,16 @@ include "header.php";
                                 </tr>
                                 <tr>
                                     <th scope="col">عمر العقار</th>
-                                    <th scope="col">نوع الغرض</th>
+                                    <th scope="col">السعر</th>
                                 </tr>
                                 <tr>
                                     <td><?php echo $row['AgeOfProperty']; ?></td>
-                                    <td><?php echo $row['Typeofoffer']; ?></td>
+                                    <td><?php
+                                        echo  number_format($row['priceofonemeter'], 2, ",", ".");
+                                        ?></td>
                                 </tr>
                                 <tr>
-                                    <th scope="col"><?php
-                                        echo ' السعر:   ' . number_format($row['priceofonemeter'], 2, ",", ".");
-                                        ?></th>
+
                                     <th>تفاصيل اكثر</th>
                                 </tr>
 
@@ -1152,7 +1148,7 @@ include "header.php";
                         </div>
                         <!--  8888888888888888888888888   -->
 
-                        <h5 class="card-title bg-gradient p-1 m-0 fs-6"><?php echo $row['TypeOfOffer']; ?>  </h5>
+                        <h5 class="card-title bg-gradient p-1 m-0 fs-6"><?php echo "شقه ".$row['Typeofsale']; ?>  </h5>
                         <div class="card-body p-0 m-0">
                             <table class="table table-striped overflow-scroll m-0 p-0 ">
                                 <thead>
@@ -1168,16 +1164,16 @@ include "header.php";
                                 </tr>
                                 <tr>
                                     <th scope="col">عمر العقار</th>
-                                    <th scope="col">نوع الغرض</th>
+                                    <th scope="col">السعر</th>
                                 </tr>
                                 <tr>
-                                    <td><?php echo $row['Supplementnumber']; ?></td>
-                                    <td><?php echo $row['TypeOfOffer']; ?></td>
+                                    <td><?php echo $row['AgeOfProperty']; ?></td>
+                                    <td><?php
+                                        echo  number_format($row['price'], 2, ",", ".");
+                                        ?></td>
                                 </tr>
                                 <tr>
-                                    <th scope="col"><?php
-                                        echo ' السعر:   ' . number_format($row['thenumberoffloors'], 2, ",", ".");
-                                        ?></th>
+                                    <th scope="col"></th>
                                     <th>تفاصيل اكثر</th>
                                 </tr>
 

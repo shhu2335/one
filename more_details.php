@@ -24,17 +24,19 @@ include "fun.php";
 
     if(isset($_GET['productV']) && !empty($_GET['productV']) && is_numeric($_GET['productV']))
     {
+
+
         $sql = "SELECT * from villa WHERE  id =:itid";
         $handle = $pdo->prepare($sql);
         $params = [
-//            ':featured'=>1,
+//
             ':itid' =>$_GET['productV'],
         ];
         $handle->execute($params);
         if($handle->rowCount() == 1 )
         {
             $getproductVData = $handle->fetch(PDO::FETCH_ASSOC);
-//            $imgUrl = productV_IMG_URL.str_replace(' ','-',strtolower($getproductVData ['productV_name']))."/".$getproductVData ['img'];
+//            $imgUrl = product_IMG_URL.str_replace(' ','-',strtolower($getproductVData ['productV']))."/".$getproductVData ['imgV'];
         }
         else
         {
@@ -50,7 +52,7 @@ include "fun.php";
     <?php if(isset($getproductVData) && is_array($getproductVData)){?>
         <div class="row mt-3">
             <div class="col-md-5">
-                <!--                <img  src="--><?php //echo $imgUrl;?><!--" alt="صوره لتفاصيل فله">-->
+                                <img  src="<?php echo $imgUrl;?>" alt="صوره لتفاصيل فله">
             </div>
             <div class="col-md-7">
 
@@ -117,7 +119,7 @@ include "fun.php";
         if($handle->rowCount() == 1 )
         {
             $getproductBData = $handle->fetch(PDO::FETCH_ASSOC);
-//            $imgUrl = productB_IMG_URL.str_replace(' ','-',strtolower($getproductBData ['productB_name']))."/".$getproductBData ['img'];
+            $imgUrl = productB_IMG_URL.str_replace(' ','-',strtolower($getproductBData ['productB_name']))."/".$getproductBData ['img'];
         }
         else
         {
