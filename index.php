@@ -49,15 +49,14 @@ include "fun.php";
 
 
     <hr class="mb-5 p-0 ">
-    <div class="container-fluid p-5">
-        <div class="mx-auto  p-3 bg-gradient  rounded-pill text-secondary border border-1 border-secondary"  >
+    <div class="container-fluid">
+        <div class="p-3 bg-gradient  rounded-pill text-secondary border border-1 border-secondary ">
+            <div class="row g-3  p-4 justify-content-center text-center  text-center  text-secondary g-1 row-cols-3">
 
-        <div class="row justify-content-center row-cols-auto col-md-9 text-end  text-secondary g-1 row-cols-3">
-
-            <div class="col-9 col-md-4">
+            <div class="col-9 col-md-3">
                 <form class="form bg-transparent bg-gradient mx-3">
-                    <label class="my-1 mr-0" for="inlineFormCustomSelectPref">اختار المدينة ..</label>
-                    <select class=" form-control my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+                    <label class="my-1 mr-0" for="inlineFormCustomSelectPref">اختار المدينة..</label>
+                    <select class="form-control text-center rounded-pill my-1 mr-sm-2" id="inlineFormCustomSelectPref">
                         <option selected>Choose...</option>
                         <option value="1">One</option>
                         <option value="2">Two</option>
@@ -65,44 +64,56 @@ include "fun.php";
                     </select>
             </div>
 
-            <div class="col-9 col-md-4 ">
+            <div class="col-9 col-md-3 ">
                 <label class="my-1 mr-0" for="inlineFormCustomSelectPref">اختار نوع العقار ..</label>
-                <select class="form-control f my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+                <select class="form-control text-center rounded-pill my-1 mr-sm-2" id="inlineFormCustomSelectPref">
                     <option selected>Choose...</option>
                     <option value="1">One</option>
                     <option value="2">Two</option>
                     <option value="3">Three</option>
                 </select>
             </div>
-                <div class="col-9 col-md-4">
-                     <button type="submit" class="btn btn-primary my-1 w-100">Submit</button>
-                </div>
-                </form>
+
+            <div class="col-9 col-md-3 ">
+                <label class="my-1 mr-0" for="inlineFormCustomSelectPref">اختار نوع العقار ..</label>
+                    <select class="form-control text-center rounded-pill my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+                        <option selected>Choose...</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+            </div>
+
+            <div class="col-9 col-md-3">
+                <label class="my-1 mr-0" for="inlineFormCustomSelectPref">أبحث عن عقارك..</label>
+                <button type="submit" class="btn btn-primary rounded-pill my-1 w-100">أبحث ..</button>
+            </div>
+            </form>
         </div>
         </div>
-        </div>
+    </div>
 
     <hr class="mt-5 p-0 ">
 
-    <div class="container-fluid m-0">
+    <div class="container-fluid m-2">
         <div class="row gap-0 gap-3 gap-md-3 justify-content-center row-cols-1 row-cols-lg-5 g-1 g-lg-3  text-center  text-secondary g-1 row-cols-3">
 
-            <div class="col-8 col-md-2  bg-gradient  rounded-pill text-secondary border border-1 border-secondary">
+            <div class="col-8 col-md-3  bg-gradient  rounded-pill text-secondary border border-1 border-secondary">
                 <h1 class="display-3 m-0 p-0 "><?php echo number_format(602, 0, ",", ",");?></h1>
                 <p class="badge rounded-pill bg-secondary d-block m-0 p-0 w-75 fs-5 py-1 mb-2 mx-auto text-wrap" > عدد المكاتب </p>
             </div>
 
-            <div class="col-8 col-md-2  bg-gradient  rounded-pill text-secondary border border13 border-secondary ">
+            <div class="col-8 col-md-3  bg-gradient  rounded-pill text-secondary border border13 border-secondary ">
                 <h1 class="display-3 m-0 p-0 "><?php echo number_format(12505, 0, ",", ",");?></h1>
                 <p class="badge rounded-pill bg-secondary d-block m-0 p-0 w-75 fs-5 py-1 mb-2 mx-auto">عدد  العقارات </p>
             </div>
 
-            <div class="col-8 col-md-2  bg-gradient  rounded-pill text-secondary border border-1 border-secondary ">
+            <div class="col-8 col-md-3  bg-gradient  rounded-pill text-secondary border border-1 border-secondary ">
                 <div class="display-3  m-0  p-0"><?php echo number_format(60000, 0, ",", ",");?></div>
                 <p class="badge rounded-pill bg-secondary d-block m-0 p-0 w-75 fs-5 py-1 mb-2 mx-auto">عدد المستفيدين</p>
             </div>
 
-            <div class="col-8 col-md-2  bg-gradient  rounded-pill text-secondary border border-1 border-secondary">
+            <div class="col-8 col-md-3  bg-gradient  rounded-pill text-secondary border border-1 border-secondary">
                 <div class="display-3  m-0  p-0"><?php echo number_format(500, 0, ",", ",");?></div>
                 <p class="badge rounded-pill bg-secondary d-block m-0 p-0 w-75 fs-5 py-1 mb-2 mx-auto">عدد المسوقين</p>
             </div>
