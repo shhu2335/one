@@ -43,14 +43,9 @@ include "fun.php";
     </div>
 
 
-
-
-
-
-
-    <hr class="mb-5 p-0 ">
-    <div class="container-fluid">
-        <div class="p-3 bg-gradient  rounded-pill text-secondary border border-1 border-secondary ">
+    <hr class="my-md-5 p-0 ">
+    <div class="container-fluid px-md-5">
+        <div class="p-3 bg-gradient  rounded-pill  text-secondary border border-1 border-secondary ">
             <div class="row g-3  p-4 justify-content-center text-center  text-center  text-secondary g-1 row-cols-3">
 
             <div class="col-9 col-md-3">
@@ -95,7 +90,7 @@ include "fun.php";
 
     <hr class="mt-5 p-0 ">
 
-    <div class="container-fluid m-2">
+    <div class="container-fluid p-md-5">
         <div class="row gap-0 gap-3 gap-md-3 justify-content-center row-cols-1 row-cols-lg-5 g-1 g-lg-3  text-center  text-secondary g-1 row-cols-3">
 
             <div class="col-8 col-md-3  bg-gradient  rounded-pill text-secondary border border-1 border-secondary">
