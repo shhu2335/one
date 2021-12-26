@@ -24,17 +24,19 @@ include "fun.php";
 
     if(isset($_GET['productV']) && !empty($_GET['productV']) && is_numeric($_GET['productV']))
     {
+
+
         $sql = "SELECT * from villa WHERE  id =:itid";
         $handle = $pdo->prepare($sql);
         $params = [
-//            ':featured'=>1,
+//
             ':itid' =>$_GET['productV'],
         ];
         $handle->execute($params);
         if($handle->rowCount() == 1 )
         {
             $getproductVData = $handle->fetch(PDO::FETCH_ASSOC);
-//            $imgUrl = productV_IMG_URL.str_replace(' ','-',strtolower($getproductVData ['productV_name']))."/".$getproductVData ['img'];
+//            $imgUrl = product_IMG_URL.str_replace(' ','-',strtolower($getproductVData ['productV']))."/".$getproductVData ['imgV'];
         }
         else
         {
@@ -50,7 +52,7 @@ include "fun.php";
     <?php if(isset($getproductVData) && is_array($getproductVData)){?>
         <div class="row mt-3">
             <div class="col-md-5">
-                <!--                <img src="--><?php //echo $imgUrl;?><!--">-->
+                                <img  src="<?php echo $imgUrl;?>" alt="صوره لتفاصيل فله">
             </div>
             <div class="col-md-7">
 
@@ -117,7 +119,7 @@ include "fun.php";
         if($handle->rowCount() == 1 )
         {
             $getproductBData = $handle->fetch(PDO::FETCH_ASSOC);
-//            $imgUrl = productB_IMG_URL.str_replace(' ','-',strtolower($getproductBData ['productB_name']))."/".$getproductBData ['img'];
+            $imgUrl = productB_IMG_URL.str_replace(' ','-',strtolower($getproductBData ['productB_name']))."/".$getproductBData ['img'];
         }
         else
         {
@@ -133,7 +135,7 @@ include "fun.php";
     <?php if(isset($getproductBData) && is_array($getproductBData)){?>
         <div class="row mt-3">
             <div class="col-md-5">
-                <!--                <img src="--><?php //echo $imgUrl;?><!--">-->
+                <!--                <img src="--><?php //echo $imgUrl;?><!--" alt="صوره لتفاصيل عماره">-->
             </div>
             <div class="col-md-7">
 
@@ -219,7 +221,7 @@ include "fun.php";
     <?php if(isset($getproductLData) && is_array($getproductLData)){ ?>
         <div class="row mt-3">
             <div class="col-md-5">
-                <!--                <img src="--><?php //echo $imgUrl;?><!--">-->
+                <!--                <img src="--><?php //echo $imgUrl;?><!--" alt="صوره تفاصيل الأرض">-->
             </div>
             <div class="col-md-7">
 
@@ -302,7 +304,7 @@ include "fun.php";
     <?php if(isset($getproductHData) && is_array($getproductHData)){?>
         <div class="row mt-3">
             <div class="col-md-5">
-                <!--                <img src="--><?php //echo $imgUrl;?><!--">-->
+                <!--                <img src="--><?php //echo $imgUrl;?><!--" alt="صوره تفاصيل فندق">-->
             </div>
             <div class="col-md-7">
 
@@ -387,7 +389,7 @@ include "fun.php";
     <?php if(isset($getproductSHData) && is_array($getproductSHData)){?>
         <div class="row mt-3">
             <div class="col-md-5">
-                <!--                <img src="--><?php //echo $imgUrl;?><!--">-->
+                <!--                <img src="--><?php //echo $imgUrl;?><!--" alt="صوره تفاصيل محل">-->
             </div>
             <div class="col-md-7">
 
@@ -470,7 +472,7 @@ include "fun.php";
     <?php if(isset($getproductFData) && is_array($getproductFData)){?>
         <div class="row mt-3">
             <div class="col-md-5">
-                <!--                <img src="--><?php //echo $imgUrl;?><!--">-->
+                <!--                <img src="--><?php //echo $imgUrl;?><!--" alt="صوره تفاصيل المزرعه" >-->
             </div>
             <div class="col-md-7">
 
@@ -552,7 +554,7 @@ include "fun.php";
     <?php if(isset($getproductCData) && is_array($getproductCData)){?>
         <div class="row mt-3">
             <div class="col-md-5">
-                <!--                <img src="--><?php //echo $imgUrl;?><!--">-->
+                <!--                <img src="--><?php //echo $imgUrl;?><!--" alt=" صوره تفاصيل القصر">-->
             </div>
             <div class="col-md-7">
 
@@ -634,7 +636,7 @@ include "fun.php";
     <?php if(isset($getproductSData) && is_array($getproductSData)){?>
         <div class="row mt-3">
             <div class="col-md-5">
-                <!--                <img src="--><?php //echo $imgUrl;?><!--">-->
+                <!--                <img src="--><?php //echo $imgUrl;?><!--" alt="  صوره تفاصيل استيديو">-->
             </div>
             <div class="col-md-7">
 
@@ -715,7 +717,7 @@ include "fun.php";
     <?php if(isset($getproductWData) && is_array($getproductWData)){?>
         <div class="row mt-3">
             <div class="col-md-5">
-                <!--                <img src="--><?php //echo $imgUrl;?><!--">-->
+                <!--                <img src="--><?php //echo $imgUrl;?><!--" alt=" صوره تفاصيل الشاليه">-->
             </div>
             <div class="col-md-7">
 
@@ -798,7 +800,7 @@ include "fun.php";
     <?php if(isset($getproductDData) && is_array($getproductDData)){?>
         <div class="row mt-3">
             <div class="col-md-5">
-                <!--                <img src="--><?php //echo $imgUrl;?><!--">-->
+                <!--                <img src="--><?php //echo $imgUrl;?><!--" alt=" صوره تفاصيل الإستراحه ">-->
             </div>
             <div class="col-md-7">
 
@@ -881,7 +883,7 @@ include "fun.php";
     <?php if(isset($getproductAData) && is_array($getproductAData)){?>
         <div class="row mt-3">
             <div class="col-md-5">
-                <!--                <img src="--><?php //echo $imgUrl;?><!--">-->
+                <!--                <img src="--><?php //echo $imgUrl;?><!--" alt=" صوره تفاصيل الشقه">-->
             </div>
             <div class="col-md-7">
 
@@ -963,7 +965,7 @@ include "fun.php";
     <?php if(isset($getproductOData) && is_array($getproductOData)){?>
         <div class="row mt-3">
             <div class="col-md-5">
-                <!--                <img src="--><?php //echo $imgUrl;?><!--">-->
+                <!--                <img src="--><?php //echo $imgUrl;?><!--" alt="  صوره تفاصيل المكتب ">-->
             </div>
             <div class="col-md-7">
 
