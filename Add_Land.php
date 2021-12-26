@@ -1,7 +1,7 @@
 <?php
 
 
-include "conection.php";
+include "connection";
 include "header.php";
 include "fun.php";
 
@@ -10,24 +10,16 @@ include "fun.php";
 <!--  إضافه مميزات إضافي للDB -->
 
 
-
-
-
-<html lang="ar" dir="rtl">
-
+<!doctype html>
+<html lang="ar">
 <head>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="css/style.css">
-    <!-- Bootstrap CSS-->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.rtl.min.css"
-          integrity="sha384-gXt9imSW0VcJVHezoNQsP+TNrjYXoGcrqBZJpry9zJt8PCQjobwmhMGaDHTASo9N" crossorigin="anonymous">
-
-
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
 </head>
-<!---->
-
 <body>
-
 
 <div class="container ">
     <!--    Verify that the land is add-->
@@ -42,9 +34,9 @@ include "fun.php";
     <!--   the land addition form-->
     <div class="w-auto mx-auto p-3 m-5 bg-white  shadow border border-1  bg-gradient  rounded-3 text-secondary">
         <p class="card-title  mb-2 py-2 text-center fs-3 bg-primary text-white rounded-3">إضافة أرض</p>
-        <form class="row g-3  p-5  text-end" method="post" action="Add_Land.php">
+        <form class="row g-2 gap-0 row row-cols-2 row-cols-md-4 justify-content-center mt-4" method="post" action="Add_Land.php">
             <!--            space-->
-            <div class="form-label col-md-6 text-start">
+            <div class="form-label col text-start">
                 <label for="phone_number_form" class="form-label">المساحه</label>
                 <input type="number" class="form-control" id="phone_number_form" name="form_space">
                 <?php
@@ -56,7 +48,7 @@ include "fun.php";
                 ?>
             </div>
             <!--            property age-->
-            <div class="form-label col-md-6 text-start">
+            <div class="form-label col text-start">
                 <label for="phone_number_form" class="form-label ">عمر العقار</label>
                 <input type="number" class="form-control" id="phone_number_form" name="form_AgeOfProperty">
                 <?php
@@ -68,7 +60,7 @@ include "fun.php";
                 ?>
             </div>
             <!--           price of one meter-->
-            <div class="form-label col-md-6 text-start">
+            <div class="form-label col text-start">
                 <label for="phone_number_form" class="form-label">سعر المتر</label>
                 <input type="number" class="form-control"  name="form_priceofonemeter">
                 <?php
@@ -80,7 +72,7 @@ include "fun.php";
                 ?>
             </div>
             <!--            type of offer -->
-            <div class="col-md-6 form-label  text-start mt-5">
+            <div class="col form-label  text-start mt-5">
                 <!--                <label > </label>-->
                 <select class="form-select" aria-label="Default select example" name="form_TypeOfOffer">
                     <option selected value="">-- الغرض من عرض العقار --</option>
@@ -105,7 +97,7 @@ include "fun.php";
 
             </div>
             <!--            number of streets-->
-            <div class="col-md-4 form-label text-start">
+            <div class="col form-label text-start">
                 <select class="form-select" aria-label="Default select example" name="form_numberofstreet">
                     <option selected value="">عدد الشوارع </option>
                     <?php if (!empty($length_numberStreets)) {
@@ -128,7 +120,7 @@ include "fun.php";
                 ?>
             </div>
             <!--            direction-->
-            <div class="col-md-4 form-label text-start">
+            <div class="col form-label text-start">
                 <select class="form-select"  aria-label="Default select example" name="form_diraction">
                     <option selected value="">الواجهه </option>
                     <?php if (!empty($length_direction)) {
@@ -151,7 +143,7 @@ include "fun.php";
                 ?>
             </div>
             <!--            Instrument type-->
-            <div class="col-md-4 form-labeltext-start">
+            <div class="col form-labeltext-start">
                 <select class="form-select"  aria-label="Default select example" name="form_Typeofinstrument">
                     <option selected value="">نوع الصك </option>
                     <?php if (!empty($length_Typeofinstrument)) {
@@ -185,13 +177,13 @@ include "fun.php";
                 }
                 ?>
 
-            </div>
+            </div> </form>
             <!--            save button-->
-            <div class="col-md-4">
+            <div class="col-md-2 mx-auto">
                 <button type="submit" onclick="myFunction()" class="btn btn-primary text-light form-control"  name="submit_form_add_land">إضافة
                 </button>
             </div>
-        </form>
+
 
 
     </div>

@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 </head>
 <body>
-<footer class="bg-dark text-center text-white">
+<footer class="bg-dark text-center text-white mt-5 ">
     <!-- Grid container -->
     <div class="container p-4 pb-0">
         <!-- Section: Social media -->

@@ -1,12 +1,10 @@
 <?php
-include "header.php";
-include "fun.php";
-include "conection.php";
-if (! empty($_SESSION['logged_in']))
-{
+
+    include "fun.php";
+    include "connection";
+    if (! empty($_SESSION['logged_in'])){
 
 ?>
-
 
 <!doctype html>
 <html lang="ar">
@@ -15,40 +13,40 @@ if (! empty($_SESSION['logged_in']))
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>مجموعة الأبتكارات العقارية</title>
+    <title>مجموعة اكنه العقارية</title>
 
 </head>
 <body>
-<div class="container">
+<?php  include 'header.php'; ?>
 
-    <div class="w-auto mx-auto p-3 my-5 bg-white  shadow border border-1  bg-gradient  rounded-3 text-secondary">
-        <p class="card-title  mb-5 py-2 text-center fs-3 bg-primary text-white rounded-3">
-            <?php if (! empty($_SESSION['name']))
-            {
+<div class="container overflow-hidden">
+
+    <div class="col w-auto mx-auto p-4 my-5 bg-white  shadow border border-1  bg-gradient  rounded-3 text-secondary">
+        <p class="card-title  mb-5 py-1 text-center fs-3 bg-primary text-white rounded-3">
+            <?php if (! empty($_SESSION['name'])){
                 echo "مرحبا, ".$_SESSION['name'];
-            }?>
+            }
+            ?>
         </p>
 
-        <div class="row g-3 p-2 text-center ">
+  <div class="row gap-2  text-center justify-content-center ">
 
-    <div class="w-50 d-block p-0 m-0 bg-white bg-gradient text-center">
-        <img src="img/14-22.jpg" class="rounded-circle">
-        <div class="px-3 pt-2 ">
+    <div class="col text-center   mb-5 bg-white p-2 border border-1  bg-gradient  rounded-3 text-secondary">
 
-            <ul class="list-group w-75 mx-auto d-block list-group-flush">
+        <img src="img/14-22.jpg" style="width: 120px;height: 120px" class="rounded-circle">
+
+            <ul class="list-group  m-0 p-0 text-center   list-group-flush">
                 <li class="list-group-item">   المعرف :<?php echo $_SESSION['id']; ?></li>
                 <li class="list-group-item"><?php echo $_SESSION['name']; ?></li>
                 <li class="list-group-item">  <?php echo $_SESSION['email']; ?></li>
                 <li class="list-group-item"><?php echo $_SESSION['phonenumber']; ?></li>
                 <li class="list-group-item">  المستخدم:<?php echo $_SESSION['usernmae']; ?></li>
-                <li class="list-group-item"><button class="btn btn-outline-dark  mx-auto">تعديل الملف</button></li>
+                <li class="list-group-item"><button class="btn btn-primary btn-sm mx-auto">تعديل الملف</button></li>
             </ul>
+        </div>
 
 
-</div>
-
-    </div>
-    <div class="w-50 p-0 m-0 p-3 mb-5 bg-white   border border-1  bg-gradient  rounded-3 text-secondary">
+    <div class="col  pt-2 mb-5 bg-white   border border-1  bg-gradient  rounded-3 text-secondary">
         <div class="list-group">
             <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
                عقاراتك
@@ -67,21 +65,18 @@ if (! empty($_SESSION['logged_in']))
                 <span class="badge bg-primary rounded-pill">1</span>
             </li>
         </ul>
+        </div>
+        </div>
+
+            </div>
 
     </div>
+    </div>
+    <?php
 
-
-</div>
-
-
-</div>
-
+        }else{
+        header("location:login.php");
+    } include 'footer.php'; ?>
 </body>
 </html>
-<?php
-//session_start(); //to ensure you are using same session
-//header("location:/index.php"); //to redirect back to "index.php" after logging out
-//exit();
-}else{
-    header("location:login.php");
-} ?>
+

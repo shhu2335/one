@@ -1,8 +1,6 @@
 <?php
-
-
 session_start();
-session_destroy(); //destroy the session
-
-echo 'You have cleaned session';
-header("location:login.php");?>
+session_destroy();
+// Redirect to the login page:
+header('Location: index.PHP');
+?>

@@ -1,99 +1,17 @@
 <?php
-include "conection.php";
-function test_input($data)
-{
+require "connection";
+    if (! isset($_SESSION)) {
+    session_start();
+    }
+//
+
+    function test_input($data){
     $data = trim($data);
     $data = stripslashes($data);
     $data = htmlspecialchars($data);
     return $data;
-}
-// اختصارات
-// عدد الصالات
-
-//
-//function di_img()
-//{
-//    $q =$pdo->query('SELECT * FROM villa');
-//    return $r = $q;
-//}
-//
-
-
-
-
-
-// ^^^^^^^^^^ hussam ^^^^^^^^^^ login system ^^^^^^^^^^^^^^^^^^^^^  start
-
-if (isset($_POST['submit_form_login']))
-{
-    // *********************    username   ***********************************
-    if (empty($_POST["form_user_name"]))
-    {
-        $var_user_name_err = "الرجاء كتابة اسم المستخدم";
-        $_POST["form_user_name"]='';
-    }
-    if (filter_has_var(INPUT_POST, 'form_user_name'))
-    {
-        $var_user_name=test_input(filter_var($_POST['form_user_name'], FILTER_SANITIZE_STRING));
     }
 
-
-    // *********************    password   ************************************
-    if (empty($_POST["form_password"]))
-    {
-        $var_password_err = "الرجاء كتابة كلمة المرور";
-        $_POST["form_password"] = '';
-    }
-    if (filter_has_var(INPUT_POST, 'form_password'))
-    {
-        $var_password=test_input(filter_var($_POST["form_password"], FILTER_SANITIZE_STRING));
-    }
-
-
-    if (isset($pdo))
-    {
-        $user = $pdo->prepare('select *  from  user  where usernmae = :usernmae ');
-        //,'password' => $password_var
-        $user->execute(['usernmae' => $var_user_name ]);
-        //$user->fetch(PDO::FETCH_ASSOC);
-        $data = $user->fetchAll(PDO::FETCH_ASSOC);
-        foreach($data as $row) {
-            // echo $row['usernmae'];
-            // echo $row['password'];
-            //do whatever you want with the row
-        }
-
-
-        $count = $user->rowcount();
-
-        if ($count === 0)
-        {
-            $message_user_not_found = "أسم المستخدم أو كلمة المرور غير صحيحة";
-        }
-        else{
-
-            if (password_verify($var_password, $row["password"]))
-            {
-                $_SESSION['name']        = $row['name'];
-                $_SESSION['id']          = $row['id'];
-                $_SESSION['password']    = $row['password'];
-                $_SESSION['email']       = $row['email'];
-                $_SESSION['phonenumber'] = $row['phonenumber'];
-                $_SESSION['usernmae']    = $row['usernmae'];
-                $_SESSION['logged_in']   = true;
-                header("Location:index.php");
-
-            }
-            else{
-                $message_user_not_found = "أسم المستخدم أو كلمه المرور غير صحيحه";
-            }
-
-        }
-
-    }
-
-
-}
 
 
 // // ^^^^^^^^^^ hussam ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^  end
@@ -189,6 +107,7 @@ if (isset($_POST['submit_form_user'])) {
                     'itemail' => $email_from_var,
                 ));
                 header('location: index.php');
+                exit();
             }
 
 
@@ -400,9 +319,6 @@ if($count_building ===12) {
 
 
 }
-
-
-
 
 
 }
@@ -1796,7 +1712,6 @@ function hu4654646 (){
 //                                        }
 
 }
-
 
 
 ?>

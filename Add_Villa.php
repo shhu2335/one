@@ -1,24 +1,22 @@
 <?php
 
 
-include "conection.php";
+include "connection";
 include "header.php";
 include "fun.php";
 
 ?>
-<html lang="ar" dir="rtl">
-
-
-
-
+<!doctype html>
+<html lang="en">
 <head>
-
-
-
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
 </head>
-<!---->
-
 <body>
+
 
 <!--    Verify that the villa is add-->
 <?php
@@ -33,45 +31,12 @@ if (isset( $alert_insert_villa_by_successfully)){
 <div class="container">
     <div class="w-auto mx-auto p-3 m-5 bg-white  shadow border border-1  bg-gradient  rounded-3 text-secondary">
         <p class="card-title  mb-2 py-2 text-center fs-3 bg-primary text-white rounded-3">إضافه فلة</p>
-        <form class="row g-3  p-5  text-end" method="POST" action="Add_Villa.php">
+
+        <form class="row g-1 gap-0 row row-cols-2 row-cols-md-4 justify-content-center mt-4" method="POST" action="Add_Villa.php">
             <!--            space-->
-            <div class="form-label col-md-4 text-end">
-                <label for="phone_number_form" class="form-label">المساحه</label>
-                <input type="number" class="form-control" id="phone_number_form" name="form_space">
-                <?php
-                if (isset($space_var_Err)){
-                    echo '<span  class="badge bg-danger rounded-pill">';
-                    echo $space_var_Err;
-                    echo '<span >';
-                }
-                ?>
-            </div>
-            <!--            property age-->
-            <div class="form-label col-md-4 text-end">
-                <label for="phone_number_form" class="form-label ">عمر العقار</label>
-                <input type="number" class="form-control" id="phone_number_form" name="form_AgeOfProperty">
-                <?php
-                if (isset($AgeOfProperty_var_Err)){
-                    echo '<span  class="badge bg-danger rounded-pill">';
-                    echo $AgeOfProperty_var_Err;
-                    echo '<span >';
-                }
-                ?>
-            </div>
-            <!--            price-->
-            <div class="form-label col-md-4 text-end">
-                <label for="phone_number_form" class="form-label"> السعر</label>
-                <input type="number" class="form-control" id="phone_number_form" name="form_price">
-                <?php
-                if (isset($price_var_Err)){
-                    echo '<span  class="badge bg-danger rounded-pill">';
-                    echo $price_var_Err;
-                    echo '<span >';
-                }
-                ?>
-            </div>
+
             <!--            type of offer -->
-            <div class="col-md-4 form-label  text-start">
+            <div class="col form-label  text-start">
                 <!--                <label > </label>-->
                 <select class="form-select" name="form_TypeOfOffer" aria-label="Default select example">
 
@@ -99,7 +64,7 @@ if (isset( $alert_insert_villa_by_successfully)){
 
             </div>
             <!--             number of toilets-->
-            <div class="col-md-4 form-label text-start">
+            <div class="col form-label text-start">
                 <select class="form-select" name="form_Numberoftoilets" aria-label="Default select example">
                     <option selected  value="">عدد دورات المياه </option>
                     <?php if (!empty($length_numberRoom)) {
@@ -122,7 +87,7 @@ if (isset( $alert_insert_villa_by_successfully)){
                 ?>
             </div>
             <!--           Type of toilets-->
-            <div class="col-md-4 form-label text-start">
+            <div class="col form-label text-start">
                 <select class="form-select" name="form_Typeoftoilets" aria-label="Default select example">
                     <option selected  value="" value="">نوع دورات المياه </option>
                     <?php if (!empty($length_Type_of_toilets)) {
@@ -145,7 +110,7 @@ if (isset( $alert_insert_villa_by_successfully)){
                 ?>
             </div>
             <!--            number of halls  -->
-            <div class="col-md-4 form-label text-start">
+            <div class="col form-label text-start">
                 <select class="form-select" name="form_Numberoflounges" aria-label="Default select example">
                     <option selected  value="">عدد الصالات  </option>
                     <?php if (!empty($length_numberRoom)) {
@@ -168,7 +133,7 @@ if (isset( $alert_insert_villa_by_successfully)){
                 ?>
             </div>
             <!--            number of clippers-->
-            <div class="col-md-4 form-label text-start">
+            <div class="col form-label text-start">
                 <select class="form-select" name="form_Numberofclippers" aria-label="Default select example">
                     <option selected  value="">عدد المقلط </option>
                     <?php if (!empty($length_numberRoom)) {
@@ -191,7 +156,7 @@ if (isset( $alert_insert_villa_by_successfully)){
                 ?>
             </div>
             <!--             number of kitchens -->
-            <div class="col-md-4 form-label text-start">
+            <div class="col form-label text-start">
                 <select class="form-select" name="form_Numberofkitchen" aria-label="Default select example">
                     <option selected  value="">عدد المطابخ </option>
                     <?php if (!empty($length_numberRoom)) {
@@ -214,7 +179,7 @@ if (isset( $alert_insert_villa_by_successfully)){
                 ?>
             </div>
             <!--            number of bedrooms-->
-            <div class="col-md-4 form-label text-start">
+            <div class="col form-label text-start">
                 <select class="form-select" name="form_Numberofbedrooms" aria-label="Default select example">
                     <option selected  value="">عدد غرف النوم </option>
                     <?php if (!empty($length_numberRoom)) {
@@ -237,7 +202,7 @@ if (isset( $alert_insert_villa_by_successfully)){
                 ?>
             </div>
             <!--            number of wings -->
-            <div class="col-md-4 form-label text-start">
+            <div class="col form-label text-start">
                 <select class="form-select" name="form_numberofwings" aria-label="Default select example">
                     <option selected  value="">عدد الأجنحه   </option>
                     <?php if (!empty($length_numberRoom)) {
@@ -260,7 +225,7 @@ if (isset( $alert_insert_villa_by_successfully)){
                 ?>
             </div>
             <!--            Number of Warehouses-->
-            <div class="col-md-4 form-label text-start">
+            <div class="col form-label text-start">
                 <select class="form-select"  name="form_numberofwarehouses" aria-label="Default select example">
                     <option selected  value="">عدد المستودعات</option>
                     <?php if (!empty($length_numberRoom)) {
@@ -283,7 +248,7 @@ if (isset( $alert_insert_villa_by_successfully)){
                 ?>
             </div>
            <!--            number of streets-->
-            <div class="col-md-4 text-start">
+            <div class="col text-start">
                 <select class="form-select" name="form_numberofstreet" aria-label="Default select example">
                     <option selected  value="">عدد الشوارع </option>
                     <?php if (!empty($length_numberStreets)) {
@@ -306,7 +271,7 @@ if (isset( $alert_insert_villa_by_successfully)){
                 ?>
             </div>
             <!--           number of boards -->
-            <div class="col-md-4 text-start">
+            <div class="col text-start">
                 <select class="form-select" name="form_BoardNumber" aria-label="Default select example">
                     <option selected  value="">عدد المجالس   </option>
                     <?php if (!empty($length_numberRoom)) {
@@ -329,7 +294,7 @@ if (isset( $alert_insert_villa_by_successfully)){
                 ?>
             </div>
             <!--          kitchen type   -->
-            <div class="col-md-4 form-label text-start">
+            <div class="col form-label text-start">
                 <select class="form-select" name="form_typeofkitchen" aria-label="Default select example">
                     <option selected  value="">نوع المطبخ  </option>
                     <?php if (!empty($length_Type_kitchen)) {
@@ -352,7 +317,7 @@ if (isset( $alert_insert_villa_by_successfully)){
                 ?>
             </div>
             <!--            direction-->
-            <div class="col-md-4 text-start">
+            <div class="col text-start">
                 <select class="form-select" name="form_diraction" aria-label="Default select example">
                     <option selected  value="">الواجهه </option>
                     <?php if (!empty($length_direction)) {
@@ -374,10 +339,48 @@ if (isset( $alert_insert_villa_by_successfully)){
                 }
                 ?>
             </div>
+
+            <div class="form-label col  ">
+<!--                <label for="phone_number_form" class="form-label"></label>-->
+                <input type="number" class="form-control" placeholder="المساحه" id="phone_number_form" name="form_space">
+                <?php
+                if (isset($space_var_Err)){
+                    echo '<span  class="badge bg-danger rounded-pill">';
+                    echo $space_var_Err;
+                    echo '<span >';
+                }
+                ?>
+            </div>
+
+            <!--            property age-->
+            <div class="form-label col ">
+<!--                <label for="phone_number_form" class="form-label ">عمر العقار</label>-->
+                <input type="number" class="form-control" id="phone_number_form" placeholder="عمر العقار" name="form_AgeOfProperty">
+                <?php
+                if (isset($AgeOfProperty_var_Err)){
+                    echo '<span  class="badge bg-danger rounded-pill">';
+                    echo $AgeOfProperty_var_Err;
+                    echo '<span >';
+                }
+                ?>
+            </div>
+            <!--            price-->
+            <div class="form-label col ">
+<!--                <label for="phone_number_form" class="form-label"> </label>-->
+                <input type="number" class="form-control" id="phone_number_form" placeholder="السعر" name="form_price">
+                <?php
+                if (isset($price_var_Err)){
+                    echo '<span  class="badge bg-danger rounded-pill">';
+                    echo $price_var_Err;
+                    echo '<span >';
+                }
+                ?>
+            </div><br><br>
             <!--            Additional features-->
-            <div class="form-group  form-label text-end">
+
+            <div class="form-group col-9 form-label ">
                 <label for="exampleFormControlTextarea1">مميزات إضافيه</label>
-                <textarea class="form-control"  name="form_features" id="exampleFormControlTextarea1" rows="5"></textarea>
+                <textarea class="form-control"  name="form_features" id="exampleFormControlTextarea1" عمر العقارrows="5"></textarea>
                 <?php
                 if (isset($features_var_Err)){
                     echo '<span  class="badge bg-danger rounded-pill">';
@@ -388,14 +391,15 @@ if (isset( $alert_insert_villa_by_successfully)){
 
             </div>
             <!--            save button-->
-            <div class="col-md-4">
+        </form>
+            <div class="col-md-2 mx-auto">
                 <button type="submit" class="btn btn-primary text-light form-control"  name="submit_form_add_villa">إضافة
                 </button>
             </div>
-        </form>
 
 
     </div>
+
 
 </div>
 

@@ -1,6 +1,6 @@
 <?php
 
-include "conection.php";
+include "connection";
 include "header.php";
 include "fun.php";
 

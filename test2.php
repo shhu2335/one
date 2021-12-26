@@ -1,6 +1,6 @@
 <!-- start of conection -->
 <?php
-//include "conection.php";
+//include "connection";
 //include "header.php";
 //if (! empty($_SESSION['logged_in']))
 

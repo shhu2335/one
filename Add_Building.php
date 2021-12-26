@@ -1,7 +1,7 @@
 <?php
 
 
-include "conection.php";
+include "connection";
 include "header.php";
 include 'fun.php';
 
@@ -43,9 +43,9 @@ include 'fun.php';
                         <!--    Building addition form-->
     <div class="w-auto mx-auto p-3 m-5 bg-white  shadow border border-1  bg-gradient  rounded-3 text-secondary">
         <p class="card-title  mb-2 py-2 text-center fs-3 bg-primary text-white rounded-3">إضافه عمارة</p>
-        <form class="row g-3  p-5  text-end" method="POST" action="Add_Building.php">
+        <form class="row g-2 gap-0 row row-cols-2 row-cols-md-5 justify-content-center mt-4" method="POST" action="Add_Building.php">
                          <!--            space-->
-            <div class="form-label col-md-4 text-end">
+            <div class="form-label col text-end">
                 <label for="phone_number_form" class="form-label">المساحه</label>
                 <input type="number" class="form-control" id="phone_number_form" name="form_space">
                 <?php
@@ -57,7 +57,7 @@ include 'fun.php';
                 ?>
             </div>
                           <!--            property age-->
-            <div class="form-label col-md-4 text-end">
+            <div class="form-label col text-end">
                 <label for="phone_number_form"  class="form-label ">عمر العقار</label>
                 <input type="number" class="form-control" id="phone_number_form" name="form_AgeOfProperty">
                 <?php
@@ -69,7 +69,7 @@ include 'fun.php';
                 ?>
             </div>
             <!--            price-->
-            <div class="form-label col-md-4 text-end">
+            <div class="form-label col text-end">
                 <label for="phone_number_form" class="form-label"> السعر</label>
                 <input type="number" class="form-control" id="phone_number_form" name="form_price">
                 <?php
@@ -81,7 +81,7 @@ include 'fun.php';
                 ?>
             </div>
                          <!--            type of offer -->
-            <div class="col-md-4 form-label  text-start">
+            <div class="col form-label  text-start">
 <!--                <label > </label>-->
                 <select class="form-select" aria-label="Default select example" name="form_taype_of_offer">
 
@@ -107,7 +107,7 @@ include 'fun.php';
 
             </div>
                          <!--            Number of apartments-->
-            <div class="col-md-4 text-start">
+            <div class="col text-start">
                 <select class="form-select" aria-label="Default select example" name="form_num_apartment">
                     <option selected value="">عدد الشقق </option>
                     <?php if (!empty($length_numberRoom)) {
@@ -130,7 +130,7 @@ include 'fun.php';
                 ?>
             </div>
                         <!--            the number of floors-->
-            <div class="col-md-4 text-start">
+            <div class="col text-start">
                 <select class="form-select" aria-label="Default select example" name="form_num_flor">
                     <option selected value="">عدد الطوابق </option>
                     <?php if (!empty($length_numberRoom)) {
@@ -153,7 +153,7 @@ include 'fun.php';
                 ?>
             </div>
                         <!--            number of lifts-->
-            <div class="col-md-4 text-start">
+            <div class="col text-start">
                 <select class="form-select" aria-label="Default select example" name="form_num_left">
                     <option selected value="">عدد المصاعد </option>
                     <?php if (!empty($length_numberRoom)) {
@@ -176,7 +176,7 @@ include 'fun.php';
                 ?>
             </div>
                         <!--            Number of parking-->
-            <div class="col-md-4 text-start">
+            <div class="col text-start">
                 <select class="form-select" aria-label="Default select example" name="form_num_parking">
                     <option selected value="">عدد المواقف </option>
                     <?php if (!empty($length_numberRoom)) {
@@ -199,7 +199,7 @@ include 'fun.php';
                 ?>
             </div>
                         <!--            number of streets-->
-            <div class="col-md-4 text-start">
+            <div class="col text-start">
                 <select class="form-select" aria-label="Default select example" name="form_num_Street">
                     <option selected value="">عدد الشوارع </option>
                     <?php if (!empty($length_numberStreets)) {
@@ -222,7 +222,7 @@ include 'fun.php';
                 ?>
             </div>
                         <!--            direction-->
-            <div class="col-md-4 text-start">
+            <div class="col text-start">
                 <select class="form-select"  aria-label="Default select example" name="form_direction">
                     <option selected value="">الواجهه </option>
                     <?php if (!empty($length_direction)) {
@@ -268,7 +268,7 @@ include 'fun.php';
                 ?>
             </div>
                         <!--            Additional features-->
-            <div class="form-group  form-label text-end">
+            <div class="form-group  form-label text-start col-9 ">
                 <label for="exampleFormControlTextarea1">مميزات إضافيه</label>
                 <textarea class="form-control" name="form_features" id="exampleFormControlTextarea1" rows="5"></textarea>
                 <?php
@@ -280,12 +280,12 @@ include 'fun.php';
                 ?>
 
             </div>
-                        <!--            save button-->
-            <div class="col-md-4">
+        </form>      <!--            save button-->
+            <div class="col-md-2 mx-auto ">
                 <button type="submit" class="btn btn-primary text-light form-control"  name="submit_form_add_building">إضافة
                 </button>
             </div>
-        </form>
+
 
 
     </div>
