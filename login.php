@@ -1,7 +1,7 @@
 <?php
 
 
-include "connection";
+include "connection.php";
 include "fun.php";
     if (isset($_POST['submit_form_login'])){
     // *********************    username   ***********************************

@@ -1,5 +1,5 @@
 <?php
-require "connection";
+include "connection.php";
     if (! isset($_SESSION)) {
     session_start();
     }
@@ -1678,30 +1678,30 @@ if (filter_has_var(input_post, 'Form_Date'))
 
 
 //    المصفوفه غرض البيع
-    $arra_list_State = array( "للبيع", "الإيجار", "إيجار منتهي بالتمليك");
+    $arra_list_State = array("للبيع", "الإيجار", "إيجار منتهي بالتمليك");
 //    المصفوفه عدد الغرفة
     $length_State = count($arra_list_State);
 
 //    المصفوفه عدد الغرف
-    $arra_list_numberRoom = array( "1","2","3","4","5","6","7","8", "9","10" );
+    $arra_list_numberRoom = array("لايوجد","1","2","3","4","5");
     //    عدد للمصفوفه عدد الغرفة
     $length_numberRoom = count($arra_list_numberRoom);
 
 
 //المصفوفه لعد الشوارع
-$arra_list_numberStreets = array( "1","2","3","4" );
+$arra_list_numberStreets = array("0","1","2","3","4" );
 //    عدد للمصفوفه الشوارع
 $length_numberStreets = count($arra_list_numberStreets);
 
 
 //    المصفوفه للواجهه
-$arra_list_direction = array( "شمالي", "شرقي", "غربي","جنوبي","شرقي"," شمالي شرقي","شمالي غربي","جنوبي شرقي"," جنوبي غربي","شرقي غربي ","شمالي جنوبي ");
+$arra_list_direction = array("شمالي", "شرقي", "غربي","جنوبي","شرقي"," شمالي شرقي","شمالي غربي","جنوبي شرقي"," جنوبي غربي","شرقي غربي ","شمالي جنوبي ");
 //   عد المصفوفه للواجهه
 $length_direction = count($arra_list_direction);
 
 
 //    المصفوفه للواجهه
-$arra_list_Type_of_toilets = array( "عربي", "إفرنجي", "عربي و افرنجي");
+$arra_list_Type_of_toilets = array("عربي", "إفرنجي", "عربي و افرنجي");
 //   عد المصفوفه للواجهه
 $length_Type_of_toilets = count($arra_list_Type_of_toilets);
 
@@ -1713,19 +1713,82 @@ $length_yes_or_no = count($arra_list_yes_or_no);
 
 
 //    المصفوفه نوع المطبخ
-$arra_list_Type_kitchen = array( "خارجي ", "داخلي ");
+$arra_list_Type_kitchen = array( 'نظام امريكي',"خارجي", "داخلي ");
 //   عد المصفوفه نوع المطبخ
 $length_Type_kitchen = count($arra_list_Type_kitchen);
 
 
+//    المصفوفه نوع المطبخ
+$list_pay_method = array( 'كل سنة','كل 6 أشهر',"كل 4 أشهر", "كل 3 أشهر",'كل شهر');
+//  طرق الدفع
+$length_pay_method = count($list_pay_method);
 
+
+
+//    المصفوفه نوع المطبخ
+$list_Category = array( 'عوائل',"عزاب", "عوائل او عزاب");
+//  طرق الدفع
+$length_Category = count($list_Category);
 
 //    المصفوفه أنواع الصك
-$arra_list_Typeofinstrument = array( "صك سكني ", "صك زراعي ","صك تجاري ");
+$arra_list_Typeofinstrument = array( "صك سكني", "صك زراعي","صك تجاري");
 //   عد المصفوفه أنواع الصك
 $length_Typeofinstrument = count($arra_list_Typeofinstrument);
 
+// count numbers of apartment
+function count_num_apartment(){
+    include 'connection.php';
+    if (isset($pdo)){
+        $stmt = $pdo->query(" select id from apartment");
+        $stmt->execute();
+        $total_visitor=count($stmt->fetchAll(PDO::FETCH_ASSOC));
+        return$total_visitor;
+    }
+}
 
+// count numbers of  building
+function count_num_building(){
+    include 'connection.php';
+    if (isset($pdo)){
+        $stmt = $pdo->query(" select id from building");
+        $stmt->execute();
+        $total_visitor=count($stmt->fetchAll(PDO::FETCH_ASSOC));
+        return$total_visitor;
+    }
+}
+
+// count numbers of  office
+function count_num_office(){
+    include 'connection.php';
+    if (isset($pdo)){
+        $stmt = $pdo->query(" select id from `office`");
+        $stmt->execute();
+        $total_visitor=count($stmt->fetchAll(PDO::FETCH_ASSOC));
+        return$total_visitor;
+    }
+}
+
+// count numbers of  user
+function count_num_user(){
+    include 'connection.php';
+    if (isset($pdo)){
+        $stmt = $pdo->query(" select id from user");
+        $stmt->execute();
+        $total_visitor=count($stmt->fetchAll(PDO::FETCH_ASSOC));
+        return$total_visitor;
+    }
+}
+
+// count numbers of  property
+function count_num_property(){
+    include 'connection.php';
+    if (isset($pdo)){
+        $stmt = $pdo->query(" select count(id) from user");
+        $stmt->execute();
+        $total_visitor=count($stmt->fetchAll(PDO::FETCH_ASSOC));
+        return$total_visitor;
+    }
+}
 
 
 function hu4654646 (){
@@ -1793,7 +1856,7 @@ function hu4654646 (){
 //                                        $length_state=count($arra_list_state);
 //
 //                                        //********************************************
-//
+//select COUNT(*) from apartment;
 //                                        $sql = "select *from countsusers where ip_address='ip_address";
 //                                        $stmt = $conn->prepare($sql);
 //                                        $stmt->bindvalue("ip_address",$visitor_ip);

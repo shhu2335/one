@@ -2,11 +2,11 @@
 if (!isset($_SESSION)) {
     session_start();
 }
-
-if (!isset($_SESSION['loggedin'])) {
-//    header("Location: login.php");
-//    exit;
-}
+//
+//if (!isset($_SESSION['loggedin'])) {
+////    header("Location: login.php");
+////    exit;
+//}
 
 $host = 'localhost';
 $db = 'one';

@@ -1,6 +1,6 @@
 <?php
 
-include "connection";
+include "connection.php";
 include "fun.php";
 
 ?>
@@ -17,7 +17,7 @@ include "fun.php";
 <?php  include "header.php"; ?>
 
 <div class="container">
-    <div class="mx-auto p-3 my-5 bg-white  shadow border border-1  bg-gradient  rounded-3 text-secondary" style="width: 350px;" >
+    <div class="mx-auto p-3 my-5 bg-white  shadow border border-1  bg-gradient  rounded-3 text-secondary" style="width: 800px;" >
         <p class="card-title  mb-4 py-2 text-center fs-3 bg-primary text-white rounded-3"> إضف عقارك</p>
 
     <div class="row gap-0 g-1  row-cols-auto row-cols-sm-auto row-cols-md-5 justify-content-center  text-center">

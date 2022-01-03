@@ -1,34 +1,179 @@
 <?php
 
-
-include "connection";
-include "header.php";
+include "connection.php";
 include "fun.php";
+
+
+if (isset($_POST['submit_form_Add_studio'])) { // Start condition of add_submit_form_Add_studio
+
+    $count_Apartment = 0; // Define a variable  to count how many values are filed
+
+    if (empty($_POST["F_Type_sale"])) {  // F_Type_sale
+        $Type_sale_Err = "حقل اجباري";
+        $_POST["F_Type_sale"] = '';
+    } else {
+        if (filter_has_var(INPUT_POST, 'F_Type_sale')) {
+            $Type_sale = test_input(filter_var($_POST["F_Type_sale"], FILTER_SANITIZE_STRING));
+            $count_Apartment += 1;
+        }
+    }
+
+    if (empty($_POST["F_Num_Kitchen"])) {  // F_Num_Kitchen
+        $Num_Kitchen_Err = "حقل اجباري";
+        $_POST["F_Num_Kitchen"] = '';
+    } else {
+        if (filter_has_var(INPUT_POST, 'F_Num_Kitchen')) {
+            $Num_Kitchen = test_input(filter_var($_POST["F_Num_Kitchen"], FILTER_SANITIZE_NUMBER_INT));
+            $count_Apartment += 1;
+        }
+    }
+
+    if (empty($_POST["F_Type_Kitchen"])) {  // F_Type_Kitchen
+        $Type_Kitchen_Err = "حقل اجباري";
+        $_POST["F_Type_Kitchen"] = '';
+    } else {
+        if (filter_has_var(INPUT_POST, 'F_Type_Kitchen')) {
+            $Type_Kitchen = test_input(filter_var($_POST["F_Type_Kitchen"], FILTER_SANITIZE_STRING));
+            $count_Apartment += 1;
+        }
+    }
+
+    if (empty($_POST["F_Num_Warehouse"])) {  // F_Num_Warehouse
+        $Num_Warehouse_Err = "حقل اجباري";
+        $_POST["F_Num_Warehouse"] = '';
+    } else {
+        if (filter_has_var(INPUT_POST, 'F_Num_Warehouse')) {
+            $Num_Warehouse = test_input(filter_var($_POST["F_Num_Warehouse"], FILTER_SANITIZE_NUMBER_INT));
+            $count_Apartment += 1;
+        }
+    }
+
+    if (empty($_POST["F_Num_Toilets"])) {  // F_Num_Toilets
+        $Num_Toilets_Err = "حقل اجباري";
+        $_POST["F_Num_Toilets"] = '';
+    } else {
+        if (filter_has_var(INPUT_POST, 'F_Num_Toilets')) {
+            $Num_Toilets= test_input(filter_var($_POST["F_Num_Toilets"], FILTER_SANITIZE_NUMBER_INT));
+            $count_Apartment += 1;
+        }
+    }
+
+    if (empty($_POST["F_Type_Toilets"])) {  // F_Type_Toilets
+        $Num_Toilets_Err = "حقل اجباري";
+        $_POST["F_Type_Toilets"] = '';
+    } else {
+        if (filter_has_var(INPUT_POST, 'F_Type_Toilets')) {
+            $Type_Toilets= test_input(filter_var($_POST["F_Type_Toilets"], FILTER_SANITIZE_STRING));
+            $count_Apartment += 1;
+        }
+    }
+
+    if (empty($_POST["f_property_age"])) {  // f_property_age
+        $property_age_Err = "حقل اجباري";
+        $_POST["f_property_age"] = '';
+    } else {
+        if (filter_has_var(INPUT_POST, 'f_property_age')) {
+            $property_age= test_input(filter_var($_POST["f_property_age"], FILTER_SANITIZE_NUMBER_INT));
+            $count_Apartment += 1;
+        }
+    }
+
+    if (empty($_POST["f_details"])) {  // $f_details
+        $details_Err = "حقل اجباري";
+        $_POST["f_details"] = '';
+    } else {
+        if (filter_has_var(INPUT_POST, 'f_details')) {
+            $details= test_input(filter_var($_POST["f_details"], FILTER_SANITIZE_STRING));
+            $count_Apartment += 1;
+        }
+    }
+
+    if (empty($_POST["F_price"])) {  // $f_details
+        $price_Err = "حقل اجباري";
+        $_POST["F_price"] = '';
+    } else {
+        if (filter_has_var(INPUT_POST, 'F_price')) {
+            $price= test_input(filter_var($_POST["F_price"], FILTER_SANITIZE_NUMBER_FLOAT));
+            $count_Apartment += 1;
+        }
+    }
+
+    if (empty($_POST["F_pay_method"])) {  // $f_details  $list_pay_method
+        $pay_method_Err = "حقل اجباري";
+        $_POST["F_pay_method"] = '';
+    } else {
+        if (filter_has_var(INPUT_POST, 'F_pay_method')) {
+            $pay_method= test_input(filter_var($_POST["F_pay_method"], FILTER_SANITIZE_STRING));
+            $count_Apartment += 1;
+        }
+    }
+
+    if (empty($_POST["F_Category"])) {  // $f_details  $list_pay_method
+        $Category_Err = "حقل اجباري";
+        $_POST["F_Category"] = '';
+    } else {
+        if (filter_has_var(INPUT_POST, 'F_Category')) {
+            $Category= test_input(filter_var($_POST["F_Category"], FILTER_SANITIZE_STRING));
+            $count_Apartment += 1;
+        }
+    }
+
+    // Start SQL Connection
+    if ($count_Apartment === 11){ // Start condition of count
+
+        if (isset($pdo)){ // Start SQL Conn -- 12
+
+            try { // Start try catch --
+
+                $SQL = 'insert into studio (id, Type_sale, Num_Kitchen, Type_Kitchen, Num_Warehouse, property_name, 
+                    Num_Toilets,Type_Toilets, property_age,details,price,pay_method,Category)
+                    VALUES (:id, :Type_sale, :Num_Kitchen, :Type_Kitchen,:Num_Warehouse, :property_name,
+                            :Num_Toilets,:Type_Toilets ,:property_age,:details,:price,:pay_method,:Category)' ;
+
+                $stmt=$pdo->prepare($SQL);
+                $stmt->execute($r = array(
+                    'id'=>null,
+                    'Type_sale' => $Type_sale,
+                    'Num_Kitchen' => $Num_Kitchen,
+                    'Type_Kitchen' => $Type_Kitchen,
+                    'Num_Warehouse' => $Num_Warehouse,
+                    'property_name' => 'أستديو',
+                    'Num_Toilets' => $Num_Toilets,
+                    'Type_Toilets' => $Type_Toilets,
+                    'property_age' => $property_age,
+                    'details' => $details,
+                    'price' => $price,
+                    'pay_method' => $pay_method,
+                    'Category' => $Category,)
+                );
+            } catch (Exception $e) {
+                throw new \PDOException($e->getMessage(), (int)$e->getCode());
+            } // End ty catch --
+        } // End SQL Conn -- 12
+    } // End condition of count
+} // End condition of add_Apartment
 ?>
 <!doctype html>
-<html lang="en">
+<html lang="ar">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
+    <title>إضافه أستديو</title>
 </head>
+
 <body>
+<?php  include "header.php"; ?>
+<div class="container-fluid p-md-5">
+    <div class="w-auto mx-auto p-3 m-5 shadow border border-1 bg-gradient rounded-3 text-secondary">
+        <p class="card-title mb-2 py-2 text-center fs-3 bg-primary text-white rounded-3">إضافه أستديو</p>
 
-</body>
-</html>
-
-<div class="container">
-    <div class="mx-auto p-3 my-5 bg-white  shadow border border-1  bg-gradient  rounded-3 text-secondary" >
-        <p class="mb-2 py-2 text-center fs-3 bg-primary text-white rounded-3">إضافه استديو</p>
-        <form class="row g-2 gap-0 row row-cols-2 row-cols-md-5 justify-content-center mt-4" method="post" action="Add_Studio.php">
-
-
+        <form class="row g-md-1 gap-md-0 row row-cols-2 row-cols-md-3 justify-content-start mt-4" method="post" action="Add_Studio.php">
             <div class="col">
-                <select class="form-select" >
-
-                    <option selected value="">-- أختر الغرض --</option>
+                <label for="F_Type_sale" class="form-label">نوع العرض العقار</label>
+                <select class="form-select"  name="F_Type_sale" aria-label="Default select example">
+                    <option selected value="">نوع العرض العقار</option>
                     <?php if (!empty($length_State)) {
                         for ($i = 0; $i < $length_State; $i++) { ?>
                             <option value="<?php if (!empty($arra_list_State)) {
@@ -36,180 +181,226 @@ include "fun.php";
                             } ?>">
                                 <?php if (!empty($arra_list_State)) {
                                     echo $arra_list_State[$i];
-                                } ?> </option>
+                                } ?>
+                            </option>
                         <?php }
                     } ?>
                 </select>
-
-            </div>
-
+                <?php
+                if (isset($Type_sale_Err)){
+                    echo '<span  class="badge bg-danger bg-gradient rounded-3">';
+                    echo $Type_sale_Err;
+                    echo '<span>';
+                }
+                ?>
+            </div>  <!--     F_Type_sale -->
             <div class="col">
-                <select class="form-select" >
-
-                    <option selected value="">-- أختر الغرض --</option>
-                    <?php if (!empty($length_numberRoom)) {
-                        for ($i = 0; $i < $length_numberRoom; $i++) { ?>
-                            <option value="<?php if (!empty($arra_list_numberRoom)) {
+                <label for="F_pay_method" class="form-label">طرق الدفع</label>
+                <select class="form-select"  name="F_pay_method" aria-label="Default select example">
+                    <option selected value="">طرق الدفع</option>
+                    <?php if (!empty($length_pay_method)) {
+                        for ($i = 0; $i < $length_pay_method; $i++) { ?>
+                            <option value="<?php if (!empty($list_pay_method)) {
+                                echo $list_pay_method[$i];
+                            } ?>">
+                                <?php if (!empty($list_pay_method)) {
+                                    echo $list_pay_method[$i];
+                                } ?>
+                            </option>
+                        <?php }
+                    } ?>
+                </select>
+                <?php
+                if (isset($pay_method_Err)){
+                    echo '<span  class="badge bg-danger bg-gradient rounded-3">';
+                    echo $pay_method_Err;
+                    echo '<span>';
+                }
+                ?>
+            </div>  <!--     F_pay_method -->
+            <div class="col">
+                <label for="F_Category" class="form-label">التصنيف</label>
+                <select class="form-select"  name="F_Category" aria-label="Default select example">
+                    <option selected value="">التنصنيف</option>
+                    <?php if (!empty($length_Category)) {
+                        for ($i = 0; $i < $length_Category; $i++) { ?>
+                            <option value="<?php if (!empty($list_Category)) {
+                                echo $list_Category[$i];
+                            } ?>">
+                                <?php if (!empty($list_Category)) {
+                                    echo $list_Category[$i];
+                                } ?>
+                            </option>
+                        <?php }
+                    } ?>
+                </select>
+                <?php
+                if (isset($Category_Err)){
+                    echo '<span  class="badge bg-danger bg-gradient rounded-3">';
+                    echo $Category_Err;
+                    echo '<span>';
+                }
+                ?>
+            </div>  <!--     F_Category -->
+            <div class="col">
+                <label for="F_Num_Kitchen" class="form-label">عدد المطابخ</label>
+                <select class="form-select" name="F_Num_Kitchen" aria-label="Default select example">
+                    <option selected value="">عدد المطابخ</option>
+                    <?php if (!empty($length_numberRoom)){
+                        for ($i = 0; $i < $length_numberRoom; $i++){
+                            ?>
+                            <option value="<?php if (!empty($arra_list_numberRoom)){
                                 echo $arra_list_numberRoom[$i];
                             } ?>">
-                                <?php if (!empty($arra_list_numberRoom)) {
+                                <?php if (!empty($arra_list_numberRoom)){
                                     echo $arra_list_numberRoom[$i];
-                                } ?> </option>
+                                } ?>
+                            </option>
                         <?php }
                     } ?>
                 </select>
-            </div>
-            
+                <?php
+                if (isset($Num_Kitchen_Err)){
+                    echo '<span  class="badge bg-danger bg-gradient rounded-3">';
+                    echo $Num_Kitchen_Err;
+                    echo '<span>';
+                }
+                ?>
+            </div>  <!--     F_Num_Kitchen -->
             <div class="col">
-                <select class="form-select" >
-                    <option selected>عدد الصالات</option>
-                    <?php if (!empty($length_numberRoom)) {
-                        for ($i = 0; $i < $length_numberRoom; $i++) { ?>
-                            <option value="<?php if (!empty($arra_list_numberRoom)) {
+                <label for="F_Type_Kitchen" class="form-label">نوع المطبخ</label>
+                <select class="form-select" name="F_Type_Kitchen" >
+                    <option selected value="">نوع المطبخ</option>
+                    <?php if (!empty($length_Type_of_toilets)){
+                        for ($i = 0; $i < $length_Type_of_toilets; $i++){
+                            ?>
+                            <option value="<?php if (!empty($arra_list_Type_kitchen)){
+                                echo $arra_list_Type_kitchen[$i];
+                            } ?>">
+                                <?php if (!empty($arra_list_Type_kitchen)){
+                                    echo $arra_list_Type_kitchen[$i];
+                                } ?>
+                            </option>
+                        <?php }
+                    } ?>
+                </select>
+                <?php
+                if (isset($Type_Kitchen_Err)){
+                    echo '<span  class="badge bg-danger bg-gradient rounded-3">';
+                    echo $Type_Kitchen_Err;
+                    echo '<span>';
+                }
+                ?>
+            </div>  <!--     F_Type_Kitchen -->
+            <div class="col">
+                <label for="F_Num_Warehouse" class="form-label">عدد المستودعات</label>
+                <select class="form-select" name="F_Num_Warehouse" aria-label="Default select example">
+                    <option selected value="">عدد المستودعات</option>
+                    <?php if (!empty($length_numberRoom)){
+                        for ($i = 0; $i < $length_numberRoom; $i++){
+                            ?>
+                            <option value="<?php if (!empty($arra_list_numberRoom)){
                                 echo $arra_list_numberRoom[$i];
                             } ?>">
-                                <?php if (!empty($arra_list_numberRoom)) {
+                                <?php if (!empty($arra_list_numberRoom)){
                                     echo $arra_list_numberRoom[$i];
-                                } ?> </option>
+                                } ?>
+                            </option>
                         <?php }
                     } ?>
                 </select>
-            </div>
-            
+                <?php
+                if (isset($Num_Warehouse_Err)){
+                    echo '<span  class="badge bg-danger bg-gradient rounded-3">';
+                    echo $Num_Warehouse_Err;
+                    echo '<span >';
+                }
+                ?>
+            </div>  <!--     F_Num_Warehouse -->
             <div class="col">
-                <select class="form-select" >
-                    <option selected>عدد المطابخ</option>
-                    <?php if (!empty($length_numberRoom)) {
-                        for ($i = 0; $i < $length_numberRoom; $i++) { ?>
-                            <option value="<?php if (!empty($arra_list_numberRoom)) {
+                <label for="F_Num_Toilets" class="form-label"> عدد دورات المياه</label>
+                <select class="form-select" name="F_Num_Toilets" aria-label="Default select example">
+                    <option selected value=""> عدد دورات المياه</option>
+                    <?php if (!empty($length_numberRoom)){
+                        for ($i = 0; $i < $length_numberRoom; $i++){
+                            ?>
+                            <option value="<?php if (!empty($arra_list_numberRoom)){
                                 echo $arra_list_numberRoom[$i];
                             } ?>">
-                                <?php if (!empty($arra_list_numberRoom)) {
+                                <?php if (!empty($arra_list_numberRoom)){
                                     echo $arra_list_numberRoom[$i];
-                                } ?> </option>
+                                } ?>
+                            </option>
                         <?php }
                     } ?>
                 </select>
-            </div>
-
+                <?php
+                if (isset($Num_Toilets_Err)){
+                    echo '<span  class="badge bg-danger bg-gradient rounded-3">';
+                    echo $Num_Toilets_Err;
+                    echo '<span >';
+                }
+                ?>
+            </div>  <!--     F_Num_Toilets -->
             <div class="col">
-                <select class="form-select" >
-                    <option selected>نوع المطبخ</option>
-                    <option value="1">  داخلي</option>
-                    <option value="2"> خارجي</option>
-                </select>
-            </div>
-
-            <div class="col">
-                <select class="form-select" >
-                    <option selected>عدد غرف النوم</option>
-                    <?php if (!empty($length_numberRoom)) {
-                        for ($i = 0; $i < $length_numberRoom; $i++) { ?>
-                            <option value="<?php if (!empty($arra_list_numberRoom)) {
-                                echo $arra_list_numberRoom[$i];
+                <label for="F_Type_Toilets" class="form-label">نوع دورة المياة</label>
+                <select class="form-select" name="F_Type_Toilets" >
+                    <option selected value="">نوع دورة المياة</option>
+                    <?php if (!empty($length_Type_of_toilets)){
+                        for ($i = 0; $i < $length_Type_of_toilets; $i++){
+                            ?>
+                            <option value="<?php if (!empty($arra_list_Type_of_toilets)){
+                                echo $arra_list_Type_of_toilets[$i];
                             } ?>">
-                                <?php if (!empty($arra_list_numberRoom)) {
-                                    echo $arra_list_numberRoom[$i];
-                                } ?> </option>
+                                <?php if (!empty($arra_list_Type_of_toilets)){
+                                    echo $arra_list_Type_of_toilets[$i];
+                                } ?>
+                            </option>
                         <?php }
                     } ?>
                 </select>
-            </div>
-
+                <?php
+                if (isset($Num_Toilets_Err)){
+                    echo '<span  class="badge bg-danger bg-gradient rounded-3">';
+                    echo $Num_Toilets_Err;
+                    echo '<span >';
+                }
+                ?>
+            </div>  <!--     F_Type_Toilets -->
             <div class="col">
-                <select class="form-select" >
-                    <option selected>عدد المجالس</option>
-                    <?php if (!empty($length_numberRoom)) {
-                        for ($i = 0; $i < $length_numberRoom; $i++) { ?>
-                            <option value="<?php if (!empty($arra_list_numberRoom)) {
-                                echo $arra_list_numberRoom[$i];
-                            } ?>">
-                                <?php if (!empty($arra_list_numberRoom)) {
-                                    echo $arra_list_numberRoom[$i];
-                                } ?> </option>
-                        <?php }
-                    } ?>
-                </select>
-            </div>
-            
+                <label for="f_property_age" class="form-label">عمر العقار</label>
+                <input type="date"  class="form-control text-center" id="f_property_age" name="f_property_age" placeholder="عمر العقار">
+                <?php
+                if (isset($property_age_Err)){
+                    echo '<span  class="badge bg-danger bg-gradient rounded-3">';
+                    echo $property_age_Err;
+                    echo '<span >';
+                }
+                ?>
+            </div>  <!--     f_property_age -->
             <div class="col">
-                <select class="form-select" >
-                    <option selected>عدد المقلط</option>
-                    <?php if (!empty($length_numberRoom)) {
-                        for ($i = 0; $i < $length_numberRoom; $i++) { ?>
-                            <option value="<?php if (!empty($arra_list_numberRoom)) {
-                                echo $arra_list_numberRoom[$i];
-                            } ?>">
-                                <?php if (!empty($arra_list_numberRoom)) {
-                                    echo $arra_list_numberRoom[$i];
-                                } ?> </option>
-                        <?php }
-                    } ?>
-                </select>
-            </div>
-
-            <div class="col">
-                <select class="form-select" >
-                    <option selected>عدد المستودعات</option>
-                    <?php if (!empty($length_numberRoom)) {
-                        for ($i = 0; $i < $length_numberRoom; $i++) { ?>
-                            <option value="<?php if (!empty($arra_list_numberRoom)) {
-                                echo $arra_list_numberRoom[$i];
-                            } ?>">
-                                <?php if (!empty($arra_list_numberRoom)) {
-                                    echo $arra_list_numberRoom[$i];
-                                } ?> </option>
-                        <?php }
-                    } ?>
-                </select>
-            </div>
-
-
-            <div class="col">
-                <select class="form-select" >
-                    <option selected> عدد دورات المياه</option>
-                    <?php if (!empty($length_numberRoom)) {
-                        for ($i = 0; $i < $length_numberRoom; $i++) { ?>
-                            <option value="<?php if (!empty($arra_list_numberRoom)) {
-                                echo $arra_list_numberRoom[$i];
-                            } ?>">
-                                <?php if (!empty($arra_list_numberRoom)) {
-                                    echo $arra_list_numberRoom[$i];
-                                } ?> </option>
-                        <?php }
-                    } ?>
-                </select>
-            </div>
-
-            <div class="text-lg-start form-label col">
-                <!--                <label for="phone_number_form" class="form-label"></label>-->
-                <input type="number" class="form-control" id="phone_number_form" name="phone_number_form" placeholder="عمر العقار">
-                <label for="username_form" class="form-label"><?php if (isset($phone_number_var_Err)) {
-                        echo $phone_number_var_Err;
-                    } ?> </label>
-            </div>
-            <div class="form-group text-lg-start form-label ">
-                <label for="exampleFormControlTextarea1">مميزات إضافيه</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
-            </div>
-
-
-            <div class="col ">
-                <button type="submit" class="btn btn-primary text-light form-control" name="submit_form_user">حفظ
-                </button>
+                <label for="F_price" class="form-label">قيمة الايجار </label>
+                <input type="number"  class="form-control text-center" id="F_price" name="F_price" placeholder="قيمة الايجار  ">
+                <?php
+                if (isset($price_Err)){
+                    echo '<span  class="badge bg-danger bg-gradient rounded-3">';
+                    echo $price_Err;
+                    echo '<span >';
+                }
+                ?>
+            </div>  <!--     F_price -->
+            <div class="col-12">
+                <label for="f_details">مميزات إضافيه</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" name="f_details" rows="5"></textarea>
+            </div>  <!--  f_details -->
+            <div class="col-md-2 mt-4">
+                <button type="submit" class="btn btn-primary text-light form-control" name="submit_form_Add_studio">إضافة</button>
             </div>
         </form>
-
-
     </div>
-
 </div>
 
-
-
-
+<?php include "footer.php"; ?>
 </body>
-
 </html>
 
-<?php include "footer.php"; ?>

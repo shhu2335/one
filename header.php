@@ -1,6 +1,6 @@
 <?php
 
-include "connection";
+include "connection.php";
 
 ?>
 
@@ -29,9 +29,9 @@ include "connection";
 
 <nav class="navbar navbar-expand-lg navbar-light bg-white  m-0 text-primary ">
 
-    <div class="container pt-2">
-        <a class="navbar-brand text-primary " href="index.php"> أكنه العقارية</a>
-
+    <div class="container pt-2 px-0">
+<!--        <a class="navbar-brand text-primary " href="index.php"> أكنه العقارية</a>-->
+        <a class="navbar-brand text-primary " href="index.php"> <img src="img/logo1.png" alt="icon_logo" style="width:143px;height:47px;">  </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>

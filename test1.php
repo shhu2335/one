@@ -4,7 +4,7 @@
 <?php
 
 
-include "connection";
+include "connection.php";
 include 'header.php';
 ?>
 <!--<ul class="list-group list-group-horizontal my-4 p-2">-->

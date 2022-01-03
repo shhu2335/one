@@ -1,7 +1,7 @@
 <?php
 
     include "fun.php";
-    include "connection";
+    include "connection.php";
     if (! empty($_SESSION['logged_in'])){
 
 ?>

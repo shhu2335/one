@@ -4,7 +4,7 @@
 body {
     /*background: rgb(2, 0, 36);*/
     /*background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(90, 9, 121, 0.8323704481792717) 35%, rgba(0, 212, 255, 1) 100%);*/
-    font-family:Myriad Arabic;
+    font-family:Myriad Arabic, "Cairo";
     /*font-family: -apple-system, BlinkMacSystemFont, "segoe ui", roboto, oxygen, ubuntu, cantarell, "fira sans", "droid sans", "helvetica neue", Arial, sans-serif;*/
     font-size: 16px;
     font-size: 19px;

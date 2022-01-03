@@ -1,6 +1,6 @@
 <?php
 
-include "connection";
+include "connection.php";
 include "header.php";
 include "fun.php";
 
@@ -939,7 +939,7 @@ include "fun.php";
 
     if(isset($_GET['productO']) && !empty($_GET['productO']) && is_numeric($_GET['productO']))
     {
-        $sql = "SELECT * from desk WHERE  id =:itid";
+        $sql = "SELECT * from office WHERE  id =:itid";
         $handle = $pdo->prepare($sql);
         $params = [
 //            ':featured'=>1,
