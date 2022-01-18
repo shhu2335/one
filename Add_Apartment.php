@@ -3,7 +3,7 @@
 include "connection.php";
 include "fun.php";
 
-    // form_add_building
+    // form_add_Apartment
     if (isset($_POST['submit_form_Add_Apartment'])) { // Start condition of add_Apartment
 
         $count_Apartment = 0; // Define a variable  to count how many values are filed
@@ -225,7 +225,7 @@ include "fun.php";
                     echo '<span>';
                 }
                 ?>
-                </div>
+                </div>  <!--            F_Type_sale-->
             <div class="col">
                 <label for="F_Category" class="form-label">التصنيف</label>
                 <select class="form-select"  name="F_Category" aria-label="Default select example">
@@ -298,7 +298,7 @@ include "fun.php";
                     echo '<span>';
                 }
                 ?>
-                </div>
+                </div> <!--            F_Num_Bedrooms-->
             <div class="col">
                 <label for="F_Num_Lounges" class="form-label">عدد الصالات</label>
                 <select class="form-select" name="F_Num_Lounges" aria-label="Default select example">
@@ -323,7 +323,7 @@ include "fun.php";
                     echo '<span>';
                 }
                 ?>
-            </div>
+            </div> <!--            F_Num_Lounges-->
             <div class="col">
                 <label for="F_Num_Kitchen" class="form-label">عدد المطابخ</label>
                 <select class="form-select" name="F_Num_Kitchen" aria-label="Default select example">
