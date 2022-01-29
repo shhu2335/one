@@ -10,10 +10,27 @@ include "fun.php";
 <html lang="ar">
     <head>
     <title>مجموعة اكنه العقارية</title>
-<?php include "header.php";  ?>
-</head>
-<body>
 
+
+        <style>
+            /*.k1{*/
+            /*    background-image: url("./img/Shiny Overlay.svg");*/
+            /*    background-repeat: no-repeat;*/
+            /*    width: 100%;*/
+            /*    background-size: cover;*/
+            /*}*/
+
+            .k2{
+                background-image: url("./img/Rect Light.svg");
+                background-repeat: no-repeat;
+                width: 100%;
+                background-size: cover;
+            }
+        </style>
+
+    </head>
+<body>
+<?php include "header.php";  ?>
     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-indicators ">
     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -47,36 +64,59 @@ include "fun.php";
     </div>
 
 
-    <hr class="my-md-5 p-0 ">
-    <div class="container-fluid px-md-5">
-        <div class="p-3 bg-gradient  rounded-pill  text-secondary border border-1 border-secondary ">
-            <div class="row g-3  p-2 justify-content-center text-center  text-center  text-secondary g-1 row-cols-3">
+    <hr class="m-0 p-0">
+    <div class="container-fluid k1 py-md-0 bg-t">
+        <div class="bg-gradient  rounded-pill p-5 text-secondary">
+            <div class="row gap-md-1 row-cols-1  row-cols-md-4  row-cols-lg-6 justify-content-center text-center  text-secondary g-1 py-5 rounded-3 border border-1 border-dark">
 
-            <div class="col-9 col-md-3">
-                <form class="form bg-transparent bg-gradient mx-3">
-                    <label class="my-1 mr-0" for="inlineFormCustomSelectPref">اختار المدينة</label>
-                    <select class="form-control text-center rounded-pill my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+            <div class="col">
+                <form class="form m-0 p-0">
+                    <label class="my-0 mr-0" for="34">اختار المدينة</label>
+                    <select class="form-control text-center rounded-3 my-0 mr-sm-2" name="city_name" id="34">
                         <option selected>أختار ..</option>
-                        <option value="1">الرياض</option>
-                        <option value="2">المدينة المنورة</option>
-                        <option value="3">مكة المكرمة </option>
+                        <?php
+                        global  $id;
+                        $stmt = $pdo->query('SELECT * FROM sa_cities  ');
+                        $stmt->execute();
+                        $get_Data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                        foreach ($get_Data as $city) {
+
+                       ?>
+                        <option  id="myText"  value="<?php echo $city['id']; ?>"><?php  echo  $city['nameAr']; ?> </option>
+                        <?php  }?>
                     </select>
             </div>
 
-            <div class="col-9 col-md-3">
-                <form class="form bg-transparent bg-gradient mx-3">
-                    <label class="my-1 mr-0" for="inlineFormCustomSelectPref">اختار الحي</label>
-                        <select class="form-control text-center rounded-pill my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+            <div class="col">
+                <form class="form">
+                    <label class="my-0 mr-0" for="3">اختار الحي</label>
+                        <select class="form-control text-center rounded-3 my-0 mr-sm-2" name="district_name" id="3">
                             <option selected>أختار ..</option>
-                            <option value="1">الرياض</option>
-                            <option value="2">المدينة المنورة</option>
-                            <option value="3">مكة المكرمة </option>
+
+                            <script>
+
+                                var x = document.getElementById("myText").value;
+                                document.getElementById("demo").innerHTML = x;
+                            </script>
+                            <p id="demo"></p>
+                            <?php
+
+
+                            $user = $pdo->prepare('select *  from  sa_neighborhoods  where cityId = :city ');
+                            $user->execute(['city' => $id ]);
+
+                            $get_Data4 = $user->fetchAll(PDO::FETCH_ASSOC);
+                            foreach ($get_Data4 as $row) {
+                                ?>
+                                <option  value="<?php echo $row['nameAr']; ?>"><?php  echo $row['nameAr']; ?></option>
+                            <?php  }?>
                         </select>
             </div>
 
-            <div class="col-9 col-md-3 ">
-                <label class="my-1 mr-0" for="inlineFormCustomSelectPref">اختار الغرض </label>
-                <select class="form-control text-center rounded-pill my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+
+            <div class="col">
+                <label class="my-0 mr-0" for="1">اختار الغرض </label>
+                <select class="form-control text-center rounded-3 my-0 mr-sm-2" name="F_Type_sale" id="1">
                     <option selected>أختار ..</option>
                     <option value="1">إيجار</option>
                     <option value="2">للبيع</option>
@@ -84,9 +124,9 @@ include "fun.php";
                 </select>
             </div>
 
-            <div class="col-9 col-md-3 ">
-                <label class="my-1 mr-0" for="inlineFormCustomSelectPref">اختار نوع العقار</label>
-                    <select class="form-control text-center rounded-pill my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+            <div class="col">
+                <label class="my-0 mr-0" for="2">اختار نوع العقار</label>
+                    <select class="form-control text-center rounded-3 my-0 mr-sm-2"name="f_property_type" id="2">
                         <option selected>أختار ..</option>
                         <option value="1">عمارة</option>
                         <option value="2">شقة</option>
@@ -94,55 +134,53 @@ include "fun.php";
                     </select>
             </div>
 
-            <div class="col-9 col-md-3">
-                <label class="my-1 mr-0" for="inlineFormCustomSelectPref">أبحث عن عقارك..</label>
-                <button type="submit" class="btn btn-primary rounded-pill my-1 w-100">أبحث ..</button>
+            <div class="col">
+                <label class="my-0 mr-0" for="inlineFormCustomSelectPref">أبحث عن عقارك..</label>
+                <button type="submit" class="btn btn-primary rounded-pill my-0 w-100">أبحث ..</button>
             </div>
             </form>
         </div>
         </div>
     </div>
 
-    <hr class="mt-5 p-0 ">
-
-    <div class="container-fluid p-md-5">
-        <div class="row gap-0 gap-3 gap-md-3 justify-content-center row-cols-1 row-cols-lg-5 g-1 g-lg-3 text-center text-secondary g-1 row-cols-3">
-            <div class="col-12">
-                <h1 class="display-1 m-0 p-0 ">أرقام</h1>
+    <div class="container-fluid k2 m-0 p-0">
+        <div class="row py-md-5 gap-3 gap-md-3 justify-content-center row-cols-1 row-cols-lg-5 g-1 g-lg-3 text-center  row-cols-3">
+            <div class="col-12 m-0 p-0">
+                <h1 class="display-1 m-0 p-0 text-white ">أرقام</h1>
             </div>
 
-            <div class="col-8 col-md-3 bg-gradient rounded-pill text-secondary border border-1 border-secondary">
+            <div class="col-8 col-md-3 bg-gradient rounded-pill text-white border border-1 border-white">
                 <h1 class="display-4 m-0 p-0 "><?php echo number_format(count_num_office(), 0, ",", ",");?></h1>
-                <p class="badge rounded-pill bg-secondary d-block m-0 p-0 w-75 fs-5 py-1 mb-2 mx-auto text-wrap"> عدد المكاتب </p>
+                <p class="rounded-pill text-dark bg-white d-block m-0 p-0 w-75 fs-5 py-1 mb-2 mx-auto "> عدد المكاتب </p>
             </div>
 
-            <div class="col-8 col-md-3 bg-gradient rounded-pill text-secondary border border-1 border-secondary ">
+            <div class="col-8 col-md-3 bg-gradient rounded-pill text-white border border-1 border-white ">
                 <h1 class="display-4 m-0 p-0 "><?php echo number_format(12505, 0, ",", ",");?></h1>
-                <p class="badge rounded-pill bg-secondary d-block m-0 p-0 w-75 fs-5 py-1 mb-2 mx-auto">عدد العقارات </p>
+                <p class="rounded-pill  text-dark bg-white d-block m-0 p-0 w-75 fs-5 py-1 mb-2 mx-auto">عدد العقارات </p>
             </div>
 
-            <div class="col-8 col-md-3 bg-gradient rounded-pill text-secondary border border-1 border-secondary">
+            <div class="col-8 col-md-3 bg-gradient rounded-pill text-white border border-1 border-white">
                 <div class="display-4 m-0 p-0"><?php echo number_format(count_num_user(), 0, ",", ",");?></div>
-                <p class="badge rounded-pill bg-secondary d-block m-0 p-0 w-75 fs-5 py-1 mb-2 mx-auto">عدد المستفيدين</p>
+                <p class="rounded-pill text-dark bg-white d-block m-0 p-0 w-75 fs-5 py-1 mb-2 mx-auto">عدد المستفيدين</p>
             </div>
 
-            <div class="col-8 col-md-3  bg-gradient  rounded-pill text-secondary border border-1 border-secondary">
+            <div class="col-8 col-md-3  bg-gradient  rounded-pill text-white border border-1 border-white">
                 <div class="display-4 m-0 p-0"><?php echo number_format(500, 0, ",", ",");?></div>
-                <p class="badge rounded-pill bg-secondary d-block m-0 p-0 w-75 fs-5 py-1 mb-2 mx-auto">عدد المسوقين</p>
+                <p class="rounded-pill text-dark bg-white d-block m-0 p-0 w-75 fs-5 py-1 mb-2 mx-auto">عدد المسوقين</p>
             </div>
 
-            <div class="col-8 col-md-3 bg-gradient rounded-pill text-secondary border border-1 border-secondary">
+            <div class="col-8 col-md-3 bg-gradient rounded-pill text-white border border-1 border-white">
                 <div class="display-4 m-0 p-0"><?php  echo number_format(count_num_apartment(), 0, ",", ","); ?></div>
-                <p class="badge rounded-pill bg-secondary d-block m-0 p-0 w-75 fs-5 py-1 mb-2 mx-auto">عدد الشقق</p>
+                <p class="rounded-pill text-dark bg-white d-block m-0 p-0 w-75 fs-5 py-1 mb-2 mx-auto">عدد الشقق</p>
             </div>
 
-            <div class="col-8 col-md-3 bg-gradient rounded-pill text-secondary border border-1 border-secondary">
+            <div class="col-8 col-md-3 bg-gradient rounded-pill text-white border border-1 border-white">
                 <div class="display-4 m-0 p-0"><?php echo number_format(count_num_building(), 0, ",", ",");?></div>
-                <p class="badge rounded-pill bg-secondary d-block m-0 p-0 w-75 fs-5 py-1 mb-2 mx-auto">عدد العمائر</p>
+                <p class="rounded-pill text-dark bg-white d-block m-0 p-0 w-75 fs-5 py-1 mb-2 mx-auto">عدد العمائر</p>
             </div>
         </div>
     </div>
-    <hr class="mb-5 p-0 ">
+
 
 
 <!-- my mx me ms m  py px pe ps  05-->
@@ -167,61 +205,61 @@ include "fun.php";
 
     </div>
     </div>
-    <div  class="bg-gradient mx-auto p-3 text-center"  STYLE="background-color: #f8f9fa;">
-
-
-
-
-<div class="container-fluid ">
-            <div class="row gap-0 gx--5 justify-content-start row-cols-lg-6 text-center text-secondary g-1 row-cols-3">
-
-                <div class="col p-md-1 bg-gradient  rounded-pill text-secondary border border-1 border-secondary">
-                    <div class="h3 m-0 p-0"><?php echo number_format(500, 0, ",", ",");?></div>
-                    <a href="index.php?Villa&?#Villa" class="badge rounded-pill bg-secondary d-block m-0 p-0 w-75 fs-5 mb-2 mx-auto text-decoration-none">فلل</a>
-                </div>
-
-                <div class="col bg-gradient rounded-pill text-secondary bg-secondary border border-1 border-secondary">
-                    <a href="index.php?Apartment&?#Apartment" class="badge rounded-pill d-block m-0 p-1 w-100 fs-5 p-3 h-100 mx-auto text-decoration-none">شقق</a>
-                </div>
-
-                <div class="col bg-gradient rounded-pill text-secondary bg-secondary border border-1 border-secondary">
-                    <a href="index.php?Building&?#Building" class="badge rounded-pill d-block m-0 p-1 w-100 fs-5 p-3 h-100 mx-auto text-decoration-none">عمائر</a>
-                </div>
-
-                <div class="col bg-gradient rounded-pill text-secondary bg-secondary border border-1 border-secondary">
-                    <a href="index.php?Castle&?#Castle" class="badge rounded-pill d-block m-0 p-1 w-100 fs-5 p-3 h-100 mx-auto text-decoration-none">قصور</a>
-                </div>
-
-                <div class="col bg-gradient rounded-pill text-secondary bg-secondary border border-1 border-secondary">
-                    <a href="index.php?Farm&?#Farm" class="badge rounded-pill d-block m-0 p-1 w-100 fs-5 p-3 h-100 mx-auto text-decoration-none">المزارع</a>
-                </div>
-
-                <div class="col bg-gradient rounded-pill text-secondary bg-secondary border border-1 border-secondary">
-                    <a href="index.php?Shop&?#Shop" class="badge rounded-pill d-block m-0 p-1 w-100 fs-5 p-3 h-100 mx-auto text-decoration-none">المحلات</a>
-                </div>
-
-                <div class="col bg-gradient rounded-pill text-secondary bg-secondary border border-1 border-secondary">
-                    <a href="index.php?Land&?#Land" class="badge rounded-pill d-block m-0 p-1 w-100 fs-5 p-3 h-100 mx-auto text-decoration-none">الاراضي</a>
-                </div>
-
-                <div class="col bg-gradient rounded-pill text-secondary bg-secondary border border-1 border-secondary">
-                    <a href="index.php?Office&?#Office" class="badge rounded-pill d-block m-0 p-1 w-100 fs-5 p-3 h-100 mx-auto text-decoration-none">المكاتب</a>
-                </div>
-
-                <div class="col bg-gradient rounded-pill text-secondary bg-secondary border border-1 border-secondary">
-                    <a href="index.php?&?#Dianiyah" class="badge rounded-pill d-block m-0 p-1 w-100 fs-5 p-3 h-100 mx-auto text-decoration-none">الشاليهات</a>
-                </div>
-
-                <div class="col bg-gradient rounded-pill text-secondary bg-secondary border border-1 border-secondary">
-                    <a href="index.php?Dianiyah&?#Dianiyah" class="badge rounded-pill d-block m-0 p-1 w-100 fs-5 p-3 h-100 mx-auto text-decoration-none">الإستراحات</a>
-                </div>
-
-                <div class="col bg-gradient rounded-pill text-secondary bg-secondary border border-1 border-secondary">
-                    <a href="index.php?Studio&?#Studio" class="badge rounded-pill d-block  m-0 p-1 w-100 fs-5 p-3 h-100 mx-auto text-decoration-none">استديوهات</a>
-                </div>
-            </div>
-        </div>
-    </div>
+<!--    <div  class="bg-gradient mx-auto p-3 text-center"  STYLE="background-color: #f8f9fa;">-->
+<!---->
+<!---->
+<!---->
+<!---->
+<!--<div class="container-fluid d-none">-->
+<!--            <div class="row gap-0 gx-5 justify-content-start row-cols-lg-6 text-center text-secondary g-1 row-cols-3">-->
+<!---->
+<!--                <div class="col p-md-1 bg-gradient  rounded-pill text-secondary border border-1 border-secondary">-->
+<!--                    <div class="h3 m-0 p-0">--><?php //echo number_format(500, 0, ",", ",");?><!--</div>-->
+<!--                    <a href="index.php?Villa&?#Villa" class="badge rounded-pill bg-secondary d-block m-0 p-0 w-75 fs-5 mb-2 mx-auto text-decoration-none">فلل</a>-->
+<!--                </div>-->
+<!---->
+<!--                <div class="col bg-gradient rounded-pill text-secondary bg-secondary border border-1 border-secondary">-->
+<!--                    <a href="index.php?Apartment&?#Apartment" class="badge rounded-pill d-block m-0 p-1 w-100 fs-5 p-3 h-100 mx-auto text-decoration-none">شقق</a>-->
+<!--                </div>-->
+<!---->
+<!--                <div class="col bg-gradient rounded-pill text-secondary bg-secondary border border-1 border-secondary">-->
+<!--                    <a href="index.php?Building&?#Building" class="badge rounded-pill d-block m-0 p-1 w-100 fs-5 p-3 h-100 mx-auto text-decoration-none">عمائر</a>-->
+<!--                </div>-->
+<!---->
+<!--                <div class="col bg-gradient rounded-pill text-secondary bg-secondary border border-1 border-secondary">-->
+<!--                    <a href="index.php?Castle&?#Castle" class="badge rounded-pill d-block m-0 p-1 w-100 fs-5 p-3 h-100 mx-auto text-decoration-none">قصور</a>-->
+<!--                </div>-->
+<!---->
+<!--                <div class="col bg-gradient rounded-pill text-secondary bg-secondary border border-1 border-secondary">-->
+<!--                    <a href="index.php?Farm&?#Farm" class="badge rounded-pill d-block m-0 p-1 w-100 fs-5 p-3 h-100 mx-auto text-decoration-none">المزارع</a>-->
+<!--                </div>-->
+<!---->
+<!--                <div class="col bg-gradient rounded-pill text-secondary bg-secondary border border-1 border-secondary">-->
+<!--                    <a href="index.php?Shop&?#Shop" class="badge rounded-pill d-block m-0 p-1 w-100 fs-5 p-3 h-100 mx-auto text-decoration-none">المحلات</a>-->
+<!--                </div>-->
+<!---->
+<!--                <div class="col bg-gradient rounded-pill text-secondary bg-secondary border border-1 border-secondary">-->
+<!--                    <a href="index.php?Land&?#Land" class="badge rounded-pill d-block m-0 p-1 w-100 fs-5 p-3 h-100 mx-auto text-decoration-none">الاراضي</a>-->
+<!--                </div>-->
+<!---->
+<!--                <div class="col bg-gradient rounded-pill text-secondary bg-secondary border border-1 border-secondary">-->
+<!--                    <a href="index.php?Office&?#Office" class="badge rounded-pill d-block m-0 p-1 w-100 fs-5 p-3 h-100 mx-auto text-decoration-none">المكاتب</a>-->
+<!--                </div>-->
+<!---->
+<!--                <div class="col bg-gradient rounded-pill text-secondary bg-secondary border border-1 border-secondary">-->
+<!--                    <a href="index.php?&?#Dianiyah" class="badge rounded-pill d-block m-0 p-1 w-100 fs-5 p-3 h-100 mx-auto text-decoration-none">الشاليهات</a>-->
+<!--                </div>-->
+<!---->
+<!--                <div class="col bg-gradient rounded-pill text-secondary bg-secondary border border-1 border-secondary">-->
+<!--                    <a href="index.php?Dianiyah&?#Dianiyah" class="badge rounded-pill d-block m-0 p-1 w-100 fs-5 p-3 h-100 mx-auto text-decoration-none">الإستراحات</a>-->
+<!--                </div>-->
+<!---->
+<!--                <div class="col bg-gradient rounded-pill text-secondary bg-secondary border border-1 border-secondary">-->
+<!--                    <a href="index.php?Studio&?#Studio" class="badge rounded-pill d-block  m-0 p-1 w-100 fs-5 p-3 h-100 mx-auto text-decoration-none">استديوهات</a>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
 
 <div class="container-fluid">
 <?php if (isset($_GET['Villa'])){

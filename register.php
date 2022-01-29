@@ -1,9 +1,107 @@
 <?php
-
-
 include "connection.php";
 include  "fun.php";
+if (isset($_POST['submit_form_user'])) {
+    // *********************    $name_var   ********************************************************
+    if (empty($_POST["name_form"])) {
+        $name_var_err = "الرجاء كتابة الاسم";
+        $_POST["name_form"] = '';
+    }
+    if (filter_has_var(INPUT_POST, 'name_form')) {
 
+        $name_var = test_input(filter_var($_POST['name_form'], FILTER_SANITIZE_STRING));
+    }
+
+    // ********************* username_form   ***************************************************
+    if (empty($_POST["username_form"])) {
+        $username_var_err = "الرجاء كتابة أسم المستخدم";
+        $_POST["username_form"] = '';
+    }
+    if (filter_has_var(INPUT_POST, 'username_form')) {
+        $username_var = test_input(filter_var($_POST["username_form"], FILTER_SANITIZE_STRING));
+    }
+
+    //  *********************************** password_form   *******************************************
+    if (empty($_POST["password_form"])) {
+        $password_var_err = "الرجاء كتابة كلمه المرور ";
+        $_POST["password_form"] = '';
+    }
+    if (filter_has_var(INPUT_POST, 'password_form')) {
+        $hashPassword = test_input(filter_var($_POST["password_form"], FILTER_SANITIZE_STRING));
+
+        $options = array("cost"=>4);
+        $password_var = password_hash($hashPassword,PASSWORD_DEFAULT,$options);
+    }
+
+    // *********************************** password_con_form   *******************************************
+    if (empty($_POST["password_con_form"])) {
+        $password_con_var_err = "الرجاء كتابة تأكيد كلمه المرور ";
+        $_POST["password_con_form"] = '';
+    }
+    if (filter_has_var(INPUT_POST, 'password_con_form')) {
+        $password_con_var = test_input(filter_var($_POST["password_con_form"], FILTER_SANITIZE_STRING));
+    }
+
+    // ***********************************  email_from   *******************************************
+    if (empty($_POST["email_from"])) {
+        $email_from_var_err = "الرجاء كتابة الإيميل ";
+        $_POST["email_from"] = '';
+    }
+    if (filter_has_var(INPUT_POST, 'email_from')) {
+        $email_from_var = test_input(filter_var($_POST["email_from"], FILTER_SANITIZE_EMAIL));
+    }
+
+    // ***********************************  phone_number_form   *******************************************
+    if (empty($_POST["phone_number_form"])) {
+        $phone_number_var_err = "الرجاء كتابة رقم الجوال ";
+        $_POST["phone_number_form"] = '';
+    }
+    if (filter_has_var(INPUT_POST, 'phone_number_form')) {
+        $phone_number_var = test_input(filter_var($_POST["phone_number_form"], FILTER_SANITIZE_NUMBER_INT));
+    }
+
+
+// ************************************ sql add new user ********************************************   start
+
+//check that username is not already in use, if it is return an error.
+    try {
+
+        if (isset($pdo)) {
+            $user = $pdo->prepare('select  username  from  user  where username = :usernmae ');
+            $user->execute(['usernmae' => $username_var]);
+            $user->fetch();
+            $count = $user->rowcount();
+            if ($count > 0) {
+                $message_user_exists = "اسم المستخدم مستخدم من قبل الرجاء ادخال اسم مستخدم آخر.";
+            } else {
+                $sql = "insert into user
+                            (id,name,username,password,phone_number,email)
+                   values(:itid,:itname,:itusernmae,:itpassword,:phone_number,:itemail)";
+
+                if (isset($pdo)) {
+                    $stmt = $pdo->prepare($sql);
+                }
+
+                $stmt->execute($r = array(
+                    'itid' => null,
+                    'itname' => $name_var,
+                    'itusernmae' => $username_var,
+                    'itpassword' => $password_var,
+                    'phone_number' => $phone_number_var,
+                    'itemail' => $email_from_var,
+                ));
+                header('location: index.php');
+                exit();
+            }
+
+
+        }
+    }catch (Exception $e) {
+        throw new \PDOException($e->getMessage(), (int)$e->getCode());
+    }
+//// ************************************ sql add new user ********************************************   end
+
+}
 ?>
 <!doctype html>
 <html lang="en">
@@ -12,6 +110,7 @@ include  "fun.php";
     <meta name="viewport"  content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+
 </head>
 <body>
 <?php include  "header.php"; ?>
@@ -78,7 +177,6 @@ include  "fun.php";
                         echo $password_con_var_Err;
                     } ?> </label>
             </div>
-
             <div class="col mx-auto">
                 <button type="submit" class="btn btn-primary text-light form-control" name="submit_form_user">تسجيل
                 </button>
@@ -96,6 +194,4 @@ include  "fun.php";
 </body>
 </html>
 <?php require  "footer.php";  //}else{
-// header("location:login.php");
-//}
-?>
+// header("location:login.p

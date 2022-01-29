@@ -1,10 +1,6 @@
 <?php
-
-
 include "connection.php";
-
 include "fun.php";
-
 ?>
 <!doctype html>
 <html lang="en">

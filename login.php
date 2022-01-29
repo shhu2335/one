@@ -25,9 +25,9 @@ include "fun.php";
 
 
     if (isset($pdo)){
-        $user = $pdo->prepare('select *  from  user  where usernmae = :usernmae ');
+        $user = $pdo->prepare('select *  from  user  where username = :username ');
 
-        $user->execute(['usernmae' => $var_user_name ]);
+        $user->execute(['username' => $var_user_name ]);
         //$user->fetch(PDO::FETCH_ASSOC);
         $data = $user->fetchAll(PDO::FETCH_ASSOC);
         foreach($data as $row) {
@@ -47,8 +47,8 @@ include "fun.php";
                 $_SESSION['id']          = $row['id'];
                 $_SESSION['password']    = $row['password'];
                 $_SESSION['email']       = $row['email'];
-                $_SESSION['phonenumber'] = $row['phonenumber'];
-                $_SESSION['usernmae']    = $row['usernmae'];
+                $_SESSION['phone_number'] = $row['phone_number'];
+                $_SESSION['username']    = $row['username'];
                 $_SESSION['logged_in']   = true;
                 header("location:index.php");
             }
@@ -67,12 +67,11 @@ include "fun.php";
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
 </head>
 <body>
 <?php include  "header.php"; ?>
 
-<div class="container-fluid P-0 ">
+<div class="container-fluid P-0 huss" >
 
     <div class="mx-auto  mt-5 mb-5  p-3 bg-white  shadow border border-1  bg-gradient  rounded-3 text-secondary" style="width: 350px;" >
         <h4 class="card-title mb-2 py-2 text-center fs-3 bg-primary text-white rounded-3">تسجيل دخول</h4>

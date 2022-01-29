@@ -22,6 +22,7 @@ include "connection.php";
 <!--  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.rtl.min.css" rel="stylesheet" integrity="sha384-LPvXVVAlyPoBSGkX8UddpctDks+1P4HG8MhT7/YwqHtJ40bstjzCqjj+VVVDhsCo" crossorigin="anonymous">-->
     <link rel="stylesheet" href="css/style.css">
     <link rel="shortcut icon" href="img/h-s.jpg">
+<!--    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>-->
     <title>مجموعة أكنه العقارية</title>
 
 </head>
@@ -58,5 +59,4 @@ include "connection.php";
 </nav>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
 <hr class="m-0 p-0 ">
-</body>
-</html>
+</
