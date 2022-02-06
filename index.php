@@ -1,117 +1,171 @@
-<?php
-include "connection.php";
-include "fun.php";
 
-//if (! empty($_SESSION['logged_in'])){
-//    header("location:login.php");
-//}
+<?php
+
+include "fun.php";
+include "connection.php";
+include "header.php";
+
+$stmt = $pdo->query('SELECT * FROM sa_provinces  ');
+$stmt->execute();
 ?>
-<!doctype html>
-<html lang="ar">
-    <head>
+<html>
+
+
+<head>
     <title>مجموعة اكنه العقارية</title>
 
 
-        <style>
-            /*.k1{*/
-            /*    background-image: url("./img/Shiny Overlay.svg");*/
-            /*    background-repeat: no-repeat;*/
-            /*    width: 100%;*/
-            /*    background-size: cover;*/
-            /*}*/
+    <style>
+        /*.k1{*/
+        /*    background-image: url("./img/Shiny Overlay.svg");*/
+        /*    background-repeat: no-repeat;*/
+        /*    width: 100%;*/
+        /*    background-size: cover;*/
+        /*}*/
 
-            .k2{
-                background-image: url("./img/Rect Light.svg");
-                background-repeat: no-repeat;
-                width: 100%;
-                background-size: cover;
+        .k2{
+            background-image: url("./img/Rect Light.svg");
+            background-repeat: no-repeat;
+            width: 100%;
+            background-size: cover;
+        }
+    </style>
+
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"
+            type="text/javascript"></script>
+    <script>
+        function getState() {
+            var str='';
+            var val=document.getElementById('country-list');
+            for (i=0;i< val.length;i++) {
+                if(val[i].selected){
+                    str += val[i].value + ',';
+                }
             }
-        </style>
+            var str=str.slice(0,str.length -1);
 
-    </head>
-    <?php include "header.php";  ?>
+            $.ajax({
+                type: "GET",
+                url: "get_state.php",
+                data:'id='+str,
+                success: function(data){
+                    $("#state-list").html(data);
+                }
+            });
+        }
+
+
+        function getcity() {
+            var str='';
+            var val=document.getElementById('city-list');
+            for (i=0;i< val.length;i++) {
+                if(val[i].selected){
+                    str += val[i].value + ',';
+                }
+            }
+            var str=str.slice(0,str.length -1);
+
+            $.ajax({
+                type: "GET",
+                url: "get_city.php",
+                data:'id='+str,
+                success: function(data){
+                    $("#country-list").html(data);
+                }
+            });
+        }
+    </script>
+
+</head>
+
+
+
 <body>
 
-    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+
+<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-indicators ">
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
     </div>
 
-        <div class="carousel-inner ">
-            <div class="carousel-item active">
-                <img src="img/help3.gif" class="d-block w-100" style="height: 400px; max-height: 50%" alt="...">
-            </div>
-
-            <div class="carousel-item">
-                <img src="img/help4.gif" class="d-block w-100" style="height: 400px; max-height: 50%" alt="...">
-            </div>
-
-            <div class="carousel-item">
-                <img src="img/help5.gif" class="d-block w-100" style="height: 400px; max-height: 50%" alt="...">
-            </div>
+    <div class="carousel-inner ">
+        <div class="carousel-item active">
+            <img src="img/help3.gif" class="d-block w-100" style="height: 400px; max-height: 50%" alt="...">
         </div>
 
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
+        <div class="carousel-item">
+            <img src="img/help4.gif" class="d-block w-100" style="height: 400px; max-height: 50%" alt="...">
+        </div>
 
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
+        <div class="carousel-item">
+            <img src="img/help5.gif" class="d-block w-100" style="height: 400px; max-height: 50%" alt="...">
+        </div>
     </div>
 
-    <hr class="m-0 p-0">
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
 
-    <div class="container-fluid k1 py-md-0 bg-t">
-        <div class="bg-gradient rounded-pill p-5 text-secondary">
-            <div class="row gap-md-1 row-cols-1 row-cols-md-4 row-cols-lg-6 justify-content-center text-center text-secondary g-1 py-5 rounded-3 border border-1 border-dark">
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+
+
+
+<div class="container-fluid k1 py-md-0 bg-t">
+    <div class="bg-gradient  rounded-pill p-5 text-secondary">
+        <div class="row gap-md-1 row-cols-1  row-cols-md-4  row-cols-lg-6 justify-content-center text-center  text-secondary g-1 py-5 rounded-3 border border-1 border-dark">
 
             <div class="col">
                 <form class="form m-0 p-0">
                     <label class="my-0 mr-0" for="34">اختار المدينة</label>
-                    <select class="form-control text-center rounded-3 my-0 mr-sm-2" name="city_name" id="34">
-                        <option selected>أختار ..</option>
-                        <?php
-                        global  $id;
-                        $stmt = $pdo->query('SELECT * FROM sa_cities ');
-                        $stmt->execute();
-                        $get_Data = $stmt->fetchAll(PDO::FETCH_ASSOC);
-                        foreach ($get_Data as $city) {
 
-                       ?>
-                        <option  id="myText"  value="<?php echo $city['id']; ?>"><?php  echo  $city['nameAr']; ?> </option>
-                        <?php  }?>
+                    <label>المنطقه :</label><br />
+                    <select class="form-control text-center rounded-3 my-0 mr-sm-2" name="country[]"
+                            id="city-list" class=""
+                            onChange="getcity();" >
+                        <option value="">اختار المنطقه </option>
+                        <?php
+                        foreach ($stmt as $country) {
+                            ?>
+                            <option value="<?php echo $country["id"]; ?>"><?php echo $country["nameAr"]; ?></option>
+                            <?php
+                        }
+                        ?>
                     </select>
             </div>
 
             <div class="col">
                 <form class="form">
-                    <label class="my-0 mr-0" for="3">اختار الحي</label>
-                        <select class="form-control text-center rounded-3 my-0 mr-sm-2" name="district_name" id="3">
-                            <option selected>أختار ..</option>
+                    <label class="my-0 mr-0" for="3">اختار المدينه</label>
 
-<!--                            <script>-->
-<!---->
-<!--                                var x = document.getElementById("myText").value;-->
-<!--                                document.getElementById("demo").innerHTML = x;-->
-<!--                            </script>-->
-<!--                            <p id="demo"></p>-->
+                    <select class="form-control text-center rounded-3 my-0 mr-sm-2" name="country[]"
+                            id="country-list" class=""
+                            onChange="getState();" >
+                        <option value="">اختار المدينه </option>
+                        <?php
+                        foreach ($stmt as $country) {
+                            ?>
+                            <option value="<?php echo $country["id"]; ?>"><?php echo $country["nameAr"]; ?></option>
                             <?php
+                        }
+                        ?>
+                    </select>
+            </div>
 
+            <div class="col">
 
-                            $user = $pdo->prepare('select *  from  sa_neighborhoods  where cityId = :city ');
-                            $user->execute(['city' => $id ]);
+                <label class="my-0 mr-0" for="1">اختارالحي </label>
 
-                            $get_Data4 = $user->fetchAll(PDO::FETCH_ASSOC);
-                            foreach ($get_Data4 as $row) {
-                                ?>
-                                <option  value="<?php echo $row['nameAr']; ?>"><?php  echo $row['nameAr']; ?></option>
-                            <?php  }?>
-                        </select>
+                <select class="form-control text-center rounded-3 my-0 mr-sm-2" name="state[]"
+                        id="state-list" class="" >
+                    <option value="">اخيار الحي </option>
+                </select>
             </div>
 
 
@@ -127,12 +181,12 @@ include "fun.php";
 
             <div class="col">
                 <label class="my-0 mr-0" for="2">اختار نوع العقار</label>
-                    <select class="form-control text-center rounded-3 my-0 mr-sm-2"name="f_property_type" id="2">
-                        <option selected>أختار ..</option>
-                        <option value="1">عمارة</option>
-                        <option value="2">شقة</option>
-                        <option value="3">فلة</option>
-                    </select>
+                <select class="form-control text-center rounded-3 my-0 mr-sm-2"name="f_property_type" id="2">
+                    <option selected>أختار ..</option>
+                    <option value="1">عمارة</option>
+                    <option value="2">شقة</option>
+                    <option value="3">فلة</option>
+                </select>
             </div>
 
             <div class="col">
@@ -141,126 +195,68 @@ include "fun.php";
             </div>
             </form>
         </div>
+    </div>
+</div>
+
+<div class="container-fluid k2 m-0 p-0">
+    <div class="row py-md-5 gap-3 gap-md-3 justify-content-center row-cols-1 row-cols-lg-5 g-1 g-lg-3 text-center  row-cols-3">
+        <div class="col-12 m-0 p-0">
+            <h1 class="display-1 m-0 p-0 text-white ">أرقام</h1>
+        </div>
+
+        <div class="col-8 col-md-3 bg-gradient rounded-pill text-white border border-1 border-white">
+            <h1 class="display-4 m-0 p-0 "><?php echo number_format(count_num_office(), 0, ",", ",");?></h1>
+            <p class="rounded-pill text-dark bg-white d-block m-0 p-0 w-75 fs-5 py-1 mb-2 mx-auto "> عدد المكاتب </p>
+        </div>
+
+        <div class="col-8 col-md-3 bg-gradient rounded-pill text-white border border-1 border-white ">
+            <h1 class="display-4 m-0 p-0 "><?php echo number_format(12505, 0, ",", ",");?></h1>
+            <p class="rounded-pill  text-dark bg-white d-block m-0 p-0 w-75 fs-5 py-1 mb-2 mx-auto">عدد العقارات </p>
+        </div>
+
+        <div class="col-8 col-md-3 bg-gradient rounded-pill text-white border border-1 border-white">
+            <div class="display-4 m-0 p-0"><?php echo number_format(count_num_user(), 0, ",", ",");?></div>
+            <p class="rounded-pill text-dark bg-white d-block m-0 p-0 w-75 fs-5 py-1 mb-2 mx-auto">عدد المستفيدين</p>
+        </div>
+
+        <div class="col-8 col-md-3  bg-gradient  rounded-pill text-white border border-1 border-white">
+            <div class="display-4 m-0 p-0"><?php echo number_format(500, 0, ",", ",");?></div>
+            <p class="rounded-pill text-dark bg-white d-block m-0 p-0 w-75 fs-5 py-1 mb-2 mx-auto">عدد المسوقين</p>
+        </div>
+
+        <div class="col-8 col-md-3 bg-gradient rounded-pill text-white border border-1 border-white">
+            <div class="display-4 m-0 p-0"><?php  echo number_format(count_num_apartment(), 0, ",", ","); ?></div>
+            <p class="rounded-pill text-dark bg-white d-block m-0 p-0 w-75 fs-5 py-1 mb-2 mx-auto">عدد الشقق</p>
+        </div>
+
+        <div class="col-8 col-md-3 bg-gradient rounded-pill text-white border border-1 border-white">
+            <div class="display-4 m-0 p-0"><?php echo number_format(count_num_building(), 0, ",", ",");?></div>
+            <p class="rounded-pill text-dark bg-white d-block m-0 p-0 w-75 fs-5 py-1 mb-2 mx-auto">عدد العمائر</p>
         </div>
     </div>
-
-    <div class="container-fluid k2 m-0 p-0">
-        <div class="row py-md-5 gap-3 gap-md-3 justify-content-center row-cols-1 row-cols-lg-5 g-1 g-lg-3 text-center  row-cols-3">
-            <div class="col-12 m-0 p-0">
-                <h1 class="display-1 m-0 p-0 text-white ">أرقام</h1>
-            </div>
-
-            <div class="col-8 col-md-3 bg-gradient rounded-pill text-white border border-1 border-white">
-                <h1 class="display-4 m-0 p-0 "><?php echo number_format(count_num_office(), 0, ",", ",");?></h1>
-                <p class="rounded-pill text-dark bg-white d-block m-0 p-0 w-75 fs-5 py-1 mb-2 mx-auto "> عدد المكاتب </p>
-            </div>
-
-            <div class="col-8 col-md-3 bg-gradient rounded-pill text-white border border-1 border-white ">
-                <h1 class="display-4 m-0 p-0 "><?php echo number_format(12505, 0, ",", ",");?></h1>
-                <p class="rounded-pill  text-dark bg-white d-block m-0 p-0 w-75 fs-5 py-1 mb-2 mx-auto">عدد العقارات </p>
-            </div>
-
-            <div class="col-8 col-md-3 bg-gradient rounded-pill text-white border border-1 border-white">
-                <div class="display-4 m-0 p-0"><?php echo number_format(count_num_user(), 0, ",", ",");?></div>
-                <p class="rounded-pill text-dark bg-white d-block m-0 p-0 w-75 fs-5 py-1 mb-2 mx-auto">عدد المستفيدين</p>
-            </div>
-
-            <div class="col-8 col-md-3  bg-gradient  rounded-pill text-white border border-1 border-white">
-                <div class="display-4 m-0 p-0"><?php echo number_format(500, 0, ",", ",");?></div>
-                <p class="rounded-pill text-dark bg-white d-block m-0 p-0 w-75 fs-5 py-1 mb-2 mx-auto">عدد المسوقين</p>
-            </div>
-
-            <div class="col-8 col-md-3 bg-gradient rounded-pill text-white border border-1 border-white">
-                <div class="display-4 m-0 p-0"><?php  echo number_format(count_num_apartment(), 0, ",", ","); ?></div>
-                <p class="rounded-pill text-dark bg-white d-block m-0 p-0 w-75 fs-5 py-1 mb-2 mx-auto">عدد الشقق</p>
-            </div>
-
-            <div class="col-8 col-md-3 bg-gradient rounded-pill text-white border border-1 border-white">
-                <div class="display-4 m-0 p-0"><?php echo number_format(count_num_building(), 0, ",", ",");?></div>
-                <p class="rounded-pill text-dark bg-white d-block m-0 p-0 w-75 fs-5 py-1 mb-2 mx-auto">عدد العمائر</p>
-            </div>
-        </div>
-    </div>
-
-
-
+</div>
 <!-- my mx me ms m  py px pe ps  05-->
 
-    <div class="mt-3 bg-transparent bg-gradient shadow-lg py-2 bg-light text-center d-none" >
+<div class="mt-3 bg-transparent bg-gradient shadow-lg py-2 bg-light text-center d-none" >
 
-        <div class="mx-4 d-inline-block bg-secondary text-white">
-            <div class="m-0 p-0 "> <img src="img/person.jpg" ALT="منال" ></div>
-            <div class="m-0 p-0"><p> منال </p></div>
-        </div>
-
-
-        <div class="mx-4 d-inline-block bg-secondary text-white">
-            <div class="m-0 p-0 "> <img src="img/person.jpg" ALT="منال" ></div>
-            <div class="m-0 p-0"><p> منال </p></div>
-        </div>
-
-        <div class="mx-4 d-inline-block bg-secondary text-white">
-            <div class="m-0 p-0 "> <img src="img/person.jpg" ALT="منال"></div>
-            <div class="m-0 p-0"><p > منال </p></div>
-        </div>
-
+    <div class="mx-4 d-inline-block bg-secondary text-white">
+        <div class="m-0 p-0 "> <img src="img/person.jpg" ALT="منال" ></div>
+        <div class="m-0 p-0"><p> منال </p></div>
     </div>
+
+
+    <div class="mx-4 d-inline-block bg-secondary text-white">
+        <div class="m-0 p-0 "> <img src="img/person.jpg" ALT="منال" ></div>
+        <div class="m-0 p-0"><p> منال </p></div>
     </div>
-<!--    <div  class="bg-gradient mx-auto p-3 text-center"  STYLE="background-color: #f8f9fa;">-->
-<!---->
-<!---->
-<!---->
-<!---->
-<!--<div class="container-fluid d-none">-->
-<!--            <div class="row gap-0 gx-5 justify-content-start row-cols-lg-6 text-center text-secondary g-1 row-cols-3">-->
-<!---->
-<!--                <div class="col p-md-1 bg-gradient  rounded-pill text-secondary border border-1 border-secondary">-->
-<!--                    <div class="h3 m-0 p-0">--><?php //echo number_format(500, 0, ",", ",");?><!--</div>-->
-<!--                    <a href="index.php?Villa&?#Villa" class="badge rounded-pill bg-secondary d-block m-0 p-0 w-75 fs-5 mb-2 mx-auto text-decoration-none">فلل</a>-->
-<!--                </div>-->
-<!---->
-<!--                <div class="col bg-gradient rounded-pill text-secondary bg-secondary border border-1 border-secondary">-->
-<!--                    <a href="index.php?Apartment&?#Apartment" class="badge rounded-pill d-block m-0 p-1 w-100 fs-5 p-3 h-100 mx-auto text-decoration-none">شقق</a>-->
-<!--                </div>-->
-<!---->
-<!--                <div class="col bg-gradient rounded-pill text-secondary bg-secondary border border-1 border-secondary">-->
-<!--                    <a href="index.php?Building&?#Building" class="badge rounded-pill d-block m-0 p-1 w-100 fs-5 p-3 h-100 mx-auto text-decoration-none">عمائر</a>-->
-<!--                </div>-->
-<!---->
-<!--                <div class="col bg-gradient rounded-pill text-secondary bg-secondary border border-1 border-secondary">-->
-<!--                    <a href="index.php?Castle&?#Castle" class="badge rounded-pill d-block m-0 p-1 w-100 fs-5 p-3 h-100 mx-auto text-decoration-none">قصور</a>-->
-<!--                </div>-->
-<!---->
-<!--                <div class="col bg-gradient rounded-pill text-secondary bg-secondary border border-1 border-secondary">-->
-<!--                    <a href="index.php?Farm&?#Farm" class="badge rounded-pill d-block m-0 p-1 w-100 fs-5 p-3 h-100 mx-auto text-decoration-none">المزارع</a>-->
-<!--                </div>-->
-<!---->
-<!--                <div class="col bg-gradient rounded-pill text-secondary bg-secondary border border-1 border-secondary">-->
-<!--                    <a href="index.php?Shop&?#Shop" class="badge rounded-pill d-block m-0 p-1 w-100 fs-5 p-3 h-100 mx-auto text-decoration-none">المحلات</a>-->
-<!--                </div>-->
-<!---->
-<!--                <div class="col bg-gradient rounded-pill text-secondary bg-secondary border border-1 border-secondary">-->
-<!--                    <a href="index.php?Land&?#Land" class="badge rounded-pill d-block m-0 p-1 w-100 fs-5 p-3 h-100 mx-auto text-decoration-none">الاراضي</a>-->
-<!--                </div>-->
-<!---->
-<!--                <div class="col bg-gradient rounded-pill text-secondary bg-secondary border border-1 border-secondary">-->
-<!--                    <a href="index.php?Office&?#Office" class="badge rounded-pill d-block m-0 p-1 w-100 fs-5 p-3 h-100 mx-auto text-decoration-none">المكاتب</a>-->
-<!--                </div>-->
-<!---->
-<!--                <div class="col bg-gradient rounded-pill text-secondary bg-secondary border border-1 border-secondary">-->
-<!--                    <a href="index.php?&?#Dianiyah" class="badge rounded-pill d-block m-0 p-1 w-100 fs-5 p-3 h-100 mx-auto text-decoration-none">الشاليهات</a>-->
-<!--                </div>-->
-<!---->
-<!--                <div class="col bg-gradient rounded-pill text-secondary bg-secondary border border-1 border-secondary">-->
-<!--                    <a href="index.php?Dianiyah&?#Dianiyah" class="badge rounded-pill d-block m-0 p-1 w-100 fs-5 p-3 h-100 mx-auto text-decoration-none">الإستراحات</a>-->
-<!--                </div>-->
-<!---->
-<!--                <div class="col bg-gradient rounded-pill text-secondary bg-secondary border border-1 border-secondary">-->
-<!--                    <a href="index.php?Studio&?#Studio" class="badge rounded-pill d-block  m-0 p-1 w-100 fs-5 p-3 h-100 mx-auto text-decoration-none">استديوهات</a>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
+
+    <div class="mx-4 d-inline-block bg-secondary text-white">
+        <div class="m-0 p-0 "> <img src="img/person.jpg" ALT="منال"></div>
+        <div class="m-0 p-0"><p > منال </p></div>
+    </div>
+
+</div>
+</div>
 
 <div class="container-fluid">
 <?php if (isset($_GET['Villa'])){
