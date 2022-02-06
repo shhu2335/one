@@ -29,8 +29,9 @@ include "fun.php";
         </style>
 
     </head>
+    <?php include "header.php";  ?>
 <body>
-<?php include "header.php";  ?>
+
     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-indicators ">
     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -63,11 +64,11 @@ include "fun.php";
         </button>
     </div>
 
-
     <hr class="m-0 p-0">
+
     <div class="container-fluid k1 py-md-0 bg-t">
-        <div class="bg-gradient  rounded-pill p-5 text-secondary">
-            <div class="row gap-md-1 row-cols-1  row-cols-md-4  row-cols-lg-6 justify-content-center text-center  text-secondary g-1 py-5 rounded-3 border border-1 border-dark">
+        <div class="bg-gradient rounded-pill p-5 text-secondary">
+            <div class="row gap-md-1 row-cols-1 row-cols-md-4 row-cols-lg-6 justify-content-center text-center text-secondary g-1 py-5 rounded-3 border border-1 border-dark">
 
             <div class="col">
                 <form class="form m-0 p-0">
@@ -76,7 +77,7 @@ include "fun.php";
                         <option selected>أختار ..</option>
                         <?php
                         global  $id;
-                        $stmt = $pdo->query('SELECT * FROM sa_cities  ');
+                        $stmt = $pdo->query('SELECT * FROM sa_cities ');
                         $stmt->execute();
                         $get_Data = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         foreach ($get_Data as $city) {
@@ -93,12 +94,12 @@ include "fun.php";
                         <select class="form-control text-center rounded-3 my-0 mr-sm-2" name="district_name" id="3">
                             <option selected>أختار ..</option>
 
-                            <script>
-
-                                var x = document.getElementById("myText").value;
-                                document.getElementById("demo").innerHTML = x;
-                            </script>
-                            <p id="demo"></p>
+<!--                            <script>-->
+<!---->
+<!--                                var x = document.getElementById("myText").value;-->
+<!--                                document.getElementById("demo").innerHTML = x;-->
+<!--                            </script>-->
+<!--                            <p id="demo"></p>-->
                             <?php
 
 

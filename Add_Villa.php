@@ -320,8 +320,8 @@ if (isset($_POST['submit_form_add_villa'])) {
     <div class="w-auto mx-auto p-3 m-5 bg-white  shadow border border-1  bg-gradient  rounded-3 text-secondary">
         <p class="card-title  mb-2 py-2 text-center fs-3 bg-primary text-white rounded-3">إضافه فلة</p>
 
-        <form class="row g-1 gap-0 row row-cols-2 row-cols-md-4 justify-content-center mt-4" method="POST" action="Add_Villa.php">
-            <!--            space-->
+        <form class="row g-md-2 gap-md-1 row row-cols-2 row-cols-md-5 justify-content-center mt-4" method="POST" action="Add_Villa.php">
+            <!-- space-->
             <div class="col">
                 <label for="phone_number_form" class="form-label">المساحه</label>
                 <input type="number" class="form-control" id="phone_number_form" name="F_space">

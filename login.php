@@ -25,7 +25,7 @@ include "fun.php";
 
 
     if (isset($pdo)){
-        $user = $pdo->prepare('select *  from  user  where username = :username ');
+        $user = $pdo->prepare('select *  from  user  where usernmae = :username ');
 
         $user->execute(['username' => $var_user_name ]);
         //$user->fetch(PDO::FETCH_ASSOC);
@@ -71,30 +71,27 @@ include "fun.php";
 <body>
 <?php include  "header.php"; ?>
 
-<div class="container-fluid P-0 huss" >
+<div class="container-fluid P-0 huss">
 
-    <div class="mx-auto  mt-5 mb-5  p-3 bg-white  shadow border border-1  bg-gradient  rounded-3 text-secondary" style="width: 350px;" >
+    <div class="mx-auto mt-5 mb-5 p-3 bg-white shadow border border-1 bg-gradient rounded-3 text-secondary" style="width: 350px;" >
         <h4 class="card-title mb-2 py-2 text-center fs-3 bg-primary text-white rounded-3">تسجيل دخول</h4>
-        <form class="row p-2 m-0  row-cols-1"    method="post"    action="login.php">
+        <form class="row p-2 m-0  row-cols-1" method="post" action="login.php">
 
-            <div class="m-0 p-0">
-                <label for="form_user_name"  class="form-label p-2 m-0">اسم المستخدم</label>
-
-                <input type="text" value="<?php   if (isset($var_user_name) ){  echo $var_user_name;}?>"
-
-                       class="form-control"   id="form_user_name"  name="form_user_name">
+            <div class="mt-3 p-0">
+                <label for="form_user_name" class="form-label m-0">اسم المستخدم</label>
+                <input type="text" value="<?php if (isset($var_user_name) ){ echo $var_user_name;}?>" class="form-control" id="form_user_name" name="form_user_name">
                 <label for="username_form"  class="alert- alert-danger my-1 px-2   rounded-3">
                     <?php   if (isset($var_user_name_err)) {
                         echo $var_user_name_err;
                     }
                     ?>
                 </label>
-
             </div>
+
             <div class="col m-0 p-0">
                 <label for="form_password" class="form-label m-0 p-0">كلمة المرور</label>
-                <input type="password" class="form-control " id="form_password" name="form_password">
-                <label for="form_password"  class="lert- alert-danger my-1 px-2   rounded-3">
+                <input type="password" class="form-control" id="form_password" name="form_password">
+                <label for="form_password" class="alert-danger my-1 px-2 rounded-3">
                     <?php
                     if (isset($var_password_err)) {
                         echo $var_password_err;
@@ -104,18 +101,19 @@ include "fun.php";
             </div>
 
             <div class="col m-0 p-0">
-                <label for="username_form"   class="form-label m-0 p-0">      </label>
-                <button type="submit"  class="btn btn-primary bg-gradient text-white mb-3 form-control" name="submit_form_login">دخول</button>
+                <button type="submit" class="btn btn-primary bg-gradient text-white my-3 form-control" name="submit_form_login">دخول</button>
             </div>
 
         </form>
+
         <hr>
-        <div class="col mx-auto text-center  mb-3 ">
+
+        <div class="col mx-auto text-center mb-3">
             <a class="link-primary m-0 text-decoration-none" href="register.php">ليس لديك حساب؟  سجل الان</a>
         </div>
 
-        <div class="col mx-auto text-center  my-2 ">
-            <a class="link-primary text-decoration-none " href="ForGetPassword.php">نسيت كلمة المرور؟</a>
+        <div class="col mx-auto text-center my-2 ">
+            <a class="link-primary text-decoration-none" href="ForGetPassword.php">نسيت كلمة المرور؟</a>
         </div>
 
     </div>

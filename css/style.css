@@ -6,8 +6,7 @@ body {
     /*background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(90, 9, 121, 0.8323704481792717) 35%, rgba(0, 212, 255, 1) 100%);*/
     font-family:"Segoe UI",Myriad Arabic, "Cairo";
     /*font-family: -apple-system, BlinkMacSystemFont, "segoe ui", roboto, oxygen, ubuntu, cantarell, "fira sans", "droid sans", "helvetica neue", Arial, sans-serif;*/
-    font-size: 16px;
-    font-size: 19px;
+    font-size: 15px;
     overflow: auto;
     margin: 0 0 0 0;
     direction: rtl;
@@ -28,6 +27,9 @@ img{
     height: 200px;
 }
 
+input{
+    font-size: 14px;
+}
 .link_header {
     color: black;
     border: 1px solid cornsilk;
