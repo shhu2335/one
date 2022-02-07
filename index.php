@@ -5,7 +5,7 @@ include "fun.php";
 include "connection.php";
 include "header.php";
 
-$stmt = $pdo->query('SELECT * FROM sa_provinces  ');
+$stmt = $pdo->query('SELECT * FROM sa_provinces  ');//استدعاء جدول sa_provinces تحتوي على مناطق المملكه 13
 $stmt->execute();
 ?>
 <html>
@@ -34,28 +34,8 @@ $stmt->execute();
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"
             type="text/javascript"></script>
     <script>
-        function getState() {
-            var str='';
-            var val=document.getElementById('country-list');
-            for (i=0;i< val.length;i++) {
-                if(val[i].selected){
-                    str += val[i].value + ',';
-                }
-            }
-            var str=str.slice(0,str.length -1);
-
-            $.ajax({
-                type: "GET",
-                url: "get_state.php",
-                data:'id='+str,
-                success: function(data){
-                    $("#state-list").html(data);
-                }
-            });
-        }
-
-
-        function getcity() {
+        function getState() // تسترجع الاحياء
+        {
             var str='';
             var val=document.getElementById('city-list');
             for (i=0;i< val.length;i++) {
@@ -63,14 +43,36 @@ $stmt->execute();
                     str += val[i].value + ',';
                 }
             }
-            var str=str.slice(0,str.length -1);
+            var str=str.slice(0,str.length -1);// ميثود تأخذ العنصصر المختار
 
             $.ajax({
                 type: "GET",
-                url: "get_city.php",
-                data:'id='+str,
+                url: "get_state.php",//   ايجاد جميع المدن التي لها نفس رقم id
+                data:'id='+str, // ترسل الid  للصفحه get_state.php
                 success: function(data){
-                    $("#country-list").html(data);
+                    $("#state-list").html(data);
+                }
+            });
+        }
+
+
+        function getcity() //استرجاع اسماء المدن
+        {
+            var str='';
+            var val=document.getElementById('Region-list');
+            for (i=0;i< val.length;i++) {
+                if(val[i].selected){
+                    str += val[i].value + ',';
+                }
+            }
+            var str=str.slice(0,str.length -1); // ميثود تأخذ العنصصر المختار
+
+            $.ajax({
+                type: "GET",
+                url: "get_city.php",//   ايجاد جميع المدن التي لها نفس رقم id
+                data:'id='+str, // ترسل الid  للصفحهget_city.php
+                success: function(data){
+                    $("#city-list").html(data);
                 }
             });
         }
@@ -120,16 +122,14 @@ $stmt->execute();
 <div class="container-fluid k1 py-md-0 bg-t">
     <div class="bg-gradient  rounded-pill p-5 text-secondary">
         <div class="row gap-md-1 row-cols-1  row-cols-md-4  row-cols-lg-6 justify-content-center text-center  text-secondary g-1 py-5 rounded-3 border border-1 border-dark">
-
+<!--اختيار المنطقه-->
             <div class="col">
                 <form class="form m-0 p-0">
-                    <label class="my-0 mr-0" for="34">اختار المدينة</label>
-
-                    <label>المنطقه :</label><br />
+                    <label class="my-0 mr-0" for="3">اختار المنطقه</label>
                     <select class="form-control text-center rounded-3 my-0 mr-sm-2" name="country[]"
-                            id="city-list" class=""
+                            id="Region-list"
                             onChange="getcity();" >
-                        <option value="">اختار المنطقه </option>
+                        <option value=""> المنطقه </option>
                         <?php
                         foreach ($stmt as $country) {
                             ?>
@@ -138,16 +138,16 @@ $stmt->execute();
                         }
                         ?>
                     </select>
-            </div>
 
+            </div>
+<!--            ختار المدينه-->
             <div class="col">
                 <form class="form">
                     <label class="my-0 mr-0" for="3">اختار المدينه</label>
-
                     <select class="form-control text-center rounded-3 my-0 mr-sm-2" name="country[]"
-                            id="country-list" class=""
+                            id="city-list" class=""
                             onChange="getState();" >
-                        <option value="">اختار المدينه </option>
+                        <option value="">المدينه </option>
                         <?php
                         foreach ($stmt as $country) {
                             ?>
@@ -157,32 +157,32 @@ $stmt->execute();
                         ?>
                     </select>
             </div>
-
+<!--            اختارالحي-->
             <div class="col">
 
-                <label class="my-0 mr-0" for="1">اختارالحي </label>
+                <label class="my-0 mr-0" for="1">اختيارالحي </label>
 
                 <select class="form-control text-center rounded-3 my-0 mr-sm-2" name="state[]"
                         id="state-list" class="" >
-                    <option value="">اخيار الحي </option>
+                    <option value=""> الحي </option>
                 </select>
             </div>
 
-
+<!--            اختار الغرض-->
             <div class="col">
-                <label class="my-0 mr-0" for="1">اختار الغرض </label>
+                <label class="my-0 mr-0" for="1">اختار الغرض ..</label>
                 <select class="form-control text-center rounded-3 my-0 mr-sm-2" name="F_Type_sale" id="1">
-                    <option selected>أختار ..</option>
+                    <option selected>الغرض من العقار ..</option>
                     <option value="1">إيجار</option>
                     <option value="2">للبيع</option>
                     <option value="3">تمليك</option>
                 </select>
             </div>
-
+<!--            اختار نوع العقار-->
             <div class="col">
                 <label class="my-0 mr-0" for="2">اختار نوع العقار</label>
                 <select class="form-control text-center rounded-3 my-0 mr-sm-2"name="f_property_type" id="2">
-                    <option selected>أختار ..</option>
+                    <option selected>نوع العقار ..</option>
                     <option value="1">عمارة</option>
                     <option value="2">شقة</option>
                     <option value="3">فلة</option>
@@ -260,19 +260,15 @@ $stmt->execute();
 
 <div class="container-fluid">
 <?php if (isset($_GET['Villa'])){
-
     ?>
-
     <div class="row justify-content-center row-cols-md-5 row-cols-sm-3 g-1 gap-1 w-100 " id="Villa" >
         <?php
         $stmt = $pdo->query('SELECT * FROM villa limit 8');
         $stmt->execute();
         $getAllproductVs = $stmt->fetchAll(PDO::FETCH_ASSOC);
         foreach ($getAllproductVs as $row) {  ?>
-
             <div class="col rounded-3">
                 <div class="card h-200 text-center border border-1 p-2 bg-gradient  rounded-3 text-secondary">
-
                     <!--  img   -->
                     <a class="text-decoration-none m-0 p-0" href="more_details.php?productV=<?php echo $row['id']?>">
 
